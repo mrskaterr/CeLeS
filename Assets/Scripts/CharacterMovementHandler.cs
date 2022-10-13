@@ -16,6 +16,11 @@ public class CharacterMovementHandler : NetworkBehaviour
         networkCharacterController = GetComponent<NetworkCharacterController>();
     }
 
+    private void Start()
+    {
+        if (!Object.HasInputAuthority) { localCamera.gameObject.SetActive(false); }
+    }
+
     private void Update()
     {
         cameraRotationX -= viewInput.y * Time.deltaTime * networkCharacterController.viewVerticalSpeed;

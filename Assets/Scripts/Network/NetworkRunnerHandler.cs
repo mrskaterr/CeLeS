@@ -14,13 +14,15 @@ public class NetworkRunnerHandler : MonoBehaviour
 
     private NetworkRunner networkRunner;
 
-    private void Start()
+    public void InstantiateNetworkRunner(string _playerName)
     {
         networkRunner = Instantiate(networkRunnerPrefab);
-        networkRunner.name = $"Network runner";
+        networkRunner.name = $"Network runner: {_playerName}";
+    }
 
+    public void StartGame(string _sessionName, string _password)
+    {
         var clientTask = InitializeNetworkRunner(networkRunner, GameMode.AutoHostOrClient, NetAddress.Any(), SceneManager.GetActiveScene().buildIndex, null);
-
         Debug.Log($"Server NetworkRunner started.");
     }
 

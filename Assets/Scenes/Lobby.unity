@@ -341,7 +341,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 88554118}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 176769779}
+        m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
+        m_MethodName: OpenPanel_Create
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &88554118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,7 +402,6 @@ GameObject:
   m_Component:
   - component: {fileID: 176769778}
   - component: {fileID: 176769779}
-  - component: {fileID: 176769780}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -426,21 +437,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724c00067c190a143ace93346e82724d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &176769780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 176769777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 582a4615c0be06e49a6056bf73ac5611, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  runnerHandler: {fileID: 2034472541}
   playerName: {fileID: 1833612499}
-  connect_btn: {fileID: 0}
-  session_btnsParent: {fileID: 0}
+  connect_btn: {fileID: 1776381289}
+  session_btnsParent: {fileID: 671879561}
+  infoPanel: {fileID: 1535074291}
+  joinPanel: {fileID: 759099733}
+  createPanel: {fileID: 1228014668}
 --- !u!1 &273006560
 GameObject:
   m_ObjectHideFlags: 0
@@ -4236,8 +4239,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4842,7 +4845,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1603198180}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 176769779}
+        m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
+        m_MethodName: OpenPanel_Join
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1603198180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5373,7 +5388,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1776381292}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 176769779}
+        m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
+        m_MethodName: Connect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1776381292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5821,6 +5848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   networkRunnerPrefab: {fileID: 1473315937919431351, guid: 8c5f32068a574a742876dffbc28dc1a5, type: 3}
+  networkRunner: {fileID: 0}
 --- !u!1 &2046212476
 GameObject:
   m_ObjectHideFlags: 0
@@ -6147,8 +6175,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 2
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

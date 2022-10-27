@@ -12,7 +12,7 @@ public class NetworkRunnerHandler : MonoBehaviour
 {
     public NetworkRunner networkRunnerPrefab;
 
-    private NetworkRunner networkRunner;
+    [HideInInspector] public NetworkRunner networkRunner;
 
     public void InstantiateNetworkRunner(string _playerName)
     {
@@ -22,11 +22,12 @@ public class NetworkRunnerHandler : MonoBehaviour
 
     public void StartGame(string _sessionName, string _password)
     {
-        var clientTask = InitializeNetworkRunner(networkRunner, GameMode.AutoHostOrClient, NetAddress.Any(), SceneManager.GetActiveScene().buildIndex, null);
-        Debug.Log($"Server NetworkRunner started.");
+        //var clientTask = InitializeNetworkRunner(networkRunner, _sessionName, GameMode.AutoHostOrClient, NetAddress.Any(), SceneManager.GetActiveScene().buildIndex, null);
+        //Debug.Log($"Server NetworkRunner started.");
+        networkRunner.JoinSessionLobby(SessionLobby.Custom, _sessionName);
     }
 
-    protected virtual Task InitializeNetworkRunner(NetworkRunner _runner, GameMode _gameMode, NetAddress _address, SceneRef _scene, Action<NetworkRunner> _initialized)
+    protected virtual Task InitializeNetworkRunner(NetworkRunner _runner, string _sessionName, GameMode _gameMode, NetAddress _address, SceneRef _scene, Action<NetworkRunner> _initialized)
     {
         var sceneManager = _runner.GetComponents(typeof(MonoBehaviour)).OfType<INetworkSceneManager>().FirstOrDefault();
 
@@ -42,7 +43,7 @@ public class NetworkRunnerHandler : MonoBehaviour
             GameMode = _gameMode,
             Address = _address,
             Scene = _scene,
-            SessionName = "TestRoom",
+            SessionName = _sessionName,
             Initialized = _initialized,
             SceneManager = sceneManager,
         });

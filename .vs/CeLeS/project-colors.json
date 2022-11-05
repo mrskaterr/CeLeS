@@ -15,7 +15,12 @@
       "ProjectGuid": "6b70ba46-7baa-5dae-3eef-41e3a07f619d",
       "DisplayName": "Assembly-CSharp-Editor",
       "ColorIndex": 1
+    },
+    "ea4db439-ed3e-70e8-8f10-bbb0634ab54d": {
+      "ProjectGuid": "ea4db439-ed3e-70e8-8f10-bbb0634ab54d",
+      "DisplayName": "Unity.Fusion.CodeGen",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }

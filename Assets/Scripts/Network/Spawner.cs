@@ -60,6 +60,7 @@ public class Spawner : MonoBehaviour, INetworkRunnerCallbacks
         {
             Debug.Log("OnPlayerJoined");
         }
+
     }
 
     public void OnPlayerLeft(NetworkRunner runner, PlayerRef player) { }
@@ -70,7 +71,10 @@ public class Spawner : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnSceneLoadStart(NetworkRunner runner) { }
 
-    public void OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList) { }
+    public void OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList) 
+    {
+        LobbyManager.UpdateSessionsList(sessionList);
+    }
 
     public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason)
     {

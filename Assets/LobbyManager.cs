@@ -8,7 +8,7 @@ using Fusion.Sockets;
 using System;
 using UnityEngine.UI;
 
-public class LobbyManager : MonoBehaviour, INetworkRunnerCallbacks
+public class LobbyManager : MonoBehaviour
 {
     [SerializeField] private NetworkRunnerHandler runnerHandler;
     [SerializeField] Fusion.Photon.Realtime.PhotonAppSettings photonAppSettings;
@@ -23,11 +23,14 @@ public class LobbyManager : MonoBehaviour, INetworkRunnerCallbacks
 
     private bool isThereMatchingLobby = false;
     private List<GameObject> playersList = new List<GameObject>();
+    private List<SessionInfo> sessions = new List<SessionInfo>();
 
     public static PlayerRole playerRoles;
 
     private const string JCButton_Create = "Create";
     private const string JCButton_Join = "Join";
+
+    public static Action<List<SessionInfo>> UpdateSessionsList;
 
     [Header("GUI")]
     [SerializeField] private TMP_InputField playerName;
@@ -50,13 +53,13 @@ public class LobbyManager : MonoBehaviour, INetworkRunnerCallbacks
     [Space]
     [SerializeField] private FlagsIcons flagsIcons;
 
-    //private enum WhichPanel { Info, Join, Create }
-
     private const string nickname_PlayerPrefName = "nickname";
 
     private void Awake()
     {
         playerRoles = playerRole;
+
+        UpdateSessionsList += UpdateSessionsInfo;
     }
 
     private void Start()
@@ -120,7 +123,7 @@ public class LobbyManager : MonoBehaviour, INetworkRunnerCallbacks
 
         if (result.Ok)
         {
-            // all good
+            OpenPanel_Room();
         }
         else
         {
@@ -133,6 +136,7 @@ public class LobbyManager : MonoBehaviour, INetworkRunnerCallbacks
         var result = await _runner.StartGame(new StartGameArgs()
         {
             SessionName = sessionName.text,
+            GameMode = GameMode.Client
         });
         if (result.Ok)
         {
@@ -175,16 +179,19 @@ public class LobbyManager : MonoBehaviour, INetworkRunnerCallbacks
         }
     }
 
-    public void OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList)
+    private void UpdateSessionsInfo(List<SessionInfo> _sessionList)
     {
-        #region SearchSpecificSession
+        sessions = _sessionList;
+    }
 
-        int sessionsAmount = sessionList.Count;
-        if(sessionsAmount > 0)
+    public void SearchSpecificSession()
+    {
+        int sessionsAmount = sessions.Count;
+        if (sessionsAmount > 0)
         {
             for (int i = 0; i < sessionsAmount; i++)
             {
-                if(sessionList[i].Name == sessionName.text)
+                if (sessions[i].Name == sessionName.text)
                 {
                     isThereMatchingLobby = true;
                     return;
@@ -197,19 +204,7 @@ public class LobbyManager : MonoBehaviour, INetworkRunnerCallbacks
             isThereMatchingLobby = false;
         }
 
-        #endregion
-
-        Debug.Log($"List updated: {sessionList.Count}");
-    }
-
-    public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
-    {
-        CreatePlayerListItemPrefab(runner.name);
-    }
-
-    public void OnPlayerLeft(NetworkRunner runner, PlayerRef player)
-    {
-        //TOFIX: clear the list
+        //Debug.Log($"List updated: {sessions.Count}");
     }
 
     #region GUI
@@ -235,7 +230,6 @@ public class LobbyManager : MonoBehaviour, INetworkRunnerCallbacks
     {
         infoPanel.SetActive(true);
         joinPanel.SetActive(false);
-        createPanel.SetActive(false);
         roomPanel.SetActive(false);
     }
     public void OpenPanel_Join() 
@@ -245,40 +239,19 @@ public class LobbyManager : MonoBehaviour, INetworkRunnerCallbacks
         createPanel.SetActive(false);
         roomPanel.SetActive(false);
         OrderPanel_ConnectSession();
-    }
-    public void OpenPanel_Create() 
-    {
-        infoPanel.SetActive(false);
-        joinPanel.SetActive(true);
-        createPanel.SetActive(true);
-        roomPanel.SetActive(false);
+        playerNameTxt.text = PlayerPrefs.GetString(nickname_PlayerPrefName);
     }
 
     public void OpenPanel_Room()
     {
         infoPanel.SetActive(false);
         joinPanel.SetActive(false);
-        createPanel.SetActive(false);
         roomPanel.SetActive(true);
     }
 
-    //private void SwitchPanel(WhichPanel _panel)
-    //{
-    //    GameObject currentPanel = _panel switch
-    //    {
-    //        WhichPanel.Info => infoPanel,
-    //        WhichPanel.Join => joinPanel,
-    //        WhichPanel.Create => createPanel,
-    //        _ => throw new System.Exception($"{typeof(WhichPanel)}: out of range."),
-    //    };
-    //    infoPanel.SetActive(false);
-    //    joinPanel.SetActive(false);
-    //    createPanel.SetActive(false);
-    //    currentPanel.SetActive(true);
-    //}
-
     public void UpdateConnectButtonText()
     {
+        SearchSpecificSession();
         string txt = isThereMatchingLobby ? JCButton_Join : JCButton_Create;
         JCButtonText.text = txt;
         OrderPanel_ConnectSession();
@@ -295,7 +268,6 @@ public class LobbyManager : MonoBehaviour, INetworkRunnerCallbacks
 
     private void OrderPanel_ConnectSession()
     {
-        playerNameTxt.text = playerName.text;
         CheckSessionNameInput();
 
         JCButtonText.text = JCButton_Create;
@@ -313,14 +285,7 @@ public class LobbyManager : MonoBehaviour, INetworkRunnerCallbacks
                 break;
         }
 
-        if (!isThereMatchingLobby)
-        {
-            OpenPanel_Create();
-        }
-        else
-        {
-            OpenPanel_Join();
-        }
+        createPanel.SetActive(!isThereMatchingLobby);
     }
 
     public void SetRegion(int _index)
@@ -341,75 +306,6 @@ public class LobbyManager : MonoBehaviour, INetworkRunnerCallbacks
     {
         var listItem = Instantiate(playerListItem, playerListParent);
         listItem.GetComponent<UserInfoPrefab>().SetNick(_playerName);
-    }
-
-    #endregion
-
-    #region Other callbacks
-
-    public void OnInput(NetworkRunner runner, NetworkInput input)
-    {
-        
-    }
-
-    public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input)
-    {
-        
-    }
-
-    public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason)
-    {
-        
-    }
-
-    public void OnConnectedToServer(NetworkRunner runner)
-    {
-        
-    }
-
-    public void OnDisconnectedFromServer(NetworkRunner runner)
-    {
-        
-    }
-
-    public void OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request, byte[] token)
-    {
-        
-    }
-
-    public void OnConnectFailed(NetworkRunner runner, NetAddress remoteAddress, NetConnectFailedReason reason)
-    {
-        
-    }
-
-    public void OnUserSimulationMessage(NetworkRunner runner, SimulationMessagePtr message)
-    {
-        
-    }
-
-    public void OnCustomAuthenticationResponse(NetworkRunner runner, Dictionary<string, object> data)
-    {
-        
-    }
-
-    public void OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken)
-    {
-        
-    }
-
-    public void OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ArraySegment<byte> data)
-    {
-        
-    }
-
-    public void OnSceneLoadDone(NetworkRunner runner)
-    {
-        
-    }
-
-    public void OnSceneLoadStart(NetworkRunner runner)
-    {
-        
     }
 
     #endregion

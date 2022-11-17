@@ -1,0 +1,465 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.4f1 (cb45f9cae8b7) revision 13321721'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19044) 64bit Education' Language: 'pl' Physical Memory: 32633 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity 2021.3.4f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker1
+-projectPath
+C:/Users/pwawrzy5/Documents/CeLeS
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+51590
+Successfully changed project path to: C:/Users/pwawrzy5/Documents/CeLeS
+C:/Users/pwawrzy5/Documents/CeLeS
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 48.41 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.4f1 (cb45f9cae8b7)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity 2021.3.4f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/pwawrzy5/Documents/CeLeS/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3080 Ti (ID=0x2208)
+    Vendor:   NVIDIA
+    VRAM:     12108 MB
+    Driver:   31.0.15.1694
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity 2021.3.4f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity 2021.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity 2021.3.4f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56260
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity 2021.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002772 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 47.72 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.423 seconds
+Domain Reload Profiling:
+	ReloadAssembly (423ms)
+		BeginReloadAssembly (52ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (299ms)
+			LoadAssemblies (49ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (68ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (18ms)
+			SetupLoadedEditorAssemblies (174ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (48ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (91ms)
+				ProcessInitializeOnLoadMethodAttributes (29ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.003350 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\pwawrzy5\Documents\CeLeS\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\pwawrzy5\Documents\CeLeS\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.37 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.675 seconds
+Domain Reload Profiling:
+	ReloadAssembly (676ms)
+		BeginReloadAssembly (71ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (13ms)
+		EndReloadAssembly (532ms)
+			LoadAssemblies (50ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (162ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (35ms)
+			SetupLoadedEditorAssemblies (255ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (60ms)
+				ProcessInitializeOnLoadAttributes (168ms)
+				ProcessInitializeOnLoadMethodAttributes (17ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.42 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3368 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 25 unused Assets / (55.7 KB). Loaded Objects now: 3826.
+Memory consumption went from 115.7 MB to 115.7 MB.
+Total: 2.877600 ms (FindLiveObjects: 0.292300 ms CreateObjectMapping: 0.180300 ms MarkObjects: 2.313500 ms  DeleteObjects: 0.090500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 4781.600701 seconds.
+  path: Assets/mp3/glut3.mp3
+  artifactKey: Guid(82f56d6c4c3ee734d9c1f9e7434ead95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/glut3.mp3 using Guid(82f56d6c4c3ee734d9c1f9e7434ead95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61380e2a74208b0be2eb682d49793a8c') in 0.099878 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/mp3/brzeczy.mp3
+  artifactKey: Guid(a563733848ddb0143964d4c606ded85b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/brzeczy.mp3 using Guid(a563733848ddb0143964d4c606ded85b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce9a76e3a9454c634d6f9acefebbbd91') in 0.006004 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/mp3/glu4.mp3
+  artifactKey: Guid(1d1c75c980bf8104fa64abf6b6f5b789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/glu4.mp3 using Guid(1d1c75c980bf8104fa64abf6b6f5b789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4977c15a6b7ea2660c21e066145f5468') in 0.005411 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/mp3/glut.mp3
+  artifactKey: Guid(3f9a1476ffefe074690478bb99f06b8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/glut.mp3 using Guid(3f9a1476ffefe074690478bb99f06b8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4487df3a80224faab46fa28bc4861630') in 0.005428 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/mp3/noweZadanie.mp3
+  artifactKey: Guid(5d40a7ef0d90b48428e99e16ee11038e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/noweZadanie.mp3 using Guid(5d40a7ef0d90b48428e99e16ee11038e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42694d5b7e758899f3c231c1c49f239c') in 0.005387 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/mp3/Buzz.mp3
+  artifactKey: Guid(4a4d67c2662392142ac73e277f719136) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/Buzz.mp3 using Guid(4a4d67c2662392142ac73e277f719136) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '229c3ed6eaf1a7155d5acf52d358d01f') in 0.004895 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/mp3/glut5.mp3
+  artifactKey: Guid(62decbf29473e78428a23881e8ca485b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/glut5.mp3 using Guid(62decbf29473e78428a23881e8ca485b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba7d54611de7b5d2bd497ecc4f0894e5') in 0.004954 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/mp3/strzał2.mp3
+  artifactKey: Guid(56c7b717c2b717c40926d906e04c8229) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/strzał2.mp3 using Guid(56c7b717c2b717c40926d906e04c8229) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c87d5f35d8d62f730d1b0cf777bdb0f5') in 0.005199 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/mp3/brzeczy3.mp3
+  artifactKey: Guid(69d3d3edfc81e1d4a82dc5616265a977) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/brzeczy3.mp3 using Guid(69d3d3edfc81e1d4a82dc5616265a977) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6381713ffa27ac3687eecd59f55312f7') in 0.004825 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 137.211498 seconds.
+  path: Assets/mp3/Door/OpenDoor.mp3
+  artifactKey: Guid(4451a32f6b6ec454f9eb6710863bef5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/Door/OpenDoor.mp3 using Guid(4451a32f6b6ec454f9eb6710863bef5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '100c9f951f7cd214f76341cbd6a772a6') in 0.006058 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/mp3/Door/OpenDoor2.mp3
+  artifactKey: Guid(9cb74eb7f27f1664185e60a59e67fa87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/Door/OpenDoor2.mp3 using Guid(9cb74eb7f27f1664185e60a59e67fa87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bfa5c351b8f58ab3d351b5eb270777c') in 0.006603 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.009451 seconds.
+  path: Assets/mp3/Door/OpenDoor2.mp3
+  artifactKey: Guid(9cb74eb7f27f1664185e60a59e67fa87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/Door/OpenDoor2.mp3 using Guid(9cb74eb7f27f1664185e60a59e67fa87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c576e9ce62ed11e6caf4f8a94ba7f99a') in 0.011238 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 17.819736 seconds.
+  path: Assets/mp3/brzeczy3.mp3
+  artifactKey: Guid(69d3d3edfc81e1d4a82dc5616265a977) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/brzeczy3.mp3 using Guid(69d3d3edfc81e1d4a82dc5616265a977) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '638ae58279217e069ec52d869b9d3bf2') in 0.006747 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/mp3/odkurzacz.mp3
+  artifactKey: Guid(fdaddd922926b45468b1d6c35f20724f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/odkurzacz.mp3 using Guid(fdaddd922926b45468b1d6c35f20724f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5ee378162da4b959d17d0c58dec9f86') in 0.008189 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/mp3/Buczenie.mp3
+  artifactKey: Guid(ad0f05e3fc5839845ba90f4cf346321e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/Buczenie.mp3 using Guid(ad0f05e3fc5839845ba90f4cf346321e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bdd907aae67d5eecb1e99d4a62c3491c') in 0.005908 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/mp3/glut2.mp3
+  artifactKey: Guid(dc5fdf2a6ad2e9c4ba3aa397718da924) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/glut2.mp3 using Guid(dc5fdf2a6ad2e9c4ba3aa397718da924) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f1bf74917118d3679b4931abeade5e4') in 0.006982 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/mp3/noweZadanie.mp3
+  artifactKey: Guid(5d40a7ef0d90b48428e99e16ee11038e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/noweZadanie.mp3 using Guid(5d40a7ef0d90b48428e99e16ee11038e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1488847792e82671f2aeec515df89b27') in 0.008676 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/mp3/Buzz.mp3
+  artifactKey: Guid(4a4d67c2662392142ac73e277f719136) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/Buzz.mp3 using Guid(4a4d67c2662392142ac73e277f719136) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47a79ed830c905d8aee13b384060baf9') in 0.006832 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/mp3/glut5.mp3
+  artifactKey: Guid(62decbf29473e78428a23881e8ca485b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/glut5.mp3 using Guid(62decbf29473e78428a23881e8ca485b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e4a3e729d9c9352a557748946a98cd9') in 0.007463 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/mp3/strzał2.mp3
+  artifactKey: Guid(56c7b717c2b717c40926d906e04c8229) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/strzał2.mp3 using Guid(56c7b717c2b717c40926d906e04c8229) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd72b86a94d9e3e9ed197aa81ac88036d') in 0.008303 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/mp3/Strzał1.mp3
+  artifactKey: Guid(4c889c22a17ef224dbb016d49ecf014f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/Strzał1.mp3 using Guid(4c889c22a17ef224dbb016d49ecf014f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffb173bd8176a53413c0172d403408fa') in 0.005382 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.828136 seconds.
+  path: Assets/mp3/test2/household_door_bathroom_shut_lock.mp3
+  artifactKey: Guid(0319566bc890fe945aaa55dad0a373a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/test2/household_door_bathroom_shut_lock.mp3 using Guid(0319566bc890fe945aaa55dad0a373a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25805370b5da8269d8cf09b8b2e95c86') in 0.007640 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/mp3/test2/transportation_car_seat_belt_click_lock_001.mp3
+  artifactKey: Guid(3aed045967ebfc44eaeebdf1448217bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/test2/transportation_car_seat_belt_click_lock_001.mp3 using Guid(3aed045967ebfc44eaeebdf1448217bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9db41d5e9094a6ec2ec4a2248af47be5') in 0.007113 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.342530 seconds.
+  path: Assets/mp3/test2/transport_car_peugeot_307_electric_central_locking_lock_internal.mp3
+  artifactKey: Guid(e33472e54cece364db008a20ec361026) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/test2/transport_car_peugeot_307_electric_central_locking_lock_internal.mp3 using Guid(e33472e54cece364db008a20ec361026) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b11d7c1c05e84e8884710ffa6ebf1862') in 0.010672 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/mp3/test2/zapsplat_household_lock_bolt_small_open_or_close_slow_close_up_001.mp3
+  artifactKey: Guid(1399eae8f87754b4aa464993892b83bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/test2/zapsplat_household_lock_bolt_small_open_or_close_slow_close_up_001.mp3 using Guid(1399eae8f87754b4aa464993892b83bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b3ab7083265d8eeddf2746cec79d803') in 0.008076 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.696727 seconds.
+  path: Assets/mp3/test/household_bathroom_cabinet_door_close_002.mp3
+  artifactKey: Guid(de19156a5f2ddaa43a0a0f7cd8824b11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/test/household_bathroom_cabinet_door_close_002.mp3 using Guid(de19156a5f2ddaa43a0a0f7cd8824b11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '718181320106ebb7b2b98903c7cc3fd4') in 0.005557 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/mp3/test/tspt_futuristic_door_slide_01_039.mp3
+  artifactKey: Guid(ba85cac55a6d35b4b9b6e41b75504d0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/test/tspt_futuristic_door_slide_01_039.mp3 using Guid(ba85cac55a6d35b4b9b6e41b75504d0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4a571e0d021843bb0cd1331f9366bb3') in 0.006673 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/mp3/test/zapsplat_household_bathroom_door_close_roomy_reverb_002_71801.mp3
+  artifactKey: Guid(2af8ffc6e288a2546b30e75a094a982a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/test/zapsplat_household_bathroom_door_close_roomy_reverb_002_71801.mp3 using Guid(2af8ffc6e288a2546b30e75a094a982a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28fa7a93f89cda65d2894109eb21b480') in 0.009139 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.047883 seconds.
+  path: Assets/mp3/test/household_bathroom_cabinet_door_close_003.mp3
+  artifactKey: Guid(633a92859ac4cc34593fd988a9e0ab3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/test/household_bathroom_cabinet_door_close_003.mp3 using Guid(633a92859ac4cc34593fd988a9e0ab3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc4a498332cb8471d110daa90714b83e') in 0.007210 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/mp3/test/tspt_futuristic_door_slide_01_039.mp3
+  artifactKey: Guid(ba85cac55a6d35b4b9b6e41b75504d0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/test/tspt_futuristic_door_slide_01_039.mp3 using Guid(ba85cac55a6d35b4b9b6e41b75504d0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08f77fa24809d2a2c78ddaf3de024fc1') in 0.013271 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/mp3/test/zapsplat_household_bathroom_door_close_roomy_reverb_002_71801.mp3
+  artifactKey: Guid(2af8ffc6e288a2546b30e75a094a982a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/test/zapsplat_household_bathroom_door_close_roomy_reverb_002_71801.mp3 using Guid(2af8ffc6e288a2546b30e75a094a982a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb836466bc1287f1911ddc5a4e7508c3') in 0.007972 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.120502 seconds.
+  path: Assets/mp3/nowe/comedy_bubble_pop_001.mp3
+  artifactKey: Guid(bb52d823aa3b4da4ab37333591d53ebf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/nowe/comedy_bubble_pop_001.mp3 using Guid(bb52d823aa3b4da4ab37333591d53ebf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01f8d38b415132cc5500842aae19cbcf') in 0.006969 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/mp3/nowe/kosmos.mp3
+  artifactKey: Guid(a7049526aa9aacf43b9e1d8968faddd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/nowe/kosmos.mp3 using Guid(a7049526aa9aacf43b9e1d8968faddd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c80c551d021a1f51c2f5ce4c7695510') in 0.006196 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/mp3/nowe/step2.mp3
+  artifactKey: Guid(b48b79898a3521a4880e9cfad0d080f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/nowe/step2.mp3 using Guid(b48b79898a3521a4880e9cfad0d080f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cce12398dada58f7b49862e2dd7ba9b') in 0.007875 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/mp3/nowe/jump.mp3
+  artifactKey: Guid(7bf2bca17d9b8b845b4e1e2bc87b4dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/nowe/jump.mp3 using Guid(7bf2bca17d9b8b845b4e1e2bc87b4dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06fc6269bc707c697b023518e83c6ce6') in 0.005426 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.366171 seconds.
+  path: Assets/mp3/nowe/DRON.mp3
+  artifactKey: Guid(ed5f99a5741440c4eadf1d4efae060e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/nowe/DRON.mp3 using Guid(ed5f99a5741440c4eadf1d4efae060e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1dd40739f50a9bef00d759bb54d58775') in 0.012855 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/mp3/nowe/step1.mp3
+  artifactKey: Guid(b6269f945216d634c8324c810db32566) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/nowe/step1.mp3 using Guid(b6269f945216d634c8324c810db32566) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99e8cb24f5019d17576200aa6341b5f7') in 0.006148 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/mp3/nowe/jump.mp3
+  artifactKey: Guid(7bf2bca17d9b8b845b4e1e2bc87b4dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/nowe/jump.mp3 using Guid(7bf2bca17d9b8b845b4e1e2bc87b4dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '390b68ce10553ec249ea2e506e24525f') in 0.005592 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.565428 seconds.
+  path: Assets/mp3/nowe/tuba/zapsplat_cartoon_pops_bubbles_fast_001_77432.mp3
+  artifactKey: Guid(6e3d90c88c2f0f04ea9d02b3bb7eb312) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/nowe/tuba/zapsplat_cartoon_pops_bubbles_fast_001_77432.mp3 using Guid(6e3d90c88c2f0f04ea9d02b3bb7eb312) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd42dee0f77d4ec60aa8fce58980fb76b') in 0.006250 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.052402 seconds.
+  path: Assets/mp3/niewiem/sound_spark_Industrial_Drones_15.mp3
+  artifactKey: Guid(d25641a9b06328e49849952d62bfff9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/niewiem/sound_spark_Industrial_Drones_15.mp3 using Guid(d25641a9b06328e49849952d62bfff9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb636a690dc1f02fe298e611df9e596b') in 0.006065 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/mp3/niewiem/sound_spark_Industrial_Glitch_Drones_03 (1).mp3
+  artifactKey: Guid(b4c5296521306694f90dde6a3d8497f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/niewiem/sound_spark_Industrial_Glitch_Drones_03 (1).mp3 using Guid(b4c5296521306694f90dde6a3d8497f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c334c3b09cf82b85f1670bcc6d10856c') in 0.006958 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/mp3/niewiem/sound_spark_Industrial_Glitch_Drones_03.mp3
+  artifactKey: Guid(f314d7b945c0e38438f35259208d39c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/niewiem/sound_spark_Industrial_Glitch_Drones_03.mp3 using Guid(f314d7b945c0e38438f35259208d39c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbda86ef68bcaa971d11c45a1c9cc000') in 0.007826 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.656998 seconds.
+  path: Assets/mp3/niewiem/sound_spark_Industrial_Glitch_Drones_03 (1).mp3
+  artifactKey: Guid(b4c5296521306694f90dde6a3d8497f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/niewiem/sound_spark_Industrial_Glitch_Drones_03 (1).mp3 using Guid(b4c5296521306694f90dde6a3d8497f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84bb43c7e8a1828e8cfef28ed576bc16') in 0.012050 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/mp3/niewiem/sound_spark_Industrial_Glitch_Drones_03.mp3
+  artifactKey: Guid(f314d7b945c0e38438f35259208d39c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/niewiem/sound_spark_Industrial_Glitch_Drones_03.mp3 using Guid(f314d7b945c0e38438f35259208d39c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8319482a6fea1c729a8da14ca55271f6') in 0.006664 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.396199 seconds.
+  path: Assets/mp3/mp3/nóż.mp3
+  artifactKey: Guid(8b5da67c60791d44195a208138378946) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/mp3/nóż.mp3 using Guid(8b5da67c60791d44195a208138378946) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e3526860ccca574a79fff11a6c7dbbd') in 0.007433 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/mp3/mp3/Strzał w hali lub korytarzu.wav
+  artifactKey: Guid(f3a2f0be39db75343ba07a68b528fa4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/mp3/Strzał w hali lub korytarzu.wav using Guid(f3a2f0be39db75343ba07a68b528fa4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd867f7bc0ef0ecebc1df31ab4299767b') in 0.007046 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/mp3/mp3/strzał.mp3
+  artifactKey: Guid(1b801594df9d94e41b24cf7303db3592) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/mp3/strzał.mp3 using Guid(1b801594df9d94e41b24cf7303db3592) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c66c3c1c0ef5d15272b7d01517b4560c') in 0.005419 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/mp3/mp3/łuska.mp3
+  artifactKey: Guid(e3e42b7d84044ae48824f0bcc205f20c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/mp3/łuska.mp3 using Guid(e3e42b7d84044ae48824f0bcc205f20c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85298bca0e320562fdd1fd582ba70891') in 0.005943 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.545934 seconds.
+  path: Assets/mp3/mp3/Strzał w hali lub korytarzu.wav
+  artifactKey: Guid(f3a2f0be39db75343ba07a68b528fa4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/mp3/Strzał w hali lub korytarzu.wav using Guid(f3a2f0be39db75343ba07a68b528fa4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ff0534d43ea26873e4e3495744d3107') in 0.014507 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/mp3/mp3/strzał.mp3
+  artifactKey: Guid(1b801594df9d94e41b24cf7303db3592) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/mp3/strzał.mp3 using Guid(1b801594df9d94e41b24cf7303db3592) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '857700e666151b549f146ffacd24b46d') in 0.004905 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/mp3/mp3/łuska.mp3
+  artifactKey: Guid(e3e42b7d84044ae48824f0bcc205f20c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/mp3/mp3/łuska.mp3 using Guid(e3e42b7d84044ae48824f0bcc205f20c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40e6a46be4865d8bdb3adcc838f29b3e') in 0.005236 seconds 

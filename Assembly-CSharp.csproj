@@ -132,7 +132,7 @@
     <None Include="Assets\Photon\Fusion\Resources\ConfigAssetsFolder.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Photon\Fusion\Assemblies\Fusion.Sockets.dll" />
-    <None Include="Assets\Rendering\Shaders\Lighting.hlsl" />
+    <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />
     <None Include="Assets\Photon\Fusion\release_history.txt" />
     <None Include="Assets\Photon\Fusion\Plugins\NanoSockets\NanoSockets\Dynamic\NanoSockets.dll" />
     <None Include="Assets\Photon\Fusion\Assemblies\Fusion.Runtime.dll" />

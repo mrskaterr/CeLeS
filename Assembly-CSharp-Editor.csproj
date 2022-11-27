@@ -54,16 +54,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Sockets.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\Fusion\Plugins\NanoSockets\NanoSockets\Dynamic\NanoSockets.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\Fusion\Plugins\NanoSockets\NanoSockets\Static\NanoSockets.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Common.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Runtime.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\Fusion\Plugins\NanoSockets\WebGL\NanoSockets.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\PhotonLibs\WebSocket\websocket-sharp.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Realtime.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\ReverseAnimationContext.cs" />
-    <Compile Include="Assets\Photon\Fusion\Scripts\Prototyping\Editor\NetworkDebugStartEditor.cs" />
     <Compile Include="Assets\Editor\SceneSwitchWindow.cs" />
     <Compile Include="Assets\Editor\CameraPreviewWindow.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Photon\Fusion\Editor\Resources\Assembly-CSharp.xml" />
-    <None Include="Assets\Photon\Fusion\Editor\Resources\ComponentHeaderGraphics\Fonts\OFL.txt" />
+    <Compile Include="Assets\Editor\HierarchyObjectColor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -318,12 +323,6 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>G:\Programy\Unity\2021.3.4f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="NanoSockets">
-      <HintPath>Assets\Photon\Fusion\Plugins\NanoSockets\NanoSockets\Dynamic\NanoSockets.dll</HintPath>
-    </Reference>
-    <Reference Include="Photon3Unity3D">
-      <HintPath>Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
     </Reference>
@@ -348,32 +347,17 @@
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>Assets\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Fusion.Common">
-      <HintPath>Assets\Photon\Fusion\Assemblies\Fusion.Common.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Mdb">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
     </Reference>
-    <Reference Include="Fusion.Sockets">
-      <HintPath>Assets\Photon\Fusion\Assemblies\Fusion.Sockets.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
     </Reference>
-    <Reference Include="Fusion.Realtime">
-      <HintPath>Assets\Photon\Fusion\Assemblies\Fusion.Realtime.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Burst.Cecil">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="Fusion.Runtime">
-      <HintPath>Assets\Photon\Fusion\Assemblies\Fusion.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Rocks">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
@@ -386,6 +370,27 @@
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.17\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="NanoSockets">
+      <HintPath>Assets\Plugins\Photon\Fusion\Plugins\NanoSockets\NanoSockets\Dynamic\NanoSockets.dll</HintPath>
+    </Reference>
+    <Reference Include="Photon3Unity3D">
+      <HintPath>Assets\Plugins\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>Assets\Plugins\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Fusion.Common">
+      <HintPath>Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Fusion.Sockets">
+      <HintPath>Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Sockets.dll</HintPath>
+    </Reference>
+    <Reference Include="Fusion.Realtime">
+      <HintPath>Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Realtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Fusion.Runtime">
+      <HintPath>Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
@@ -896,17 +901,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{F8631D55-AC24-8214-A0AA-8A03422BAB47}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{3D81EBD5-EAE5-43B3-5BDA-87C2C0304AD2}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
-    <ProjectReference Include="Fusion.Editor.csproj">
-      <Project>{C516D294-CB26-C0B3-BE48-F35B52C01049}</Project>
-      <Name>Fusion.Editor</Name>
+    <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
+      <Project>{86B24189-0785-E3FC-5C06-21BCBEF4B82E}</Project>
+      <Name>Assembly-CSharp-Editor-firstpass</Name>
     </ProjectReference>
     <ProjectReference Include="Fusion.Addressables.csproj">
       <Project>{4596FC42-5927-EF99-3870-FF05CD9F834E}</Project>
       <Name>Fusion.Addressables</Name>
+    </ProjectReference>
+    <ProjectReference Include="Fusion.Editor.csproj">
+      <Project>{C516D294-CB26-C0B3-BE48-F35B52C01049}</Project>
+      <Name>Fusion.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

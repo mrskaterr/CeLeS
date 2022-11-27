@@ -54,13 +54,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Sockets.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\Fusion\Plugins\NanoSockets\NanoSockets\Dynamic\NanoSockets.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\Fusion\Plugins\NanoSockets\NanoSockets\Static\NanoSockets.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Common.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Runtime.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\Fusion\Plugins\NanoSockets\WebGL\NanoSockets.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\PhotonLibs\WebSocket\websocket-sharp.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll" />
+    <Analyzer Include="G:\Programy\Unity\projekty\CeLeS\Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Realtime.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Photon\FusionCodeGen\Fusion.CodeGen.User.cs" />
-    <Compile Include="Assets\Photon\FusionCodeGen\Fusion.CodeGen.cs" />
+    <Compile Include="Assets\Plugins\Photon\FusionCodeGen\Fusion.CodeGen.User.cs" />
+    <Compile Include="Assets\Plugins\Photon\FusionCodeGen\Fusion.CodeGen.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Photon\FusionCodeGen\Fusion.CodeGen.asmdef" />
+    <None Include="Assets\Plugins\Photon\FusionCodeGen\Fusion.CodeGen.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -328,16 +337,16 @@
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@1.10.2\Mono.Cecil.Pdb.dll</HintPath>
     </Reference>
     <Reference Include="Fusion.Runtime">
-      <HintPath>Assets\Photon\Fusion\Assemblies\Fusion.Runtime.dll</HintPath>
+      <HintPath>Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Fusion.Common">
-      <HintPath>Assets\Photon\Fusion\Assemblies\Fusion.Common.dll</HintPath>
+      <HintPath>Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Common.dll</HintPath>
     </Reference>
     <Reference Include="Fusion.Realtime">
-      <HintPath>Assets\Photon\Fusion\Assemblies\Fusion.Realtime.dll</HintPath>
+      <HintPath>Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Realtime.dll</HintPath>
     </Reference>
     <Reference Include="Fusion.Sockets">
-      <HintPath>Assets\Photon\Fusion\Assemblies\Fusion.Sockets.dll</HintPath>
+      <HintPath>Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Sockets.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>G:\Programy\Unity\2021.3.4f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>

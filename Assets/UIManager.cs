@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class UIManager : MonoBehaviour
+public class UIManager : MonoBehaviour//TODO: custom editor
 {
+    //Account
     [Header("Login")]
     [SerializeField] private GameObject LogPanel;
     [SerializeField] private TMP_InputField LogMailInput;
@@ -22,10 +23,21 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_InputField ResMailInput;
     [Header("Error")]
     [SerializeField] private TMP_Text messageTxt;
+    //Switch Sections
+    [Space][Space]
+    [SerializeField] private GameObject accountSection;
+    [SerializeField] private GameObject connectSection;
+    [SerializeField] private GameObject matchmakingSection;
+    //Matchmaking
+    [Space][Space]
+    [SerializeField] private TMP_Text playerNameTxt;
+
+    #region Account
+
     private void SwitchPanel(WhichPanel _panel)
     {
         bool p = true;
-        switch(_panel)
+        switch (_panel)
         {
             case WhichPanel.Login:
                 LogPanel.SetActive(p);
@@ -66,6 +78,10 @@ public class UIManager : MonoBehaviour
         WhichPanel.Register => RegPasswordInput.text,
         _ => ""
     };
+    public string GetNewName()
+    {
+        return NameInput.text;
+    }
     public bool CheckDoublePassword()
     {
         return RegPasswordInput.text == RegPasswordInput2.text;
@@ -83,4 +99,49 @@ public class UIManager : MonoBehaviour
 
     #endregion
     public enum WhichPanel { Login, Register, Reset, Name }
+
+    #endregion
+    #region Sections
+    private void SwitchSection(WhichSection _section)
+    {
+        bool p = true;
+        switch (_section)
+        {
+            case WhichSection.Account:
+                accountSection.SetActive(p);
+                connectSection.SetActive(!p);
+                matchmakingSection.SetActive(!p);
+                break;
+            case WhichSection.Connect:
+                accountSection.SetActive(!p);
+                connectSection.SetActive(p);
+                matchmakingSection.SetActive(!p);
+                break;
+            case WhichSection.Matchmaking:
+                accountSection.SetActive(!p);
+                connectSection.SetActive(!p);
+                matchmakingSection.SetActive(p);
+                break;
+        }
+    }
+    #region SwitchSection Methods
+
+    public void SetSection_Account() { SwitchSection(WhichSection.Account); }
+    public void SetSection_Connect() { SwitchSection(WhichSection.Connect); }
+    public void SetSection_Matchmaking() { SwitchSection(WhichSection.Matchmaking); }
+
+    #endregion
+    public enum WhichSection { Account, Connect, Matchmaking }
+
+    #endregion
+    #region Connect
+
+    public void SetDisplayName_Connect(string _name) { playerNameTxt.text = _name; }//Q
+
+    #endregion
+    #region Matchmaking
+
+
+
+    #endregion
 }

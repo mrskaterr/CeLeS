@@ -40,7 +40,9 @@ public class PlayfabLogin : MonoBehaviour//TODO: Guest Mode, Remember Me, Mail O
         var request = new LoginWithEmailAddressRequest
         {
             Email = UIm.GetMail(UIManager.WhichPanel.Login),
-            Password = UIm.GetPassword(UIManager.WhichPanel.Login)
+            Password = UIm.GetPassword(UIManager.WhichPanel.Login),
+            InfoRequestParameters = new GetPlayerCombinedInfoRequestParams
+            { GetPlayerProfile = true }
         };
         PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, OnError);
     }
@@ -55,9 +57,19 @@ public class PlayfabLogin : MonoBehaviour//TODO: Guest Mode, Remember Me, Mail O
         PlayFabClientAPI.SendAccountRecoveryEmail(request, OnPasswordReset, OnError);
     }
 
+    public void UpdateUserTitleDisplayNameButtonMethod()
+    {
+        var request = new UpdateUserTitleDisplayNameRequest
+        {
+            DisplayName = UIm.GetNewName()
+        };
+        PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnDisplayNameUpdate, OnError);
+    }
+
     private void OnRegisterSuccess(RegisterPlayFabUserResult _result)
     {
         UIm.SetMessage("Registered and logged in!");
+        UIm.Open_NameWindow();//Q
     }
 
     private void OnError(PlayFabError _error)
@@ -70,10 +82,17 @@ public class PlayfabLogin : MonoBehaviour//TODO: Guest Mode, Remember Me, Mail O
     {
         UIm.SetMessage("Logged in!");
         Debug.Log("Successful login");
+        UIm.SetSection_Connect();
     }
 
     private void OnPasswordReset(SendAccountRecoveryEmailResult _result)
     {
         UIm.SetMessage("Password reset mail sent!");
+    }
+
+    private void OnDisplayNameUpdate(UpdateUserTitleDisplayNameResult _result)
+    {
+        Debug.Log($"New name is {_result.DisplayName}");
+        UIm.SetSection_Connect();//TODO: Set Name Display Txt
     }
 }

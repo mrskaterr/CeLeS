@@ -1970,7 +1970,7 @@ RectTransform:
   m_Children:
   - {fileID: 336215420}
   m_Father: {fileID: 2050791515}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7865,6 +7865,7 @@ RectTransform:
   - {fileID: 2050791515}
   - {fileID: 1535072799}
   - {fileID: 1692936895}
+  - {fileID: 2135889447}
   m_Father: {fileID: 1477374469}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8585,7 +8586,6 @@ RectTransform:
   - {fileID: 1678768654}
   - {fileID: 1824576470}
   - {fileID: 620634169}
-  - {fileID: 2135889447}
   - {fileID: 446593174}
   m_Father: {fileID: 1974037867}
   m_RootOrder: 0
@@ -8606,6 +8606,8 @@ GameObject:
   - component: {fileID: 2051683870}
   - component: {fileID: 2051683872}
   - component: {fileID: 2051683871}
+  - component: {fileID: 2051683874}
+  - component: {fileID: 2051683873}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -8640,6 +8642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39f4309aa2f3214da2a96ab9b58fdbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: 
 --- !u!114 &2051683872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8667,7 +8670,33 @@ MonoBehaviour:
   accountSection: {fileID: 2050791514}
   connectSection: {fileID: 1535072798}
   matchmakingSection: {fileID: 1692936894}
-  PlayerNameTxt: {fileID: 706191660}
+  playerNameTxt: {fileID: 706191660}
+--- !u!114 &2051683873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051683869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7443b8847e6f3ae42b89a006afb1c02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkRunnerPrefab: {fileID: 1473315937919431351, guid: 7fb5db65d50cb80488811f175fd45742, type: 3}
+  networkRunner: {fileID: 0}
+--- !u!114 &2051683874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051683869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c74e846954380c438b1cb12353c490e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2090606472
 GameObject:
   m_ObjectHideFlags: 0
@@ -9144,7 +9173,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2050791515}
+  m_Father: {fileID: 1974037867}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}

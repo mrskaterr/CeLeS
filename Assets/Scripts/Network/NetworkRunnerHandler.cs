@@ -17,6 +17,6 @@ public class NetworkRunnerHandler : MonoBehaviour
     public void InstantiateNetworkRunner(string _playerName)
     {
         networkRunner = Instantiate(networkRunnerPrefab);
-        networkRunner.name = $"Network runner: {_playerName}";
+        networkRunner.name = $"NR: {_playerName}";
     }
 }

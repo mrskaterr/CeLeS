@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
+using System;
 
 public class PlayfabLogin : MonoBehaviour//TODO: Guest Mode, Remember Me, Mail OR Name
 {
     private UIManager UIm;
+    public string playerName = null;
+
+    public Action OnCorrectNameProvided;
 
     private void Awake()
     {
         UIm = GetComponent<UIManager>();
+    }
+
+    private void Start()
+    {
+        OnCorrectNameProvided += UIm.SetSection_Connect;
     }
 
     public void RegisterButtonMethod()
@@ -69,7 +78,7 @@ public class PlayfabLogin : MonoBehaviour//TODO: Guest Mode, Remember Me, Mail O
     private void OnRegisterSuccess(RegisterPlayFabUserResult _result)
     {
         UIm.SetMessage("Registered and logged in!");
-        UIm.Open_NameWindow();//Q
+        UIm.Open_NameWindow();
     }
 
     private void OnError(PlayFabError _error)
@@ -81,8 +90,12 @@ public class PlayfabLogin : MonoBehaviour//TODO: Guest Mode, Remember Me, Mail O
     private void OnLoginSuccess(LoginResult _result)
     {
         UIm.SetMessage("Logged in!");
-        Debug.Log("Successful login");
-        UIm.SetSection_Connect();
+        if (_result.InfoResultPayload.PlayerProfile != null)
+        {
+            playerName = _result.InfoResultPayload.PlayerProfile.DisplayName;
+        }
+        UIm.SetDisplayName(playerName);
+        OnCorrectNameProvided();
     }
 
     private void OnPasswordReset(SendAccountRecoveryEmailResult _result)
@@ -92,7 +105,8 @@ public class PlayfabLogin : MonoBehaviour//TODO: Guest Mode, Remember Me, Mail O
 
     private void OnDisplayNameUpdate(UpdateUserTitleDisplayNameResult _result)
     {
-        Debug.Log($"New name is {_result.DisplayName}");
-        UIm.SetSection_Connect();//TODO: Set Name Display Txt
+        playerName = _result.DisplayName;
+        UIm.SetDisplayName(_result.DisplayName);
+        OnCorrectNameProvided();
     }
 }

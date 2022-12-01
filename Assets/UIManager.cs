@@ -136,7 +136,7 @@ public class UIManager : MonoBehaviour//TODO: custom editor
     #endregion
     #region Connect
 
-    public void SetDisplayName_Connect(string _name) { playerNameTxt.text = _name; }//Q
+
 
     #endregion
     #region Matchmaking
@@ -144,4 +144,9 @@ public class UIManager : MonoBehaviour//TODO: custom editor
 
 
     #endregion
+
+    public void SetDisplayName(string _name) 
+    { 
+        playerNameTxt.text = _name;
+    }
 }

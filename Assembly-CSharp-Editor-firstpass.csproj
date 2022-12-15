@@ -57,10 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Editor\NetworkDebugStartEditor.cs" />
+    <Compile Include="Assets\Plugins\DecorateFoldout\Editor\EditorOverride.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\Photon\Fusion\Editor\Resources\Assembly-CSharp.xml" />
     <None Include="Assets\Plugins\Photon\Fusion\Editor\Resources\ComponentHeaderGraphics\Fonts\OFL.txt" />
+    <None Include="Assets\Plugins\Borodar\RainbowFolders\Editor\Assemblies\RainbowFolders.dll" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -395,6 +397,9 @@
     </Reference>
     <Reference Include="System.IdentityModel.Tokens.Jwt">
       <HintPath>Assets\PlayFabEditorExtensions\Editor\Resources\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="RainbowFolders">
+      <HintPath>Assets\Plugins\Borodar\RainbowFolders\Editor\Assemblies\RainbowFolders.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@1.10.2\Mono.Cecil.dll</HintPath>

@@ -9,6 +9,12 @@ public class LobbyManagerV2 : MonoBehaviour
     private NetworkRunnerHandler runnerHandler;
     private PlayfabLogin playfabLogin;
     private UIManager UIm;
+    private bool isThereMatchingLobby = false;
+
+    public static List<SessionInfo> sessions = new List<SessionInfo>();
+
+    private GameMap gameMap;
+    private GameTime gameTime;
 
     private void Awake()
     {
@@ -24,13 +30,26 @@ public class LobbyManagerV2 : MonoBehaviour
 
     public void StartConnecting()
     {
-        Invoke(nameof(Connect), 1);//Q
+        Invoke(nameof(Connect), 1);
     }
 
-    private void Connect()
+    private void Connect()//TODO: region select
     {
         runnerHandler.InstantiateNetworkRunner(playfabLogin.playerName);
         var joinLobby = JoinLobby(runnerHandler.networkRunner, $"PH");
+    }
+
+    public void JoinOrCreateSession()
+    {
+        switch (isThereMatchingLobby)
+        {
+            case false:
+                var create = StartHost(runnerHandler.networkRunner);
+                break;
+            case true:
+                var join = JoinSession(runnerHandler.networkRunner);
+                break;
+        }
     }
 
     private async Task JoinLobby(NetworkRunner _runner, string _lobbyName)
@@ -46,5 +65,105 @@ public class LobbyManagerV2 : MonoBehaviour
             //Debug.LogError($"Failed to Start: {result.ShutdownReason}");
             UIm.SetMessage($"Failed to Start: {result.ShutdownReason}");
         }
+    }
+
+    private async Task StartHost(NetworkRunner _runner/*, string _lobbyName = "MyCustomLobby"*/)
+    {
+        var customProps = new Dictionary<string, SessionProperty>();
+
+        customProps["map"] = (int)gameMap;
+        customProps["time"] = (int)gameTime;
+
+        var result = await _runner.StartGame(new StartGameArgs()
+        {
+            SessionName = UIm.GetInputText_SessionName(),
+            GameMode = GameMode.Shared,//FFS
+            SessionProperties = customProps,
+            //CustomLobbyName = _lobbyName,
+            SceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>()
+        });
+
+        if (result.Ok)
+        {
+            UIm.SetSection_RoomDetails();
+            Debug.Log("Room Created");
+        }
+        else
+        {
+            Debug.LogError($"Failed to Start: {result.ShutdownReason}");
+        }
+    }
+
+    private async Task JoinSession(NetworkRunner _runner)
+    {
+        var result = await _runner.StartGame(new StartGameArgs()
+        {
+            SessionName = UIm.GetInputText_SessionName(),
+            GameMode = GameMode.Shared,//FFS
+            SceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>()
+        });
+        if (result.Ok)
+        {
+            UIm.SetSection_RoomDetails();
+            Debug.Log("Joined Room");
+        }
+        else
+        {
+            Debug.LogError($"Failed to Start: {result.ShutdownReason}");
+        }
+    }
+
+    private bool Search4Session(string _name)
+    {
+        for (int i = 0; i < sessions.Count; i++)
+        {
+            if (sessions[i].Name == _name) { return true; }
+        }
+        return false;
+    }
+
+    public void ChangeNetworkScene(int _index)
+    {
+        runnerHandler.networkRunner.SetActiveScene(_index);
+    }
+
+    public void Room_OnPlayerJoined()
+    {
+        
+    }
+
+    public void Room_OnPlayerLeft()
+    {
+
+    }
+
+    public void SetCJButton()
+    {
+        isThereMatchingLobby = Search4Session(UIm.GetInputText_SessionName());
+        UIm.SetCreateButtonTxt(isThereMatchingLobby);
+    }
+
+    #region SetRole
+
+    public void SetRole(int _index)
+    {
+
+    }
+
+    #endregion
+
+    public enum GameMap : int
+    {
+        Restaurant,
+        Farm,
+        Factory
+    }
+
+    public enum GameTime : int
+    {
+        Five,
+        Ten,
+        Fifteen,
+        TwentyFive
     }
 }

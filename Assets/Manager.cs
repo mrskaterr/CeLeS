@@ -21,6 +21,7 @@ public class Manager : MonoBehaviour
         }
         UIManager = GetComponent<UIManager>();
         playfabLogin = GetComponent<PlayfabLogin>();
+        lobbyManager = GetComponent<LobbyManagerV2>();
     }
 
     #endregion
@@ -28,4 +29,5 @@ public class Manager : MonoBehaviour
     [Foldout("References", true, true)]
     public UIManager UIManager;
     public PlayfabLogin playfabLogin;
+    public LobbyManagerV2 lobbyManager;
 }

@@ -10,6 +10,7 @@ public class CharacterMovementHandler : NetworkBehaviour
     private float cameraRotationX = 0;
 
     [SerializeField] private Camera localCamera;
+    [SerializeField] private float cameraSens = 1;
 
     private void Awake()
     {
@@ -45,5 +46,7 @@ public class CharacterMovementHandler : NetworkBehaviour
     public void SetViewInput(Vector2 _viewInput)
     {
         viewInput = _viewInput;
+        viewInput.x = Input.GetAxis("Mouse X") * Time.deltaTime * cameraSens;
+        viewInput.y = Input.GetAxis("Mouse Y") * Time.deltaTime * cameraSens;
     }
 }

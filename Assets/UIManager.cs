@@ -218,7 +218,9 @@ public class UIManager : MonoBehaviour
         {
             var item = Instantiate(playerListItemPrefab, playerListParent);
             var playerData = PlayerHolder.playerParentObjects[i].GetComponent<RPCManager>();
-            item.GetComponent<PlayerListItem>().SetContent(playerData.nick, roleIcons[0]);
+            var playerItem = item.GetComponent<PlayerListItem>();
+            playerItem.SetContent(playerData.nick, roleIcons[playerData.roleIndex]);
+            playerItem.SetColor(playerData.isReady ? Color.green : Color.black);
         }
     }
 

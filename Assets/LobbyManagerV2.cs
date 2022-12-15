@@ -127,27 +127,38 @@ public class LobbyManagerV2 : MonoBehaviour
         runnerHandler.networkRunner.SetActiveScene(_index);
     }
 
-    public void Room_OnPlayerJoined()
-    {
-        
-    }
-
-    public void Room_OnPlayerLeft()
-    {
-
-    }
-
     public void SetCJButton()
     {
         isThereMatchingLobby = Search4Session(UIm.GetInputText_SessionName());
         UIm.SetCreateButtonTxt(isThereMatchingLobby);
     }
 
-    #region SetRole
+    public void ChangeScene(NetworkRunner _runner)
+    {
+        //TODO: Custom Scene Loader
+    }
+
+    #region SetLobbyPlayerData
 
     public void SetRole(int _index)
     {
+        RPCManager.Local.roleIndex = _index;
+    }
 
+    public void IsReady()
+    {
+        RPCManager.Local.isReady = !RPCManager.Local.isReady;
+    }
+
+    public bool ArePlayersReady()
+    {
+        int playersAmount = PlayerHolder.playerCount();
+        for (int i = 0; i < playersAmount; i++)
+        {
+            var playerData = PlayerHolder.playerParentObjects[i].GetComponent<RPCManager>();
+            if (!playerData.isReady) { return false; }
+        }
+        return true;
     }
 
     #endregion

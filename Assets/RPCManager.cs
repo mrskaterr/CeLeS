@@ -13,6 +13,10 @@ public class RPCManager : NetworkBehaviour
     [HideInInspector] public int roleIndex { get; set; } = 0;
     [Networked(OnChanged = nameof(OnIsReadyChange))]
     public bool isReady { get; set; } = false;
+    public GameObject playerAvatar;
+    public static GameObject Avatar;
+    public PlayerRef owner;
+
     public override void Spawned()
     {
         if (Object.HasInputAuthority)
@@ -22,6 +26,7 @@ public class RPCManager : NetworkBehaviour
         }
         PlayerHolder.AddPlayer2List(gameObject);
         RPC_OnPlayerInRoom();
+        DontDestroyOnLoad(gameObject);
     }
 
     public override void Despawned(NetworkRunner runner, bool hasState)
@@ -50,8 +55,15 @@ public class RPCManager : NetworkBehaviour
         Manager.Instance.UIManager.RefreshList();
         if (Manager.Instance.lobbyManager.ArePlayersReady())
         {
-            Debug.Log("Wszyscy gotowi, laduje scene ...");
+            StartCoroutine(Wait());
         }
+    }
+
+    IEnumerator Wait()
+    {
+        Manager.Instance.lobbyManager.SpawnPlayerAvatar();
+        yield return new WaitForSecondsRealtime(1);
+        Manager.Instance.lobbyManager.ChangeNetworkScene(1);
     }
 
     public static void OnRoleChange(Changed<RPCManager> _changed)

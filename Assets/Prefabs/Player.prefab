@@ -70,5 +70,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  nick: 
+  _nick: 
   role: 0
+  _roleIndex: 0
+  _isReady: 0
+  playerAvatar: {fileID: 2264008909498982632, guid: 020ad2ed2c1706540a36ed32dcc6e48a, type: 3}

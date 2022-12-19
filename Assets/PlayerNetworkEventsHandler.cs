@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerNetworkEventsHandler : MonoBehaviour, INetworkRunnerCallbacks
 {
+    private CharacterInputHandler inputHandler;
+
     public void OnConnectedToServer(NetworkRunner runner)
     {
         return;
@@ -40,7 +42,14 @@ public class PlayerNetworkEventsHandler : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnInput(NetworkRunner runner, NetworkInput input)
     {
-        return;
+        if (inputHandler == null && NetworkPlayer.Local != null)
+        {
+            inputHandler = NetworkPlayer.Local.GetComponent<CharacterInputHandler>();
+        }
+        if (inputHandler != null)
+        {
+            input.Set(inputHandler.GetNetworkInput());
+        }
     }
 
     public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input)

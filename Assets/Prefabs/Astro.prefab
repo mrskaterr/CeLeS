@@ -242,10 +242,10 @@ MonoBehaviour:
     RotBlendEnd: 0.5
     RotTeleportRadians: 1.5
   gravity: -20
-  jumpImpulse: 8
+  jumpImpulse: 50
   acceleration: 40
   braking: 10
-  maxSpeed: 2
+  maxSpeed: 4
   rotationSpeed: 480
   viewVerticalSpeed: 390
   _IsGrounded: 0
@@ -264,6 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   localCamera: {fileID: 7134201537511432197}
+  cameraSens: 100
 --- !u!114 &5728834142079309820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,7 +522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5560928675984028951}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.685, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

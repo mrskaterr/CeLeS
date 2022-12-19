@@ -80,7 +80,7 @@ public class LobbyManagerV2 : MonoBehaviour
             GameMode = GameMode.Shared,//FFS
             SessionProperties = customProps,
             //CustomLobbyName = _lobbyName,
-            SceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>()
+            SceneManager = _runner.gameObject.AddComponent<NetworkSceneManagerDefault>(),
         });
 
         if (result.Ok)
@@ -100,7 +100,7 @@ public class LobbyManagerV2 : MonoBehaviour
         {
             SessionName = UIm.GetInputText_SessionName(),
             GameMode = GameMode.Shared,//FFS
-            SceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>()
+            SceneManager = _runner.gameObject.AddComponent<NetworkSceneManagerDefault>()
         });
         if (result.Ok)
         {
@@ -125,6 +125,17 @@ public class LobbyManagerV2 : MonoBehaviour
     public void ChangeNetworkScene(int _index)
     {
         runnerHandler.networkRunner.SetActiveScene(_index);
+    }
+
+    public void SpawnPlayerAvatar()
+    {
+        NetworkRunner runner = runnerHandler.networkRunner;
+        if(runner.LocalPlayer == RPCManager.Local.owner)
+        {
+            var avatar = runner.Spawn(RPCManager.Local.playerAvatar, Vector3.up * 50 + Vector3.one * Random.Range(5f, 10f), Quaternion.identity, RPCManager.Local.owner);
+            //DontDestroyOnLoad(avatar);
+            runner.SetPlayerObject(runner.LocalPlayer, avatar);
+        }
     }
 
     public void SetCJButton()

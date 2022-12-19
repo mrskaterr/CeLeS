@@ -133,11 +133,6 @@ public class LobbyManagerV2 : MonoBehaviour
         UIm.SetCreateButtonTxt(isThereMatchingLobby);
     }
 
-    public void ChangeScene(NetworkRunner _runner)
-    {
-        //TODO: Custom Scene Loader
-    }
-
     #region SetLobbyPlayerData
 
     public void SetRole(int _index)

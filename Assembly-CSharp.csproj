@@ -80,6 +80,9 @@
     <Compile Include="Assets\TestLogin.cs" />
     <Compile Include="Assets\PlayerHolder.cs" />
     <Compile Include="Assets\Scripts\CharacterMovementHandler.cs" />
+    <Compile Include="Assets\LocalCameraHandler.cs" />
+    <Compile Include="Assets\WeaponHandler.cs" />
+    <Compile Include="Assets\HealthSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />

@@ -127,7 +127,7 @@ public class LobbyManagerV2 : MonoBehaviour
         runnerHandler.networkRunner.SetActiveScene(_index);
     }
 
-    public void SpawnPlayerAvatar()
+    public NetworkObject SpawnPlayerAvatar()
     {
         NetworkRunner runner = runnerHandler.networkRunner;
         if(runner.LocalPlayer == RPCManager.Local.owner)
@@ -135,7 +135,9 @@ public class LobbyManagerV2 : MonoBehaviour
             var avatar = runner.Spawn(RPCManager.Local.playerAvatar, Vector3.up * 50 + Vector3.one * Random.Range(5f, 10f), Quaternion.identity, RPCManager.Local.owner);
             //DontDestroyOnLoad(avatar);
             runner.SetPlayerObject(runner.LocalPlayer, avatar);
+            return avatar;
         }
+        return null;
     }
 
     public void SetCJButton()

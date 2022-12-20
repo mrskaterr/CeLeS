@@ -6,10 +6,9 @@ using Fusion;
 public class CharacterMovementHandler : NetworkBehaviour
 {
     private NetworkCharacterController networkCharacterController;
-    private Vector2 viewInput;
-    private float cameraRotationX = 0;
 
     [SerializeField] private Camera localCamera;
+    [SerializeField] private AudioListener audioListener;
     [SerializeField] private float cameraSens = 1;
 
     private void Awake()
@@ -19,34 +18,32 @@ public class CharacterMovementHandler : NetworkBehaviour
 
     private void Start()
     {
-        if (!Object.HasInputAuthority) { localCamera.gameObject.SetActive(false); }
-    }
-
-    private void Update()
-    {
-        cameraRotationX -= viewInput.y * Time.deltaTime * networkCharacterController.viewVerticalSpeed;
-        cameraRotationX = Mathf.Clamp(cameraRotationX, -90, 90);
-
-        localCamera.transform.localRotation = Quaternion.Euler(cameraRotationX, 0, 0);
+        if (!Object.HasInputAuthority) 
+        { 
+            localCamera.enabled = false;
+            audioListener.enabled = false;
+        }
     }
 
     public override void FixedUpdateNetwork()
     {
         if(GetInput(out NetworkInputData networkInputData))
         {
-            networkCharacterController.Rotate(networkInputData.rotationInput);
+            transform.forward = networkInputData.aimForwardVector;//TODO: lerp or something, to animate and look better
+
+            Quaternion rotation = transform.rotation;
+            rotation.eulerAngles = new Vector3(0, rotation.eulerAngles.y, rotation.eulerAngles.z);
+            transform.rotation = rotation;
 
             Vector3 moveDirection = transform.forward * networkInputData.movementInput.y + transform.right * networkInputData.movementInput.x;
             moveDirection.Normalize();
 
             networkCharacterController.Move(moveDirection);
-        }
-    }
 
-    public void SetViewInput(Vector2 _viewInput)
-    {
-        viewInput = _viewInput;
-        viewInput.x = Input.GetAxis("Mouse X") * Time.deltaTime * cameraSens;
-        viewInput.y = Input.GetAxis("Mouse Y") * Time.deltaTime * cameraSens;
+            if (networkInputData.isJumpPressed)
+            {
+                networkCharacterController.Jump();
+            }
+        }
     }
 }

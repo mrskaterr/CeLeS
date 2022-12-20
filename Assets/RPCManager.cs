@@ -13,8 +13,10 @@ public class RPCManager : NetworkBehaviour
     [HideInInspector] public int roleIndex { get; set; } = 0;
     [Networked(OnChanged = nameof(OnIsReadyChange))]
     public bool isReady { get; set; } = false;
-    public GameObject playerAvatar;
-    public static GameObject Avatar;
+    [SerializeField] private GameObject hunterAvatar;
+    [SerializeField] private GameObject blobAvatar;
+    [HideInInspector] public GameObject playerAvatar;
+    //public static GameObject Avatar;
     public PlayerRef owner;
 
     public override void Spawned()
@@ -61,7 +63,16 @@ public class RPCManager : NetworkBehaviour
 
     IEnumerator Wait()
     {
-        Manager.Instance.lobbyManager.SpawnPlayerAvatar();
+        if(role == Role.BlobA || role == Role.BlobB || role == Role.BlobC)//TOIMPROVE:switch and list of available
+        {
+            playerAvatar = blobAvatar;
+        }
+        else
+        {
+            playerAvatar = hunterAvatar;
+        }
+        var avatar = Manager.Instance.lobbyManager.SpawnPlayerAvatar();
+        avatar.transform.name = nick;
         yield return new WaitForSecondsRealtime(1);
         Manager.Instance.lobbyManager.ChangeNetworkScene(1);
     }

@@ -4,45 +4,63 @@ using UnityEngine;
 
 public class CharacterInputHandler : MonoBehaviour
 {
+    [SerializeField] LocalCameraHandler cameraHandler;
+
     private Vector2 moveInput = Vector2.zero;
     private Vector2 viewInput = Vector2.zero;
     private bool jumpInput = false;
+    private bool fireInput = false;//TODO: interact
 
-    private CharacterMovementHandler movementHandler;
+    private CharacterMovementHandler characterMovementHandler;
 
     private void Awake()
     {
-        movementHandler = GetComponent<CharacterMovementHandler>();
+        characterMovementHandler = GetComponent<CharacterMovementHandler>();
     }
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;//TOIMPROVE: Utils
         Cursor.visible = false;
     }
 
     private void Update()
     {
-        viewInput.x = Input.GetAxis("Mouse X");
-        viewInput.y = Input.GetAxis("Mouse Y");
+        if (!characterMovementHandler.Object.HasInputAuthority) { return; }
 
-        movementHandler.SetViewInput(viewInput);
+        viewInput.x = Input.GetAxis("Mouse X");
+        viewInput.y = Input.GetAxis("Mouse Y") * -1;
 
         moveInput.x = Input.GetAxis("Horizontal");//TODO: new input system
         moveInput.y = Input.GetAxis("Vertical");
 
-        jumpInput = Input.GetButtonDown("Jump");
+        if (Input.GetButtonDown("Jump"))
+        {
+            jumpInput = true;
+        }
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            fireInput = true;
+        }
+
+        cameraHandler.SetViewInput(viewInput);
     }
 
     public NetworkInputData GetNetworkInput()
     {
         NetworkInputData networkInputData = new NetworkInputData();
 
-        networkInputData.rotationInput = viewInput.x;
+        networkInputData.aimForwardVector = cameraHandler.transform.forward;
 
         networkInputData.movementInput = moveInput;
 
         networkInputData.isJumpPressed = jumpInput;
+
+        networkInputData.isFirePressed = fireInput;
+
+        jumpInput = false;
+        fireInput= false;
 
         return networkInputData;
     }

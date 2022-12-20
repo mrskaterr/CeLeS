@@ -43,6 +43,7 @@
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\AreaOfInterest\PlayerAOIPrototype.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionBurstIntegration.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\ToggleRunnerProvideInput.cs" />
+     <Compile Include="Assets\Plugins\Local FPS\PlayerCam.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkSceneManagerBase.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\ISpawnPointPrototype.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\SpawnPointManagerPrototype.cs" />
@@ -67,6 +68,7 @@
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Materials\FusionPrototypingTextures.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionStats.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Utilities\FusionEditorUtilitiesExternal.cs" />
+     <Compile Include="Assets\Plugins\Local FPS\LocalPlayerMovement.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkRunnerExtensions.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionStats\FusionStatsObjectIds.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Utilities\NetworkProjectUtilities.cs" />

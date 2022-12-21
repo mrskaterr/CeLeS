@@ -15,7 +15,6 @@ public class RPCManager : NetworkBehaviour
     public bool isReady { get; set; } = false;
     [SerializeField] private GameObject hunterAvatar;
     [SerializeField] private GameObject blobAvatar;
-    [HideInInspector] public GameObject playerAvatar;
     //public static GameObject Avatar;
     public PlayerRef owner;
 
@@ -63,14 +62,6 @@ public class RPCManager : NetworkBehaviour
 
     IEnumerator Wait()
     {
-        if(role == Role.BlobA || role == Role.BlobB || role == Role.BlobC)//TOIMPROVE:switch and list of available
-        {
-            playerAvatar = blobAvatar;
-        }
-        else
-        {
-            playerAvatar = hunterAvatar;
-        }
         var avatar = Manager.Instance.lobbyManager.SpawnPlayerAvatar();
         avatar.transform.name = nick;
         yield return new WaitForSecondsRealtime(1);
@@ -85,6 +76,14 @@ public class RPCManager : NetworkBehaviour
     {
         role = (Role)roleIndex;
         Manager.Instance.UIManager.RefreshList();
+    }
+    public GameObject PlayerAvatar()
+    {
+        if(roleIndex == 4 || roleIndex == 5 || roleIndex == 6)//TOIMPROVE:switch and list of available
+        {
+            return blobAvatar;
+        }
+        return hunterAvatar;
     }
     public enum Role
     {

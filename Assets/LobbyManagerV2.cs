@@ -132,7 +132,7 @@ public class LobbyManagerV2 : MonoBehaviour
         NetworkRunner runner = runnerHandler.networkRunner;
         if(runner.LocalPlayer == RPCManager.Local.owner)
         {
-            var avatar = runner.Spawn(RPCManager.Local.playerAvatar, Vector3.up * 50 + Vector3.one * Random.Range(5f, 10f), Quaternion.identity, RPCManager.Local.owner);
+            var avatar = runner.Spawn(RPCManager.Local.PlayerAvatar(), Vector3.up * 50 + Vector3.one * Random.Range(5f, 10f), Quaternion.identity, RPCManager.Local.owner);
             //DontDestroyOnLoad(avatar);
             runner.SetPlayerObject(runner.LocalPlayer, avatar);
             return avatar;

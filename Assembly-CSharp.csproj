@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\Network\NetworkInputData.cs" />
     <Compile Include="Assets\RPCManager.cs" />
     <Compile Include="Assets\SpawnerV2.cs" />
+    <Compile Include="Assets\HealthSystem.cs" />
     <Compile Include="Assets\Scripts\Network\NetworkRunnerHandler.cs" />
     <Compile Include="Assets\Manager.cs" />
     <Compile Include="Assets\Scripts\Extensions\TMPTextExtension.cs" />
@@ -73,16 +74,18 @@
     <Compile Include="Assets\Scripts\Network\NetworkPlayer.cs" />
     <Compile Include="Assets\UIManager.cs" />
     <Compile Include="Assets\Scripts\NetworkCharacterController.cs" />
+    <Compile Include="Assets\LocalCameraHandler.cs" />
     <Compile Include="Assets\Scripts\RegionSelect.cs" />
+    <Compile Include="Assets\WeaponHandler.cs" />
     <Compile Include="Assets\PlayfabLogin.cs" />
     <Compile Include="Assets\Scripts\Network\Spawner.cs" />
     <Compile Include="Assets\PlayerNetworkEventsHandler.cs" />
     <Compile Include="Assets\TestLogin.cs" />
     <Compile Include="Assets\PlayerHolder.cs" />
     <Compile Include="Assets\Scripts\CharacterMovementHandler.cs" />
-    <Compile Include="Assets\LocalCameraHandler.cs" />
-    <Compile Include="Assets\WeaponHandler.cs" />
-    <Compile Include="Assets\HealthSystem.cs" />
+    <Compile Include="Assets\InteractHandler.cs" />
+    <Compile Include="Assets\Morph.cs" />
+    <Compile Include="Assets\MorphObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />

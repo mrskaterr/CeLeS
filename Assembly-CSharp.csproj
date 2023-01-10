@@ -64,15 +64,17 @@
     <Compile Include="Assets\Scripts\Network\NetworkRunnerHandler.cs" />
     <Compile Include="Assets\Manager.cs" />
     <Compile Include="Assets\Scripts\Extensions\TMPTextExtension.cs" />
+    <Compile Include="Assets\InteractHandler.cs" />
     <Compile Include="Assets\Scripts\CharacterInputHandler.cs" />
+    <Compile Include="Assets\Morph.cs" />
     <Compile Include="Assets\PlayerListItem.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
-    <Compile Include="Assets\Scripts\TestInput.cs" />
     <Compile Include="Assets\Scripts\UserInfoPrefab.cs" />
     <Compile Include="Assets\Scripts\PlayerRole.cs" />
     <Compile Include="Assets\LobbyManagerV2.cs" />
     <Compile Include="Assets\Scripts\Network\NetworkPlayer.cs" />
     <Compile Include="Assets\UIManager.cs" />
+    <Compile Include="Assets\MorphObject.cs" />
     <Compile Include="Assets\Scripts\NetworkCharacterController.cs" />
     <Compile Include="Assets\LocalCameraHandler.cs" />
     <Compile Include="Assets\Scripts\RegionSelect.cs" />
@@ -83,9 +85,6 @@
     <Compile Include="Assets\TestLogin.cs" />
     <Compile Include="Assets\PlayerHolder.cs" />
     <Compile Include="Assets\Scripts\CharacterMovementHandler.cs" />
-    <Compile Include="Assets\InteractHandler.cs" />
-    <Compile Include="Assets\Morph.cs" />
-    <Compile Include="Assets\MorphObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />

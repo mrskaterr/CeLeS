@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LocalCameraHandler : MonoBehaviour
 {
+    [SerializeField] private Transform anchorPointFPS;
+    [SerializeField] private Transform anchorPointTPS;
     [SerializeField] private Transform anchorPoint;
     [SerializeField] private NetworkCharacterController networkCC;
 
@@ -42,5 +44,17 @@ public class LocalCameraHandler : MonoBehaviour
     public void SetViewInput(Vector2 _viewInput)
     {
         viewInput = _viewInput;
+    }
+
+    public void ChangePerspective(int _index)
+    {
+        if(_index == -1)
+        {
+            anchorPoint = anchorPointFPS;
+        }
+        else
+        {
+            anchorPoint = anchorPointTPS;
+        }
     }
 }

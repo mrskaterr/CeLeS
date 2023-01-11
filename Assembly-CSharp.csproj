@@ -69,6 +69,7 @@
      <Compile Include="Assets\TitleScreen.cs" />
      <Compile Include="Assets\TestLogin.cs" />
      <Compile Include="Assets\PlayerHolder.cs" />
+     <Compile Include="Assets\backgroundMove.cs" />
      <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity 2021.3.4f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

@@ -7,7 +7,9 @@ public class TitleScreen : MonoBehaviour
 {
     public void OnPlayButton()
     {
-        SceneManager.LoadScene("Dave");
+        Debug.Log("siema1");
+        SceneManager.LoadScene("Lobby");
+        Debug.Log("siema2");
     }
     public void Pasue()
     {

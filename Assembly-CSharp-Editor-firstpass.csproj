@@ -847,6 +847,9 @@
     <Reference Include="Unity.Burst.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>

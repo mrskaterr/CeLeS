@@ -5,7 +5,10 @@ using Fusion;
 
 public class CharacterMovementHandler : NetworkBehaviour
 {
-    [SerializeField] GameObject[] audioSteps; 
+    int i=0;
+    [SerializeField] AudioSource[] audioSteps; 
+    [SerializeField] AudioSource audioJump;
+    [SerializeField] AudioSource audioChanging;
     private AudioSource lastStep;
     private NetworkCharacterController networkCharacterController;
 
@@ -20,7 +23,8 @@ public class CharacterMovementHandler : NetworkBehaviour
 
     private void Start()
     {
-        lastStep=audioSteps[Random.Range (1,(audioSteps.Length - 1))].GetComponent<AudioSource>();
+
+        lastStep=audioSteps[i];
         lastStep.Play();
         if (!Object.HasInputAuthority) 
         { 
@@ -46,7 +50,10 @@ public class CharacterMovementHandler : NetworkBehaviour
 
             if(moveDirection!=Vector3.zero && !lastStep.isPlaying)
             {
-                lastStep=audioSteps[Random.Range (0,audioSteps.Length)].GetComponent<AudioSource>();
+                Debug.Log(i);
+                Debug.Log(audioSteps.Length+ " length ");
+                i++;
+                lastStep=audioSteps[i/audioSteps.Length].GetComponent<AudioSource>();
                 lastStep.Play();
             }
 

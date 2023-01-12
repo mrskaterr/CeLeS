@@ -42,6 +42,7 @@
      <Compile Include="Assets\Manager.cs" />
      <Compile Include="Assets\Scripts\CharacterInputHandler.cs" />
      <Compile Include="Assets\PlayerListItem.cs" />
+     <Compile Include="Assets\dontdestroy.cs" />
      <Compile Include="Assets\Scripts\PlayerRole.cs" />
      <Compile Include="Assets\LobbyManagerV2.cs" />
      <Compile Include="Assets\LocalCameraHandler.cs" />
@@ -69,7 +70,6 @@
      <Compile Include="Assets\Scripts\TitleScreen.cs" />
      <Compile Include="Assets\TestLogin.cs" />
      <Compile Include="Assets\PlayerHolder.cs" />
-     <Compile Include="Assets\dontdestroy.cs" />
      <None Include="Assets\20 Logos PSD\Fonts\chunkfiveex\SIL Open Font License 1.1.txt" />
      <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />
      <None Include="Assets\20 Logos PSD\Fonts\kaushanscript\SIL Open Font License.txt" />

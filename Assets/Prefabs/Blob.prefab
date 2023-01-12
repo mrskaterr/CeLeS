@@ -633,6 +633,7 @@ MonoBehaviour:
     RotBlendStart: 0.1
     RotBlendEnd: 0.5
     RotTeleportRadians: 1.5
+  audioJump: {fileID: 6640179331629131731}
   gravity: -20
   jumpImpulse: 8
   acceleration: 40
@@ -657,6 +658,7 @@ MonoBehaviour:
   _interpolationDataSource: 0
   audioSteps:
   - {fileID: 1460323118742628283}
+  audioChanging: {fileID: 0}
   localCamera: {fileID: 7134201537511432197}
   audioListener: {fileID: 142242121073978863}
   cameraSens: 100
@@ -757,6 +759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
+  changingsound: {fileID: 8627329261597114543}
   _index: -1
   eyes: {fileID: 9089264429962433272}
   mr: {fileID: 3110495440081716441}
@@ -844,7 +847,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1d1c75c980bf8104fa64abf6b6f5b789, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3f9a1476ffefe074690478bb99f06b8c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -999,7 +1002,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 62decbf29473e78428a23881e8ca485b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1d1c75c980bf8104fa64abf6b6f5b789, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

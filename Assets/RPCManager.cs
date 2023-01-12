@@ -64,8 +64,8 @@ public class RPCManager : NetworkBehaviour
     {
         var avatar = Manager.Instance.lobbyManager.SpawnPlayerAvatar();
         avatar.transform.name = nick;
-        yield return new WaitForSecondsRealtime(1);
-        Manager.Instance.lobbyManager.ChangeNetworkScene(1);
+        yield return new WaitForSecondsRealtime(2);
+        Manager.Instance.lobbyManager.ChangeNetworkScene(2);
     }
 
     public static void OnRoleChange(Changed<RPCManager> _changed)

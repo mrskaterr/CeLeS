@@ -12,7 +12,7 @@ public class dontdestroy : MonoBehaviour
     }
     void Update()
     {
-        if(SceneManager.GetActiveScene().buildIndex==1)
+        if(SceneManager.GetActiveScene().buildIndex==2)
             Destroy(gameObject);
     }
 }

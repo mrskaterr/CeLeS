@@ -7,7 +7,6 @@ public class CharacterMovementHandler : NetworkBehaviour
 {
     int i=0;
     [SerializeField] AudioSource[] audioSteps; 
-    [SerializeField] AudioSource audioJump;
     [SerializeField] AudioSource audioChanging;
     private AudioSource lastStep;
     private NetworkCharacterController networkCharacterController;
@@ -50,16 +49,15 @@ public class CharacterMovementHandler : NetworkBehaviour
 
             if(moveDirection!=Vector3.zero && !lastStep.isPlaying)
             {
-                Debug.Log(i);
-                Debug.Log(audioSteps.Length+ " length ");
                 i++;
-                lastStep=audioSteps[i/audioSteps.Length].GetComponent<AudioSource>();
+                lastStep=audioSteps[i%audioSteps.Length].GetComponent<AudioSource>();
                 lastStep.Play();
             }
 
             if (networkInputData.isJumpPressed)
             {
                 networkCharacterController.Jump();
+
             }
         }
     }

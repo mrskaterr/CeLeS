@@ -10,6 +10,10 @@ public class CharacterInputHandler : MonoBehaviour
     private Vector2 viewInput = Vector2.zero;
     private bool jumpInput = false;
     private bool fireInput = false;//TODO: interact
+    private float speedStep = 0;
+    private bool sneakyInput = false;
+
+    private Vector3 sneakRot = Vector3.zero;
 
     private CharacterMovementHandler characterMovementHandler;
 
@@ -44,6 +48,19 @@ public class CharacterInputHandler : MonoBehaviour
             fireInput = true;
         }
 
+        if (Input.GetButtonDown("Fire2"))
+        {
+            sneakRot = cameraHandler.transform.forward;
+            sneakyInput = true;
+        }
+
+        if (Input.GetButtonUp("Fire2"))
+        {
+            sneakyInput = false;
+        }
+
+        moveInput.y += speedStep;
+
         cameraHandler.SetViewInput(viewInput);
     }
 
@@ -51,7 +68,14 @@ public class CharacterInputHandler : MonoBehaviour
     {
         NetworkInputData networkInputData = new NetworkInputData();
 
-        networkInputData.aimForwardVector = cameraHandler.transform.forward;
+        if (sneakyInput)
+        {
+            networkInputData.aimForwardVector = sneakRot;
+        }
+        else
+        {
+            networkInputData.aimForwardVector = cameraHandler.transform.forward;
+        }
 
         networkInputData.movementInput = moveInput;
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityInspector;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -52,6 +53,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text timeTxt;
     [SerializeField] private Transform playerListParent;
     [SerializeField] private GameObject playerListItemPrefab;
+    [SerializeField] private List<Button> roleButtons;
     [SerializeField] private Sprite[] roleIcons;
     //[SerializeField] private List<PlayerDataHandler> playerDataHandlers = new List<PlayerDataHandler>(); custom data class
 
@@ -294,6 +296,10 @@ public class UIManager : MonoBehaviour
             Destroy(child.gameObject);
         }
         int playersAmount = PlayerHolder.playerCount();
+        for (int b = 0; b < roleButtons.Count; b++)//TODO: better ref to btns
+        {
+            ActiveRoleButton(b, true);
+        }
         for (int i = 0; i < playersAmount; i++)
         {
             var item = Instantiate(playerListItemPrefab, playerListParent);
@@ -301,7 +307,16 @@ public class UIManager : MonoBehaviour
             var playerItem = item.GetComponent<PlayerListItem>();
             playerItem.SetContent(playerData.nick, roleIcons[playerData.roleIndex]);
             playerItem.SetColor(playerData.isReady ? Color.green : Color.black);
+            if(playerData.roleIndex != 0)
+            {
+                ActiveRoleButton(playerData.roleIndex, false);
+            }
         }
+    }
+
+    private void ActiveRoleButton(int _index, bool _p)
+    {
+        roleButtons[_index].interactable = _p;
     }
 
     #endregion

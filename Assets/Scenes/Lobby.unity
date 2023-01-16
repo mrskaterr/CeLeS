@@ -23147,6 +23147,14 @@ MonoBehaviour:
   timeTxt: {fileID: 2145049893}
   playerListParent: {fileID: 173196463}
   playerListItemPrefab: {fileID: 4893377003146262507, guid: b9894fb57f7629242aeea45963337529, type: 3}
+  roleButtons:
+  - {fileID: 86175377}
+  - {fileID: 613682442}
+  - {fileID: 1136987718}
+  - {fileID: 794725938}
+  - {fileID: 454659592}
+  - {fileID: 1825604408}
+  - {fileID: 1983096074}
   roleIcons:
   - {fileID: 21300000, guid: fae0900e5d41c504c88118c6964f0639, type: 3}
   - {fileID: 21300000, guid: 32548b39048353449972bd9560c2e76f, type: 3}

@@ -42,6 +42,14 @@ namespace UnityInspector
 
         public override void OnInspectorGUI()
         {
+            var script = target as MonoBehaviour;
+
+            if (script == null)
+            {
+                DrawDefaultInspector();
+                return;
+            }
+
             serializedObject.Update();
 
             Setup();

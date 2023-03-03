@@ -19,6 +19,11 @@ public class LobbyManagerV2 : MonoBehaviour
     private int huntersAmount = 2;
     private int hidersAmount = 3;
 
+    private int prefRole = 0;
+
+    private const string cp_huntersSlots = "isTeamFull_Hunters";
+    private const string cp_hidersSlots = "isTeamFull_Hiders";
+
     private void Awake()
     {
         runnerHandler = GetComponent<NetworkRunnerHandler>();
@@ -40,6 +45,11 @@ public class LobbyManagerV2 : MonoBehaviour
     {
         runnerHandler.InstantiateNetworkRunner(playfabLogin.playerName);
         var joinLobby = JoinLobby(runnerHandler.networkRunner, $"PH");
+    }
+
+    public void SetPreferredRole(int _index)
+    {
+        prefRole = _index;
     }
 
     public void JoinOrCreateSession()
@@ -258,7 +268,6 @@ public class LobbyManagerV2 : MonoBehaviour
         Ten,
         Fifteen,
         TwentyFive
-    } 
-
+    }
     #endregion
 }

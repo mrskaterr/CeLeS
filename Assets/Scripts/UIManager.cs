@@ -22,7 +22,8 @@ public class UIManager : MonoBehaviour
     [Foldout("Reset Password", true)]
     [SerializeField] private GameObject ResPanel;
     [SerializeField] private TMP_InputField ResMailInput;
-    [Foldout("Connect")]
+    [Foldout("Connect", true)]
+    [SerializeField] private TMP_Text playerNameTxt;
     [SerializeField] private TMP_Text loadingText;
     [Foldout("Error")]
     [SerializeField] private TMP_Text messageTxt;
@@ -35,8 +36,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject roomDetailsSection;
     [Space]
     [SerializeField] private GameObject quickGameSection;
-    [Foldout("Matchmaking")]
-    [SerializeField] private TMP_Text playerNameTxt;
+    [Foldout("Matchmaking", true)]
+    [SerializeField] private Image preferredRoleIcon;
+    [SerializeField] private Sprite[] preferredRoleSprites;
     [Foldout("Session Details", true)]
     [SerializeField] private TMP_Text playerNameTxtB;
     [SerializeField] private TMP_InputField sessionNameInput;
@@ -239,7 +241,16 @@ public class UIManager : MonoBehaviour
     #endregion
     #region Matchmaking
 
-
+    public void SetPreferredIcon(int _index)
+    {
+        if(_index < 0 || _index >= preferredRoleSprites.Length)
+        {
+            Debug.LogError("Index out of range");
+            return;
+        }
+        preferredRoleIcon.sprite = preferredRoleSprites[_index];
+        SetSection_Matchmaking();
+    }
 
     #endregion
     #region Session Details

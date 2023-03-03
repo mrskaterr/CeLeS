@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorButton : MonoBehaviour
+public class ColorButton : MonoBehaviour, IInteractable
 {
     // Start is called before the first frame update
-    [SerializeField] GameObject PanelLeds;
+    [SerializeField] TaskRemeberColor PanelLeds;
     [SerializeField] int index;
-    void OnCollisionEnter(Collision collision)
+    public void Interact(GameObject @object)
     {
         GetComponent<AudioSource>().Play();
-        PanelLeds.GetComponent<TaskRemeberColor>().AddSelectedColor(index);
+        PanelLeds.AddSelectedColor(index);
+        
+        PanelLeds.player=@object;
     }
 }

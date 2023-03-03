@@ -5,15 +5,14 @@ using UnityEngine;
 public class TaskRemeberColor : MonoBehaviour
 {
     int rnd;
+    float timefloat=1f;
     [SerializeField] int HowManyColors;
     int level=0;
     List<int> RandomColors = new List<int>();
     List<int> SelectedColors= new List<int>();
     [SerializeField] GameObject[] Leds;
-    void Start()
-    {
-
-    }
+    [SerializeField] Collider[] Buttons;
+    public GameObject player;
     public void ResetColor()
     {
         SelectedColors.Clear();
@@ -22,12 +21,8 @@ public class TaskRemeberColor : MonoBehaviour
         {
             rnd=Random.Range(0,4);
             RandomColors.Add(rnd);
-            
         }
-            if(HowManyColors==4)Debug.Log(RandomColors[0]+" "+RandomColors[1]+" "+RandomColors[2]+" "+RandomColors[3]);
-            else if(HowManyColors==5)Debug.Log(RandomColors[0]+" "+RandomColors[1]+" "+RandomColors[2]+" "+RandomColors[3]+" "+RandomColors[4]);
-            else if(HowManyColors==6)Debug.Log(RandomColors[0]+" "+RandomColors[1]+" "+RandomColors[2]+" "+RandomColors[3]+" "+RandomColors[4]+" "+RandomColors[5]);
-
+        //for(int i=0;i<RandomColors.Count;i++)Debug.Log(RandomColors[i]);
         StartCoroutine(ExampleCoroutine());
     }
     public void AddSelectedColor(int selected)
@@ -49,8 +44,7 @@ public class TaskRemeberColor : MonoBehaviour
             }
             if(level==3)
             {
-                //done
-                Debug.Log("done");
+                player.GetComponent<JobHandler2>().VarTask=true;
             }
         }
         
@@ -61,23 +55,26 @@ public class TaskRemeberColor : MonoBehaviour
         {
             if(SelectedColors[i]!=RandomColors[i])
             {
-                Debug.Log("false");
                 return false;
             }
         }
-        Debug.Log("true");
         return true;
     }
     IEnumerator ExampleCoroutine()
     {
-        yield return new WaitForSeconds(2f);
+        for(int i=0;i<Buttons.Length;i++)
+            Buttons[i].enabled=false;
+        
+        yield return new WaitForSeconds(timefloat);
         for(int i=0;i<RandomColors.Count;i++)
         {
             Leds[RandomColors[i]].SetActive(true);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(timefloat);
             Leds[RandomColors[i]].SetActive(false);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(timefloat);
         }
+        for(int i=0;i<Buttons.Length;i++)
+            Buttons[i].enabled=true;
     }
     
 }

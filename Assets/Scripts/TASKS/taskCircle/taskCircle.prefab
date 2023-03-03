@@ -440,7 +440,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &1667372286207240061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,6 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c7b936a0c8a5f04393a0cef6cfad272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   job: {fileID: 1667372286336770946}
   left: {fileID: 1667372286478306260}
   right: {fileID: 1667372286702637431}
@@ -1282,6 +1283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   job: {fileID: 1667372286336770946}
   hackPanel: {fileID: 1667372287486054701}
+  player: {fileID: 0}
 --- !u!1 &2009409809216609099
 GameObject:
   m_ObjectHideFlags: 0

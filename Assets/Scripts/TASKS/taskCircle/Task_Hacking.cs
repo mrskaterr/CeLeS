@@ -32,9 +32,9 @@ public class Task_Hacking : TaskLogic
     IEnumerator Complete()
     {
         player.GetComponent<JobHandler>().VarTask=true;
-                    player.GetComponent<NetworkCharacterController>().enabled=true;
-            player.GetComponent<CharacterController>().enabled=true;
-            player.GetComponent<CharacterMovementHandler>().enabled=true;;
+        player.GetComponent<NetworkCharacterController>().enabled=true;
+        player.GetComponent<CharacterController>().enabled=true;
+        player.GetComponent<CharacterMovementHandler>().enabled=true;;
         yield return new WaitForSeconds(.5f);
         hackPanel.SetActive(false);
     }

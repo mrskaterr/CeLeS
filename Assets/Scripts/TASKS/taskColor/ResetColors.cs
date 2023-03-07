@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResetColors : MonoBehaviour
+public class ResetColors : MonoBehaviour, IInteractable
 {
-    [SerializeField] GameObject PanelLeds;
-    void OnCollisionEnter(Collision collision)
+    [SerializeField] TaskRemeberColor PanelLeds;
+    public void Interact(GameObject @object)
     {
         GetComponent<AudioSource>().Play();
         Debug.Log("reset");
-        PanelLeds.GetComponent<TaskRemeberColor>().ResetColor();
+        PanelLeds.ResetColor();
     }
 }

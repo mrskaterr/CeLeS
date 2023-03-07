@@ -15,7 +15,11 @@ C:/Users/Waweł/Documents/UnityProject/Pituita
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
+<<<<<<< HEAD
+62439
+=======
 62046
+>>>>>>> paw
 Successfully changed project path to: C:/Users/Waweł/Documents/UnityProject/Pituita
 C:/Users/Waweł/Documents/UnityProject/Pituita
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +51,11 @@ C:/Users/Waweł/Documents/UnityProject/Pituita
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
+<<<<<<< HEAD
+Refreshing native plugins compatible for Editor in 128.02 ms, found 4 plugins.
+=======
 Refreshing native plugins compatible for Editor in 120.30 ms, found 4 plugins.
+>>>>>>> paw
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.4f1 (cb45f9cae8b7)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity 2021.3.4f1/Editor/Data/Resources/UnitySubsystems
@@ -63,6 +71,21 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity 2021.3.4f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity 2021.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity 2021.3.4f1/Editor/Data/MonoBleedingEdge/etc'
+<<<<<<< HEAD
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56688
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity 2021.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.004913 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 130.38 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.707 seconds
+Domain Reload Profiling:
+	ReloadAssembly (708ms)
+		BeginReloadAssembly (74ms)
+=======
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56912
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
@@ -76,11 +99,28 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (667ms)
 		BeginReloadAssembly (72ms)
+>>>>>>> paw
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
+<<<<<<< HEAD
+		EndReloadAssembly (526ms)
+			LoadAssemblies (72ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (106ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (329ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (130ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (141ms)
+				ProcessInitializeOnLoadMethodAttributes (49ms)
+=======
 		EndReloadAssembly (491ms)
 			LoadAssemblies (69ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
@@ -95,17 +135,31 @@ Domain Reload Profiling:
 				BeforeProcessingInitializeOnLoad (1ms)
 				ProcessInitializeOnLoadAttributes (139ms)
 				ProcessInitializeOnLoadMethodAttributes (42ms)
+>>>>>>> paw
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
+<<<<<<< HEAD
+Registered in 0.017066 seconds.
+=======
 Registered in 0.017313 seconds.
+>>>>>>> paw
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\Waweł\Documents\UnityProject\Pituita\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\Waweł\Documents\UnityProject\Pituita\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Native extension for WindowsStandalone target not found
+<<<<<<< HEAD
+Refreshing native plugins compatible for Editor in 174.19 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.185 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2186ms)
+		BeginReloadAssembly (128ms)
+=======
 Refreshing native plugins compatible for Editor in 132.20 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
@@ -113,10 +167,28 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (1843ms)
 		BeginReloadAssembly (115ms)
+>>>>>>> paw
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
+			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
+<<<<<<< HEAD
+			CreateAndSetChildDomain (20ms)
+		EndReloadAssembly (1909ms)
+			LoadAssemblies (138ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (395ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (111ms)
+			SetupLoadedEditorAssemblies (1207ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (174ms)
+				BeforeProcessingInitializeOnLoad (146ms)
+				ProcessInitializeOnLoadAttributes (825ms)
+				ProcessInitializeOnLoadMethodAttributes (50ms)
+=======
 			CreateAndSetChildDomain (23ms)
 		EndReloadAssembly (1603ms)
 			LoadAssemblies (109ms)
@@ -132,6 +204,7 @@ Domain Reload Profiling:
 				BeforeProcessingInitializeOnLoad (142ms)
 				ProcessInitializeOnLoadAttributes (688ms)
 				ProcessInitializeOnLoadMethodAttributes (44ms)
+>>>>>>> paw
 				AfterProcessingInitializeOnLoad (7ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
@@ -140,12 +213,20 @@ Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+<<<<<<< HEAD
+Refreshing native plugins compatible for Editor in 2.69 ms, found 4 plugins.
+=======
 Refreshing native plugins compatible for Editor in 1.22 ms, found 4 plugins.
+>>>>>>> paw
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 5833 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 66 unused Assets / (0.7 MB). Loaded Objects now: 6305.
 Memory consumption went from 233.6 MB to 232.9 MB.
+<<<<<<< HEAD
+Total: 4.633600 ms (FindLiveObjects: 0.515700 ms CreateObjectMapping: 0.549900 ms MarkObjects: 3.240400 ms  DeleteObjects: 0.326700 ms)
+=======
 Total: 4.204300 ms (FindLiveObjects: 0.562800 ms CreateObjectMapping: 0.558700 ms MarkObjects: 2.684000 ms  DeleteObjects: 0.397200 ms)
+>>>>>>> paw
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -159,6 +240,66 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+<<<<<<< HEAD
+  Time since last request: 12263.876029 seconds.
+  path: Assets/Scenes/paw.unity
+  artifactKey: Guid(166e6d25b92d80c488dc26cc31f08b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/paw.unity using Guid(166e6d25b92d80c488dc26cc31f08b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd3d214ecf6aa224835542497597fc00') in 0.010982 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Environment
+  artifactKey: Guid(9f72e7ff2e5df004c8ecf63153293feb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Environment using Guid(9f72e7ff2e5df004c8ecf63153293feb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbe85c743d38fa4f362cc39dcc6e9b37') in 0.001480 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Scenes/Game.unity
+  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Game.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e1f8ec709cf7f51d26375203dd1b082') in 0.001621 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Scenes/Menu.unity
+  artifactKey: Guid(e5365b335280792488025545d72dc612) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Menu.unity using Guid(e5365b335280792488025545d72dc612) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '590c0cbc76acaef8d91570755884e789') in 0.001649 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 92.153571 seconds.
+  path: Assets/PlayFabSDK
+  artifactKey: Guid(e53d5e839d5caa945b9b859abe15689b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PlayFabSDK using Guid(e53d5e839d5caa945b9b859abe15689b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6056f5f33e66f78d0c03849a08e29d91') in 0.001618 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 104.452441 seconds.
+  path: Assets/Audio
+  artifactKey: Guid(a169f17edcc9788478ea1f2e48051c0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio using Guid(a169f17edcc9788478ea1f2e48051c0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3719a6b04a1a7abb7db571febff9f75f') in 0.002043 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.703572 seconds.
+  path: Assets/20 Logos PSD
+  artifactKey: Guid(e2feb76a0c7c59240ae49612ae0aa985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/20 Logos PSD using Guid(e2feb76a0c7c59240ae49612ae0aa985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf078b1011a6a3a7bdc22d30a7530795') in 0.001371 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.479805 seconds.
+  path: Assets/Materials
+  artifactKey: Guid(eadb26d214b118044b9720aa9efd9a2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials using Guid(eadb26d214b118044b9720aa9efd9a2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e76835307e7a6a9fa5d3a5f67961718') in 0.001732 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 17.185800 seconds.
+  path: Assets/Scenes/Game 1.unity
+  artifactKey: Guid(2cf0f593833769541ac046e946ec61cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Game 1.unity using Guid(2cf0f593833769541ac046e946ec61cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8a520fcdd6c159b52fd6a581c90d6f7') in 0.002020 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.017945 seconds.
+  path: Assets/Scenes/Game 2.unity
+  artifactKey: Guid(b4faf6ddee67bb64787df4d791c9e4ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Game 2.unity using Guid(b4faf6ddee67bb64787df4d791c9e4ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8058ccf516a84c97161bcb3915bfaa47') in 0.001414 seconds 
+=======
   Time since last request: 92846.146051 seconds.
   path: Assets/JobHandler.cs
   artifactKey: Guid(3cbf6fccf7bd79d4685550660be2f3d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
@@ -293,3 +434,4 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+>>>>>>> paw

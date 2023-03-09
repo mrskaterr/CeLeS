@@ -9,11 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-<<<<<<< HEAD
     <ProjectGuid>{fc6b396e-f2d3-8c94-b235-a646e30b0f83}</ProjectGuid>
-=======
-    <ProjectGuid>{6E396BFC-D3F2-948C-B235-A646E30B0F83}</ProjectGuid>
->>>>>>> Dave
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
@@ -25,17 +21,8 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>Temp\Bin\Debug\</OutputPath>
-    <DefineConstants>UNITY_2021_3_4;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;FUSION_WEAVER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>Temp\bin\Release\</OutputPath>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_2021_3_4;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;FUSION_WEAVER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -48,54 +35,53 @@
     <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
-<<<<<<< HEAD
   <ItemGroup>
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionStats\FusionGraphBase.cs" />
-     <Compile Include="Assets\Plugins\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionUnityLogger.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\PlayerSpawnPointPrototype.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\AreaOfInterest\PlayerAOIPrototype.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionBurstIntegration.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\ToggleRunnerProvideInput.cs" />
-     <Compile Include="Assets\Plugins\Local FPS\PlayerCam.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkSceneManagerBase.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\ISpawnPointPrototype.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\SpawnPointManagerPrototype.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionRuntimeCheck.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Assistants\FusionAssistants.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\BurstDeltaCompressor.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkDebugStartGUI.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionStats\FusionStatsUtilities.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Prefabs\FusionPrototypingPrefabs.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkDebugStart.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\ControllerPrototype.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\PlayerSpawnerPrototype.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\CommonSceneObject.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionStats\FusionGraphBase.cs" />
+     <Compile Include="Assets\Plugins\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionProfiler.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionStats\FusionStatsBillboard.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\ToggleRunnerVisibility.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionStats\FusionStatsMeterBar.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionPhotonClientSocket.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\InputBehaviourPrototype.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionUnityLogger.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Assistants\FusionSceneSetupAssistants.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Utilities\FusionPrototypingAssetUtils.cs" />
      <Compile Include="Assets\Plugins\DecorateFoldout\Attributes\FoldAttribute.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\PlayerSpawnPointPrototype.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\AreaOfInterest\PlayerAOIPrototype.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Materials\FusionPrototypingTextures.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionStats.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Utilities\FusionEditorUtilitiesExternal.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionBurstIntegration.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\ToggleRunnerProvideInput.cs" />
      <Compile Include="Assets\Plugins\Local FPS\LocalPlayerMovement.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkRunnerExtensions.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionStats\FusionStatsObjectIds.cs" />
+     <Compile Include="Assets\Plugins\Local FPS\PlayerCam.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Utilities\NetworkProjectUtilities.cs" />
      <Compile Include="Assets\Plugins\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\SpawnerPrototypeT.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkSceneManagerBase.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkCharacterControllerPrototype.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\ISpawnPointPrototype.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\SpawnPointManagerPrototype.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\ISpawnPointManagerPrototypeT.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionRuntimeCheck.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Materials\FusionPrototypeMaterials.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Assistants\FusionAssistants.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\BurstDeltaCompressor.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkDebugStartGUI.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionStats\FusionStatsUtilities.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Prefabs\FusionPrototypingPrefabs.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Utilities\BoundsTools.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkSceneManagerDefault.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkDebugStart.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Utilities\FusionScalableIMGUI.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\PlayerSpawnPointManagerPrototype.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\ControllerPrototype.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionGraph.cs" />
      <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Plugins\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
@@ -131,115 +117,6 @@
      <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity 2021.3.4f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
-=======
-  <PropertyGroup>
-    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.15</UnityProjectGeneratorVersion>
-    <UnityProjectType>GamePlugins:3</UnityProjectType>
-    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
-    <UnityVersion>2021.3.4f1</UnityVersion>
-  </PropertyGroup>
-  <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\PlayerSpawnerPrototype.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\CommonSceneObject.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionStats\FusionGraphBase.cs" />
-    <Compile Include="Assets\Plugins\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionProfiler.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionStats\FusionStatsBillboard.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\ToggleRunnerVisibility.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionStats\FusionStatsMeterBar.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionPhotonClientSocket.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\InputBehaviourPrototype.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionUnityLogger.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Assistants\FusionSceneSetupAssistants.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Utilities\FusionPrototypingAssetUtils.cs" />
-    <Compile Include="Assets\Plugins\DecorateFoldout\Attributes\FoldAttribute.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\PlayerSpawnPointPrototype.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\AreaOfInterest\PlayerAOIPrototype.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Materials\FusionPrototypingTextures.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionStats.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Utilities\FusionEditorUtilitiesExternal.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionBurstIntegration.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\ToggleRunnerProvideInput.cs" />
-    <Compile Include="Assets\Plugins\Local FPS\LocalPlayerMovement.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkRunnerExtensions.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionStats\FusionStatsObjectIds.cs" />
-    <Compile Include="Assets\Plugins\Local FPS\PlayerCam.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Utilities\NetworkProjectUtilities.cs" />
-    <Compile Include="Assets\Plugins\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\SpawnerPrototypeT.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkSceneManagerBase.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkCharacterControllerPrototype.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\ISpawnPointPrototype.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\SpawnPointManagerPrototype.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\ISpawnPointManagerPrototypeT.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionRuntimeCheck.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Materials\FusionPrototypeMaterials.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Assistants\FusionAssistants.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\BurstDeltaCompressor.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkDebugStartGUI.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionStats\FusionStatsUtilities.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Prefabs\FusionPrototypingPrefabs.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Utilities\BoundsTools.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkSceneManagerDefault.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\NetworkDebugStart.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\Utilities\FusionScalableIMGUI.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\SpawnPoints\PlayerSpawnPointManagerPrototype.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Prototyping\ControllerPrototype.cs" />
-    <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\FusionGraph.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\Plugins\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Common.xml" />
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Sockets.xml" />
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Realtime.xml" />
-    <None Include="Assets\Plugins\Photon\PhotonLibs\WebSocket\websocket-sharp.dll" />
-    <None Include="Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Common.dll" />
-    <None Include="Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Runtime.xml" />
-    <None Include="Assets\Plugins\Photon\Fusion\Plugins\NanoSockets\NanoSockets\Static\NanoSockets.dll" />
-    <None Include="Assets\Plugins\Photon\Fusion\Resources\ConfigAssetsFolder.txt" />
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Sockets.dll" />
-    <None Include="Assets\Plugins\Photon\Fusion\release_history.txt" />
-    <None Include="Assets\Plugins\Photon\Fusion\Plugins\NanoSockets\NanoSockets\Dynamic\NanoSockets.dll" />
-    <None Include="Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Runtime.dll" />
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\Plugins\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets\Plugins\Photon\PhotonLibs\changes-library.txt" />
-    <None Include="Assets\Plugins\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\Plugins\Photon\Fusion\Resources\FusionGraphShader.shader" />
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\Plugins\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll" />
-    <None Include="Assets\Plugins\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\Plugins\Photon\Fusion\Plugins\NanoSockets\Windows\nanosockets.dll" />
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\Plugins\Photon\Fusion\build_info.txt" />
-    <None Include="Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Realtime.dll" />
-    <None Include="Assets\Plugins\Photon\Fusion\Plugins\NanoSockets\WebGL\NanoSockets.dll" />
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\Plugins\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\Plugins\Borodar\RainbowFolders\NOTICES.txt" />
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_Sprite.shader" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="UnityEngine">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.4f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
->>>>>>> Dave
     </Reference>
     <Reference Include="UnityEngine.AIModule">
         <HintPath>C:\Program Files\Unity 2021.3.4f1\Editor\Data\Managed\UnityEngine\UnityEngine.AIModule.dll</HintPath>
@@ -479,7 +356,6 @@
         <HintPath>C:\Program Files\Unity 2021.3.4f1\Editor\Data\Managed\UnityEngine\UnityEditor.UIServiceModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UnityConnectModule">
-<<<<<<< HEAD
         <HintPath>C:\Program Files\Unity 2021.3.4f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="NanoSockets">
@@ -532,60 +408,6 @@
     </Reference>
     <Reference Include="netstandard">
         <HintPath>C:\Program Files\Unity 2021.3.4f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
-=======
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.4f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
-    </Reference>
-    <Reference Include="NanoSockets">
-      <HintPath>Assets\Plugins\Photon\Fusion\Plugins\NanoSockets\NanoSockets\Dynamic\NanoSockets.dll</HintPath>
-    </Reference>
-    <Reference Include="Photon3Unity3D">
-      <HintPath>Assets\Plugins\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Cecil.Pdb">
-      <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
-    </Reference>
-    <Reference Include="ReportGeneratorMerged">
-      <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.0.1\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>Assets\Plugins\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Fusion.Common">
-      <HintPath>Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Unsafe">
-      <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Cecil.Mdb">
-      <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Fusion.Sockets">
-      <HintPath>Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Sockets.dll</HintPath>
-    </Reference>
-    <Reference Include="Fusion.Realtime">
-      <HintPath>Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Realtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Cecil">
-      <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="Fusion.Runtime">
-      <HintPath>Assets\Plugins\Photon\Fusion\Assemblies\Fusion.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Cecil.Rocks">
-      <HintPath>Library\PackageCache\com.unity.burst@1.6.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@1.10.2\Mono.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="netstandard">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.4f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
->>>>>>> Dave
     </Reference>
     <Reference Include="Microsoft.Win32.Primitives">
         <HintPath>C:\Program Files\Unity 2021.3.4f1\Editor\Data\NetStandard\compat\2.1.0\shims\netstandard\Microsoft.Win32.Primitives.dll</HintPath>
@@ -948,7 +770,6 @@
         <HintPath>C:\Program Files\Unity 2021.3.4f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Serialization">
-<<<<<<< HEAD
         <HintPath>C:\Program Files\Unity 2021.3.4f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
@@ -974,9 +795,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder">
-        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.ProBuilder.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
@@ -1014,9 +832,6 @@
     <Reference Include="PPv2URPConverters">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.ProBuilder.AddOns.Editor">
-        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
@@ -1037,9 +852,6 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.Editor">
-        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.ProBuilder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
@@ -1065,9 +877,6 @@
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
     </Reference>
@@ -1088,137 +897,10 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-=======
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.4f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="PPv2URPConverters">
-      <HintPath>Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Searcher.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics">
-      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core">
-      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core.Analytics">
-      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst">
-      <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core.Environments">
-      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
->>>>>>> Dave
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="PlayFabSDKEditor.csproj">
-<<<<<<< HEAD
       <Project>{51fa49e9-09a2-7a77-613b-949b2851f75c}</Project>
       <Name>PlayFabSDKEditor</Name>
     </ProjectReference>
@@ -1228,30 +910,18 @@
     </ProjectReference>
     <ProjectReference Include="Fusion.Addressables.csproj">
       <Project>{00833dad-df73-aaac-61ee-4827b26f286d}</Project>
-=======
-      <Project>{E949FA51-A209-777A-613B-949B2851F75C}</Project>
-      <Name>PlayFabSDKEditor</Name>
+      <Name>Fusion.Addressables</Name>
     </ProjectReference>
     <ProjectReference Include="PlayFabEditorExtensions.csproj">
-      <Project>{9F55A078-9074-1B93-AF94-3AA959845E42}</Project>
+      <Project>{78a0559f-7490-931b-af94-3aa959845e42}</Project>
       <Name>PlayFabEditorExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="PlayFab.csproj">
-      <Project>{77404A61-16BE-61AA-FC37-4824114D86D0}</Project>
+      <Project>{614a4077-be16-aa61-fc37-4824114d86d0}</Project>
       <Name>PlayFab</Name>
-    </ProjectReference>
-    <ProjectReference Include="Fusion.Editor.csproj">
-      <Project>{CA145FD2-7004-64A2-2526-DA865EF4BD62}</Project>
-      <Name>Fusion.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Fusion.Addressables.csproj">
-      <Project>{AD3D8300-73DF-ACAA-61EE-4827B26F286D}</Project>
->>>>>>> Dave
-      <Name>Fusion.Addressables</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

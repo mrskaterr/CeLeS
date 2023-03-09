@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Task_Hacking : TaskLogic
 {
-    [SerializeField] GameObject hackPanel;
+    [SerializeField] GameObject can;
     public GameObject player;
 
     public override void AllUHave2Do(GameObject _player)
@@ -17,12 +17,12 @@ public class Task_Hacking : TaskLogic
 
     private void Update()
     {
-        if (hackPanel.activeInHierarchy && Input.GetKeyDown(KeyCode.Q)) 
+        if (can.activeInHierarchy && Input.GetKeyDown(KeyCode.Q)) 
         {
-            player.GetComponent<NetworkCharacterController>().enabled=true;
-            player.GetComponent<CharacterController>().enabled=true;
-            player.GetComponent<CharacterMovementHandler>().enabled=true;;
-            hackPanel.SetActive(false);
+            // player.GetComponent<NetworkCharacterController>().enabled=true;
+            // player.GetComponent<CharacterController>().enabled=true;
+            // player.GetComponent<CharacterMovementHandler>().enabled=true;;
+            can.SetActive(false);
         }
         else if(!job.active)
         {
@@ -31,12 +31,12 @@ public class Task_Hacking : TaskLogic
     }
     IEnumerator Complete()
     {
-        player.GetComponent<JobHandler>().VarTask=true;
-        player.GetComponent<NetworkCharacterController>().enabled=true;
-        player.GetComponent<CharacterController>().enabled=true;
-        player.GetComponent<CharacterMovementHandler>().enabled=true;;
+        // player.GetComponent<JobHandler>().VarTask=true;
+        // player.GetComponent<NetworkCharacterController>().enabled=true;
+        // player.GetComponent<CharacterController>().enabled=true;
+        // player.GetComponent<CharacterMovementHandler>().enabled=true;;
         yield return new WaitForSeconds(.5f);
-        hackPanel.SetActive(false);
+        can.SetActive(false);
     }
 
 }

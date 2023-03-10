@@ -56,6 +56,7 @@
      <Compile Include="Assets\dontdestroy.cs" />
      <Compile Include="Assets\JobHandler.cs" />
      <Compile Include="Assets\Scripts\Utils.cs" />
+     <Compile Include="Assets\Generator_Panel.cs" />
      <Compile Include="Assets\Scripts\UserInfoPrefab.cs" />
      <Compile Include="Assets\Scripts\TASKS\taskColor\ResetColors.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
@@ -86,7 +87,7 @@
      <Compile Include="Assets\Scripts\LoadingCanvas.cs" />
      <Compile Include="Assets\Scripts\backgroundMove.cs" />
      <Compile Include="Assets\Scripts\CharacterMovementHandler.cs" />
-     <Compile Include="Assets\Generator_Panel.cs" />
+     <Compile Include="Assets\Words_Panel.cs" />
      <None Include="Assets\20 Logos PSD\Fonts\chunkfiveex\SIL Open Font License 1.1.txt" />
      <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />
      <None Include="Assets\20 Logos PSD\Fonts\kaushanscript\SIL Open Font License.txt" />

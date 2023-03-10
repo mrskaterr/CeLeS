@@ -19,4 +19,9 @@ public class NetworkRunnerHandler : MonoBehaviour
         networkRunner = Instantiate(networkRunnerPrefab);
         networkRunner.name = $"NR: {_playerName}";
     }
+
+    public void GiveRole(int _index)
+    {
+        networkRunner.GetComponent<PlayerNetworkEventsHandler>().roleIndex = _index;
+    }
 }

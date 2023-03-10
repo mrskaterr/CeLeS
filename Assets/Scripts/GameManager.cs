@@ -1,17 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityInspector;
 
 public class GameManager : MonoBehaviour
 {
-    private void Start()
+    public static GameManager instance;
+
+    [HideInInspector] public MissionManager missionManager;
+
+    private void Awake()
     {
-        StartCoroutine(CloseLoading());
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else { instance = this; }
+
+        missionManager = GetComponent<MissionManager>();
     }
 
-    private IEnumerator CloseLoading()
+    private void Start()
     {
-        yield return new WaitForSeconds(1);
+        Invoke(nameof(EndLoading), 1);
+    }
+
+    private void EndLoading()
+    {
         LoadingCanvas.SetActive(false);
     }
 }

@@ -1,6 +1,7 @@
 using Fusion;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityInspector;
@@ -16,13 +17,11 @@ public class LobbyManagerV2 : MonoBehaviour
 
     private GameMap gameMap = GameMap.Restaurant;
     private GameTime gameTime = GameTime.Fifteen;
-    private int huntersAmount = 2;
-    private int hidersAmount = 3;
 
-    private int prefRole = 0;
+    public PreferredRoleType preferredRoleType = PreferredRoleType.None;
 
-    private const string cp_huntersSlots = "isTeamFull_Hunters";
-    private const string cp_hidersSlots = "isTeamFull_Hiders";
+    private const string propertyName_hidersSlots = "hidersSlots";
+    private const string propertyName_huntersSlots = "huntersSlots";
 
     private void Awake()
     {
@@ -47,11 +46,6 @@ public class LobbyManagerV2 : MonoBehaviour
         var joinLobby = JoinLobby(runnerHandler.networkRunner, $"PH");
     }
 
-    public void SetPreferredRole(int _index)
-    {
-        prefRole = _index;
-    }
-
     public void JoinOrCreateSession()
     {
         switch (isThereMatchingLobby)
@@ -63,6 +57,11 @@ public class LobbyManagerV2 : MonoBehaviour
                 var join = JoinSession(runnerHandler.networkRunner);
                 break;
         }
+    }
+
+    public void QuickGame()
+    {
+        var create = QuickSession(runnerHandler.networkRunner);
     }
 
     private async Task JoinLobby(NetworkRunner _runner, string _lobbyName)
@@ -86,14 +85,15 @@ public class LobbyManagerV2 : MonoBehaviour
 
         customProps["map"] = (int)gameMap;
         customProps["time"] = (int)gameTime;
-        customProps["hunters"] = huntersAmount;
-        customProps["hiders"] = hidersAmount;
+        //customProps["hunters"] = huntersAmount;
+        //customProps["hiders"] = hidersAmount;
 
         var result = await _runner.StartGame(new StartGameArgs()
         {
             SessionName = UIm.GetInputText_SessionName(),
             GameMode = GameMode.Shared,//FFS
             SessionProperties = customProps,
+            PlayerCount = 6,
             //CustomLobbyName = _lobbyName,
             SceneManager = _runner.gameObject.AddComponent<NetworkSceneManagerDefault>(),
         });
@@ -129,6 +129,114 @@ public class LobbyManagerV2 : MonoBehaviour
         }
     }
 
+    private async Task QuickSession(NetworkRunner _runner)
+    {
+        StartGameResult result;
+
+        if (preferredRoleType == PreferredRoleType.None)
+        {
+            result = await _runner.StartGame(new StartGameArgs()
+            {
+                GameMode = GameMode.Shared,
+                PlayerCount = 6,
+                SceneManager = _runner.gameObject.AddComponent<NetworkSceneManagerDefault>()
+            });
+        }
+        else
+        {
+            string matchName = Search4QuickSession();
+            if(matchName == string.Empty)
+            {
+                result = await _runner.StartGame(new StartGameArgs()
+                {
+                    GameMode = GameMode.Shared,
+                    PlayerCount = 6,
+                    SceneManager = _runner.gameObject.AddComponent<NetworkSceneManagerDefault>()
+                });
+            }
+            else
+            {
+                result = await _runner.StartGame(new StartGameArgs()
+                {
+                    SessionName = matchName,
+                    GameMode = GameMode.Shared,
+                    PlayerCount = 6,
+                    SceneManager = _runner.gameObject.AddComponent<NetworkSceneManagerDefault>()
+                });
+            }
+        }
+
+        if (result.Ok)
+        {
+            var properties = runnerHandler.networkRunner.SessionInfo.Properties;
+            int huntersAmount = 0;
+            int hidersAmount = 0;
+
+            if (properties.ContainsKey(propertyName_huntersSlots)) { huntersAmount = properties[propertyName_huntersSlots]; }
+            if (properties.ContainsKey(propertyName_hidersSlots)) { hidersAmount = properties[propertyName_hidersSlots]; }
+
+            if (huntersAmount == 3)
+            {
+                runnerHandler.GiveRole(2);
+                UIm.SwapRolePanel(2);
+                _runner.GetComponent<PlayerNetworkEventsHandler>().roleIndex = 2;
+            }
+            else if (hidersAmount == 3)
+            {
+                runnerHandler.GiveRole(1);
+                UIm.SwapRolePanel(1);
+                _runner.GetComponent<PlayerNetworkEventsHandler>().roleIndex = 1;
+            }
+            else
+            {
+                int roleIndex = (int)preferredRoleType;
+                if(roleIndex == 0)
+                {
+                    roleIndex = Random.Range(1, 3);
+                    preferredRoleType = (PreferredRoleType) roleIndex;
+                }
+                runnerHandler.GiveRole(roleIndex);
+                UIm.SwapRolePanel(roleIndex);
+                _runner.GetComponent<PlayerNetworkEventsHandler>().roleIndex = roleIndex;
+            }
+            UIm.SetSection_PublicGame();
+
+            SessionInfo session = _runner.SessionInfo;
+            var customProps = new Dictionary<string, SessionProperty>();
+
+            if ((int)preferredRoleType == 1)
+            {
+                customProps["huntersSlots"] = CreateProperty(session.Properties, "huntersSlots") + 1;
+                customProps["hidersSlots"] = CreateProperty(session.Properties, "hidersSlots");
+            }
+            else
+            {
+                customProps["huntersSlots"] = CreateProperty(session.Properties, "huntersSlots");
+                customProps["hidersSlots"] = CreateProperty(session.Properties, "hidersSlots") + 1;
+            }
+
+            session.UpdateCustomProperties(customProps);
+
+            Debug.Log("Joined Room");
+        }
+        else
+        {
+            Debug.LogError($"Failed to Start: {result.ShutdownReason}");
+        }
+    }
+
+    private int CreateProperty(ReadOnlyDictionary<string, SessionProperty> _properties, string _name)
+    {
+        if (_properties.ContainsKey(_name))
+        {
+            return _properties[_name];
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
     private bool Search4Session(string _name)
     {
         for (int i = 0; i < sessions.Count; i++)
@@ -136,6 +244,41 @@ public class LobbyManagerV2 : MonoBehaviour
             if (sessions[i].Name == _name) { return true; }
         }
         return false;
+    }
+
+    private string Search4QuickSession()
+    {
+        List<SessionInfo> matches = new List<SessionInfo>();
+
+        switch (preferredRoleType)
+        {
+            case PreferredRoleType.None:
+                return string.Empty;
+            case PreferredRoleType.Hunters:
+                for (int i = 0; i < sessions.Count; i++)
+                {
+                    if (sessions[i].Properties[propertyName_huntersSlots] < 3 && sessions[i].PlayerCount < 6)
+                    {
+                        matches.Add(sessions[i]);
+                        continue;
+                    }
+                }
+                break;
+            case PreferredRoleType.Hiders:
+                for (int i = 0; i < sessions.Count; i++)
+                {
+                    if (sessions[i].Properties[propertyName_hidersSlots] < 3 && sessions[i].PlayerCount < 6)
+                    {
+                        matches.Add(sessions[i]);
+                        continue;
+                    }
+                }
+                break;
+        }
+
+        if(matches.Count == 0) { return string.Empty; }
+
+        return matches[0].Name;//TODO: sort by playersAmount
     }
 
     public void ChangeNetworkScene(int _index)
@@ -148,7 +291,7 @@ public class LobbyManagerV2 : MonoBehaviour
         NetworkRunner runner = runnerHandler.networkRunner;
         if(runner.LocalPlayer == RPCManager.Local.owner)
         {
-            var avatar = runner.Spawn(RPCManager.Local.PlayerAvatar(), Vector3.up + Vector3.one * Random.Range(0f, 2f), Quaternion.identity, RPCManager.Local.owner);
+            var avatar = runner.Spawn(RPCManager.Local.PlayerAvatar(), Vector3.up * 100 + Vector3.one * Random.Range(0f, 2f), Quaternion.identity, RPCManager.Local.owner);//TODO: lock gravity & movement
             //DontDestroyOnLoad(avatar);
             runner.SetPlayerObject(runner.LocalPlayer, avatar);
             return avatar;
@@ -185,6 +328,13 @@ public class LobbyManagerV2 : MonoBehaviour
         return true;
     }
 
+    //Quick game stuff
+
+    public void SetPreferredRole(int _index)
+    {
+        preferredRoleType = (PreferredRoleType) _index;
+    }
+
     #endregion
     #region Game Properties
 
@@ -192,8 +342,8 @@ public class LobbyManagerV2 : MonoBehaviour
     {
         gameMap = GetGameMap();
         gameTime = (GameTime)UIm.GetSelectedDuration();
-        huntersAmount = GetGameHuntersAmount();
-        hidersAmount = GetGameHidersAmount();
+        //huntersAmount = GetGameHuntersAmount();
+        //hidersAmount = GetGameHidersAmount();
     }
 
     private GameMap GetGameMap() => UIm.GetSelectedMap() switch
@@ -268,6 +418,13 @@ public class LobbyManagerV2 : MonoBehaviour
         Ten,
         Fifteen,
         TwentyFive
+    }
+
+    public enum PreferredRoleType : int
+    {
+        None = 0,
+        Hunters = 1,
+        Hiders = 2
     }
     #endregion
 }

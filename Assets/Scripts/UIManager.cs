@@ -36,6 +36,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject roomDetailsSection;
     [Space]
     [SerializeField] private GameObject quickGameSection;
+    [SerializeField] private GameObject publicRoomDetailsSection;
     [Foldout("Matchmaking", true)]
     [SerializeField] private Image preferredRoleIcon;
     [SerializeField] private Sprite[] preferredRoleSprites;
@@ -49,6 +50,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Dropdown huntersSelection;
     [SerializeField] private TMP_Dropdown hidersSelection;
     [SerializeField] private GameObject loadingIcon;
+    [Foldout("Quick Game", true)]
+    [SerializeField] private GameObject hunterPanel;
+    [SerializeField] private GameObject hiderPanel;
     [Foldout("Room Details", true)]
     [SerializeField] private TMP_Text roomNameTxt;
     [SerializeField] private TMP_Text mapNameTxt;
@@ -145,6 +149,7 @@ public class UIManager : MonoBehaviour
                 sessionDetailsSection.SetActive(!p);
                 roomDetailsSection.SetActive(!p);
                 quickGameSection.SetActive(!p);
+                publicRoomDetailsSection.SetActive(!p);
                 break;
             case WhichSection.Connect:
                 accountSection.SetActive(!p);
@@ -153,6 +158,7 @@ public class UIManager : MonoBehaviour
                 sessionDetailsSection.SetActive(!p);
                 roomDetailsSection.SetActive(!p);
                 quickGameSection.SetActive(!p);
+                publicRoomDetailsSection.SetActive(!p);
                 break;
             case WhichSection.Matchmaking:
                 accountSection.SetActive(!p);
@@ -161,6 +167,7 @@ public class UIManager : MonoBehaviour
                 sessionDetailsSection.SetActive(!p);
                 roomDetailsSection.SetActive(!p);
                 quickGameSection.SetActive(!p);
+                publicRoomDetailsSection.SetActive(!p);
                 break;
             case WhichSection.SessionDetails:
                 accountSection.SetActive(!p);
@@ -169,6 +176,7 @@ public class UIManager : MonoBehaviour
                 sessionDetailsSection.SetActive(p);
                 roomDetailsSection.SetActive(!p);
                 quickGameSection.SetActive(!p);
+                publicRoomDetailsSection.SetActive(!p);
                 break;
             case WhichSection.RoomDetails:
                 accountSection.SetActive(!p);
@@ -177,6 +185,7 @@ public class UIManager : MonoBehaviour
                 sessionDetailsSection.SetActive(!p);
                 roomDetailsSection.SetActive(p);
                 quickGameSection.SetActive(!p);
+                publicRoomDetailsSection.SetActive(!p);
                 break;
             case WhichSection.QuickGame:
                 accountSection.SetActive(!p);
@@ -185,6 +194,16 @@ public class UIManager : MonoBehaviour
                 sessionDetailsSection.SetActive(!p);
                 roomDetailsSection.SetActive(!p);
                 quickGameSection.SetActive(p);
+                publicRoomDetailsSection.SetActive(!p);
+                break;
+            case WhichSection.PublicRoomDetails:
+                accountSection.SetActive(!p);
+                connectSection.SetActive(!p);
+                matchmakingSection.SetActive(!p);
+                sessionDetailsSection.SetActive(!p);
+                roomDetailsSection.SetActive(!p);
+                quickGameSection.SetActive(!p);
+                publicRoomDetailsSection.SetActive(p);
                 break;
         }
     }
@@ -196,9 +215,10 @@ public class UIManager : MonoBehaviour
     public void SetSection_SessionDetails() { SwitchSection(WhichSection.SessionDetails); }
     public void SetSection_RoomDetails() { SwitchSection(WhichSection.RoomDetails); }
     public void SetSection_QuickGame() { SwitchSection(WhichSection.QuickGame); }
+    public void SetSection_PublicGame() { SwitchSection(WhichSection.PublicRoomDetails); }
 
     #endregion
-    public enum WhichSection { Account, Connect, Matchmaking, SessionDetails, RoomDetails, QuickGame }
+    public enum WhichSection { Account, Connect, Matchmaking, SessionDetails, RoomDetails, QuickGame, PublicRoomDetails }
 
     #endregion
     #region Connect
@@ -328,6 +348,23 @@ public class UIManager : MonoBehaviour
     private void ActiveRoleButton(int _index, bool _p)
     {
         roleButtons[_index].interactable = _p;
+    }
+
+    //Quick Game stuff
+
+    public void SwapRolePanel(int _index)
+    {
+        switch (_index)
+        {
+            case 1:
+                hunterPanel.SetActive(true);
+                hiderPanel.SetActive(false);
+                break;
+            case 2:
+                hunterPanel.SetActive(false);
+                hiderPanel.SetActive(true);
+                break;
+        }
     }
 
     #endregion

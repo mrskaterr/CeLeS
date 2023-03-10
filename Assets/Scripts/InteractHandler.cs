@@ -51,7 +51,7 @@ public class InteractHandler : MonoBehaviour
     }
 }
 
-interface IInteractable
+interface IInteractable//TOIMPROVE: change 4 virtual void
 {
     void Interact(GameObject @object);
 }

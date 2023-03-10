@@ -5,10 +5,12 @@ using Fusion;
 using Fusion.Sockets;
 using System;
 using UnityEngine.SceneManagement;
+using System.Collections.ObjectModel;
 
 public class PlayerNetworkEventsHandler : MonoBehaviour, INetworkRunnerCallbacks
 {
     private CharacterInputHandler inputHandler;
+    public int roleIndex = 0;
 
     public void OnConnectedToServer(NetworkRunner runner)
     {
@@ -61,13 +63,42 @@ public class PlayerNetworkEventsHandler : MonoBehaviour, INetworkRunnerCallbacks
     {
         if(runner.LocalPlayer == player)
         {
+            //SessionInfo session = runner.SessionInfo;
+            //var customProps = new Dictionary<string, SessionProperty>();
+
+            //if (roleIndex == 1)
+            //{
+            //    customProps["huntersSlots"] = CreateProperty(session.Properties, "huntersSlots") + 1;
+            //    customProps["hidersSlots"] = CreateProperty(session.Properties, "hidersSlots"); 
+            //}
+            //else
+            //{
+            //    Debug.Log(roleIndex);
+            //    customProps["huntersSlots"] = CreateProperty(session.Properties, "huntersSlots");
+            //    customProps["hidersSlots"] = CreateProperty(session.Properties, "hidersSlots") + 1;
+            //}
+
+            //session.UpdateCustomProperties(customProps);
+
             GetComponent<SpawnerV2>().SpawnPlayerParent(runner, player, $"Player {player.PlayerId}");
         }
     }
 
+    //private int CreateProperty(ReadOnlyDictionary<string,SessionProperty> _properties, string _name)
+    //{
+    //    if (_properties.ContainsKey(_name))
+    //    {
+    //        return _properties[_name];
+    //    }
+    //    else
+    //    {
+    //        return 0;
+    //    }
+    //}
+
     public void OnPlayerLeft(NetworkRunner runner, PlayerRef player)
     {
-        return;
+        
     }
 
     public void OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ArraySegment<byte> data)

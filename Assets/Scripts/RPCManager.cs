@@ -97,4 +97,10 @@ public class RPCManager : NetworkBehaviour
         BlobB,
         BlobC
     }
+
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RPC_GenerateRandomNumber()
+    {
+        Random.Range(0, 100);
+    }
 }

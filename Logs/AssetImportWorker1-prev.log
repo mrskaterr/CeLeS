@@ -15,7 +15,7 @@ C:/Users/micsz/Desktop/Pituita
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-61868
+62443
 Successfully changed project path to: C:/Users/micsz/Desktop/Pituita
 C:/Users/micsz/Desktop/Pituita
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/micsz/Desktop/Pituita
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 130.35 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 138.90 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.4f1 (cb45f9cae8b7)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.4f1/Editor/Data/Resources/UnitySubsystems
@@ -63,37 +63,37 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.4f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.4f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56196
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56928
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004854 seconds.
+Registered in 0.004093 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 135.24 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 188.48 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.749 seconds
+- Completed reload, in  0.840 seconds
 Domain Reload Profiling:
-	ReloadAssembly (750ms)
-		BeginReloadAssembly (69ms)
+	ReloadAssembly (840ms)
+		BeginReloadAssembly (70ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (575ms)
-			LoadAssemblies (67ms)
+		EndReloadAssembly (656ms)
+			LoadAssemblies (68ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (118ms)
+			SetupTypeCache (128ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (51ms)
-			SetupLoadedEditorAssemblies (339ms)
+			RebuildScriptCaches (34ms)
+			SetupLoadedEditorAssemblies (435ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (10ms)
+				InitializePlatformSupportModulesInManaged (8ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (135ms)
-				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (143ms)
+				RefreshPlugins (189ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (186ms)
 				ProcessInitializeOnLoadMethodAttributes (50ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
@@ -101,161 +101,10 @@ Domain Reload Profiling:
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.016959 seconds.
+Registered in 0.013381 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\micsz\Desktop\Pituita\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\micsz\Desktop\Pituita\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 131.25 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 133.54 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.150 seconds
-Domain Reload Profiling:
-	ReloadAssembly (2151ms)
-		BeginReloadAssembly (114ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (19ms)
-		EndReloadAssembly (1884ms)
-			LoadAssemblies (125ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (516ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (75ms)
-			SetupLoadedEditorAssemblies (1108ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (131ms)
-				BeforeProcessingInitializeOnLoad (178ms)
-				ProcessInitializeOnLoadAttributes (743ms)
-				ProcessInitializeOnLoadMethodAttributes (46ms)
-				AfterProcessingInitializeOnLoad (5ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (7ms)
-Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 1.03 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5765 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 65 unused Assets / (0.8 MB). Loaded Objects now: 6230.
-Memory consumption went from 232.5 MB to 231.7 MB.
-Total: 4.550700 ms (FindLiveObjects: 0.660300 ms CreateObjectMapping: 0.567100 ms MarkObjects: 3.003700 ms  DeleteObjects: 0.318300 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 1073701.266761 seconds.
-  path: Assets/Map/Modular Elements
-  artifactKey: Guid(e817ace74ae587f41ad32a06be61b3dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements using Guid(e817ace74ae587f41ad32a06be61b3dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7ef8747195304bd29147b0a5ac22a48') in 0.012890 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.012778 seconds.
-  path: Assets/Map/Modular Elements/Basement_Wall_L.fbx
-  artifactKey: Guid(88c645f13e1267746b1ceecb66a383e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements/Basement_Wall_L.fbx using Guid(88c645f13e1267746b1ceecb66a383e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '742e56a6235120e24bb5b29d5f56b016') in 0.358624 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000048 seconds.
-  path: Assets/Map/Modular Elements/Dining_WindowWall_L.fbx
-  artifactKey: Guid(1f73ca89455cf8f4f9b7376370c0963e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements/Dining_WindowWall_L.fbx using Guid(1f73ca89455cf8f4f9b7376370c0963e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3053212aa7e764696f40d6f7eb26244c') in 0.046286 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/Map/Modular Elements/Dining_WindowWall_XL.fbx
-  artifactKey: Guid(6451381f75069d04b90a45c96750b3b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements/Dining_WindowWall_XL.fbx using Guid(6451381f75069d04b90a45c96750b3b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1c22aaa3aa2272c4b22d38b0ec48845') in 0.061681 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3332.785733 seconds.
-  path: Assets/Map/Modular Elements/Dining_CornerWall_S.fbx
-  artifactKey: Guid(6ed59b5795a694848a9a1b359874842c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements/Dining_CornerWall_S.fbx using Guid(6ed59b5795a694848a9a1b359874842c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29e69ffa3c580373c960733bc154f512') in 0.059206 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000043 seconds.
-  path: Assets/Map/Modular Elements/MainEntrance.fbx
-  artifactKey: Guid(7b01191ad71c6a046a916407d86f879f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements/MainEntrance.fbx using Guid(7b01191ad71c6a046a916407d86f879f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39bbc66968a71102fac059ff3194f0e7') in 0.020483 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.835179 seconds.
-  path: Assets/Map/Modular Elements/Basement_Wall_L 1.fbx
-  artifactKey: Guid(f8e48fb6c3ca5b24883041280eebf469) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements/Basement_Wall_L 1.fbx using Guid(f8e48fb6c3ca5b24883041280eebf469) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84a35f7d1a6e9c197ed22cc96fdbe457') in 0.058913 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000054 seconds.
-  path: Assets/Map/Modular Elements/Basement_Wall_S 1.fbx
-  artifactKey: Guid(40464a7df28dd284ba5e5431fbed9ee0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements/Basement_Wall_S 1.fbx using Guid(40464a7df28dd284ba5e5431fbed9ee0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f77618cc6a583b540c6323fd5337afa2') in 0.033385 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2621.090344 seconds.
-  path: Assets/Map/Modular Elements/DiningRoom/Dining_BlankWall_S.fbx
-  artifactKey: Guid(89f0d3a2145deb441b8c6d8c60c6bce2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements/DiningRoom/Dining_BlankWall_S.fbx using Guid(89f0d3a2145deb441b8c6d8c60c6bce2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a61bea567a01f9712e2aac5e98f82ca3') in 0.034903 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000056 seconds.
-  path: Assets/Map/Modular Elements/DiningRoom/Dining_CornerWall_L.fbx
-  artifactKey: Guid(21c8dd124f3ef1944a6b0bddd4e9be2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements/DiningRoom/Dining_CornerWall_L.fbx using Guid(21c8dd124f3ef1944a6b0bddd4e9be2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '290e404c15596fbb13767a54395e6711') in 0.032284 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000063 seconds.
-  path: Assets/Map/Modular Elements/DiningRoom/Dining_WindowWall_XL.fbx
-  artifactKey: Guid(6e0fd56b4409faa4492d7d6b40095374) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements/DiningRoom/Dining_WindowWall_XL.fbx using Guid(6e0fd56b4409faa4492d7d6b40095374) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eab8832acb061bab72c4e18d03803b0c') in 0.043748 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Map/Modular Elements/DiningRoom/Dining_Wall_XL.fbx
-  artifactKey: Guid(605f6e3529695b841b01a02f9ebd1028) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements/DiningRoom/Dining_Wall_XL.fbx using Guid(605f6e3529695b841b01a02f9ebd1028) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e06e8eb05bdc206b74b03902a008bf8') in 0.041505 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000040 seconds.
-  path: Assets/Map/Modular Elements/DiningRoom/Dining_BlankWall_XL.fbx
-  artifactKey: Guid(4d9f6db9d807f144ca1a414d13583a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements/DiningRoom/Dining_BlankWall_XL.fbx using Guid(4d9f6db9d807f144ca1a414d13583a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f691912fe7272804566dc112b3c0470') in 0.030929 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 317.300014 seconds.
-  path: Assets/Map/Modular Elements/Basement/Basement_Wall_L.fbx
-  artifactKey: Guid(0515d505a15bb064eb8d524e9b2ccaa5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements/Basement/Basement_Wall_L.fbx using Guid(0515d505a15bb064eb8d524e9b2ccaa5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c89808f64072a9b0a38bfc6e1837dfc') in 0.043532 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 12.146229 seconds.
-  path: Assets/Map/Modular Elements/DiningRoom/Dining_BlankWall_S.fbx
-  artifactKey: Guid(89f0d3a2145deb441b8c6d8c60c6bce2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements/DiningRoom/Dining_BlankWall_S.fbx using Guid(89f0d3a2145deb441b8c6d8c60c6bce2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5242694fbbd22abade4a98aea51ba28') in 0.033620 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000033 seconds.
-  path: Assets/Map/Modular Elements/DiningRoom/Dining_BlankWall_XL.fbx
-  artifactKey: Guid(4d9f6db9d807f144ca1a414d13583a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements/DiningRoom/Dining_BlankWall_XL.fbx using Guid(4d9f6db9d807f144ca1a414d13583a62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7abd20ca389e0b0ce409fbe2ed47ca74') in 0.037210 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1662.233954 seconds.
-  path: Assets/Map/Modular Elements/Basement/Basement_Corner_S.fbx
-  artifactKey: Guid(0ace5440d1a1aee4dbb97c073c9d9831) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Map/Modular Elements/Basement/Basement_Corner_S.fbx using Guid(0ace5440d1a1aee4dbb97c073c9d9831) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c609cb8cf0ca7f16510287591c901b0') in 0.049264 seconds 

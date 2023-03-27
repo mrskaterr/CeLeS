@@ -15,7 +15,7 @@ B:/Projects/Pituita
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-58893
+52595
 Successfully changed project path to: B:/Projects/Pituita
 B:/Projects/Pituita
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ B:/Projects/Pituita
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 122.84 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 138.56 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.4f1 (cb45f9cae8b7)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.4f1/Editor/Data/Resources/UnitySubsystems
@@ -63,89 +63,89 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.4f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.4f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56468
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56072
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.007303 seconds.
+Registered in 0.008616 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 126.93 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 131.36 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.722 seconds
+- Completed reload, in  0.773 seconds
 Domain Reload Profiling:
-	ReloadAssembly (723ms)
-		BeginReloadAssembly (76ms)
+	ReloadAssembly (774ms)
+		BeginReloadAssembly (83ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (535ms)
-			LoadAssemblies (74ms)
+		EndReloadAssembly (568ms)
+			LoadAssemblies (81ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (115ms)
+			SetupTypeCache (121ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (31ms)
-			SetupLoadedEditorAssemblies (334ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (361ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (7ms)
+				InitializePlatformSupportModulesInManaged (9ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (127ms)
-				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (127ms)
-				ProcessInitializeOnLoadMethodAttributes (71ms)
+				RefreshPlugins (131ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (164ms)
+				ProcessInitializeOnLoadMethodAttributes (54ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.012134 seconds.
+Registered in 0.012290 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image B:\Projects\Pituita\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Symbol file LoadedFromMemory doesn't match image B:\Projects\Pituita\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 116.15 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 137.10 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.752 seconds
+- Completed reload, in  2.124 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1753ms)
-		BeginReloadAssembly (116ms)
+	ReloadAssembly (2124ms)
+		BeginReloadAssembly (125ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
+			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (19ms)
-		EndReloadAssembly (1518ms)
-			LoadAssemblies (102ms)
+			CreateAndSetChildDomain (23ms)
+		EndReloadAssembly (1850ms)
+			LoadAssemblies (111ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (399ms)
+			SetupTypeCache (446ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (67ms)
-			SetupLoadedEditorAssemblies (921ms)
+			RebuildScriptCaches (69ms)
+			SetupLoadedEditorAssemblies (1183ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (116ms)
-				BeforeProcessingInitializeOnLoad (119ms)
-				ProcessInitializeOnLoadAttributes (634ms)
-				ProcessInitializeOnLoadMethodAttributes (39ms)
-				AfterProcessingInitializeOnLoad (8ms)
+				RefreshPlugins (137ms)
+				BeforeProcessingInitializeOnLoad (167ms)
+				ProcessInitializeOnLoadAttributes (821ms)
+				ProcessInitializeOnLoadMethodAttributes (44ms)
+				AfterProcessingInitializeOnLoad (9ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 1.01 ms, found 4 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.91 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 5420 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 62 unused Assets / (351.2 KB). Loaded Objects now: 5896.
 Memory consumption went from 220.4 MB to 220.1 MB.
-Total: 3.675300 ms (FindLiveObjects: 0.518200 ms CreateObjectMapping: 0.457600 ms MarkObjects: 2.536800 ms  DeleteObjects: 0.160800 ms)
+Total: 4.759900 ms (FindLiveObjects: 0.513800 ms CreateObjectMapping: 0.453300 ms MarkObjects: 3.595700 ms  DeleteObjects: 0.195100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -159,85 +159,67 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 10363.841474 seconds.
-  path: Assets/Models/Pizzeria.meta~HEAD
-  artifactKey: Guid(c4c55f7f09c8eda4197f01d93aaad412) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Pizzeria.meta~HEAD using Guid(c4c55f7f09c8eda4197f01d93aaad412) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38983e2ab74cbbabaaaa83aaa8444e9e') in 0.046649 seconds 
+  Time since last request: 22004.442476 seconds.
+  path: Assets/Wall_B_basecolor.png
+  artifactKey: Guid(32437d75f2b78d847a584dd99a736737) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Wall_B_basecolor.png using Guid(32437d75f2b78d847a584dd99a736737) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a87f2e881ec02dd478cb485ac0bebd20') in 0.138713 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Models/Pizzeria/Jadalnia/teksturowanie wszystko razem_Material_BaseMap.png
-  artifactKey: Guid(b1ceb97010ba5374eb60baa9a324e1fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Pizzeria/Jadalnia/teksturowanie wszystko razem_Material_BaseMap.png using Guid(b1ceb97010ba5374eb60baa9a324e1fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d1d72bbc4d0212cc2e6e18c88b3d7b4') in 0.120424 seconds 
+  Time since last request: 0.000078 seconds.
+  path: Assets/Wall_A_ambientocclusion.png
+  artifactKey: Guid(937e16746aec80d4dae84c04dab0493a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Wall_A_ambientocclusion.png using Guid(937e16746aec80d4dae84c04dab0493a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4063f171d7547abec452fde40093aa43') in 0.052560 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Models/Pizzeria.meta~michalek
-  artifactKey: Guid(399d4bc81479e6e41ac14538cbdff81c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Pizzeria.meta~michalek using Guid(399d4bc81479e6e41ac14538cbdff81c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fdb7edc4aa284604752358e97422a67') in 0.003650 seconds 
+  Time since last request: 0.056040 seconds.
+  path: Assets/Materials/Pizzeria/OrderStation.mat
+  artifactKey: Guid(40fa4a45444f63a47b2ecd8dd86f3194) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Pizzeria/OrderStation.mat using Guid(40fa4a45444f63a47b2ecd8dd86f3194) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32cf08d7f684e3544e2252e978729527') in 0.235835 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Models/Pizzeria/Jadalnia/TV.fbx
-  artifactKey: Guid(635a2a245e1d48e4faa7cdae341aa76f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Pizzeria/Jadalnia/TV.fbx using Guid(635a2a245e1d48e4faa7cdae341aa76f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e8a38a34e6e45d3d739852c143ae2e8') in 0.300728 seconds 
+  Time since last request: 4.130732 seconds.
+  path: Assets/Materials/Pizzeria/Wall_A_Bottom 2.mat
+  artifactKey: Guid(0a8d65e67b89d4644bb87c90e2bb939c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Pizzeria/Wall_A_Bottom 2.mat using Guid(0a8d65e67b89d4644bb87c90e2bb939c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '801b10b0ab81bd0ff63d7107256a9671') in 0.018622 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 5.897746 seconds.
-  path: Assets/Models/Pizzeria/Jadalnia/Fotele/Big Pit.fbx
-  artifactKey: Guid(044d05d3a0426874092951c57b4ecc84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Pizzeria/Jadalnia/Fotele/Big Pit.fbx using Guid(044d05d3a0426874092951c57b4ecc84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f98a0d16b4e247dfe88d5a4a5c2ca8a') in 0.033614 seconds 
+  Time since last request: 15.371979 seconds.
+  path: Assets/Wall_A_Bottom.mat
+  artifactKey: Guid(0a8d65e67b89d4644bb87c90e2bb939c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Wall_A_Bottom.mat using Guid(0a8d65e67b89d4644bb87c90e2bb939c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1cafbf06106074eff15935866c79476') in 0.013750 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/Models/Pizzeria/Jadalnia/Fotele/Separator1_obustronny_sciana.fbx
-  artifactKey: Guid(8b047dd09f7f66e42b0fc7d50118c6e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Pizzeria/Jadalnia/Fotele/Separator1_obustronny_sciana.fbx using Guid(8b047dd09f7f66e42b0fc7d50118c6e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff9cfa5c19e3c7a545978032c53f514d') in 0.021074 seconds 
+  Time since last request: 50.294641 seconds.
+  path: Assets/Wall_A_Bottom 1.mat
+  artifactKey: Guid(aa107d68fa5e93443a66f8783b22f7b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Wall_A_Bottom 1.mat using Guid(aa107d68fa5e93443a66f8783b22f7b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cfe5cb8102f31358de845d8f134ec86') in 0.014412 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000044 seconds.
-  path: Assets/Models/Pizzeria/Jadalnia/Fotele/Small Pit.fbx
-  artifactKey: Guid(512c7d1055be3a74e849058fdbb56f63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Pizzeria/Jadalnia/Fotele/Small Pit.fbx using Guid(512c7d1055be3a74e849058fdbb56f63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '119ebe8026383add7dfd915285e4004d') in 0.037530 seconds 
+  Time since last request: 189.194138 seconds.
+  path: Assets/Wall_A_Bottom 1.mat
+  artifactKey: Guid(aa107d68fa5e93443a66f8783b22f7b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Wall_A_Bottom 1.mat using Guid(aa107d68fa5e93443a66f8783b22f7b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a969e6ad8bcd78ced4d4849415c810d') in 0.018393 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Models/Pizzeria/Jadalnia/Fotele/Separator1_zamykajacy_sciana.fbx
-  artifactKey: Guid(85add6553207cd245b10f7e0d42caedf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Pizzeria/Jadalnia/Fotele/Separator1_zamykajacy_sciana.fbx using Guid(85add6553207cd245b10f7e0d42caedf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '920daa1a2a08c096b6862d1ac2bc8fa8') in 0.021662 seconds 
+  Time since last request: 9.445453 seconds.
+  path: Assets/Wall_A_Mic.mat
+  artifactKey: Guid(0a8d65e67b89d4644bb87c90e2bb939c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Wall_A_Mic.mat using Guid(0a8d65e67b89d4644bb87c90e2bb939c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4063b74080b87b549ebdbfe2dc857f6') in 0.013412 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 48.429685 seconds.
-  path: Assets/Materials/Pizzeria/Shelf 9.mat
-  artifactKey: Guid(6f6ee02bd1c87654c896c666881e950f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Pizzeria/Shelf 9.mat using Guid(6f6ee02bd1c87654c896c666881e950f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43a222f5cdfb9ffc85b9e70a82e4ced4') in 0.015306 seconds 
+  Time since last request: 4.359703 seconds.
+  path: Assets/Wall_A_Mid.mat
+  artifactKey: Guid(0a8d65e67b89d4644bb87c90e2bb939c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Wall_A_Mid.mat using Guid(0a8d65e67b89d4644bb87c90e2bb939c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4567f1351a273bd97fd88b8a456db325') in 0.012492 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.859219 seconds.
-  path: Assets/Materials/Pizzeria/DiningRoom.mat
-  artifactKey: Guid(6f6ee02bd1c87654c896c666881e950f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Pizzeria/DiningRoom.mat using Guid(6f6ee02bd1c87654c896c666881e950f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e881ef5c5ceceac4c08938c8978051f5') in 0.028454 seconds 
+  Time since last request: 83.365484 seconds.
+  path: Assets/Wall_A_Bottom 2.mat
+  artifactKey: Guid(33b35e68ab1cef147b9f483973e73934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Wall_A_Bottom 2.mat using Guid(33b35e68ab1cef147b9f483973e73934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1ad31df127117e4a093f62f54e457e5') in 0.010774 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 504.647110 seconds.
-  path: Assets/Materials/Pizzeria/DiningRoom.mat
-  artifactKey: Guid(6f6ee02bd1c87654c896c666881e950f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Pizzeria/DiningRoom.mat using Guid(6f6ee02bd1c87654c896c666881e950f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1189daa9b8a4adf5a1360ed52e248179') in 0.012178 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6000.821461 seconds.
-  path: Assets/Floor2_basecolor.png
-  artifactKey: Guid(d817a7ddb72a1ef499400107a8e94804) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Floor2_basecolor.png using Guid(d817a7ddb72a1ef499400107a8e94804) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10556c313944f2caa82533c599bd9c49') in 0.034612 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 169.986681 seconds.
-  path: Assets/Materials/Pizzeria/Floor.mat
-  artifactKey: Guid(47a04ba055539054b8d5d51240c73176) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Pizzeria/Floor.mat using Guid(47a04ba055539054b8d5d51240c73176) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71e7bb397be62d496baa6eec0e011c41') in 0.023050 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 7844.979205 seconds.
-  path: Assets/Materials/Pizzeria/Floor.mat
-  artifactKey: Guid(47a04ba055539054b8d5d51240c73176) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Pizzeria/Floor.mat using Guid(47a04ba055539054b8d5d51240c73176) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5633d4c48a193afe9afc202472d1b515') in 0.069657 seconds 
+  Time since last request: 105.404145 seconds.
+  path: Assets/Wall_A.prefab
+  artifactKey: Guid(98a294b705e870a4d9404da8c76e6f59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Wall_A.prefab using Guid(98a294b705e870a4d9404da8c76e6f59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ceddf10b215b34b0d9dc3baa3ec6f3d') in 0.047637 seconds 

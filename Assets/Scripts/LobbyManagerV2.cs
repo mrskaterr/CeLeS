@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityInspector;
+using UnityEngine.SceneManagement;
 
 public class LobbyManagerV2 : MonoBehaviour
 {
@@ -427,4 +428,9 @@ public class LobbyManagerV2 : MonoBehaviour
         Hiders = 2
     }
     #endregion
+
+    public void LeaveSession()
+    {
+        
+    }
 }

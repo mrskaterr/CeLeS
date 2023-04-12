@@ -17,5 +17,6 @@ public class SpawnerV2 : MonoBehaviour
         var tmp = _runner.Spawn(playerPrefab, Vector3.zero, Quaternion.identity, _player);
         tmp.name = _name;
         tmp.GetComponent<RPCManager>().owner = _player;
+        _runner.SetPlayerObject(_player, tmp);
     }
 }

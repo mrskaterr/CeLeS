@@ -17,6 +17,7 @@ public class RPCManager : NetworkBehaviour
     [SerializeField] private GameObject blobAvatar;
     //public static GameObject Avatar;
     public PlayerRef owner;
+    public NetworkObject playerAvatar;
 
     public override void Spawned()
     {
@@ -30,7 +31,7 @@ public class RPCManager : NetworkBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public override void Despawned(NetworkRunner runner, bool hasState)
+    private void OnDestroy()
     {
         PlayerHolder.RemovePlayerFromList(gameObject);
     }
@@ -65,6 +66,7 @@ public class RPCManager : NetworkBehaviour
         LoadingCanvas.SetActive(true);
         var avatar = Manager.Instance.lobbyManager.SpawnPlayerAvatar();
         avatar.transform.name = nick;
+        playerAvatar = avatar;
         yield return new WaitForSecondsRealtime(1);
         Manager.Instance.lobbyManager.ChangeNetworkScene(1);
         avatar.gameObject.SetActive(true);

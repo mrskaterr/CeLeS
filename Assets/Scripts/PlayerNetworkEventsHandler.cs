@@ -98,7 +98,15 @@ public class PlayerNetworkEventsHandler : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnPlayerLeft(NetworkRunner runner, PlayerRef player)
     {
-        
+        Debug.Log("Player left: " + player.PlayerId);
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Manager.Instance.UIManager.RefreshList();
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            RPCManager.Local.playerAvatar.GetComponent<PlayerHUD>().DisplayInfo("Some1 left.");
+        }
     }
 
     public void OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ArraySegment<byte> data)
@@ -124,7 +132,7 @@ public class PlayerNetworkEventsHandler : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason)
     {
-        return;
+        Debug.Log(runner.name + " | sdr: " + shutdownReason.ToString());
     }
 
     public void OnUserSimulationMessage(NetworkRunner runner, SimulationMessagePtr message)

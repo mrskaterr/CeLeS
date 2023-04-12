@@ -431,6 +431,7 @@ public class LobbyManagerV2 : MonoBehaviour
 
     public void LeaveSession()
     {
-        
+        runnerHandler.networkRunner.Shutdown();
+        SceneManager.LoadScene(0);
     }
 }

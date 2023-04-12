@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectInterest: 1
   DefaultInterestGroups: []
-  DestroyWhenStateAuthorityLeaves: 0
+  DestroyWhenStateAuthorityLeaves: 1
   AllowStateAuthorityOverride: 1
   AoiPositionSource: {fileID: 0}
   Flags: 2305
@@ -76,4 +76,3 @@ MonoBehaviour:
   _isReady: 0
   hunterAvatar: {fileID: 2264008909498982632, guid: 020ad2ed2c1706540a36ed32dcc6e48a, type: 3}
   blobAvatar: {fileID: 2264008909498982632, guid: 5b36bff11522c30459ac5e8c1553cf58, type: 3}
-  playerAvatar: {fileID: 2264008909498982632, guid: 020ad2ed2c1706540a36ed32dcc6e48a, type: 3}

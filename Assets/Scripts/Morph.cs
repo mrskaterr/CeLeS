@@ -12,6 +12,13 @@ public class Morph : NetworkBehaviour
     [SerializeField] private MeshRenderer mr;
     [SerializeField] private List<GameObject> morphingObjects = new List<GameObject>();
     [SerializeField] private LocalCameraHandler cameraHandler;
+    
+    private CharacterInputHandler inputHandler;
+
+    private void Awake()
+    {
+        inputHandler = GetComponent<CharacterInputHandler>();
+    }
 
     private static void OnIndexChange(Changed<Morph> _changed)
     {
@@ -20,6 +27,7 @@ public class Morph : NetworkBehaviour
 
     private void SetMorph()
     {
+        inputHandler.canSneak = index != -1;
         eyes.SetActive(index == -1);
         mr.enabled = index == -1;
         cameraHandler.ChangePerspective(index);

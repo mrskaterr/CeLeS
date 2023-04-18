@@ -566,6 +566,7 @@ GameObject:
   - component: {fileID: 9045679940586352962}
   - component: {fileID: 7542190235489190330}
   - component: {fileID: 7213504974714521972}
+  - component: {fileID: 7191323721722475042}
   m_Layer: 0
   m_Name: Blob
   m_TagString: Untagged
@@ -703,6 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278c95797aefb5342ba7617fd4dd0305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canSneak: 0
   cameraHandler: {fileID: 4591282623768988322}
 --- !u!143 &8105936159554550944
 CharacterController:
@@ -775,6 +777,8 @@ MonoBehaviour:
   rayOriginPoint: {fileID: 2057028386345069325}
   range: 3
   indicator: {fileID: 2240025818718178350}
+  fpsCam: {fileID: 7134201537511432197}
+  tpsCam: {fileID: 1117024196094038167}
 --- !u!114 &9045679940586352962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,6 +829,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txt: {fileID: 8892269207359774644}
+  pauseMenu: {fileID: 0}
+--- !u!114 &7191323721722475042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2264008909498982632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa668f49330514e4c96176d2685ece58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraParent: {fileID: 5560928675984028951}
 --- !u!1 &3708828160748256331
 GameObject:
   m_ObjectHideFlags: 0

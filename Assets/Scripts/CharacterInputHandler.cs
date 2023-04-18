@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharacterInputHandler : MonoBehaviour
 {
+    public bool canSneak = false;
+    
     [SerializeField] LocalCameraHandler cameraHandler;
 
     private Vector2 moveInput = Vector2.zero;
@@ -16,7 +18,6 @@ public class CharacterInputHandler : MonoBehaviour
     private Vector3 sneakRot = Vector3.zero;
 
     private CharacterMovementHandler characterMovementHandler;
-
     private void Awake()
     {
         characterMovementHandler = GetComponent<CharacterMovementHandler>();
@@ -48,7 +49,7 @@ public class CharacterInputHandler : MonoBehaviour
             fireInput = true;
         }
 
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && canSneak)
         {
             sneakRot = cameraHandler.transform.forward;
             sneakyInput = true;

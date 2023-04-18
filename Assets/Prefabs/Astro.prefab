@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 1198443442275639798}
   - component: {fileID: 9048199011143548180}
   - component: {fileID: 6104603949567804489}
+  - component: {fileID: 4941693848883023913}
   m_Layer: 0
   m_Name: Astro
   m_TagString: Untagged
@@ -709,6 +710,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txt: {fileID: 2134495655899601680}
   pauseMenu: {fileID: 7608349972650954076}
+--- !u!114 &4941693848883023913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2264008909498982632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa668f49330514e4c96176d2685ece58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraParent: {fileID: 5560928675984028951}
 --- !u!1 &3708828160748256331
 GameObject:
   m_ObjectHideFlags: 0

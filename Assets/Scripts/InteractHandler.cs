@@ -8,10 +8,13 @@ public class InteractHandler : MonoBehaviour
     [SerializeField] Transform rayOriginPoint;
     [SerializeField] private float range = 3;
     [SerializeField] private GameObject indicator;
-
+    [SerializeField] private Camera fpsCam;
+    [SerializeField] private Camera tpsCam;
     private Morph morph;
 
     private IInteractable interactable;
+
+    private Vector3 screenCenter = new Vector3(.5f, .5f, 0);
 
     private void Awake()
     {
@@ -42,8 +45,16 @@ public class InteractHandler : MonoBehaviour
 
     private void Look4Interaction()
     {
+        Camera cam = fpsCam;
+        range = 3;
+        if(!fpsCam.enabled && tpsCam.enabled)
+        {
+            cam = tpsCam;
+            range = 10;
+        }
+        Ray ray = cam.ViewportPointToRay(screenCenter);
         RaycastHit hit;
-        if (Physics.Raycast(rayOriginPoint.position, rayOriginPoint.forward, out hit, range, interactableMask))
+        if (Physics.Raycast(ray, out hit, range, interactableMask))
         {
             interactable = hit.transform.GetComponent<IInteractable>();
         }

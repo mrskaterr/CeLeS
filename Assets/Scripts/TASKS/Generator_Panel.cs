@@ -5,10 +5,7 @@ using UnityEngine.UI;
 
 public class Generator_Panel : MonoBehaviour
 {
-    public GameObject player;
-
     public int diffrend;
-    [SerializeField] GameObject can;
     [SerializeField] Job job;
     [SerializeField] Transform left;
     [SerializeField] Image[] images;

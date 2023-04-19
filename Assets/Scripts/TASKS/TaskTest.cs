@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TaskTest : MonoBehaviour, IInteractable
 {
+    public GameObject player; 
     [SerializeField] GameObject canv;
-
     [SerializeField] Task_Hacking hp;
     public void Interact(GameObject @object)
     {
@@ -14,6 +14,7 @@ public class TaskTest : MonoBehaviour, IInteractable
         @object.GetComponent<CharacterController>().enabled=false;
         @object.GetComponent<CharacterMovementHandler>().enabled=false;
 
+        player=@object;
         hp.player=@object;
 
     }

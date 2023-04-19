@@ -1600,6 +1600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canv: {fileID: 7503900079814562745}
   hp: {fileID: 7503900079400968762}
+  player: {fileID: 0}
 --- !u!1 &9067009682878762789
 GameObject:
   m_ObjectHideFlags: 0

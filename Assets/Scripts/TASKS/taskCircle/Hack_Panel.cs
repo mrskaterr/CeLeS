@@ -43,7 +43,7 @@ public class Hack_Panel : MonoBehaviour
             {
                 left.Rotate(Vector3.forward * 1.5f);
             }
-            sin.localScale = new Vector3((lRand)/359f, sin.localScale.y, 1f);
+            //sin.localScale = new Vector3((lRand)/359f, sin.localScale.y, 1f);
 
             if (Input.GetKey(KeyCode.LeftArrow)) { right.Rotate(Vector3.back * 1.5f); }
             else if (Input.GetKey(KeyCode.RightArrow)) { right.Rotate(Vector3.forward * 1.5f); }

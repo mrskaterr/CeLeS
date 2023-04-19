@@ -52,12 +52,9 @@ public class TaskRemeberColor : MonoBehaviour
     bool CheckColors()
     {
         for(int i=0;i<SelectedColors.Count;i++)
-        {
             if(SelectedColors[i]!=RandomColors[i])
-            {
                 return false;
-            }
-        }
+                
         return true;
     }
     IEnumerator ExampleCoroutine()

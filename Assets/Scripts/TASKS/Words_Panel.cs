@@ -7,7 +7,6 @@ using TMPro;
 
 public class Words_Panel : MonoBehaviour
 {
-    public GameObject player;
     [SerializeField] char[] word;
     [SerializeField] GameObject can;
     [SerializeField] Job job;
@@ -54,11 +53,13 @@ public class Words_Panel : MonoBehaviour
             j++;
             if (j >= 5)
                 j = 0;
+
             click = false;
             for (int i = 0; i < 5; i++)
             {
                 if (line22[i][2].text != word[i].ToString())
                     break;
+
                 if (i == 4)
                 {
                     Debug.Log("donee");
@@ -66,25 +67,18 @@ public class Words_Panel : MonoBehaviour
                     can.SetActive(false);
                     return;
                 }
-
             }
 
         }
-
-
         else if (!stop)
             StartCoroutine(Turn());
 
 
     }
-
     int Rand()
     {
         return Random.Range(0, 5);
     }
-
-
-
     IEnumerator Turn()
     {
         stop = true;

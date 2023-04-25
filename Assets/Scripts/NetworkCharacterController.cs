@@ -8,6 +8,7 @@ using UnityEngine;
 public class NetworkCharacterController : NetworkTransform
 {
     [Header("Character Controller Settings")]
+    [SerializeField] AudioSource audioJump;
     public float gravity = -20.0f;
     public float jumpImpulse = 8.0f;
     public float acceleration = 10.0f;
@@ -80,6 +81,7 @@ public class NetworkCharacterController : NetworkTransform
         if (IsGrounded && moveVelocity.y < 0)
         {
             moveVelocity.y = 0f;
+            audioJump.Play();
         }
 
         moveVelocity.y += gravity * Runner.DeltaTime;

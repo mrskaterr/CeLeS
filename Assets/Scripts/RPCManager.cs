@@ -15,7 +15,7 @@ public class RPCManager : NetworkBehaviour
     public bool isReady { get; set; } = false;
     [SerializeField] private GameObject hunterAvatar;
     [SerializeField] private GameObject blobAvatar;
-    //public static GameObject Avatar;
+    public static GameObject Avatar;
     public PlayerRef owner;
     public NetworkObject playerAvatar;
 
@@ -76,14 +76,14 @@ public class RPCManager : NetworkBehaviour
     {
         _changed.Behaviour.OnRoleChange();
     }
-    public void OnRoleChange() 
+    public void OnRoleChange()
     {
         role = (Role)roleIndex;
         Manager.Instance.UIManager.RefreshList();
     }
     public GameObject PlayerAvatar()
     {
-        if(roleIndex == 4 || roleIndex == 5 || roleIndex == 6)//TOIMPROVE:switch and list of available
+        if (roleIndex == 4 || roleIndex == 5 || roleIndex == 6)//TOIMPROVE:switch and list of available
         {
             return blobAvatar;
         }

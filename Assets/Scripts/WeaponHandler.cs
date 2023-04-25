@@ -5,6 +5,7 @@ using Fusion;
 
 public class WeaponHandler : NetworkBehaviour
 {
+    [SerializeField] AudioSource audioShoot;
     [Networked(OnChanged = nameof(OnFireChanged))]
     public bool isFiring { get; set; }
 
@@ -74,6 +75,7 @@ public class WeaponHandler : NetworkBehaviour
     {
         isFiring = true;
         fireParticleSystem.Play();
+        audioShoot.Play();
         yield return new WaitForSeconds(.09f);//TOIMPROVE: define this
         isFiring = false;
     }

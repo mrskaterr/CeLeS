@@ -18,9 +18,9 @@ public class CharacterInputHandler : MonoBehaviour
     private Vector3 sneakRot = Vector3.zero;
 
     private CharacterMovementHandler characterMovementHandler;
-    private void Awake()
-    {
-        characterMovementHandler = GetComponent<CharacterMovementHandler>();
+    private void Awake()
+    {
+        characterMovementHandler = GetComponent<CharacterMovementHandler>();
     }
 
     private void Start()
@@ -39,7 +39,7 @@ public class CharacterInputHandler : MonoBehaviour
         moveInput.x = Input.GetAxis("Horizontal");//TODO: new input system
         moveInput.y = Input.GetAxis("Vertical");
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(2))
         {
             jumpInput = true;
         }
@@ -49,15 +49,15 @@ public class CharacterInputHandler : MonoBehaviour
             fireInput = true;
         }
 
-        if (Input.GetButtonDown("Fire2") && canSneak)
-        {
-            sneakRot = cameraHandler.transform.forward;
-            sneakyInput = true;
+        if (Input.GetButtonDown("Fire2") && canSneak)
+        {
+            sneakRot = cameraHandler.transform.forward;
+            sneakyInput = true;
         }
 
-        if (Input.GetButtonUp("Fire2"))
-        {
-            sneakyInput = false;
+        if (Input.GetButtonUp("Fire2"))
+        {
+            sneakyInput = false;
         }
 
         moveInput.y += speedStep;
@@ -69,13 +69,13 @@ public class CharacterInputHandler : MonoBehaviour
     {
         NetworkInputData networkInputData = new NetworkInputData();
 
-        if (sneakyInput)
-        {
-            networkInputData.aimForwardVector = sneakRot;
+        if (sneakyInput)
+        {
+            networkInputData.aimForwardVector = sneakRot;
         }
-        else
-        {
-            networkInputData.aimForwardVector = cameraHandler.transform.forward;
+        else
+        {
+            networkInputData.aimForwardVector = cameraHandler.transform.forward;
         }
 
         networkInputData.movementInput = moveInput;

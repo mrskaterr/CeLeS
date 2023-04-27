@@ -144,6 +144,7 @@
      <Compile Include="Assets\Scripts\Network\NetworkPlayer.cs" />
      <Compile Include="Assets\Scripts\TASKS\Words_Panel.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
+     <Compile Include="Assets\Teleportyzer.cs" />
      <Compile Include="Assets\Scripts\MorphObject.cs" />
      <Compile Include="Assets\Scripts\TASKS\TaskLogic.cs" />
      <Compile Include="Assets\Scripts\NetworkCharacterController.cs" />

@@ -3359,8 +3359,11 @@ MonoBehaviour:
     m_Bits: 131072
   RadiusOverlapSphere: 0.01
   CrouchSpeed: 2
-  DashTime: 0.25
-  DashSpeed: 5
+  MaxDashTime: 2
+  DashSpeed: 20
+  DashStoppingSpeed: 0.1
+  DashResetTime: 20
+  Lock: 0.8
 --- !u!54 &2064682088
 Rigidbody:
   m_ObjectHideFlags: 0

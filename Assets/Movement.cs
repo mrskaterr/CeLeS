@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
    
     private Rigidbody _Rigidbody;
     private Vector3 _MoveInput;
-    private Quaternion _MouseInput;
+    private Quaternion _MouseInput=Quaternion.Euler(Vector3.zero);
     private bool _Grounded = true;
     private bool _DoubleJump=false;
     private float _CameraX;
@@ -31,10 +31,11 @@ public class Movement : MonoBehaviour
 
 
      
-    [SerializeField] float MaxDashTime = 1.0f;
-    [SerializeField] float DashSpeed = 20.0f;
-    [SerializeField] float DashStoppingSpeed = 0.1f;
-    [SerializeField] float DashResetTime = 20.0f;
+    [SerializeField] float MaxDashTime;
+    [SerializeField] float DashSpeed ;
+    [SerializeField] float DashStoppingSpeed ;
+    [SerializeField] float DashResetTime ;
+    [SerializeField] float Lock;
     private float currentDashTime;
     private float currentDashResetTime;
 
@@ -47,28 +48,23 @@ public class Movement : MonoBehaviour
         walkSpeed=Speed;
         _Rigidbody = GetComponent<Rigidbody>();
     }
-
-
-    void FixedUpdate()
-    {
+    void Update()
+    {   
         _CameraX = Mathf.Clamp(_CameraX-Input.GetAxis("Mouse Y") * MouseSensitivity,LookUpMin,LookUpMax);
         Cam.localRotation= Quaternion.Euler(_CameraX, Cam.localRotation.y, Cam.localRotation.z);
-
 
         _MouseInput =  Quaternion.Euler(0,Input.GetAxis("Mouse X") * MouseSensitivity,0);
         _MoveInput = transform.forward * Input.GetAxisRaw("Vertical") + transform.right * Input.GetAxisRaw("Horizontal");
 
-        _Rigidbody.MovePosition(transform.position + _MoveInput.normalized * Time.fixedDeltaTime * Speed);
-        _Rigidbody.MoveRotation(_Rigidbody.rotation * _MouseInput);
-
-        //Dash
-        if (Input.GetKey(KeyCode.Z) && currentDashResetTime>DashResetTime)
+         //Dash
+        if (Input.GetKey(KeyCode.Z) &&  currentDashResetTime>DashResetTime)
         {
             currentDashTime = 0.0f;
             currentDashResetTime= 0.0f;
         }
         if (currentDashTime < MaxDashTime)
         {
+            Debug.Log("SpriteMask");
             Speed=DashSpeed;
             currentDashTime += DashStoppingSpeed;
         }
@@ -111,6 +107,15 @@ public class Movement : MonoBehaviour
             Jump();
             _DoubleJump=false;
         }
+    }
+    
+    void FixedUpdate()
+    {
+        if(!_Grounded)
+            Speed*=Lock;
+        
+        _Rigidbody.MovePosition(transform.position + _MoveInput.normalized * Time.fixedDeltaTime * Speed);
+        _Rigidbody.MoveRotation(_Rigidbody.rotation * _MouseInput);
     } 
 
     private void Jump()

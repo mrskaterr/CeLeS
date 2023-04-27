@@ -18,16 +18,9 @@ public class CharacterInputHandler : MonoBehaviour
     private Vector3 sneakRot = Vector3.zero;
 
     private CharacterMovementHandler characterMovementHandler;
-<<<<<<< HEAD
     private void Awake()
     {
         characterMovementHandler = GetComponent<CharacterMovementHandler>();
-=======
-
-    private void Awake()
-    {
-        characterMovementHandler = GetComponent<CharacterMovementHandler>();
->>>>>>> paw
     }
 
     private void Start()

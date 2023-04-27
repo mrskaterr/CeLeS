@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\Network\NetworkPlayer.cs" />
      <Compile Include="Assets\Scripts\TASKS\Words_Panel.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
+     <Compile Include="Assets\Teleportyzer.cs" />
      <Compile Include="Assets\Scripts\MorphObject.cs" />
      <Compile Include="Assets\Scripts\TASKS\TaskLogic.cs" />
      <Compile Include="Assets\Scripts\NetworkCharacterController.cs" />
@@ -87,7 +88,6 @@
      <Compile Include="Assets\Scripts\LoadingCanvas.cs" />
      <Compile Include="Assets\Scripts\backgroundMove.cs" />
      <Compile Include="Assets\Scripts\CharacterMovementHandler.cs" />
-     <Compile Include="Assets\Teleportyzer.cs" />
      <None Include="Assets\20 Logos PSD\Fonts\chunkfiveex\SIL Open Font License 1.1.txt" />
      <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />
      <None Include="Assets\20 Logos PSD\Fonts\kaushanscript\SIL Open Font License.txt" />

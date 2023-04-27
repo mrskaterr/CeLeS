@@ -6,8 +6,8 @@ public class Teleportyzer : MonoBehaviour
 {
     [SerializeField] Transform TransformToTeleport;
 
-    public void Interact(GameObject @object)
+    void OnTriggerEnter(Collider c)
     {
-        
+        c.transform.position=TransformToTeleport.position;
     }
 }

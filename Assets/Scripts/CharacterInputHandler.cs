@@ -18,9 +18,15 @@ public class CharacterInputHandler : MonoBehaviour
     private Vector3 sneakRot = Vector3.zero;
 
     private CharacterMovementHandler characterMovementHandler;
+<<<<<<< HEAD
     private void Awake()
     {
         characterMovementHandler = GetComponent<CharacterMovementHandler>();
+=======
+    private void Awake()
+    {
+        characterMovementHandler = GetComponent<CharacterMovementHandler>();
+>>>>>>> Dave
     }
 
     private void Start()
@@ -39,7 +45,7 @@ public class CharacterInputHandler : MonoBehaviour
         moveInput.x = Input.GetAxis("Horizontal");//TODO: new input system
         moveInput.y = Input.GetAxis("Vertical");
 
-        if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(2))
+        if (Input.GetButtonDown("Jump"))
         {
             jumpInput = true;
         }

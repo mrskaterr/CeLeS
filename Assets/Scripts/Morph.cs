@@ -5,7 +5,6 @@ using Fusion;
 
 public class Morph : NetworkBehaviour
 {
-    [SerializeField] AudioSource changingsound;
     [Networked(OnChanged = nameof(OnIndexChange))]
     public int index { get; set; } = -1;
 
@@ -36,6 +35,5 @@ public class Morph : NetworkBehaviour
         {
             morphingObjects[i].SetActive(index == i);
         }
-        changingsound.Play();
     }
 }

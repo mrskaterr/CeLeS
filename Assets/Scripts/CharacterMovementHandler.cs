@@ -6,9 +6,6 @@ using Fusion;
 public class CharacterMovementHandler : NetworkBehaviour
 {
     int i=0;
-    [SerializeField] AudioSource[] audioSteps; 
-    [SerializeField] AudioSource audioChanging;
-    private AudioSource lastStep;
     private NetworkCharacterController networkCharacterController;
 
     [SerializeField] private Camera localCamera;
@@ -23,8 +20,6 @@ public class CharacterMovementHandler : NetworkBehaviour
     private void Start()
     {
 
-        lastStep=audioSteps[i];
-        lastStep.Play();
         if (!Object.HasInputAuthority) 
         { 
             localCamera.enabled = false;
@@ -46,13 +41,6 @@ public class CharacterMovementHandler : NetworkBehaviour
             moveDirection.Normalize();
 
             networkCharacterController.Move(moveDirection);
-
-            if(moveDirection!=Vector3.zero && !lastStep.isPlaying)
-            {
-                i++;
-                lastStep=audioSteps[i%audioSteps.Length].GetComponent<AudioSource>();
-                lastStep.Play();
-            }
 
             if (networkInputData.isJumpPressed)
             {

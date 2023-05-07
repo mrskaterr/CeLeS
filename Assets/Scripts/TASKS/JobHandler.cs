@@ -15,10 +15,7 @@ public class JobHandler : NetworkBehaviour
     {
         if(Object.HasInputAuthority)
             TaskIndicator2=TaskIndicator;
-
-        
     }
-    // Start is called before the first frame update
     static void OnVarChange(Changed<JobHandler> _changed)
     {
         _changed.Behaviour.OnTaskDone();

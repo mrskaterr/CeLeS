@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Teleportyzer : MonoBehaviour
+public class Teleportyzer : MonoBehaviour , IInteractable
 {
+    
     [SerializeField] Transform TransformToTeleport;
 
-    void OnTriggerEnter(Collider c)
+    public void Interact(GameObject @object)
     {
-        c.transform.position=TransformToTeleport.position;
+        @object.transform.position=TransformToTeleport.position;
+        @object.GetComponent<JobHandler>().VarTask=true;
     }
 }

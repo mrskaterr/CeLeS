@@ -102,6 +102,7 @@
     <Compile Include="Assets\Scripts\PlayerHolder.cs" />
     <Compile Include="Assets\Scripts\LoadingCanvas.cs" />
     <Compile Include="Assets\Scripts\CharacterMovementHandler.cs" />
+    <Compile Include="Assets\SyncPos.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />

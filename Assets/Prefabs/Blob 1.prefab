@@ -1008,6 +1008,7 @@ MonoBehaviour:
   - {fileID: 1198443442275639798}
   - {fileID: 9048199011143548180}
   - {fileID: 9045679940586352962}
+  - {fileID: 3519571756437616018}
   - {fileID: 136205757725037816}
   SimulationBehaviours: []
 --- !u!114 &6136178655904167074
@@ -1225,6 +1226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ae18ceff7133474abfde8e659074c59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
   bodyType: 1
   animator: {fileID: 6541115119200338975}
   bodyAimTarget: {fileID: 0}
@@ -2285,7 +2287,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 57015
+    m_Bits: 581303
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

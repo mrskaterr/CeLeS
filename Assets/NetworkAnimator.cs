@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fusion;
 
-public class NetworkAnimator : MonoBehaviour
+public class NetworkAnimator : NetworkBehaviour
 {
     [SerializeField] private BodyType bodyType;
     [SerializeField] private Animator animator;
@@ -13,6 +14,9 @@ public class NetworkAnimator : MonoBehaviour
     private const string move_ParamName = "isMoving";
     private const string sprint_ParamName = "isSprinting";
     private const string grounded_ParamName = "isGrounded";
+
+    [Networked(OnChanged = nameof(OnHeightChange))]
+    private float height { get; set; }
 
     private void Awake()
     {
@@ -33,9 +37,18 @@ public class NetworkAnimator : MonoBehaviour
     {
         if(bodyType == BodyType.Human)
         {
-            float newVal = (1f - Mathf.Clamp01(_height)) * 2f - 1f;
-            bodyAimTarget.transform.localPosition = new Vector3(bodyAimTarget.transform.localPosition.x, newVal, bodyAimTarget.transform.localPosition.z);
+            height = (1f - Mathf.Clamp01(_height)) * 2f - 1f;
         }
+    }
+
+    private static void OnHeightChange(Changed<NetworkAnimator> _changed)
+    {
+        _changed.Behaviour.SetSpine();
+    }
+
+    private void SetSpine()
+    {
+        bodyAimTarget.transform.localPosition = new Vector3(bodyAimTarget.transform.localPosition.x, height, bodyAimTarget.transform.localPosition.z);
     }
 
     private enum BodyType { Human, Blob }

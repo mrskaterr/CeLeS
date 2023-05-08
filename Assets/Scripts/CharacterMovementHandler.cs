@@ -6,6 +6,7 @@ using Fusion;
 public class CharacterMovementHandler : NetworkBehaviour
 {
     private NetworkCharacterController networkCharacterController;
+    private NetworkAnimator networkAnimator;
 
     [SerializeField] private Camera localCamera;
     [SerializeField] private AudioListener audioListener;
@@ -14,6 +15,7 @@ public class CharacterMovementHandler : NetworkBehaviour
     private void Awake()
     {
         networkCharacterController = GetComponent<NetworkCharacterController>();
+        networkAnimator = GetComponent<NetworkAnimator>();
     }
 
     private void Start()
@@ -39,6 +41,8 @@ public class CharacterMovementHandler : NetworkBehaviour
             moveDirection.Normalize();
 
             networkCharacterController.Move(moveDirection);
+
+            networkAnimator.SetMoveAnim(moveDirection.magnitude > 0);
 
             if (networkInputData.isJumpPressed)
             {

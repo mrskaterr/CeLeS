@@ -18,17 +18,10 @@ public class CharacterInputHandler : MonoBehaviour
     private Vector3 sneakRot = Vector3.zero;
 
     private CharacterMovementHandler characterMovementHandler;
-<<<<<<< HEAD
     private void Awake()
     {
         characterMovementHandler = GetComponent<CharacterMovementHandler>();
-=======
-    private void Awake()
-    {
-        characterMovementHandler = GetComponent<CharacterMovementHandler>();
->>>>>>> Dave
     }
-
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;//TOIMPROVE: Utils

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 582439671786448386}
   - component: {fileID: -1806954526155848893}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerPaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
   AoiPositionSource: {fileID: 0}
   Flags: 2305
   NetworkGuid:
-    RawGuidValue: ed40858d3fdca2541ab1e9c8493375c8
+    RawGuidValue: 377692f4771e50c45b22de90b2a6048b
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: -1806954526155848893}
@@ -74,6 +74,6 @@ MonoBehaviour:
   role: 0
   _roleIndex: 0
   _isReady: 0
-  hunterAvatar: {fileID: 2264008909498982632, guid: 020ad2ed2c1706540a36ed32dcc6e48a, type: 3}
-  blobAvatar: {fileID: 2264008909498982632, guid: 5b36bff11522c30459ac5e8c1553cf58, type: 3}
+  hunterAvatar: {fileID: 2264008909498982632, guid: fc64df886964fdb4395bf083a7ac1345, type: 3}
+  blobAvatar: {fileID: 2264008909498982632, guid: 04874b961a713824881ab2388b327985, type: 3}
   playerAvatar: {fileID: 0}

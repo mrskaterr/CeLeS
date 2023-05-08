@@ -61,6 +61,7 @@
     <Compile Include="Assets\NetworkAnimator.cs" />
     <Compile Include="Assets\Scripts\Network\NetworkInputData.cs" />
     <Compile Include="Assets\Scripts\RPCManager.cs" />
+    <Compile Include="Assets\SyncPos.cs" />
     <Compile Include="Assets\Scripts\SpawnerV2.cs" />
     <Compile Include="Assets\Scripts\Missions\MissionObject.cs" />
     <Compile Include="Assets\Scripts\PlayerUtility.cs" />
@@ -102,7 +103,6 @@
     <Compile Include="Assets\Scripts\PlayerHolder.cs" />
     <Compile Include="Assets\Scripts\LoadingCanvas.cs" />
     <Compile Include="Assets\Scripts\CharacterMovementHandler.cs" />
-    <Compile Include="Assets\SyncPos.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />

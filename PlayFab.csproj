@@ -46,9 +46,9 @@
      <Compile Include="Assets\PlayFabSDK\Client\PlayFabClientModels.cs" />
      <Compile Include="Assets\PlayFabSDK\Shared\Public\PlayFabDataGatherer.cs" />
      <Compile Include="Assets\PlayFabSDK\Shared\Internal\PlayFabErrors.cs" />
-     <Compile Include="Assets\PlayFabSDK\Multiplayer\PlayFabEvents.cs" />
      <Compile Include="Assets\PlayFabSDK\Events\PlayFabEventsAPI.cs" />
      <Compile Include="Assets\PlayFabSDK\Shared\Internal\PlayFabHttp\PlayFabWebRequest.cs" />
+     <Compile Include="Assets\PlayFabSDK\Multiplayer\PlayFabEvents.cs" />
      <Compile Include="Assets\PlayFabSDK\Profiles\PlayFabProfilesInstanceAPI.cs" />
      <Compile Include="Assets\PlayFabSDK\Events\PlayFabEvents.cs" />
      <Compile Include="Assets\PlayFabSDK\Profiles\PlayFabProfilesModels.cs" />

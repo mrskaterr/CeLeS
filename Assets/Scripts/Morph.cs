@@ -9,7 +9,7 @@ public class Morph : NetworkBehaviour
     public int index { get; set; } = -1;
 
     [SerializeField] private GameObject eyes;
-    [SerializeField] private MeshRenderer mr;
+    [SerializeField] private Renderer ren;
     [SerializeField] private List<GameObject> morphingObjects = new List<GameObject>();
     [SerializeField] private LocalCameraHandler cameraHandler;
     
@@ -29,7 +29,7 @@ public class Morph : NetworkBehaviour
     {
         inputHandler.canSneak = index != -1;
         eyes.SetActive(index == -1);
-        mr.enabled = index == -1;
+        ren.enabled = index == -1;
         cameraHandler.ChangePerspective(index);
         for (int i = 0; i < morphingObjects.Count; i++)
         {

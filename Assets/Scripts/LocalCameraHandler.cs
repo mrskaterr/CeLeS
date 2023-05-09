@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class LocalCameraHandler : MonoBehaviour
 {
+    public bool fps = true;
+
     [SerializeField] private Transform anchorPointFPS;
     [SerializeField] private Transform anchorPointTPS;
     [SerializeField] private Transform anchorPoint;
     [SerializeField] private Transform TPSOriginTransform;
     [SerializeField] private NetworkCharacterController networkCC;
+    [SerializeField] private NetworkAnimator networkAnimator;
 
     private Camera cam;
     private float cameraRotationX = 0;
     private float cameraRotationY = 0;
     private Vector2 viewInput;
-    private bool fps = true;
 
     private void Awake()
     {
@@ -42,7 +44,14 @@ public class LocalCameraHandler : MonoBehaviour
 
             cameraRotationY += viewInput.x * Time.deltaTime * networkCC.rotationSpeed;
 
-            cam.transform.rotation = Quaternion.Euler(cameraRotationX, cameraRotationY, 0); 
+            cam.transform.rotation = Quaternion.Euler(cameraRotationX, cameraRotationY, 0);
+            if (networkAnimator != null)
+            {
+                float tmp = cameraRotationX;
+                tmp += 90;
+                tmp /= 180f;
+                networkAnimator.SetAimTargetPos(tmp);
+            }
         }
         else
         {
@@ -68,6 +77,7 @@ public class LocalCameraHandler : MonoBehaviour
         {
             anchorPoint = anchorPointFPS;
             fps = true;
+            cameraRotationX = 0;
         }
         else
         {

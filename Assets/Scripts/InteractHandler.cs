@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InteractHandler : MonoBehaviour
@@ -10,6 +11,7 @@ public class InteractHandler : MonoBehaviour
     [SerializeField] private GameObject indicator;
     [SerializeField] private Camera fpsCam;
     [SerializeField] private Camera tpsCam;
+    [SerializeField] private LocalCameraHandler cameraHandler;
     private Morph morph;
 
     private IInteractable interactable;
@@ -45,14 +47,17 @@ public class InteractHandler : MonoBehaviour
 
     private void Look4Interaction()
     {
+        Ray ray;
         Camera cam = fpsCam;
-        range = 3;
-        if(!fpsCam.enabled && tpsCam.enabled)
+        if (!cameraHandler.fps)
         {
             cam = tpsCam;
-            range = 10;
+            ray = new Ray(rayOriginPoint.position, cam.transform.forward);
         }
-        Ray ray = cam.ViewportPointToRay(screenCenter);
+        else
+        {
+            ray = cam.ViewportPointToRay(screenCenter);
+        }
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, range, interactableMask))
         {
@@ -60,6 +65,12 @@ public class InteractHandler : MonoBehaviour
         }
         else { interactable = null; }
     }
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawRay(new Ray(rayOriginPoint.position, tpsCam.transform.forward));
+    //}
 }
 
 interface IInteractable//TOIMPROVE: change 4 virtual void

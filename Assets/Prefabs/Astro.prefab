@@ -585,6 +585,7 @@ MonoBehaviour:
     RotBlendStart: 0.1
     RotBlendEnd: 0.5
     RotTeleportRadians: 1.5
+  audioJump: {fileID: 0}
   gravity: -20
   jumpImpulse: 8
   acceleration: 40
@@ -607,6 +608,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
+  audioSteps: []
+  audioChanging: {fileID: 0}
   localCamera: {fileID: 7134201537511432197}
   audioListener: {fileID: 142242121073978863}
   cameraSens: 100
@@ -622,6 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278c95797aefb5342ba7617fd4dd0305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canSneak: 0
   cameraHandler: {fileID: 4591282623768988322}
 --- !u!143 &8105936159554550944
 CharacterController:
@@ -654,6 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
+  audioShoot: {fileID: 0}
   _isFiring: 0
   fireParticleSystem: {fileID: 4646205217520740771}
   aimPoint: {fileID: 2057028386345069325}

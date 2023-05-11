@@ -667,6 +667,7 @@ MonoBehaviour:
     RotBlendStart: 0.1
     RotBlendEnd: 0.5
     RotTeleportRadians: 1.5
+  audioJump: {fileID: 0}
   gravity: -20
   jumpImpulse: 8
   acceleration: 40
@@ -689,6 +690,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
+  audioSteps: []
+  audioChanging: {fileID: 0}
   localCamera: {fileID: 7134201537511432197}
   audioListener: {fileID: 142242121073978863}
   cameraSens: 100
@@ -792,6 +795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
+  changingsound: {fileID: 0}
   _index: -1
   eyes: {fileID: 9089264429962433272}
   mr: {fileID: 3110495440081716441}

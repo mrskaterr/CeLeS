@@ -731,9 +731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ecc23819933d014cacdeebda9106185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   diffrend: 50
-  can: {fileID: 0}
   job: {fileID: 7503900078519786207}
   left: {fileID: 7503900078659302025}
   images:
@@ -1598,9 +1596,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e71f647cab7a60428ec9a7fbef946fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   canv: {fileID: 7503900079814562745}
   hp: {fileID: 7503900079400968762}
-  player: {fileID: 0}
 --- !u!1 &9067009682878762789
 GameObject:
   m_ObjectHideFlags: 0

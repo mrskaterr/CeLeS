@@ -4158,6 +4158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e71f647cab7a60428ec9a7fbef946fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   canv: {fileID: 6211739448231292081}
   hp: {fileID: 6211739448095038770}
 --- !u!1 &5397279074084686910
@@ -4388,7 +4389,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886131f5c62f5544897400f9205042f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   word: 50004f004b0045005200
   can: {fileID: 6211739448231292081}
   job: {fileID: 6211739447348078039}

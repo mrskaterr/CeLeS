@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\InteractHandler.cs" />
      <Compile Include="Assets\Scripts\ActivityEvents.cs" />
      <Compile Include="Assets\Scripts\CharacterInputHandler.cs" />
+     <Compile Include="Assets\GunMode.cs" />
      <Compile Include="Assets\Door.cs" />
      <Compile Include="Assets\Scripts\Morph.cs" />
      <Compile Include="Assets\Scripts\PlayerMovementTutorial.cs" />

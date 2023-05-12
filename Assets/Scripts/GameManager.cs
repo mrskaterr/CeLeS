@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityInspector;
+//using UnityInspector;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
     [HideInInspector] public MissionManager missionManager;
+    public SharedTimer sharedTimer;
 
     private void Awake()
     {
@@ -28,5 +29,6 @@ public class GameManager : MonoBehaviour
     private void EndLoading()
     {
         LoadingCanvas.SetActive(false);
+        RPCManager.Local.StartSharedTimer();
     }
 }

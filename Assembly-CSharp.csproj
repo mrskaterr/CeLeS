@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\PlayerListItem.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
     <Compile Include="Assets\Scripts\Extensions\IntExtension.cs" />
+    <Compile Include="Assets\SharedTimer.cs" />
     <Compile Include="Assets\Scripts\UserInfoPrefab.cs" />
     <Compile Include="Assets\Scripts\PlayerHUD.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />

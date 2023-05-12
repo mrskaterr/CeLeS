@@ -19,6 +19,8 @@ public class RPCManager : NetworkBehaviour
     public PlayerRef owner;
     public NetworkObject playerAvatar;
 
+    private bool countdown = false;
+
     public override void Spawned()
     {
         if (Object.HasInputAuthority)
@@ -104,5 +106,33 @@ public class RPCManager : NetworkBehaviour
     public void RPC_GenerateRandomNumber()
     {
         Random.Range(0, 100);
+    }
+
+    public void StartSharedTimer()
+    {
+        RPC_ResetTimer();
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RPC_ResetTimer()
+    {
+        countdown = false;
+        StopAllCoroutines();
+        GameManager.instance.sharedTimer.seconds = 0;
+        countdown = true;
+        StartCoroutine(StartTimer());
+    }
+
+    private IEnumerator StartTimer()
+    {
+        WaitForSeconds interval = new WaitForSeconds(1);
+        SharedTimer timer = GameManager.instance.sharedTimer;
+
+        timer.seconds = 0;
+        while (countdown)
+        {
+            yield return interval;
+            timer.seconds++;
+        }
     }
 }

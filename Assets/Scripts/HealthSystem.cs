@@ -18,7 +18,6 @@ public class HealthSystem : NetworkBehaviour
 
     [SerializeField] private GameObject onHitImage;
     [SerializeField] private TMP_Text healthTxt;
-    private int lastHP;
 
     private void Start()
     {
@@ -46,29 +45,24 @@ public class HealthSystem : NetworkBehaviour
             onHitImage.SetActive(false);
         }
     }
-    IEnumerator RegHP(float ForWainting)
+    IEnumerator RegHP(float FirstWaiting,float ForWainting)
     {
-        while (HP < startingHP)
-        {
-            HP += 1;
-            yield return new WaitForSeconds(ForWainting);
-        }
-    }
-    IEnumerator RegHP2(float FirstWaiting,float ForWainting)
-    {
-        lastHP=HP;
         yield return new WaitForSeconds(FirstWaiting);
-        if(lastHP==HP)
-            StartCoroutine(RegHP(ForWainting));
+        Debug.Log("5");
+            while ( !isDead && HP < startingHP )
+            {
+                Debug.Log("1");
+                HP += 1;
+                yield return new WaitForSeconds(ForWainting);
+            }
     } 
     [Rpc]//TOIMPROVE: source & target
     public void RPC_OnTakeDamage()
     {
         if (isDead) { return; }
-
         HP--;
         StopAllCoroutines();
-        StartCoroutine(RegHP2(5f,1f));
+        StartCoroutine(RegHP(5f,1f));
         Debug.Log($"{transform.name} took damage got {HP} left");
 
         if (HP <= 0)

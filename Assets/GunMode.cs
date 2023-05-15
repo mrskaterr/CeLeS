@@ -6,8 +6,7 @@ public class GunMode : NetworkBehaviour
 {
     [SerializeField] GameObject FirstMode;
     [SerializeField] GameObject SecondMode;
-
-    // Update is called once per frame
+    private bool CanChangeMode=true;
     void Update()
     {
         if( Input.GetKeyDown(KeyCode.Mouse1) && Object.HasInputAuthority) 
@@ -17,12 +16,12 @@ public class GunMode : NetworkBehaviour
     [Rpc(RpcSources.All, RpcTargets.All)]
     public void RPC_teleport()
     {
-        if(FirstMode.activeInHierarchy)
+        if(FirstMode.activeInHierarchy && CanChangeMode)
         { 
             FirstMode.SetActive(false);
             SecondMode.SetActive(true);
         }
-        else if(SecondMode.activeInHierarchy)
+        else if(SecondMode.activeInHierarchy && CanChangeMode)
         {
             SecondMode.SetActive(false);
             FirstMode.SetActive(true);

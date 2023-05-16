@@ -43,7 +43,7 @@ public class CharacterInputHandler : MonoBehaviour
             jumpInput = true;
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             fireInput = true;
         }

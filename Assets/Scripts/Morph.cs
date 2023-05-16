@@ -12,7 +12,6 @@ public class Morph : NetworkBehaviour
     [SerializeField] private Renderer ren;
     [SerializeField] private List<GameObject> morphingObjects = new List<GameObject>();
     [SerializeField] private LocalCameraHandler cameraHandler;
-    
     private CharacterInputHandler inputHandler;
 
     private void Awake()
@@ -35,5 +34,10 @@ public class Morph : NetworkBehaviour
         {
             morphingObjects[i].SetActive(index == i);
         }
+    }
+    [Rpc]
+    public void RPC_UnMorph()
+    {
+        index=-1;
     }
 }

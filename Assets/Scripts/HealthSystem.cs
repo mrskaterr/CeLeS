@@ -18,10 +18,10 @@ public class HealthSystem : NetworkBehaviour
 
     [SerializeField] private GameObject onHitImage;
     [SerializeField] private TMP_Text healthTxt;
-
+    [SerializeField] private GameObject jar;
+    
     private void Start()
     {
-
         HP = startingHP;
         isDead = false;
 
@@ -35,7 +35,8 @@ public class HealthSystem : NetworkBehaviour
             
         //}
         //else { yield return null; }
-
+        GetComponent<CharacterController>().enabled=false;
+        jar.SetActive(true);
         onHitImage.SetActive(true);
 
         yield return new WaitForSeconds(.2f);
@@ -48,10 +49,8 @@ public class HealthSystem : NetworkBehaviour
     IEnumerator RegHP(float FirstWaiting,float ForWainting)
     {
         yield return new WaitForSeconds(FirstWaiting);
-        Debug.Log("5");
             while ( !isDead && HP < startingHP )
             {
-                Debug.Log("1");
                 HP += 1;
                 yield return new WaitForSeconds(ForWainting);
             }

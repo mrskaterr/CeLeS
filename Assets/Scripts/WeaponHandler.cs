@@ -12,6 +12,8 @@ public class WeaponHandler : NetworkBehaviour
     [SerializeField] private Transform aimPoint;
     [SerializeField] private LayerMask targetLayerMask;
     [SerializeField] private GameObject hitMarker;
+    //[SerializeField] private GunMode gunMode;
+
 
     private float lastTimeFired = 0;
 
@@ -19,16 +21,61 @@ public class WeaponHandler : NetworkBehaviour
     {
         if(GetInput(out NetworkInputData _networkInputData))
         {
-            if (_networkInputData.isFirePressed)
+            if (_networkInputData.isFirePressed )//&& gunMode.fireMode)
             {
                 Fire(_networkInputData.aimForwardVector);
             }
+            // if(_networkInputData.isFirePressed )//&& !gunMode.fireMode)
+            // {
+            //     UnMorph(_networkInputData.aimForwardVector);
+            // }
+            // if(_networkInputData.isFirePressed )//&& !gunMode.fireMode)
+            // {
+            //     Jarring(_networkInputData.aimForwardVector);
+            // }
         }
     }
-
-    private void Fire(Vector3 _aimForwardVector)
+    private void Jarring(Vector3 _aimForwardVector)
     {
         if(Time.time - lastTimeFired < .15f)//TODO: MN
+        {
+            return;
+        }
+        Runner.LagCompensation.Raycast(aimPoint.position, _aimForwardVector, 100, Object.InputAuthority, out var hitInfo, targetLayerMask, HitOptions.IncludePhysX); //TODO: MN
+
+        float hitDistance = 100;
+
+        if(hitInfo.Distance > 0) { hitDistance = hitInfo.Distance; }
+
+        if(hitInfo.Hitbox != null)
+        {
+            Debug.Log($"{Time.time} {transform.name} hit hitbox {hitInfo.Hitbox.transform.root.name}");
+
+            hitInfo.Hitbox.transform.root.GetComponent<Morph>().RPC_UnMorph();
+        }
+    }
+    private void UnMorph(Vector3 _aimForwardVector)
+    {
+        if(Time.time - lastTimeFired < .15f)//TODO: MN
+        {
+            return;
+        }
+        Runner.LagCompensation.Raycast(aimPoint.position, _aimForwardVector, 100, Object.InputAuthority, out var hitInfo, targetLayerMask, HitOptions.IncludePhysX); //TODO: MN
+
+        float hitDistance = 100;
+
+        if(hitInfo.Distance > 0) { hitDistance = hitInfo.Distance; }
+
+        if(hitInfo.Hitbox != null)
+        {
+            Debug.Log($"{Time.time} {transform.name} hit hitbox {hitInfo.Hitbox.transform.root.name}");
+
+            hitInfo.Hitbox.transform.root.GetComponent<Morph>().RPC_UnMorph();
+        }
+    }
+    private void Fire(Vector3 _aimForwardVector)
+    {
+        if(Time.time - lastTimeFired < .5f)//TODO: MN
         {
             return;
         }

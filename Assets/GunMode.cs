@@ -4,27 +4,35 @@ using UnityEngine;
 using Fusion;
 public class GunMode : NetworkBehaviour
 {
-    [SerializeField] GameObject FirstMode;
-    [SerializeField] GameObject SecondMode;
-    private bool CanChangeMode=true;
+    [SerializeField] GameObject firstMode;
+    [SerializeField] GameObject secondMode;
+    private bool canChangeMode=true;
+    public bool fireMode;
+
+    void Start()
+    {
+        fireMode=true;
+    }
     void Update()
     {
-        if( Input.GetKeyDown(KeyCode.Mouse1) && Object.HasInputAuthority) 
-            RPC_teleport();
+        // if( Input.GetKeyDown(KeyCode.Mouse1) && Object.HasInputAuthority) 
+        //     RPC_teleport();
 
     }
     [Rpc(RpcSources.All, RpcTargets.All)]
     public void RPC_teleport()
     {
-        if(FirstMode.activeInHierarchy && CanChangeMode)
+        if(firstMode.activeInHierarchy && canChangeMode)
         { 
-            FirstMode.SetActive(false);
-            SecondMode.SetActive(true);
+            firstMode.SetActive(false);
+            secondMode.SetActive(true);
+            fireMode=false;
         }
-        else if(SecondMode.activeInHierarchy && CanChangeMode)
+        else if(secondMode.activeInHierarchy && canChangeMode)
         {
-            SecondMode.SetActive(false);
-            FirstMode.SetActive(true);
+            secondMode.SetActive(false);
+            firstMode.SetActive(true);
+            fireMode=true;;
         }
     } 
 }

@@ -335,8 +335,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  FirstMode: {fileID: 3087257680121726402}
-  SecondMode: {fileID: 3087257679613667006}
+  firstMode: {fileID: 3087257680121726402}
+  secondMode: {fileID: 3087257679613667006}
+  fireMode: 0
 --- !u!1 &2070468216775928471
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,6 +774,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 129
   hitMarker: {fileID: 2240025818718178350}
+  gunMode: {fileID: 8781192846564049701}
 --- !u!114 &1198443442275639798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15661,8 +15663,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  FirstMode: {fileID: 2269447380412749786}
-  SecondMode: {fileID: 2269447379898463398}
+  firstMode: {fileID: 2269447380412749786}
+  secondMode: {fileID: 2269447379898463398}
+  fireMode: 0
 --- !u!1 &3087257679035760883
 GameObject:
   m_ObjectHideFlags: 0

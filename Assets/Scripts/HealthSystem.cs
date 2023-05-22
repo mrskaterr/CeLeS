@@ -19,9 +19,11 @@ public class HealthSystem : NetworkBehaviour
     [SerializeField] private GameObject onHitImage;
     [SerializeField] private TMP_Text healthTxt;
     [SerializeField] private GameObject jar;
+    List<Coroutine>  coroutines;  
     
     private void Start()
     {
+        coroutines=new List<Coroutine>();
         HP = startingHP;
         isDead = false;
 
@@ -35,8 +37,11 @@ public class HealthSystem : NetworkBehaviour
             
         //}
         //else { yield return null; }
-        GetComponent<CharacterController>().enabled=false;
-        jar.SetActive(true);
+        //if(isDead)
+        //{
+        //    GetComponent<CharacterController>().enabled=false;
+        //    jar.SetActive(true);
+        //}
         onHitImage.SetActive(true);
 
         yield return new WaitForSeconds(.2f);
@@ -46,29 +51,38 @@ public class HealthSystem : NetworkBehaviour
             onHitImage.SetActive(false);
         }
     }
-    IEnumerator RegHP(float FirstWaiting,float ForWainting)
+    IEnumerator HealthRegeneration(float FirstWaiting,float ForWainting)
     {
         yield return new WaitForSeconds(FirstWaiting);
-            while ( !isDead && HP < startingHP )
+        while(!isDead && HP < startingHP)
             {
                 HP += 1;
                 yield return new WaitForSeconds(ForWainting);
             }
-    } 
+    }
     [Rpc]//TOIMPROVE: source & target
     public void RPC_OnTakeDamage()
     {
         if (isDead) { return; }
         HP--;
-        StopAllCoroutines();
-        StartCoroutine(RegHP(5f,1f));
-        Debug.Log($"{transform.name} took damage got {HP} left");
+        for(int i=0;i< coroutines.Count;i++)
+            StopCoroutine(coroutines[i]);
+        
+        coroutines.Clear();
+        
+        coroutines.Add( StartCoroutine(HealthRegeneration(5f,1f)));
 
+        Debug.Log($"{transform.name} took damage got {HP} left");
         if (HP <= 0)
         {
             Debug.Log($"{transform.name} died");
             isDead = true;
         }
+    }
+    private void Damage()
+    {
+        //yield return new WaitForSeconds(0.2f);
+
     }
 
     private static void OnHPChanged(Changed<HealthSystem> _changed)

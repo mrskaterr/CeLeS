@@ -75,7 +75,7 @@ public class WeaponHandler : NetworkBehaviour
     }
     private void Fire(Vector3 _aimForwardVector)
     {
-        if(Time.time - lastTimeFired < .5f)//TODO: MN
+        if(Time.time - lastTimeFired < 1f)//TODO: MN
         {
             return;
         }

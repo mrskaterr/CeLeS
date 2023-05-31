@@ -37,11 +37,10 @@ public class HealthSystem : NetworkBehaviour
             
         //}
         //else { yield return null; }
-        //if(isDead)
-        //{
-        //    GetComponent<CharacterController>().enabled=false;
-        //    jar.SetActive(true);
-        //}
+        // if(isDead)
+        // {
+         
+        // }
         onHitImage.SetActive(true);
 
         yield return new WaitForSeconds(.2f);
@@ -63,7 +62,13 @@ public class HealthSystem : NetworkBehaviour
     [Rpc]//TOIMPROVE: source & target
     public void RPC_OnTakeDamage()
     {
-        if (isDead) { return; }
+        if (isDead)
+        {
+            Debug.Log("ISDEAD");
+            GetComponent<CharacterController>().enabled=false;
+            jar.SetActive(true); 
+            return; 
+        }
         HP--;
         for(int i=0;i< coroutines.Count;i++)
             StopCoroutine(coroutines[i]);

@@ -8,7 +8,7 @@ public class GunMode : NetworkBehaviour
     [SerializeField] GameObject secondMode;
     private bool canChangeMode=true;
     public bool fireMode;
-
+    //public AnimationCurve X;
     void Start()
     {
         fireMode=true;

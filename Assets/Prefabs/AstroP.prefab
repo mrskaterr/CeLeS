@@ -338,6 +338,39 @@ MonoBehaviour:
   firstMode: {fileID: 3087257680121726402}
   secondMode: {fileID: 3087257679613667006}
   fireMode: 0
+  X:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.31924856
+      value: 0.56725764
+      inSlope: 1.238497
+      outSlope: 1.238497
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9166565
+      value: 0.33317566
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2070468216775928471
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,7 +807,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 129
   hitMarker: {fileID: 2240025818718178350}
-  gunMode: {fileID: 8781192846564049701}
 --- !u!114 &1198443442275639798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -810,6 +842,7 @@ MonoBehaviour:
   _isDead: 0
   onHitImage: {fileID: 4830711948409155865}
   healthTxt: {fileID: 238306719813990287}
+  jar: {fileID: 0}
 --- !u!114 &6104603949567804489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15666,6 +15699,12 @@ MonoBehaviour:
   firstMode: {fileID: 2269447380412749786}
   secondMode: {fileID: 2269447379898463398}
   fireMode: 0
+  X:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3087257679035760883
 GameObject:
   m_ObjectHideFlags: 0

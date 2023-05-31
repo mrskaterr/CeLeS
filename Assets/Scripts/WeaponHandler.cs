@@ -29,31 +29,9 @@ public class WeaponHandler : NetworkBehaviour
             // {
             //     UnMorph(_networkInputData.aimForwardVector);
             // }
-            // if(_networkInputData.isFirePressed )//&& !gunMode.fireMode)
-            // {
-            //     Jarring(_networkInputData.aimForwardVector);
-            // }
         }
     }
-    private void Jarring(Vector3 _aimForwardVector)
-    {
-        if(Time.time - lastTimeFired < .15f)//TODO: MN
-        {
-            return;
-        }
-        Runner.LagCompensation.Raycast(aimPoint.position, _aimForwardVector, 100, Object.InputAuthority, out var hitInfo, targetLayerMask, HitOptions.IncludePhysX); //TODO: MN
 
-        float hitDistance = 100;
-
-        if(hitInfo.Distance > 0) { hitDistance = hitInfo.Distance; }
-
-        if(hitInfo.Hitbox != null)
-        {
-            Debug.Log($"{Time.time} {transform.name} hit hitbox {hitInfo.Hitbox.transform.root.name}");
-
-            hitInfo.Hitbox.transform.root.GetComponent<Morph>().RPC_UnMorph();
-        }
-    }
     private void UnMorph(Vector3 _aimForwardVector)
     {
         if(Time.time - lastTimeFired < .15f)//TODO: MN

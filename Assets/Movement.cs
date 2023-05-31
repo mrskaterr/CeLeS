@@ -64,7 +64,6 @@ public class Movement : MonoBehaviour
         }
         if (currentDashTime < MaxDashTime)
         {
-            Debug.Log("SpriteMask");
             Speed=DashSpeed;
             currentDashTime += DashStoppingSpeed;
         }

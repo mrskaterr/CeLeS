@@ -74,6 +74,11 @@ MonoBehaviour:
   role: 0
   _roleIndex: 0
   _isReady: 0
+<<<<<<< HEAD
+  hunterAvatar: {fileID: 2264008909498982632, guid: 020ad2ed2c1706540a36ed32dcc6e48a, type: 3}
+  blobAvatar: {fileID: 2264008909498982632, guid: 5b36bff11522c30459ac5e8c1553cf58, type: 3}
+=======
   hunterAvatar: {fileID: 2264008909498982632, guid: 99a6aa671432bc840b1a58745c82c652, type: 3}
   blobAvatar: {fileID: 2264008909498982632, guid: d9ef4c693536ffb419fd82538b75507f, type: 3}
+>>>>>>> Dave
   playerAvatar: {fileID: 0}

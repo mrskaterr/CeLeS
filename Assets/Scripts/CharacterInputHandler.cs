@@ -22,7 +22,6 @@ public class CharacterInputHandler : MonoBehaviour
     {
         characterMovementHandler = GetComponent<CharacterMovementHandler>();
     }
-
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;//TOIMPROVE: Utils
@@ -44,7 +43,7 @@ public class CharacterInputHandler : MonoBehaviour
             jumpInput = true;
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             fireInput = true;
         }

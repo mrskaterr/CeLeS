@@ -27238,7 +27238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7443b8847e6f3ae42b89a006afb1c02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkRunnerPrefab: {fileID: 1473315937919431351, guid: 7fb5db65d50cb80488811f175fd45742, type: 3}
+  networkRunnerPrefab: {fileID: 1473315937919431351, guid: 7bc8054ab3080bc46a72f1a30ff3aa0d, type: 3}
   networkRunner: {fileID: 0}
 --- !u!114 &2051683874
 MonoBehaviour:

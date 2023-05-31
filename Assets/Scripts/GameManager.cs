@@ -8,7 +8,14 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [HideInInspector] public MissionManager missionManager;
+    [HideInInspector] public bool victory;
+
     public SharedTimer sharedTimer;
+
+    [Tooltip("Game duration in seconds.")]
+    [SerializeField] private int gameDuration = 300;
+    [SerializeField] private GameObject victoryScreen;
+    [SerializeField] private GameObject defeatScreen;
 
     private void Awake()
     {
@@ -19,6 +26,7 @@ public class GameManager : MonoBehaviour
         else { instance = this; }
 
         missionManager = GetComponent<MissionManager>();
+        sharedTimer.duration = gameDuration;
     }
 
     private void Start()
@@ -30,5 +38,18 @@ public class GameManager : MonoBehaviour
     {
         LoadingCanvas.SetActive(false);
         RPCManager.Local.StartSharedTimer();
+    }
+
+    public void OnEnd()
+    {
+        //lock movement
+        if (victory)
+        {
+            //show victory screen
+        }
+        else
+        {
+            //show defeat screen
+        }
     }
 }

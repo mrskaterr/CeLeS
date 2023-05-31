@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\Missions\TestMission3.cs" />
     <Compile Include="Assets\Scripts\Missions\TestMission2.cs" />
+    <Compile Include="Assets\CompassHandler.cs" />
     <Compile Include="Assets\Teleportyzer.cs" />
     <Compile Include="Assets\Scripts\MorphObject.cs" />
     <Compile Include="Assets\Movement.cs" />

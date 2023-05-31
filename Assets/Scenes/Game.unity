@@ -58326,8 +58326,8 @@ MonoBehaviour:
   victory: 0
   sharedTimer: {fileID: 1590632533}
   gameDuration: 300
-  victoryScreen: {fileID: 0}
-  defeatScreen: {fileID: 0}
+  victoryScreen: {fileID: 792240442}
+  defeatScreen: {fileID: 339861627}
 --- !u!114 &1932179499
 MonoBehaviour:
   m_ObjectHideFlags: 0

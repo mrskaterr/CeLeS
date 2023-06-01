@@ -14,6 +14,7 @@ public class NetworkAnimator : NetworkBehaviour
     private const string move_ParamName = "isMoving";
     private const string sprint_ParamName = "isSprinting";
     private const string grounded_ParamName = "isGrounded";
+    private const string hold_ParamName = "isHolding";
 
     [Networked(OnChanged = nameof(OnHeightChange))]
     private float height { get; set; }
@@ -31,6 +32,11 @@ public class NetworkAnimator : NetworkBehaviour
     public void SetMoveAnim(bool _isMoving)
     {
         animator.SetBool(move_ParamName, _isMoving);
+    }
+
+    public void SetHoldAnim(bool _isHolding)
+    {
+        animator.SetBool(hold_ParamName, _isHolding);
     }
 
     public void SetAimTargetPos(float _height)

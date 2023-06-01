@@ -7,6 +7,7 @@ public class PlayerHUD : MonoBehaviour
 {
     [SerializeField] private TMP_Text txt;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private TMP_Text spaceNameTxt;
 
     public void DisplayInfo(string _text)
     {
@@ -34,5 +35,10 @@ public class PlayerHUD : MonoBehaviour
                 Manager.Instance.lobbyManager.LeaveSession();
             }
         }
+    }
+
+    public void SetSpaceName(string _name)
+    {
+        spaceNameTxt.text = _name;
     }
 }

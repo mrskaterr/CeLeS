@@ -19,6 +19,7 @@ public class HealthSystem : NetworkBehaviour
     [SerializeField] private GameObject onHitImage;
     [SerializeField] private TMP_Text healthTxt;
     [SerializeField] private GameObject jar;
+    [SerializeField] private GameObject body;
     List<Coroutine>  coroutines;  
     
     private void Start()
@@ -62,13 +63,6 @@ public class HealthSystem : NetworkBehaviour
     [Rpc]//TOIMPROVE: source & target
     public void RPC_OnTakeDamage()
     {
-        if (isDead)
-        {
-            Debug.Log("ISDEAD");
-            GetComponent<CharacterController>().enabled=false;
-            jar.SetActive(true); 
-            return; 
-        }
         HP--;
         for(int i=0;i< coroutines.Count;i++)
             StopCoroutine(coroutines[i]);
@@ -82,6 +76,13 @@ public class HealthSystem : NetworkBehaviour
         {
             Debug.Log($"{transform.name} died");
             isDead = true;
+        }
+        if (isDead)
+        {
+            GetComponent<CharacterController>().enabled = false;
+            jar.SetActive(true);
+            body.SetActive(false);
+            return;
         }
     }
     private void Damage()
@@ -112,5 +113,13 @@ public class HealthSystem : NetworkBehaviour
     private static void OnStateChanged(Changed<HealthSystem> _changed)
     {
 
+    }
+
+    public void Restore()
+    {
+        HP = startingHP;
+        GetComponent<CharacterController>().enabled = true;
+        jar.SetActive(false);
+        body.SetActive(true);
     }
 }

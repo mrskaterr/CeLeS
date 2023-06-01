@@ -6,19 +6,19 @@ public class GunMode : NetworkBehaviour
 {
     [SerializeField] GameObject firstMode;
     [SerializeField] GameObject secondMode;
-    private bool canChangeMode=true;
+    private bool canChangeMode = true;
     public bool fireMode;
     //public AnimationCurve X;
     void Start()
     {
-        fireMode=true;
+        fireMode = true;
     }
-    void Update()
-    {
-        // if( Input.GetKeyDown(KeyCode.Mouse1) && Object.HasInputAuthority) 
-        //     RPC_teleport();
 
+    public void SwapMode()
+    {
+        RPC_teleport();
     }
+
     [Rpc(RpcSources.All, RpcTargets.All)]
     public void RPC_teleport()
     {

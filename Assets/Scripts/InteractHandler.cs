@@ -12,7 +12,13 @@ public class InteractHandler : MonoBehaviour
     [SerializeField] private Camera fpsCam;
     [SerializeField] private Camera tpsCam;
     [SerializeField] private LocalCameraHandler cameraHandler;
+    [Space]
+    [SerializeField] private bool isHuman = true;
+    private NetworkPlayer networkPlayer;
     private Morph morph;
+    private CarryHandler carryHandler;
+    [SerializeField] private GunMode gunModeA;//TOIMPROVE: merge into 1 var
+    [SerializeField] private GunMode gunModeB;
 
     private IInteractable interactable;
 
@@ -21,27 +27,48 @@ public class InteractHandler : MonoBehaviour
     private void Awake()
     {
         morph = GetComponent<Morph>();
+        networkPlayer = GetComponent<NetworkPlayer>();
+        carryHandler = GetComponent<CarryHandler>();
     }
 
     private void Update()
     {
-        Look4Interaction();
+        if (!networkPlayer.isRemote)
+        {
+            Look4Interaction();
 
-        if(interactable != null)
-        {
-            indicator.SetActive(true);
-            if(Input.GetMouseButtonDown(1))
+            if (interactable != null)
             {
-                interactable.Interact(gameObject);
+                indicator.SetActive(true);
+                if (Input.GetMouseButtonDown(1))
+                {
+                    interactable.Interact(gameObject);
+                }
             }
-        }
-        else
-        {
-            indicator.SetActive(false);
-            if (Input.GetMouseButtonDown(1))
+            else
             {
-                morph.index = -1;
-            }
+                indicator.SetActive(false);
+                if (Input.GetMouseButtonDown(1))
+                {
+                    if (isHuman)
+                    {
+                        if (gunModeA.isActiveAndEnabled)
+                        {
+                            gunModeA.SwapMode();
+                            gunModeB.SwapMode();
+                        }
+                        else
+                        {
+                            carryHandler.Leave();
+                            carryHandler.PutDown();
+                        }
+                    }
+                    else
+                    {
+                        morph.index = -1;
+                    }
+                }
+            } 
         }
     }
 

@@ -10,7 +10,8 @@ public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
     [SerializeField] private GameObject modelRoot;
     [SerializeField] private Camera cam;
     [SerializeField] private AudioListener audioListener;
-
+    [Header("Remote Check")]
+    public bool isRemote;
     private const string layerName = "Local Player Model";
 
     public override void Spawned()
@@ -30,6 +31,8 @@ public class NetworkPlayer : NetworkBehaviour, IPlayerLeft
         }
         //PlayerHolder.AddPlayerObject2List(gameObject);
         DontDestroyOnLoad(gameObject);
+
+        isRemote = !Object.HasInputAuthority;
     }
 
     public void PlayerLeft(PlayerRef player)

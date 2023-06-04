@@ -16,12 +16,20 @@ public class HealthSystem : NetworkBehaviour
 
     private const int startingHP = 5;
 
-    [SerializeField] private GameObject onHitImage;
     [SerializeField] private TMP_Text healthTxt;
     [SerializeField] private GameObject jar;
     [SerializeField] private GameObject body;
-    List<Coroutine>  coroutines;  
-    
+    List<Coroutine>  coroutines;
+
+    private PlayerHUD HUD;
+    private CaptureHandler captureHandler;
+
+    private void Awake()
+    {
+        HUD = GetComponent<PlayerHUD>();
+        captureHandler = GetComponent<CaptureHandler>();
+    }
+
     private void Start()
     {
         coroutines=new List<Coroutine>();
@@ -42,13 +50,17 @@ public class HealthSystem : NetworkBehaviour
         // {
          
         // }
-        onHitImage.SetActive(true);
+        HUD.ToggleOnHitImage(true);
 
         yield return new WaitForSeconds(.2f);
 
         if (!isDead)
         {
-            onHitImage.SetActive(false);
+            HUD.ToggleOnHitImage(false);
+        }
+        else
+        {
+            HUD.ToggleMiniGame(true);
         }
     }
     IEnumerator HealthRegeneration(float FirstWaiting,float ForWainting)
@@ -82,6 +94,7 @@ public class HealthSystem : NetworkBehaviour
             GetComponent<CharacterController>().enabled = false;
             jar.SetActive(true);
             body.SetActive(false);
+            captureHandler.isFree = false;
             return;
         }
     }
@@ -118,8 +131,11 @@ public class HealthSystem : NetworkBehaviour
     public void Restore()
     {
         HP = startingHP;
+        isDead = false;
         GetComponent<CharacterController>().enabled = true;
         jar.SetActive(false);
         body.SetActive(true);
+        HUD.ToggleCrosshair(true);
+        HUD.ToggleOnHitImage(false);
     }
 }

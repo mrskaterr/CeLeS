@@ -59,8 +59,8 @@ public class InteractHandler : MonoBehaviour
                         }
                         else
                         {
-                            carryHandler.Leave();
-                            carryHandler.PutDown();
+                            carryHandler.RPC_Leave();
+                            //carryHandler.PutDown();
                         }
                     }
                     else

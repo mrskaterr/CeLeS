@@ -4,10 +4,10 @@ using UnityEngine;
 using Fusion;
 public class GunMode : NetworkBehaviour
 {
-    [SerializeField] GameObject firstMode;
-    [SerializeField] GameObject secondMode;
+    [SerializeField] GameObject blueMode;
+    [SerializeField] GameObject pinkMode;
     private bool canChangeMode=true;
-    public bool fireMode;
+    private bool fireMode;
     //public AnimationCurve X;
     void Start()
     {
@@ -15,24 +15,28 @@ public class GunMode : NetworkBehaviour
     }
     void Update()
     {
-        // if( Input.GetKeyDown(KeyCode.Mouse1) && Object.HasInputAuthority) 
-        //     RPC_teleport();
+        if( Input.GetKeyDown(KeyCode.Mouse1) && Object.HasInputAuthority) 
+            {RPC_GunMode();}
 
     }
-    [Rpc(RpcSources.All, RpcTargets.All)]
-    public void RPC_teleport()
+    public bool FireMode()
     {
-        if(firstMode.activeInHierarchy && canChangeMode)
-        { 
-            firstMode.SetActive(false);
-            secondMode.SetActive(true);
+        return fireMode;
+    }
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void RPC_GunMode()
+    {
+        if(blueMode.activeInHierarchy && canChangeMode)
+        {
+            blueMode.SetActive(false);
+            pinkMode.SetActive(true);
             fireMode=false;
         }
-        else if(secondMode.activeInHierarchy && canChangeMode)
+        else if(pinkMode.activeInHierarchy && canChangeMode)
         {
-            secondMode.SetActive(false);
-            firstMode.SetActive(true);
-            fireMode=true;;
+            pinkMode.SetActive(false);
+            blueMode.SetActive(true);
+            fireMode=true;
         }
     } 
 }

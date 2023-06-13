@@ -12,7 +12,8 @@ public class WeaponHandler : NetworkBehaviour
     [SerializeField] private Transform aimPoint;
     [SerializeField] private LayerMask targetLayerMask;
     [SerializeField] private GameObject hitMarker;
-    //[SerializeField] private GunMode gunMode;
+    [SerializeField] float timeBetweenShots=0.15f;
+    [SerializeField] private GunMode gunMode;
 
 
     private float lastTimeFired = 0;
@@ -21,20 +22,20 @@ public class WeaponHandler : NetworkBehaviour
     {
         if(GetInput(out NetworkInputData _networkInputData))
         {
-            if (_networkInputData.isFirePressed )//&& gunMode.fireMode)
+            if (_networkInputData.isFirePressed && gunMode.FireMode())
             {
                 Fire(_networkInputData.aimForwardVector);
             }
-            // if(_networkInputData.isFirePressed )//&& !gunMode.fireMode)
-            // {
-            //     UnMorph(_networkInputData.aimForwardVector);
-            // }
+            else if(_networkInputData.isFirePressed && !gunMode.FireMode())
+            {
+                UnMorph(_networkInputData.aimForwardVector);
+            }
         }
     }
 
     private void UnMorph(Vector3 _aimForwardVector)
     {
-        if(Time.time - lastTimeFired < .15f)//TODO: MN
+        if(Time.time - lastTimeFired < timeBetweenShots)//TODO: MN
         {
             return;
         }
@@ -53,7 +54,7 @@ public class WeaponHandler : NetworkBehaviour
     }
     private void Fire(Vector3 _aimForwardVector)
     {
-        if(Time.time - lastTimeFired < 1f)//TODO: MN
+        if(Time.time - lastTimeFired < 0.25f)//TODO: MN
         {
             return;
         }

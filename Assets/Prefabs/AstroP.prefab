@@ -317,8 +317,8 @@ Transform:
   - {fileID: 8660031377920549561}
   - {fileID: 6898887025301334342}
   - {fileID: 6985223699419811385}
-  - {fileID: 3087257680121726403}
   - {fileID: 3087257679613667007}
+  - {fileID: 3087257680121726403}
   m_Father: {fileID: 2347934523440413958}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -5.617, y: 0, z: 0}
@@ -335,42 +335,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  firstMode: {fileID: 3087257680121726402}
-  secondMode: {fileID: 3087257679613667006}
-  fireMode: 0
-  X:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.31924856
-      value: 0.56725764
-      inSlope: 1.238497
-      outSlope: 1.238497
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.9166565
-      value: 0.33317566
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  blueMode: {fileID: 3087257679613667006}
+  pinkMode: {fileID: 3087257680121726402}
 --- !u!1 &2070468216775928471
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,6 +773,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 129
   hitMarker: {fileID: 2240025818718178350}
+  timeBetweenShots: 0.15
+  gunMode: {fileID: 8781192846564049701}
 --- !u!114 &1198443442275639798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,7 +896,7 @@ GameObject:
   - component: {fileID: 2269447379261846821}
   - component: {fileID: 2269447379261846820}
   m_Layer: 10
-  m_Name: Mode B (1)
+  m_Name: Mode A (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5833,7 +5801,7 @@ GameObject:
   - component: {fileID: 2269447379365946392}
   - component: {fileID: 2269447379365946394}
   m_Layer: 10
-  m_Name: Mode B
+  m_Name: Mode A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10672,12 +10640,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2269447379898463399}
   m_Layer: 10
-  m_Name: ModeB
+  m_Name: BlueMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2269447379898463399
 Transform:
   m_ObjectHideFlags: 0
@@ -10694,7 +10662,7 @@ Transform:
   - {fileID: 2269447379326849772}
   - {fileID: 2269447379261846819}
   m_Father: {fileID: 4684963099440617979}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2269447380412749786
 GameObject:
@@ -10706,12 +10674,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2269447380412749787}
   m_Layer: 10
-  m_Name: ModeA
+  m_Name: PinkMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2269447380412749787
 Transform:
   m_ObjectHideFlags: 0
@@ -10727,7 +10695,7 @@ Transform:
   - {fileID: 2269447381085669814}
   - {fileID: 2269447381106868181}
   m_Father: {fileID: 4684963099440617979}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2269447381085669813
 GameObject:
@@ -10741,7 +10709,7 @@ GameObject:
   - component: {fileID: 2269447381085669768}
   - component: {fileID: 2269447381085669815}
   m_Layer: 10
-  m_Name: Mode A
+  m_Name: Mode B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15665,8 +15633,8 @@ Transform:
   m_Children:
   - {fileID: 4743919376691472137}
   - {fileID: 3620796221029078681}
-  - {fileID: 2269447380412749787}
   - {fileID: 2269447379898463399}
+  - {fileID: 2269447380412749787}
   m_Father: {fileID: 2347934523440413958}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15696,15 +15664,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  firstMode: {fileID: 2269447380412749786}
-  secondMode: {fileID: 2269447379898463398}
-  fireMode: 0
-  X:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  blueMode: {fileID: 2269447379898463398}
+  pinkMode: {fileID: 2269447380412749786}
 --- !u!1 &3087257679035760883
 GameObject:
   m_ObjectHideFlags: 0
@@ -15801,7 +15762,7 @@ GameObject:
   - component: {fileID: 3087257679081354752}
   - component: {fileID: 3087257679081354754}
   m_Layer: 16
-  m_Name: Mode B
+  m_Name: Mode A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20642,7 +20603,7 @@ GameObject:
   - component: {fileID: 3087257679243388733}
   - component: {fileID: 3087257679243388732}
   m_Layer: 16
-  m_Name: Mode B (1)
+  m_Name: Mode A (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25461,12 +25422,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3087257679613667007}
   m_Layer: 16
-  m_Name: ModeB
+  m_Name: BlueMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3087257679613667007
 Transform:
   m_ObjectHideFlags: 0
@@ -25483,7 +25444,7 @@ Transform:
   - {fileID: 3087257679035760884}
   - {fileID: 3087257679243388731}
   m_Father: {fileID: 6403984232071327700}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3087257680121726402
 GameObject:
@@ -25495,12 +25456,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3087257680121726403}
   m_Layer: 16
-  m_Name: ModeA
+  m_Name: PinkMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3087257680121726403
 Transform:
   m_ObjectHideFlags: 0
@@ -25516,7 +25477,7 @@ Transform:
   - {fileID: 3087257680532511662}
   - {fileID: 3087257680551701965}
   m_Father: {fileID: 6403984232071327700}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3087257680532511661
 GameObject:
@@ -25530,7 +25491,7 @@ GameObject:
   - component: {fileID: 3087257680532511632}
   - component: {fileID: 3087257680532511663}
   m_Layer: 16
-  m_Name: Mode A
+  m_Name: Mode B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -13,14 +13,20 @@ public class HealthSystem : NetworkBehaviour
     public bool isDead { get; set; }
 
     private bool isInitialized = false;
-
-    private const int startingHP = 5;
+    private const float hpRegTime = 5;
+    private const float hpRegTime2 = 0.15f;
+    private const int startingHP = 100;
 
     [SerializeField] private GameObject onHitImage;
     [SerializeField] private TMP_Text healthTxt;
     [SerializeField] private GameObject jar;
-    List<Coroutine>  coroutines;  
+    List<Coroutine> coroutines;
+    private Morph morph;
     
+    void Awake()
+    {
+        morph = GetComponent<Morph>();
+    }
     private void Start()
     {
         coroutines=new List<Coroutine>();
@@ -62,27 +68,25 @@ public class HealthSystem : NetworkBehaviour
     [Rpc]//TOIMPROVE: source & target
     public void RPC_OnTakeDamage()
     {
-        if (isDead)
-        {
-            Debug.Log("ISDEAD");
-            GetComponent<CharacterController>().enabled=false;
-            jar.SetActive(true); 
-            return; 
-        }
+        if (isDead || morph.index!=-1 ){return;}
+
         HP--;
         for(int i=0;i< coroutines.Count;i++)
             StopCoroutine(coroutines[i]);
         
         coroutines.Clear();
         
-        coroutines.Add( StartCoroutine(HealthRegeneration(5f,1f)));
+        coroutines.Add( StartCoroutine(HealthRegeneration(hpRegTime,hpRegTime2)));
 
         Debug.Log($"{transform.name} took damage got {HP} left");
         if (HP <= 0)
         {
-            Debug.Log($"{transform.name} died");
             isDead = true;
+            Debug.Log($"{transform.name} died");
+            GetComponent<CharacterController>().enabled=false;
+            jar.SetActive(true); 
         }
+
     }
     private void Damage()
     {

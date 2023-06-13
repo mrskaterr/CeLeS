@@ -40,7 +40,7 @@ public class InteractHandler : MonoBehaviour
             indicator.SetActive(false);
             if (Input.GetMouseButtonDown(1))
             {
-                morph.index = -1;
+                //morph.index = -1;
             }
         }
     }

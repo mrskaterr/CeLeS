@@ -14,7 +14,8 @@ public class CharacterInputHandler : MonoBehaviour
     private bool fireInput = false;//TODO: interact
     private float speedStep = 0;
     private bool sneakyInput = false;
-
+    private bool dashInput= false;
+    private bool sprintInput=false;
     private Vector3 sneakRot = Vector3.zero;
 
     private CharacterMovementHandler characterMovementHandler;
@@ -58,6 +59,15 @@ public class CharacterInputHandler : MonoBehaviour
         {
             sneakyInput = false;
         }
+        if(Input.GetKeyUp(KeyCode.Z))
+        {
+            dashInput=true;
+        }
+        if(Input.GetKey(KeyCode.X)) 
+        {
+            Debug.Log(1);
+		    sprintInput=true;
+	    }
 
         moveInput.y += speedStep;
 
@@ -83,9 +93,14 @@ public class CharacterInputHandler : MonoBehaviour
 
         networkInputData.isFirePressed = fireInput;
 
+        networkInputData.isDashPressed = dashInput;
+
+        networkInputData.isSprintPressed = sprintInput;
+
         jumpInput = false;
         fireInput= false;
-
+        dashInput = false;
+        //sprintInput= false;
         return networkInputData;
     }
 }

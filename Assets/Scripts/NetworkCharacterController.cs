@@ -13,12 +13,22 @@ public class NetworkCharacterController : NetworkTransform
     public float acceleration = 10.0f;
     public float braking = 10.0f;
     public float maxSpeed = 2.0f;
+    public float runSpeed = 10f;
     public float rotationSpeed = 15.0f;
     public float viewVerticalSpeed = 50;
-
+    public float MaxDashTime=5f;
+    public float DashSpeed=10f;
+    public float DashStoppingSpeed=0.1f;
+    public float DashResetTime=5f;
+    private float currentDashTime;
+    private float currentDashResetTime;
+    float walkSpeed;
+    private bool DoubleJump = true;
     [Networked]
     [HideInInspector]
     public bool IsGrounded { get; set; }
+    public bool IsDash;
+    public bool IsRuning;
 
     [Networked]
     [HideInInspector]
@@ -34,8 +44,41 @@ public class NetworkCharacterController : NetworkTransform
     {
         base.Awake();
         CacheController();
+        currentDashTime = MaxDashTime;
+        walkSpeed=maxSpeed;
     }
+    public override void FixedUpdateNetwork()
+    {
+        //Dash
+        if (IsDash && currentDashResetTime>DashResetTime)
+        {
+            currentDashTime = 0.0f;
+            currentDashResetTime= 0.0f;
+            
+            IsDash=false;
+        }
+        if (currentDashTime < MaxDashTime)
+        {
+            maxSpeed=DashSpeed;
+            currentDashTime += DashStoppingSpeed;
+        }
+        else
+        {
+            //maxSpeed=walkSpeed;
+            currentDashResetTime += DashStoppingSpeed;
+        }
 
+        //Sprint
+	    if(IsRuning)
+        {
+            Debug.Log(2);
+		    maxSpeed = runSpeed;
+	    }
+        // else
+        // {
+        //     maxSpeed = walkSpeed;
+        // }
+    }
     public override void Spawned()
     {
         base.Spawned();
@@ -62,11 +105,20 @@ public class NetworkCharacterController : NetworkTransform
     }
     public virtual void Jump(bool ignoreGrounded = false, float? overrideImpulse = null)
     {
+        
         if (IsGrounded || ignoreGrounded)
         {
             var newVel = Velocity;
             newVel.y += overrideImpulse ?? jumpImpulse;
             Velocity = newVel;
+        }
+        else if(DoubleJump)
+        {
+            var newVel = Velocity;
+            newVel.y += overrideImpulse ?? jumpImpulse;
+            Velocity = newVel;
+
+            DoubleJump=false;
         }
     }
     public virtual void Move(Vector3 direction)
@@ -104,6 +156,8 @@ public class NetworkCharacterController : NetworkTransform
 
         Velocity = (transform.position - previousPos) * Runner.Simulation.Config.TickRate;
         IsGrounded = Controller.isGrounded;
+        if(IsGrounded)
+            DoubleJump=true;
     }
 
     public void Rotate(float _rotationInput)

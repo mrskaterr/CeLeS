@@ -594,6 +594,7 @@ GameObject:
   - component: {fileID: 4941693848883023913}
   - component: {fileID: 5531881080451361703}
   - component: {fileID: 5030489034049793712}
+  - component: {fileID: 4338273021966974601}
   m_Layer: 0
   m_Name: AstroP
   m_TagString: Untagged
@@ -884,6 +885,32 @@ MonoBehaviour:
     _hash: -814817977
   StateHashes: 00000000328582160136a721724a374741f91270558acf2997f80e8b
   TriggerHashes: 00000000
+--- !u!114 &4338273021966974601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2264008909498982632}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d59576be15d8e149a3b1aacff17d8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FootPoint: {fileID: 0}
+  Speed: 0
+  runSpeed: 0
+  JumpForce: 0
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  RadiusOverlapSphere: 0
+  CrouchSpeed: 0
+  MaxDashTime: 0
+  DashSpeed: 0
+  DashStoppingSpeed: 0
+  DashResetTime: 0
+  Lock: 0
 --- !u!1 &2269447379261846818
 GameObject:
   m_ObjectHideFlags: 0

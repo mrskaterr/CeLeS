@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\LobbyManagerV2.cs" />
     <Compile Include="Assets\Scripts\SpaceManager.cs" />
     <Compile Include="Assets\Scripts\Network\NetworkPlayer.cs" />
+    <Compile Include="Assets\JarBlob.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\Missions\TestMission3.cs" />
     <Compile Include="Assets\Scripts\Missions\TestMission2.cs" />
@@ -114,7 +115,6 @@
     <Compile Include="Assets\Scripts\PlayerHolder.cs" />
     <Compile Include="Assets\Scripts\LoadingCanvas.cs" />
     <Compile Include="Assets\Scripts\CharacterMovementHandler.cs" />
-    <Compile Include="Assets\JarBlob.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />

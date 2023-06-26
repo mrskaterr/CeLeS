@@ -52927,11 +52927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d59576be15d8e149a3b1aacff17d8f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cam: {fileID: 1982955115}
   FootPoint: {fileID: 899441590}
   MouseSensitivity: 10
-  LookUpMax: 45
-  LookUpMin: -45
   Speed: 8
   runSpeed: 16
   JumpForce: 8
@@ -52940,11 +52937,14 @@ MonoBehaviour:
     m_Bits: 4194304
   RadiusOverlapSphere: 1
   CrouchSpeed: 5
+  _Grounded: 1
   MaxDashTime: 5
   DashSpeed: 16
   DashStoppingSpeed: 1
   DashResetTime: 2
   Lock: 4
+  JumpInput: 0
+  MoveInput: {x: 0, y: 0, z: 0}
 --- !u!136 &1770178344
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -57812,6 +57812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missionManager: {fileID: 0}
+  sharedTimer: {fileID: 0}
 --- !u!114 &1932179499
 MonoBehaviour:
   m_ObjectHideFlags: 0

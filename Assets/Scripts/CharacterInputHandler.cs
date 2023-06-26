@@ -18,8 +18,10 @@ public class CharacterInputHandler : MonoBehaviour
     private Vector3 sneakRot = Vector3.zero;
 
     private CharacterMovementHandler characterMovementHandler;
+    private Movement movement;
     private void Awake()
     {
+        movement = GetComponent<Movement>();
         characterMovementHandler = GetComponent<CharacterMovementHandler>();
     }
     private void Start()
@@ -35,13 +37,13 @@ public class CharacterInputHandler : MonoBehaviour
         viewInput.x = Input.GetAxis("Mouse X");
         viewInput.y = Input.GetAxis("Mouse Y") * -1;
 
-        moveInput.x = Input.GetAxis("Horizontal");//TODO: new input system
-        moveInput.y = Input.GetAxis("Vertical");
+        // moveInput.x = Input.GetAxis("Horizontal");//TODO: new input system
+        // moveInput.y = Input.GetAxis("Vertical");
 
-        if (Input.GetButtonDown("Jump"))
-        {
-            jumpInput = true;
-        }
+        // if (Input.GetButtonDown("Jump"))
+        // {
+        //     jumpInput = true;
+        // }
 
         if (Input.GetButton("Fire1"))
         {
@@ -68,6 +70,7 @@ public class CharacterInputHandler : MonoBehaviour
     {
         NetworkInputData networkInputData = new NetworkInputData();
 
+        
         if (sneakyInput)
         {
             networkInputData.aimForwardVector = sneakRot;
@@ -76,14 +79,16 @@ public class CharacterInputHandler : MonoBehaviour
         {
             networkInputData.aimForwardVector = cameraHandler.transform.forward;
         }
+        
+        // networkInputData.aimForwardVector = movement.Rotation.eulerAngles;//cameraHandler.transform.forward;
+        
+        networkInputData.movementInput = movement.MoveInput;
 
-        networkInputData.movementInput = moveInput;
-
-        networkInputData.isJumpPressed = jumpInput;
+        networkInputData.isJumpPressed = movement.JumpInput;
 
         networkInputData.isFirePressed = fireInput;
 
-        jumpInput = false;
+        movement.JumpInput = false;
         fireInput= false;
 
         return networkInputData;

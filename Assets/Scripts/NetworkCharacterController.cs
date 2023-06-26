@@ -2,7 +2,7 @@ using System;
 using Fusion;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(Rigidbody))]
 [OrderBefore(typeof(NetworkTransform))]
 [DisallowMultipleComponent]
 public class NetworkCharacterController : NetworkTransform
@@ -28,10 +28,12 @@ public class NetworkCharacterController : NetworkTransform
 
     protected override Vector3 DefaultTeleportInterpolationAngularVelocity => new Vector3(0f, 0f, rotationSpeed);
 
-    public CharacterController Controller { get; private set; }
+    public Rigidbody rigidbody { get; private set; }
+    public Movement movement { get; private set; }
 
     protected override void Awake()
     {
+        movement=GetComponent<Movement>();
         base.Awake();
         CacheController();
     }
@@ -44,21 +46,24 @@ public class NetworkCharacterController : NetworkTransform
 
     private void CacheController()
     {
-        if (Controller == null)
+        if (rigidbody == null)
         {
-            Controller = GetComponent<CharacterController>();
+            rigidbody = GetComponent<Rigidbody>();
 
-            Assert.Check(Controller != null, $"An object with {nameof(NetworkCharacterControllerPrototype)} must also have a {nameof(CharacterController)} component.");
+            Assert.Check(rigidbody != null, $"An object with {nameof(NetworkCharacterControllerPrototype)} must also have a {nameof(Rigidbody)} component.");
         }
     }
 
     protected override void CopyFromBufferToEngine()
     {
-        Controller.enabled = false;
+        rigidbody.isKinematic = true;
+        rigidbody.detectCollisions = false;
 
         base.CopyFromBufferToEngine();
 
-        Controller.enabled = true;
+        rigidbody.isKinematic = false;
+        rigidbody.detectCollisions = true;
+
     }
     public virtual void Jump(bool ignoreGrounded = false, float? overrideImpulse = null)
     {
@@ -100,10 +105,10 @@ public class NetworkCharacterController : NetworkTransform
         moveVelocity.x = horizontalVel.x;
         moveVelocity.z = horizontalVel.z;
 
-        Controller.Move(moveVelocity * deltaTime);
+        rigidbody.MovePosition(moveVelocity * deltaTime);
 
         Velocity = (transform.position - previousPos) * Runner.Simulation.Config.TickRate;
-        IsGrounded = Controller.isGrounded;
+        IsGrounded = movement._Grounded;
     }
 
     public void Rotate(float _rotationInput)

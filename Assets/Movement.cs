@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] Transform Cam;
+    //[SerializeField] Transform Cam;
     [SerializeField] Transform FootPoint;
     [SerializeField] float MouseSensitivity;
-    [SerializeField] float LookUpMax ;
-    [SerializeField] float LookUpMin ;
+     [SerializeField] float LookUpMax = 90;
+     [SerializeField] float LookUpMin =-90;
     [SerializeField] float Speed;
     //[SerializeField]
     float walkSpeed;
@@ -20,8 +20,9 @@ public class Movement : MonoBehaviour
    
     private Rigidbody _Rigidbody;
     private Vector3 _MoveInput;
-    private Quaternion _MouseInput=Quaternion.Euler(Vector3.zero);
-    private bool _Grounded = true;
+    public Quaternion Rotation=Quaternion.Euler(Vector3.zero);
+    public Vector2 mouseInput;
+    public bool _Grounded = true;
     private bool _DoubleJump=false;
     private float _CameraX;
     private float _ScaleY=1;
@@ -39,6 +40,11 @@ public class Movement : MonoBehaviour
     private float currentDashTime;
     private float currentDashResetTime;
 
+    //input
+    [HideInInspector]
+    public bool JumpInput;
+    [HideInInspector]
+    public Vector3 MoveInput;
     void Start()
     {
         currentDashTime = MaxDashTime;
@@ -50,13 +56,16 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {   
-        _CameraX = Mathf.Clamp(_CameraX-Input.GetAxis("Mouse Y") * MouseSensitivity,LookUpMin,LookUpMax);
-        Cam.localRotation= Quaternion.Euler(_CameraX, Cam.localRotation.y, Cam.localRotation.z);
+        // Cam.localRotation = Quaternion.Euler(_CameraX, Cam.localRotation.y, Cam.localRotation.z);
 
-        _MouseInput =  Quaternion.Euler(0,Input.GetAxis("Mouse X") * MouseSensitivity,0);
+        //Rotation =  Quaternion.Euler(0,Input.GetAxis("Mouse X") * MouseSensitivity,0);
+        //Rotation =  Quaternion.Euler(Input.GetAxis("Mouse X") * MouseSensitivity,0,0);
+        // mouseInput.y = Input.GetAxis("Mouse Y");
+        // mouseInput.x = Mathf.Clamp(mouseInput.x - Input.GetAxis("Mouse X") * MouseSensitivity, LookUpMin, LookUpMax);
         _MoveInput = transform.forward * Input.GetAxisRaw("Vertical") + transform.right * Input.GetAxisRaw("Horizontal");
+        MoveInput = _MoveInput;
 
-         //Dash
+        //Dash
         if (Input.GetKey(KeyCode.Z) &&  currentDashResetTime>DashResetTime)
         {
             currentDashTime = 0.0f;
@@ -95,14 +104,16 @@ public class Movement : MonoBehaviour
         if(_Grounded==false && Physics.OverlapSphere(FootPoint.position,RadiusOverlapSphere,GroundLayer).Length>0)
         {
             _Grounded = true;
-            _DoubleJump=true;
+            _DoubleJump = true;
         }
         if(Input.GetKeyDown(KeyCode.Space) && _Grounded)
         {
+            JumpInput=true;
             Jump();
         }
         else if(Input.GetKeyDown(KeyCode.Space) && !_Grounded && _DoubleJump)
         {
+            JumpInput=true;
             Jump();
             _DoubleJump=false;
         }
@@ -113,11 +124,12 @@ public class Movement : MonoBehaviour
         if(!_Grounded)
             Speed*=Lock;
         
+        //Rotation=Quaternion.Euler(mouseInput.y, mouseInput.x, 0f);
         _Rigidbody.MovePosition(transform.position + _MoveInput.normalized * Time.fixedDeltaTime * Speed);
-        _Rigidbody.MoveRotation(_Rigidbody.rotation * _MouseInput);
+        _Rigidbody.MoveRotation(_Rigidbody.rotation * Rotation);
     } 
 
-    private void Jump()
+    public void Jump()
     {
         _Grounded=false;
         _Rigidbody.velocity = new Vector3(_Rigidbody.velocity.x, 0f, _Rigidbody.velocity.z);

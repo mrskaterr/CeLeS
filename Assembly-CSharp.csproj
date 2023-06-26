@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Network\NetworkRunnerHandler.cs" />
      <Compile Include="Assets\Scripts\Manager.cs" />
      <Compile Include="Assets\Scripts\Extensions\TMPTextExtension.cs" />
+     <Compile Include="Assets\taskChanger.cs" />
      <Compile Include="Assets\Scripts\InteractHandler.cs" />
      <Compile Include="Assets\Scripts\ActivityEvents.cs" />
      <Compile Include="Assets\Scripts\CharacterInputHandler.cs" />

@@ -9,7 +9,7 @@ public class NetworkAnimator : NetworkBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Transform bodyAimTarget;
 
-    private NetworkCharacterController controller;
+    private Movement movement;
 
     private const string move_ParamName = "isMoving";
     private const string sprint_ParamName = "isSprinting";
@@ -20,12 +20,12 @@ public class NetworkAnimator : NetworkBehaviour
 
     private void Awake()
     {
-        controller = GetComponent<NetworkCharacterController>();
+        movement = GetComponent<Movement>();
     }
 
     private void Update()
     {
-        animator.SetBool(grounded_ParamName, controller.IsGrounded);
+        animator.SetBool(grounded_ParamName, movement._Grounded);
     }
 
     public void SetMoveAnim(bool _isMoving)

@@ -5,16 +5,17 @@ using Fusion;
 
 public class CharacterMovementHandler : NetworkBehaviour
 {
-    private NetworkCharacterController networkCharacterController;
+    private NetworkRigidbody networkRigidBody;
     private NetworkAnimator networkAnimator;
 
     [SerializeField] private Camera localCamera;
     [SerializeField] private AudioListener audioListener;
     [SerializeField] private float cameraSens = 1;
-
+    private Movement movement;
     private void Awake()
     {
-        networkCharacterController = GetComponent<NetworkCharacterController>();
+        movement = GetComponent<Movement>();
+        networkRigidBody = GetComponent<NetworkRigidbody>();
         networkAnimator = GetComponent<NetworkAnimator>();
     }
 
@@ -40,13 +41,15 @@ public class CharacterMovementHandler : NetworkBehaviour
             Vector3 moveDirection = transform.forward * networkInputData.movementInput.y + transform.right * networkInputData.movementInput.x;
             moveDirection.Normalize();
 
-            networkCharacterController.Move(moveDirection);
+
+            networkRigidBody.WritePosition(moveDirection);
+            networkRigidBody.WriteRotation(rotation);
 
             networkAnimator.SetMoveAnim(moveDirection.magnitude > 0);
 
             if (networkInputData.isJumpPressed)
             {
-                networkCharacterController.Jump();
+                movement.Jump();
             }
         }
     }

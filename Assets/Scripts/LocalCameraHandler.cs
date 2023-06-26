@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fusion;
 
 public class LocalCameraHandler : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class LocalCameraHandler : MonoBehaviour
     [SerializeField] private Transform anchorPointTPS;
     [SerializeField] private Transform anchorPoint;
     [SerializeField] private Transform TPSOriginTransform;
-    [SerializeField] private NetworkCharacterController networkCC;
+    [SerializeField] private NetworkRigidbody networkRb;
     [SerializeField] private NetworkAnimator networkAnimator;
 
     private Camera cam;
@@ -39,10 +40,10 @@ public class LocalCameraHandler : MonoBehaviour
         {
             cam.transform.position = anchorPoint.position;
 
-            cameraRotationX += viewInput.y * Time.deltaTime * networkCC.viewVerticalSpeed;
+            cameraRotationX += viewInput.y * Time.deltaTime * networkRb.ReadRigidbodyRotation().x;
             cameraRotationX = Mathf.Clamp(cameraRotationX, -90, 90);
 
-            cameraRotationY += viewInput.x * Time.deltaTime * networkCC.rotationSpeed;
+            cameraRotationY += viewInput.x * Time.deltaTime * networkRb.ReadAngularVelocity().magnitude;
 
             cam.transform.rotation = Quaternion.Euler(cameraRotationX, cameraRotationY, 0);
             if (networkAnimator != null)
@@ -55,10 +56,10 @@ public class LocalCameraHandler : MonoBehaviour
         }
         else
         {
-            cameraRotationX += viewInput.y * Time.deltaTime * networkCC.viewVerticalSpeed;
+            cameraRotationX += viewInput.y * Time.deltaTime * networkRb.ReadRigidbodyRotation().x;
             cameraRotationX = Mathf.Clamp(cameraRotationX, -60, 30);
 
-            cameraRotationY += viewInput.x * Time.deltaTime * networkCC.rotationSpeed;
+            cameraRotationY += viewInput.x * Time.deltaTime * networkRb.ReadAngularVelocity().magnitude;
 
             TPSOriginTransform.rotation = Quaternion.Euler(cameraRotationX, cameraRotationY, 0);
             cam.transform.position = anchorPoint.position;

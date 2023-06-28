@@ -71,7 +71,7 @@ public class WeaponHandler : NetworkBehaviour
         {
             Debug.Log($"{Time.time} {transform.name} hit hitbox {hitInfo.Hitbox.transform.root.name}");
 
-            if (Object.HasStateAuthority)
+            if (Object.HasStateAuthority && hitInfo.hitbox.transform.root.GetComponent<Morph>().index==-1)
             {
                 hitInfo.Hitbox.transform.root.GetComponent<HealthSystem>().RPC_OnTakeDamage();
                 StartCoroutine(HitFX());

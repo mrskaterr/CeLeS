@@ -12,7 +12,7 @@ public class WeaponHandler : NetworkBehaviour
     [SerializeField] private Transform aimPoint;
     [SerializeField] private LayerMask targetLayerMask;
     [SerializeField] private GameObject hitMarker;
-    //[SerializeField] private GunMode gunMode;
+    [SerializeField] private GunMode gunMode;
 
 
     private float lastTimeFired = 0;
@@ -21,14 +21,14 @@ public class WeaponHandler : NetworkBehaviour
     {
         if(GetInput(out NetworkInputData _networkInputData))
         {
-            if (_networkInputData.isFirePressed )//&& gunMode.fireMode)
+            if (_networkInputData.isFirePressed && gunMode.fireMode)
             {
                 Fire(_networkInputData.aimForwardVector);
             }
-            // if(_networkInputData.isFirePressed )//&& !gunMode.fireMode)
-            // {
-            //     UnMorph(_networkInputData.aimForwardVector);
-            // }
+            if (_networkInputData.isFirePressed && !gunMode.fireMode)
+            {
+                UnMorph(_networkInputData.aimForwardVector);
+            }
         }
     }
 

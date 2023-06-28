@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4403606306044696901}
   - component: {fileID: 1943364619802652047}
   - component: {fileID: 6999496979573934245}
-  m_Layer: 0
+  - component: {fileID: -1558605665138539291}
+  m_Layer: 9
   m_Name: Latte_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.058546633, y: 0.12881559, z: 0.0570558}
   m_Center: {x: 0, y: 0.06435804, z: 0.00068731606}
+--- !u!114 &-1558605665138539291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142087291329416282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0415d21361d7a847b7423bc2d8440c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 16

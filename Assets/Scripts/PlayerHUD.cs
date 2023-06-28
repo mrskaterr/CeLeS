@@ -39,7 +39,10 @@ public class PlayerHUD : MonoBehaviour
                 Manager.Instance.lobbyManager.LeaveSession();
             }
         }
-        rotationTxt.text = transform.eulerAngles.y.ToString("0");
+        if(rotationTxt != null)
+        {
+            rotationTxt.text = transform.eulerAngles.y.ToString("0");
+        }
     }
 
     public void SetSpaceName(string _name)

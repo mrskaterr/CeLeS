@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1069030174484265509}
   - component: {fileID: 8606534727101249885}
   - component: {fileID: 6182484122133864170}
-  m_Layer: 0
+  - component: {fileID: 2042755752627219740}
+  m_Layer: 9
   m_Name: Spoon_S
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.07235828, y: 0.0024858327, z: 0.015161276}
   m_Center: {x: -0.001327008, y: -0.0000075512216, z: 0.00006130338}
+--- !u!114 &2042755752627219740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766252551824855664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0415d21361d7a847b7423bc2d8440c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 22

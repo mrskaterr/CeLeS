@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 6822426176934985193}
   - component: {fileID: 8740034696284064035}
   - component: {fileID: 9193117072666878911}
-  m_Layer: 0
+  - component: {fileID: -3566588250741886584}
+  m_Layer: 9
   m_Name: Olive_bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.04690493, y: 0.31083214, z: 0.04690493}
   m_Center: {x: 0.000000008381903, y: 0.15541607, z: 0.0000000037252903}
+--- !u!114 &-3566588250741886584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7082520985822718198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0415d21361d7a847b7423bc2d8440c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 5

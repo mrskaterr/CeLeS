@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 2236460985534178691}
   - component: {fileID: 4102064729086234953}
   - component: {fileID: 5810023464622672005}
-  m_Layer: 0
+  - component: {fileID: 751943737500945946}
+  m_Layer: 9
   m_Name: WineGlass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.040891074, y: 0.09861907, z: 0.040896855}
   m_Center: {x: 0.00009637978, y: 0.049308985, z: -0.00008780975}
+--- !u!114 &751943737500945946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2588877450305319068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0415d21361d7a847b7423bc2d8440c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 23

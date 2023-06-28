@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 8503268085074149271}
   - component: {fileID: 5901221896519830365}
   - component: {fileID: 4033263765233704414}
-  m_Layer: 0
+  - component: {fileID: 6684402363216470181}
+  m_Layer: 9
   m_Name: ScrewDriver_I
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.026912842, y: 0.026912842, z: 0.20170018}
   m_Center: {x: 0.000000023283064, y: -0.0000000027939677, z: 0.013658747}
+--- !u!114 &6684402363216470181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396902783007713928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0415d21361d7a847b7423bc2d8440c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 29

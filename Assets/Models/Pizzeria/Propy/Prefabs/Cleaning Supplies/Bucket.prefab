@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4023125146030087266}
   - component: {fileID: 1166982371392645288}
   - component: {fileID: 5428719078451639086}
-  m_Layer: 0
+  - component: {fileID: 4853486989722578092}
+  m_Layer: 9
   m_Name: Bucket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24927692, y: 0.20295577, z: 0.23779647}
   m_Center: {x: -0.000000007450581, y: 0.10147787, z: -0.00000010430813}
+--- !u!114 &4853486989722578092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806434847515986301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0415d21361d7a847b7423bc2d8440c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 1

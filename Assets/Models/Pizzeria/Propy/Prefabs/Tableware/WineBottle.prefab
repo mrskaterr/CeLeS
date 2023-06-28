@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 7114288230680153853}
   - component: {fileID: 4998978243462576695}
   - component: {fileID: 3967907726562995762}
-  m_Layer: 0
+  - component: {fileID: 8113934537446830934}
+  m_Layer: 9
   m_Name: WineBottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.4086123, y: 4.50734, z: 18.841196}
   m_Center: {x: 0.078016885, y: 0.028648412, z: -9.4773245}
+--- !u!114 &8113934537446830934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6800167475390553058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0415d21361d7a847b7423bc2d8440c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 8

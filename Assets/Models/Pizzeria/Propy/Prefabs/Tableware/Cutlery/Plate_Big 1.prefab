@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 7707974823218811359}
   - component: {fileID: 5556541486080484629}
   - component: {fileID: 2415802136001519165}
-  m_Layer: 0
+  - component: {fileID: -2254041156566369059}
+  m_Layer: 9
   m_Name: Plate_Big 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.694834, y: 4.6948338, z: 5.9077563}
   m_Center: {x: 0, y: -0.00000011920927, z: -0.92156875}
+--- !u!114 &-2254041156566369059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6204888788932740288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0415d21361d7a847b7423bc2d8440c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 18

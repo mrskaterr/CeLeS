@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3092297448138497181}
   - component: {fileID: 940965816968718423}
   - component: {fileID: 5870611516480738645}
-  m_Layer: 0
+  - component: {fileID: 1109764569308375639}
+  m_Layer: 9
   m_Name: Gripper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.022777656, y: 0.13969071, z: 0.08123875}
   m_Center: {x: 0.0000000027939677, y: -0.024021858, z: 0.000000057742}
+--- !u!114 &1109764569308375639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589215539184208258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0415d21361d7a847b7423bc2d8440c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 26

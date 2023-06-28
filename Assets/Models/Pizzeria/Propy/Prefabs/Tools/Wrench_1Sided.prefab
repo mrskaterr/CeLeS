@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1580063542018034890}
   - component: {fileID: 3605540667852797952}
   - component: {fileID: 8652785080561304182}
-  m_Layer: 0
+  - component: {fileID: -455457552875213099}
+  m_Layer: 9
   m_Name: Wrench_1Sided
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.009166479, y: 0.19130123, z: 0.050415173}
   m_Center: {x: 0.000076144934, y: -0.02257691, z: -0.0017886823}
+--- !u!114 &-455457552875213099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2957044517661350357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0415d21361d7a847b7423bc2d8440c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 32

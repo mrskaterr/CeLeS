@@ -686,6 +686,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
+  InterpolationSpace: 0
+  InterpolationTarget: {fileID: 0}
+  InterpolateErrorCorrection: 1
+  InterpolatedErrorCorrectionSettings:
+    MinRate: 3.3
+    MaxRate: 10
+    PosBlendStart: 0.25
+    PosBlendEnd: 1
+    PosMinCorrection: 0.025
+    PosTeleportDistance: 2
+    RotBlendStart: 0.1
+    RotBlendEnd: 0.5
+    RotTeleportRadians: 1.5
   localCamera: {fileID: 7134201537511432197}
   audioListener: {fileID: 142242121073978863}
   cameraSens: 100
@@ -702,6 +715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canSneak: 0
+  HowManyJump: 3
   cameraHandler: {fileID: 4591282623768988322}
 --- !u!114 &2196652397391590685
 MonoBehaviour:
@@ -863,27 +877,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FootPoint: {fileID: 5056665388738884766}
-  MouseSensitivity: 0.06
-  LookUpMax: 90
-  LookUpMin: -90
   Speed: 5
   runSpeed: 10
-  JumpForce: 8
+  JumpForce: 3
   GroundLayer:
     serializedVersion: 2
     m_Bits: 4194304
-  RadiusOverlapSphere: 1
+  RadiusOverlapSphere: 0.01
   CrouchSpeed: 3
-  Rotation: {x: 0, y: 0, z: 0, w: 1}
-  mouseInput: {x: 0, y: 0}
   _Grounded: 1
   MaxDashTime: 5
   DashSpeed: 20
   DashStoppingSpeed: 5
   DashResetTime: 5
   Lock: 8
-  JumpInput: 0
-  MoveInput: {x: 0, y: 0, z: 0}
+  isDashing: 0
+  isRunning: 0
+  isJumping: 0
+  Velocity: {x: 0, y: 0, z: 0}
 --- !u!136 &8634651951946231731
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -30782,7 +30793,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 64183
+    m_Bits: 4258487
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

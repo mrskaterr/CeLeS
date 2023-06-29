@@ -5,7 +5,8 @@ using UnityEngine;
 public class CharacterInputHandler : MonoBehaviour
 {
     public bool canSneak = false;
-    
+    private int Jump=0;
+    [SerializeField] int HowManyJump=3;
     [SerializeField] LocalCameraHandler cameraHandler;
 
     private Vector2 moveInput = Vector2.zero;
@@ -14,6 +15,8 @@ public class CharacterInputHandler : MonoBehaviour
     private bool fireInput = false;//TODO: interact
     private float speedStep = 0;
     private bool sneakyInput = false;
+    private bool dashInput = false;
+    private bool sprintInput = false;
 
     private Vector3 sneakRot = Vector3.zero;
 
@@ -40,11 +43,6 @@ public class CharacterInputHandler : MonoBehaviour
         // moveInput.x = Input.GetAxis("Horizontal");//TODO: new input system
         // moveInput.y = Input.GetAxis("Vertical");
 
-        // if (Input.GetButtonDown("Jump"))
-        // {
-        //     jumpInput = true;
-        // }
-
         if (Input.GetButton("Fire1"))
         {
             fireInput = true;
@@ -55,10 +53,21 @@ public class CharacterInputHandler : MonoBehaviour
             sneakRot = cameraHandler.transform.forward;
             sneakyInput = true;
         }
-
         if (Input.GetButtonUp("Fire2"))
         {
             sneakyInput = false;
+        }
+        if(Input.GetKeyUp(KeyCode.Z))
+        {
+            dashInput = true;
+        }
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            jumpInput = true;
+        }
+        if(movement._Grounded)
+        {
+            Jump=0;
         }
 
         moveInput.y += speedStep;
@@ -80,16 +89,17 @@ public class CharacterInputHandler : MonoBehaviour
             networkInputData.aimForwardVector = cameraHandler.transform.forward;
         }
         
-        // networkInputData.aimForwardVector = movement.Rotation.eulerAngles;//cameraHandler.transform.forward;
-        
-        networkInputData.movementInput = movement.MoveInput;
+        networkInputData.velocity = movement.Velocity;
 
-        networkInputData.isJumpPressed = movement.JumpInput;
+        networkInputData.isJumpPressed = jumpInput;
 
         networkInputData.isFirePressed = fireInput;
+        
+        networkInputData.isDashPressed = dashInput;
 
-        movement.JumpInput = false;
+        jumpInput = false;
         fireInput= false;
+        dashInput = false;
 
         return networkInputData;
     }

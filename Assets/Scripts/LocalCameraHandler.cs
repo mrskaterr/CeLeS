@@ -6,7 +6,6 @@ using Fusion;
 public class LocalCameraHandler : MonoBehaviour
 {
     public bool fps = true;
-
     [SerializeField] private Transform anchorPointFPS;
     [SerializeField] private Transform anchorPointTPS;
     [SerializeField] private Transform anchorPoint;

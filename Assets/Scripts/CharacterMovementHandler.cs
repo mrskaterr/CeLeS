@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
 
-public class CharacterMovementHandler : NetworkBehaviour
+public class CharacterMovementHandler : NetworkTransform
 {
     private NetworkRigidbody networkRigidBody;
     private NetworkAnimator networkAnimator;
@@ -12,6 +12,17 @@ public class CharacterMovementHandler : NetworkBehaviour
     [SerializeField] private AudioListener audioListener;
     [SerializeField] private float cameraSens = 1;
     private Movement movement;
+    protected override void CopyFromBufferToEngine()
+    {
+        networkRigidBody.Rigidbody.isKinematic = true;
+        networkRigidBody.Rigidbody.detectCollisions = false;
+
+        base.CopyFromBufferToEngine();
+
+        networkRigidBody.Rigidbody.isKinematic = false;
+        networkRigidBody.Rigidbody.detectCollisions = true;
+
+    }
     private void Awake()
     {
         movement = GetComponent<Movement>();
@@ -37,19 +48,14 @@ public class CharacterMovementHandler : NetworkBehaviour
             Quaternion rotation = transform.rotation;
             rotation.eulerAngles = new Vector3(0, rotation.eulerAngles.y, rotation.eulerAngles.z);
             transform.rotation = rotation;
+ 
+            networkRigidBody.WriteVelocity(networkInputData.velocity);
 
-            Vector3 moveDirection = transform.forward * networkInputData.movementInput.y + transform.right * networkInputData.movementInput.x;
-            moveDirection.Normalize();
-
-
-            networkRigidBody.WritePosition(moveDirection);
-            networkRigidBody.WriteRotation(rotation);
-
-            networkAnimator.SetMoveAnim(moveDirection.magnitude > 0);
+            networkAnimator.SetMoveAnim(networkInputData.velocity.magnitude > 0);
 
             if (networkInputData.isJumpPressed)
             {
-                movement.Jump();
+                movement.isJumping=true;
             }
         }
     }

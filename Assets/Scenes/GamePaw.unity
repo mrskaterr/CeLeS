@@ -52929,6 +52929,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FootPoint: {fileID: 899441590}
   MouseSensitivity: 10
+  LookUpMax: 90
+  LookUpMin: -90
   Speed: 8
   runSpeed: 16
   JumpForce: 8
@@ -52937,6 +52939,8 @@ MonoBehaviour:
     m_Bits: 4194304
   RadiusOverlapSphere: 1
   CrouchSpeed: 5
+  Rotation: {x: 0, y: 0, z: 0, w: 1}
+  mouseInput: {x: 0, y: 0}
   _Grounded: 1
   MaxDashTime: 5
   DashSpeed: 16
@@ -54976,7 +54980,7 @@ GameObject:
   - component: {fileID: 1846026513}
   - component: {fileID: 1846026512}
   - component: {fileID: 1846026511}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

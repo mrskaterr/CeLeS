@@ -27,6 +27,7 @@ public class MissionData : NetworkBehaviour
 
     public void NextStep()//TOFIX: Add bool and check last with false
     {
+        Debug.Log("NEXT");
         currentStep.LockStep();
         stepIndex++;
         if(stepIndex >= steps.Count)

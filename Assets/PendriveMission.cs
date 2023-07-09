@@ -1,21 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fusion;
 
-public class PendriveMission : MonoBehaviour,IInteractable
+public class PendriveMission : MissionObject,IInteractable
 {
-   static int i=0;
-    void Update()
+   [Networked] public int Rand {get;set;}
+   [SerializeField] private int Max=2;
+    private int i=0;
+    protected override void OnInteract()
     {
-        if(i>=3)
-        {
-            Debug.Log("Done");
-            i=0;
-        }
-    }
-    public void Interact(GameObject Object)
-    {
+        if(i<Max)
+            Rand=Random.Range(i,Max);
+        if(Rand==Max-1)
+            Done();
         i++;
-        GetComponent<Collider>().enabled=false;
+    }
+    void Done()
+    {
+        Debug.Log("Szafka");
+        mission.NextStep();
     }
 }

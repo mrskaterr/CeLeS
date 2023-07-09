@@ -6,35 +6,28 @@ public class GunMode : NetworkBehaviour
 {
     [SerializeField] GameObject firstMode;
     [SerializeField] GameObject secondMode;
-    private bool canChangeMode = true;
-    public bool fireMode;
+    private bool canSwapMode = true;
+    [HideInInspector]public bool fireMode;
     void Start()
     {
         fireMode = true;
     }
-<<<<<<< HEAD:Assets/Scripts/GunMode.cs
-=======
-    void Update()
-    {
-        if( Input.GetKeyDown(KeyCode.Mouse1) && Object.HasInputAuthority) 
-            RPC_ChangeMode();
->>>>>>> pawcio:Assets/GunMode.cs
 
     public void SwapMode()
     {
-        RPC_teleport();
+        RPC_SwapMode();
     }
 
     [Rpc(RpcSources.All, RpcTargets.All)]
-    public void RPC_ChangeMode()
+    public void RPC_SwapMode()
     {
-        if(firstMode.activeInHierarchy && canChangeMode)
+        if(firstMode.activeInHierarchy && canSwapMode)
         { 
             firstMode.SetActive(false);
             secondMode.SetActive(true);
             fireMode=false;
         }
-        else if(secondMode.activeInHierarchy && canChangeMode)
+        else if(secondMode.activeInHierarchy && canSwapMode)
         {
             secondMode.SetActive(false);
             firstMode.SetActive(true);

@@ -4926,8 +4926,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  firstMode: {fileID: 2310324647238262444}
-  secondMode: {fileID: 7940372622725298971}
+  firstMode: {fileID: 7940372622725298971}
+  secondMode: {fileID: 2310324647238262444}
   fireMode: 0
 --- !u!1 &373181998752853054
 GameObject:
@@ -4973,7 +4973,7 @@ GameObject:
   - component: {fileID: 8063310627108871313}
   - component: {fileID: 1593394321619808571}
   m_Layer: 16
-  m_Name: Mode B
+  m_Name: Mode A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10040,12 +10040,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4031606257782779943}
   m_Layer: 10
-  m_Name: ModeA
+  m_Name: ModeB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4031606257782779943
 Transform:
   m_ObjectHideFlags: 0
@@ -10568,12 +10568,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8274308408685815170}
   m_Layer: 16
-  m_Name: ModeA
+  m_Name: ModeB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8274308408685815170
 Transform:
   m_ObjectHideFlags: 0
@@ -10603,7 +10603,7 @@ GameObject:
   - component: {fileID: 4228575906628158425}
   - component: {fileID: 6513461673581095637}
   m_Layer: 10
-  m_Name: Mode A
+  m_Name: Mode B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15622,8 +15622,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  firstMode: {fileID: 1925758299144995784}
-  secondMode: {fileID: 9175172684302809392}
+  firstMode: {fileID: 9175172684302809392}
+  secondMode: {fileID: 1925758299144995784}
   fireMode: 0
 --- !u!1 &3560131437656660703
 GameObject:
@@ -15992,7 +15992,7 @@ GameObject:
   - component: {fileID: 6019010609762257951}
   - component: {fileID: 5949446485317531517}
   m_Layer: 16
-  m_Name: Mode A
+  m_Name: Mode B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21103,7 +21103,7 @@ GameObject:
   - component: {fileID: 4344294758483559752}
   - component: {fileID: 8620378044894623347}
   m_Layer: 10
-  m_Name: Mode B
+  m_Name: Mode A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26279,7 +26279,7 @@ GameObject:
   - component: {fileID: 3810541802022088116}
   - component: {fileID: 8256187892299301552}
   m_Layer: 10
-  m_Name: Mode B (1)
+  m_Name: Mode A (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31397,12 +31397,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8470312025710286781}
   m_Layer: 16
-  m_Name: ModeB
+  m_Name: ModeA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8470312025710286781
 Transform:
   m_ObjectHideFlags: 0
@@ -31586,12 +31586,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6283437566906591501}
   m_Layer: 10
-  m_Name: ModeB
+  m_Name: ModeA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6283437566906591501
 Transform:
   m_ObjectHideFlags: 0

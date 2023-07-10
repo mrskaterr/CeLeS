@@ -23,6 +23,8 @@ public class InteractHandler : MonoBehaviour
     private IInteractable interactable;
 
     private Vector3 screenCenter = new Vector3(.5f, .5f, 0);
+    // enum interactInput {click,Hold}
+    // float interactTime;
 
     private void Awake()
     {
@@ -40,10 +42,12 @@ public class InteractHandler : MonoBehaviour
             if (interactable != null)
             {
                 indicator.SetActive(true);
+
                 if (Input.GetMouseButtonDown(1))
                 {
                     interactable.Interact(gameObject);
                 }
+
             }
             else
             {

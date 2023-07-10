@@ -15,17 +15,13 @@ public class Words_Panel : MonoBehaviour
     [SerializeField] TMP_Text[] line2;
     [SerializeField] TMP_Text[] line3;
     [SerializeField] TMP_Text[] line4;
-
     private TMP_Text[] line;
-
     private TMP_Text[][] line22;
-
-
-    int j = 0;
-
-    string buff = "";
-    bool stop;
-    bool click = false;
+    private int j = 0;
+    private string buff = "";
+    private bool stop;
+    private bool click = false;
+    public bool isDone=false;
 
     void Start()
     {
@@ -64,6 +60,7 @@ public class Words_Panel : MonoBehaviour
                 {
                     Debug.Log("donee");
                     stop = true;
+                    isDone=true;
                     can.SetActive(false);
                     return;
                 }

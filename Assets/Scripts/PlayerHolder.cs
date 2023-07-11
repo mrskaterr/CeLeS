@@ -5,19 +5,75 @@ using Fusion;
 
 public class PlayerHolder : MonoBehaviour
 {
-    public static List<GameObject> playerParentObjects = new List<GameObject>();
-    //public static List<GameObject> playerObjects = new List<GameObject>();
+    public static List<RPCManager> players = new List<RPCManager>();
+    public static List<RPCManager> hunters = new List<RPCManager>();
+    public static List<RPCManager> blobs = new List<RPCManager>();
 
-    public static int playerCount() { return playerParentObjects.Count; }
-    public static void AddPlayer2List(GameObject _obj) 
+    public static void AddPlayer(RPCManager _player)
     {
-        if(!playerParentObjects.Contains(_obj)) { playerParentObjects.Add(_obj); }
+        players.Add(_player);
+        SetPlayerList();
     }
-    public static void RemovePlayerFromList(GameObject _obj) { playerParentObjects.Remove(_obj); }
 
-    //public static void AddPlayerObject2List(GameObject _obj)
-    //{
-    //    if (!playerObjects.Contains(_obj)) { playerObjects.Add(_obj); }
-    //}
-    //public static void RemovePlayerObjectFromList(GameObject _obj) { playerObjects.Remove(_obj); }
+    public static void RemovePlayer(RPCManager _player)
+    {
+        players.Remove(_player);
+        SetPlayerList();
+    }
+
+    public static void SetPlayerList()
+    {
+        hunters.Clear();
+        blobs.Clear();
+
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (players[i].IsHuman())
+            {
+                hunters.Add(players[i]);
+            }
+            else
+            {
+                blobs.Add(players[i]);
+            }
+        }
+    }
+
+    public static int GetPlayersAmount()
+    {
+        return players.Count;
+    }
+
+    public static int GetHuntersAmount()
+    {
+        return hunters.Count;
+    }
+
+    public static int GetBlobsAmount()
+    {
+        return blobs.Count;
+    }
+
+    public static int GetAliveBlobsAmount()
+    {
+        int amount = 0;
+        for (int i = 0; i < blobs.Count; i++)
+        {
+            if (!blobs[i].isCaptured)
+            {
+                amount++;
+            }
+        }
+        return amount;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            Debug.Log($"All: {GetPlayersAmount()}," +
+                $"Hunters: {GetHuntersAmount()}, " +
+                $"All Blobs: {GetBlobsAmount()} ( Alive: {GetAliveBlobsAmount()} )");
+        }
+    }
 }

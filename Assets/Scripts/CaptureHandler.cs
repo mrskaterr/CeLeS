@@ -14,6 +14,15 @@ public class CaptureHandler : NetworkBehaviour
     [Networked(OnChanged = nameof(OnChangeRelease))]
     public bool isFree { get; set; } = true;
 
+    [Networked(OnChanged = nameof(OnCapture))]
+    public bool isCaptured { get; set; } = false;
+
+    [Networked]
+    public bool isCarried { get; set; } = false;
+
+    [Header("Camera")]
+    [SerializeField] private Camera cam;
+
     private void Start()
     {
         Invoke(nameof(Init), 2);
@@ -24,6 +33,18 @@ public class CaptureHandler : NetworkBehaviour
         carryGlobal = GameManager.instance.GetComponent<CarryGlobal>();
         healthSystem = GetComponent<HealthSystem>();
         HUD = GetComponent<PlayerHUD>();
+
+        if (!Object.HasStateAuthority)
+        {
+            cam.GetComponent<LocalCameraHandler>().enabled = false;
+        }
+        else
+        {
+            SpectateManager.instance.LocalCamera = cam;
+            return;
+        }
+
+        SpectateManager.instance.AddCameraInfo(cam, this);
     }
 
     [Rpc]
@@ -38,12 +59,14 @@ public class CaptureHandler : NetworkBehaviour
         isFree = false;
         HUD.ToggleCrosshair(false);
         HUD.ToggleOnHitImage(false);
+        isCarried = true;
     }
 
     [Rpc]
     public void RPC_PutDown()
     {
         transform.parent = null;
+        isCarried = false;
         cameraHandler.ChangePerspective(-1);
     }
 
@@ -59,8 +82,37 @@ public class CaptureHandler : NetworkBehaviour
     public void RPC_Release()
     {
         transform.parent = null;
+        isCarried = false;
         cameraHandler.ChangePerspective(-1);
         healthSystem.Restore();
         HUD.ToggleMiniGame(false);
+    }
+
+    public static void OnCapture(Changed<CaptureHandler> _changed)
+    {
+        if (_changed.Behaviour.isCaptured)
+        {
+            _changed.Behaviour.RPC_CheckAlive();
+        }
+    }
+
+    [Rpc]
+    public void RPC_CheckAlive()
+    {
+        if (Object.HasInputAuthority)
+        {
+            RPCManager.Local.isCaptured = isCaptured;
+        }
+        int tmp = PlayerHolder.GetAliveBlobsAmount();
+        if (tmp > 0) { return; }
+        else
+        {
+            RPCManager.Local.RPC_GameOver(RPCManager.Team.Hunters);
+        }
+    }
+
+    public void ChangeView()
+    {
+        SpectateManager.instance.SetOtherView();
     }
 }

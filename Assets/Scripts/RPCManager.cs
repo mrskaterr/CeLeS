@@ -18,8 +18,10 @@ public class RPCManager : NetworkBehaviour
     //public static GameObject Avatar;
     public PlayerRef owner;
     public NetworkObject playerAvatar;
-
     private bool countdown = false;
+
+    [Networked]
+    public bool isCaptured { get; set; } = false;
 
     public override void Spawned()
     {
@@ -28,14 +30,14 @@ public class RPCManager : NetworkBehaviour
             Local = this;
             nick = Manager.Instance.playfabLogin.playerName;
         }
-        PlayerHolder.AddPlayer2List(gameObject);
+        PlayerHolder.AddPlayer(this);
         RPC_OnPlayerInRoom();
         DontDestroyOnLoad(gameObject);
     }
 
     private void OnDestroy()
     {
-        PlayerHolder.RemovePlayerFromList(gameObject);
+        PlayerHolder.RemovePlayer(this);
     }
 
     private void Start()
@@ -82,6 +84,7 @@ public class RPCManager : NetworkBehaviour
     {
         role = (Role)roleIndex;
         Manager.Instance.UIManager.RefreshList();
+        PlayerHolder.SetPlayerList();
     }
     public GameObject PlayerAvatar()
     {
@@ -90,6 +93,15 @@ public class RPCManager : NetworkBehaviour
             return blobAvatar;
         }
         return hunterAvatar;
+    }
+
+    public bool IsHuman()
+    {
+        if (roleIndex == 4 || roleIndex == 5 || roleIndex == 6)//TOIMPROVE:switch and list of available
+        {
+            return false;
+        }
+        return true;
     }
     public enum Role
     {
@@ -134,5 +146,40 @@ public class RPCManager : NetworkBehaviour
             yield return interval;
             timer.seconds++;
         }
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RPC_GameOver(Team _team)
+    {
+        if (_team == Team.Hunters)
+        {
+            if (IsHuman())
+            {
+                GameManager.instance.victory = true;
+            }
+            else
+            {
+                GameManager.instance.victory = false;
+            }
+            GameManager.instance.OnEnd();
+        }
+        else if (_team == Team.Blobs)
+        {
+            if (IsHuman())
+            {
+                GameManager.instance.victory = false;
+            }
+            else
+            {
+                GameManager.instance.victory = true;
+            }
+            GameManager.instance.OnEnd();
+        }
+    }
+
+    public enum Team
+    {
+        Hunters,
+        Blobs
     }
 }

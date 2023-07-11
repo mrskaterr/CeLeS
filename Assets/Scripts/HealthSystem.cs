@@ -39,6 +39,11 @@ public class HealthSystem : NetworkBehaviour
         isInitialized = true;
     }
 
+    private void Update()
+    {
+        jar.SetActive(isDead && !captureHandler.isCarried);
+    }
+
     private IEnumerator OnHit()
     {
         //if (Object.HasInputAuthority)
@@ -92,7 +97,7 @@ public class HealthSystem : NetworkBehaviour
         if (isDead)
         {
             GetComponent<CharacterController>().enabled = false;
-            jar.SetActive(true);
+            
             body.SetActive(false);
             captureHandler.isFree = false;
             return;
@@ -133,7 +138,6 @@ public class HealthSystem : NetworkBehaviour
         HP = startingHP;
         isDead = false;
         GetComponent<CharacterController>().enabled = true;
-        jar.SetActive(false);
         body.SetActive(true);
         HUD.ToggleCrosshair(true);
         HUD.ToggleOnHitImage(false);

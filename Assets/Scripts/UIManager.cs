@@ -326,7 +326,7 @@ public class UIManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        int playersAmount = PlayerHolder.playerCount();
+        int playersAmount = PlayerHolder.GetPlayersAmount();
         for (int b = 0; b < roleButtons.Count; b++)//TODO: better ref to btns
         {
             ActiveRoleButton(b, true);
@@ -334,7 +334,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < playersAmount; i++)
         {
             var item = Instantiate(playerListItemPrefab, playerListParent);
-            var playerData = PlayerHolder.playerParentObjects[i].GetComponent<RPCManager>();
+            var playerData = PlayerHolder.players[i];
             var playerItem = item.GetComponent<PlayerListItem>();
             playerItem.SetContent(playerData.nick, roleIcons[playerData.roleIndex]);
             playerItem.SetColor(playerData.isReady ? Color.green : Color.black);

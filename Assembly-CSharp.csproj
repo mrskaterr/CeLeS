@@ -73,6 +73,7 @@
     <Compile Include="Assets\ReferenceHold.cs" />
     <Compile Include="Assets\Scripts\Jar.cs" />
     <Compile Include="Assets\Scripts\Extensions\TMPTextExtension.cs" />
+    <Compile Include="Assets\SpectateSync.cs" />
     <Compile Include="Assets\Scripts\InteractHandler.cs" />
     <Compile Include="Assets\Scripts\ActivityEvents.cs" />
     <Compile Include="Assets\Scripts\CharacterInputHandler.cs" />
@@ -112,15 +113,17 @@
     <Compile Include="Assets\Scripts\PlayfabLogin.cs" />
     <Compile Include="Assets\Scripts\Network\Spawner.cs" />
     <Compile Include="Assets\EscapeGameLogic.cs" />
+    <Compile Include="Assets\Wobble.cs" />
     <Compile Include="Assets\Scripts\PlayerNetworkEventsHandler.cs" />
     <Compile Include="Assets\Bar.cs" />
     <Compile Include="Assets\Scripts\TestLogin.cs" />
     <Compile Include="Assets\Scripts\PlayerHolder.cs" />
     <Compile Include="Assets\Scripts\LoadingCanvas.cs" />
     <Compile Include="Assets\Scripts\CharacterMovementHandler.cs" />
-    <Compile Include="Assets\SpectateSync.cs" />
+    <Compile Include="Assets\InteractableHold.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Rendering\Shaders\Celshading 2\CustomLighting.hlsl" />
     <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />
   </ItemGroup>
   <ItemGroup>

@@ -8,14 +8,16 @@ public class LaptopMission : MissionObject,IInteractable
     [SerializeField] List<Transform> points;
     [SerializeField] Collider nextMission;
     public bool isDone;
+    //public GameObject player;
     [Networked] public int i {get;set;}
+
     protected override void OnInteract()
     {
         Debug.Log("LaptopMission");
-        //mission.NextStep();
         isDone=true;
         nextMission.enabled=true;
         gameObject.GetComponent<Collider>().enabled=false;
+        mission.NextStep();
     }
 
     [Rpc(RpcSources.All, RpcTargets.All)]

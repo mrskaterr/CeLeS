@@ -8,6 +8,7 @@ public class PendriveMission : MissionObject,IInteractable
    [Networked] public int Rand {get;set;}
    [SerializeField] private int Max=2;
    [SerializeField] Collider nextMission;
+   [SerializeField] GameObject Pendrive;
     private int i=0;
     public bool isDone=false;
     protected override void OnInteract()
@@ -24,6 +25,6 @@ public class PendriveMission : MissionObject,IInteractable
         isDone=true;
         transform.GetComponent<Collider>().enabled=false;
         nextMission.enabled=true;
-        //mission.NextStep();
+        mission.NextStep();
     }
 }

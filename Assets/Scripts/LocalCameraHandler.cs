@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fusion;
 
 public class LocalCameraHandler : MonoBehaviour
 {
@@ -18,9 +19,12 @@ public class LocalCameraHandler : MonoBehaviour
     private float cameraRotationY = 0;
     private Vector2 viewInput;
 
+    private SpectateSync sync;
+
     private void Awake()
     {
         cam = GetComponent<Camera>();
+        sync = GetComponent<SpectateSync>();
     }
 
     private void Start()
@@ -28,6 +32,14 @@ public class LocalCameraHandler : MonoBehaviour
         if (cam.enabled)
         {
             cam.transform.parent = null;
+        }
+    }
+
+    private void Update()
+    {
+        if (sync != null)
+        {
+            sync.ver = (int)(cameraRotationX * 10000);
         }
     }
 

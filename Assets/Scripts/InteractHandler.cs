@@ -19,19 +19,20 @@ public class InteractHandler : MonoBehaviour
     private CarryHandler carryHandler;
     [SerializeField] private GunMode gunModeA;//TOIMPROVE: merge into 1 var
     [SerializeField] private GunMode gunModeB;
-    public Transform itemHolder;
 
     private IInteractable interactable;
+    private InteractableHold interactable2;
 
     private Vector3 screenCenter = new Vector3(.5f, .5f, 0);
-    // enum interactInput {click,Hold}
-    // float interactTime;
+
+    private PlayerHUD playerHUD;
 
     private void Awake()
     {
         morph = GetComponent<Morph>();
         networkPlayer = GetComponent<NetworkPlayer>();
         carryHandler = GetComponent<CarryHandler>();
+        playerHUD = GetComponent<PlayerHUD>();
     }
 
     private void Update()
@@ -49,6 +50,24 @@ public class InteractHandler : MonoBehaviour
                     interactable.Interact(gameObject);
                 }
 
+            }
+            else if (interactable2 != null)
+            {
+                indicator.SetActive(true);//TODO: Set other indicator
+                if (Input.GetMouseButtonDown(1))
+                {
+                    interactable2.StartInteract(gameObject);
+                    playerHUD.InitInteract(interactable2.desc, interactable2.percent);
+                }
+                else if (Input.GetMouseButton(1))
+                {
+                    playerHUD.SetInteractPercent(interactable2.percent);
+                }
+                else if (Input.GetMouseButtonUp(1))
+                {
+                    interactable2.StopInteract(gameObject);
+                    playerHUD.StopInteract();
+                }
             }
             else
             {
@@ -94,8 +113,15 @@ public class InteractHandler : MonoBehaviour
         if (Physics.Raycast(ray, out hit, range, interactableMask))
         {
             interactable = hit.transform.GetComponent<IInteractable>();
+            interactable2 = hit.transform.GetComponent<InteractableHold>();
         }
-        else { interactable = null; }
+        else
+        {
+            interactable2?.StopInteract(gameObject);
+            playerHUD.StopInteract();
+            interactable = null;
+            interactable2 = null;
+        }
     }
 
     //private void OnDrawGizmos()
@@ -108,4 +134,10 @@ public class InteractHandler : MonoBehaviour
 interface IInteractable//TOIMPROVE: change 4 virtual void
 {
     void Interact(GameObject @object);
+}
+
+interface IInteractableHold
+{
+    void StartInteract(GameObject @object);
+    void StopInteract(GameObject @object);
 }

@@ -320,10 +320,10 @@ public class LobbyManagerV2 : MonoBehaviour
 
     public bool ArePlayersReady()
     {
-        int playersAmount = PlayerHolder.playerCount();
+        int playersAmount = PlayerHolder.GetPlayersAmount();
         for (int i = 0; i < playersAmount; i++)
         {
-            var playerData = PlayerHolder.playerParentObjects[i].GetComponent<RPCManager>();
+            var playerData = PlayerHolder.players[i];
             if (!playerData.isReady) { return false; }
         }
         return true;

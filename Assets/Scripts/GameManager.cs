@@ -43,13 +43,7 @@ public class GameManager : MonoBehaviour
     public void OnEnd()
     {
         //lock movement
-        if (victory)
-        {
-            //show victory screen
-        }
-        else
-        {
-            //show defeat screen
-        }
+        victoryScreen.SetActive(victory);
+        defeatScreen.SetActive(!victory);
     }
 }

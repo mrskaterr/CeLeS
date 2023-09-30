@@ -1,7 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerHUD : MonoBehaviour
 {
@@ -12,6 +12,9 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject onHitImage;
     [SerializeField] private GameObject miniGameParent;
+
+    [SerializeField] private TMP_Text interactName;
+    [SerializeField] private Image interactBar;
 
     public void DisplayInfo(string _text)
     {
@@ -53,4 +56,24 @@ public class PlayerHUD : MonoBehaviour
     public void ToggleCrosshair(bool _p) { crosshair.SetActive(_p); }
     public void ToggleOnHitImage(bool _p) { onHitImage.SetActive(_p); }
     public void ToggleMiniGame(bool _p) { miniGameParent.SetActive(_p); }
+
+    public void InitInteract(string _interactName, float _fill)
+    {
+        interactName.gameObject.SetActive(true);
+        interactBar.gameObject.SetActive(true);
+
+        interactName.text = _interactName;
+        interactBar.fillAmount = _fill;
+    }
+
+    public void SetInteractPercent(float _fill)
+    {
+        interactBar.fillAmount = _fill;
+    }
+
+    public void StopInteract()
+    {
+        interactName.gameObject.SetActive(false);
+        interactBar.gameObject.SetActive(false);
+    }
 }

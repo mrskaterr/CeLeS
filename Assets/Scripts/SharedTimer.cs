@@ -17,6 +17,11 @@ public class SharedTimer : NetworkBehaviour
 
     private void Update()
     {
+        if (seconds >= duration)
+        {
+            RPCManager.Local.RPC_GameOver(RPCManager.Team.Hunters);
+        }
+
         int time = duration - seconds;
         int min = 0;
         int sec = 0;

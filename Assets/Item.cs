@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,13 @@ using UnityEngine;
 public class Item : MissionObject,IInteractable
 {
     [SerializeField] Transform defaultPartent;
-    int index = 1;
+    [SerializeField] EnumItem.Item item;
+    private int index;
+    void Start()
+    {
+        index=(int)item;
+    }
+
     void Update()
     {
         if(transform.parent==defaultPartent){}
@@ -16,12 +23,28 @@ public class Item : MissionObject,IInteractable
         }
         else
         {
+            transform.GetComponent<Collider>().enabled=true;
             transform.SetParent(defaultPartent);
         }
     }
     protected override void OnInteract(GameObject @object)
     {
-        transform.SetParent(@object.GetComponent<InteractHandler>().itemHolder);
+        transform.GetComponent<Collider>().enabled=false;
+        @object.GetComponent<Equipment>().Add(transform);
+
+    }
+
+    void OnTriggerEnter(Collision other)
+    {
+        Debug.Log(other.gameObject.name);
+        if(other.gameObject.GetComponent<Morph>())
+        {
+            other.gameObject.GetComponent<Equipment>().Add(transform);
+        }
+    }
+    public int Index()
+    {
+        return index;
     }
 
 }

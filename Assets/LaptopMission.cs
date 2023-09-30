@@ -6,12 +6,23 @@ public class LaptopMission : MissionObject,IInteractable
 {
     [SerializeField] Transform laptop;
     [SerializeField] List<Transform> points;
-    //[SerializeField] Collider nextMission;
+    [SerializeField] Collider nextMission;
     public bool isDone;
     //public GameObject player;
     [Networked] public int i {get;set;}
-
-    // void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject.name);
+        if(other.gameObject.GetComponent<Morph>())
+        {
+            Debug.Log("LaptopMission");
+            isDone=true;
+            nextMission.enabled=true;
+            gameObject.GetComponent<Collider>().enabled=false;
+            mission.NextStep();
+        }
+    }
+    // protected override void OnInteract(GameObject @object)
     // {
     //     Debug.Log("LaptopMission");
     //     isDone=true;
@@ -19,14 +30,6 @@ public class LaptopMission : MissionObject,IInteractable
     //     gameObject.GetComponent<Collider>().enabled=false;
     //     mission.NextStep();
     // }
-    protected override void OnInteract(GameObject @object)
-    {
-        Debug.Log("LaptopMission");
-        isDone=true;
-        //nextMission.enabled=true;
-        gameObject.GetComponent<Collider>().enabled=false;
-        mission.NextStep();
-    }
 
     [Rpc(RpcSources.All, RpcTargets.All)]
     void Start()

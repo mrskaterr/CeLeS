@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Missions\MissionData.cs" />
      <Compile Include="Assets\LaptopMission.cs" />
+     <Compile Include="Assets\EnumItem.cs" />
      <Compile Include="Assets\Scripts\LobbyManager.cs" />
      <Compile Include="Assets\Scripts\NetworkAnimator.cs" />
      <Compile Include="Assets\Scripts\Network\NetworkInputData.cs" />
@@ -46,21 +47,26 @@
      <Compile Include="Assets\Scripts\SyncPos.cs" />
      <Compile Include="Assets\Scripts\SpawnerV2.cs" />
      <Compile Include="Assets\Scripts\TASKS\taskCircle\Job.cs" />
+     <Compile Include="Assets\SpectateManager.cs" />
      <Compile Include="Assets\Scripts\Missions\MissionObject.cs" />
      <Compile Include="Assets\Scripts\PlayerUtility.cs" />
      <Compile Include="Assets\Scripts\HealthSystem.cs" />
      <Compile Include="Assets\Scripts\Network\NetworkRunnerHandler.cs" />
      <Compile Include="Assets\Scripts\Manager.cs" />
+     <Compile Include="Assets\ReferenceHold.cs" />
      <Compile Include="Assets\Scripts\Jar.cs" />
      <Compile Include="Assets\Scripts\TASKS\JobHandler2.cs" />
      <Compile Include="Assets\Scripts\Extensions\TMPTextExtension.cs" />
+     <Compile Include="Assets\SpectateSync.cs" />
      <Compile Include="Assets\Scripts\InteractHandler.cs" />
      <Compile Include="Assets\Scripts\ActivityEvents.cs" />
+     <Compile Include="Assets\Equipment.cs" />
      <Compile Include="Assets\Scripts\CharacterInputHandler.cs" />
      <Compile Include="Assets\Scripts\CaptureHandler.cs" />
      <Compile Include="Assets\Scripts\GunMode.cs" />
      <Compile Include="Assets\Scripts\Door.cs" />
      <Compile Include="Assets\Scripts\CarryHandler.cs" />
+     <Compile Include="Assets\BlobStation.cs" />
      <Compile Include="Assets\Scripts\Morph.cs" />
      <Compile Include="Assets\Scripts\PlayerMovementTutorial.cs" />
      <Compile Include="Assets\Scripts\MissionManager.cs" />
@@ -101,10 +107,12 @@
      <Compile Include="Assets\Scripts\TASKS\taskColor\TaskRemeberColor.cs" />
      <Compile Include="Assets\Scripts\WeaponHandler.cs" />
      <Compile Include="Assets\InfectionMission.cs" />
+     <Compile Include="Assets\InteractableHold.cs" />
      <Compile Include="Assets\Scripts\PlayfabLogin.cs" />
      <Compile Include="Assets\Item.cs" />
      <Compile Include="Assets\Scripts\Network\Spawner.cs" />
      <Compile Include="Assets\EscapeGameLogic.cs" />
+     <Compile Include="Assets\Wobble.cs" />
      <Compile Include="Assets\Scripts\PlayerNetworkEventsHandler.cs" />
      <Compile Include="Assets\Bar.cs" />
      <Compile Include="Assets\Scripts\TestLogin.cs" />
@@ -112,7 +120,7 @@
      <Compile Include="Assets\Scripts\PlayerHolder.cs" />
      <Compile Include="Assets\Scripts\LoadingCanvas.cs" />
      <Compile Include="Assets\Scripts\CharacterMovementHandler.cs" />
-     <Compile Include="Assets\equipment.cs" />
+     <None Include="Assets\Rendering\Shaders\Celshading 2\CustomLighting.hlsl" />
      <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity 2021.3.4f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

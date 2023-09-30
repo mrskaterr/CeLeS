@@ -18,12 +18,13 @@ public class PendriveMission : MissionObject,IInteractable
         if(Rand==Max-1)
         {
             Done();
-            Pendrive.SetParent(@object.GetComponent<InteractHandler>().itemHolder);
+            Pendrive.SetParent(@object.GetComponent<Equipment>().itemHolder);
         }
         i++;
     }
     void Done()
     {
+        Pendrive.gameObject.SetActive(true);
         Debug.Log("Szafka");
         isDone=true;
         transform.GetComponent<Collider>().enabled=false;

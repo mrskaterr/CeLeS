@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEngine.PlayerLoop;
 
 
 public class HackingMission : MissionObject,IInteractable
 {
     public GameObject player;
     [SerializeField] GameObject can;
+    [SerializeField] Transform PendriveWirus;
+    public Transform EmptyPendrive;
     [SerializeField] char[] word;
     [SerializeField] TMP_Text[] line0;
     [SerializeField] TMP_Text[] line1;
@@ -32,20 +36,24 @@ public class HackingMission : MissionObject,IInteractable
     }
     void OnDisable()
     {
-        player.GetComponent<CharacterInputHandler>().enabled=false;
+        player.GetComponent<CharacterInputHandler>().enabled=true;
+    }
+    //     player.GetComponent<CharacterInputHandler>().enabled=false;
     //     @object.GetComponent<NetworkCharacterController>().enabled=false;
     //     @object.GetComponent<CharacterController>().enabled=false;
     //     @object.GetComponent<CharacterMovementHandler>().enabled=false;
     //     blokada obracania
-     }
+    //  }
     void OnEnable()
     {
-        player.GetComponent<CharacterInputHandler>().enabled=true;
+        player.GetComponent<CharacterInputHandler>().enabled=false;
+    }
+    //     player.GetComponent<CharacterInputHandler>().enabled=true;
     //     @object.GetComponent<NetworkCharacterController>().enabled=false;
     //     @object.GetComponent<CharacterController>().enabled=false;
     //     @object.GetComponent<CharacterMovementHandler>().enabled=false;
     //     blokada obracania
-    }
+    // }
 
     void Start()
     {
@@ -86,7 +94,10 @@ public class HackingMission : MissionObject,IInteractable
                     stop = true;
                     isDone=true;
                     can.SetActive(false);
-                    GetComponent<CharacterInputHandler>().enabled=true;
+                    player.GetComponent<Equipment>().Delete(EmptyPendrive);
+                    Destroy(EmptyPendrive.gameObject);
+                    PendriveWirus.gameObject.SetActive(true);
+                    player.GetComponent<Equipment>().Add(PendriveWirus);
                     return;
                 }
             }

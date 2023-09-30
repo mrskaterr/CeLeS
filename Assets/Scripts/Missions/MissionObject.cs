@@ -23,10 +23,10 @@ public class MissionObject : MonoBehaviour, IInteractable
 
     public void Interact(GameObject @object)
     {
-        OnInteract();
+        OnInteract(@object);
     }
 
-    protected virtual void OnInteract()
+    protected virtual void OnInteract(GameObject @object)
     {
         mission.NextStep();
     }

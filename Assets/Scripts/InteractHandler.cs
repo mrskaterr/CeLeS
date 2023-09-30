@@ -19,6 +19,7 @@ public class InteractHandler : MonoBehaviour
     private CarryHandler carryHandler;
     [SerializeField] private GunMode gunModeA;//TOIMPROVE: merge into 1 var
     [SerializeField] private GunMode gunModeB;
+    public Transform itemHolder;
 
     private IInteractable interactable;
 

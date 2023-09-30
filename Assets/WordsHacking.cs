@@ -5,8 +5,11 @@ using Fusion;
 public class WordsHacking : MissionObject,IInteractable
 {
     [SerializeField] GameObject hackingPanel;
-    protected override void OnInteract()
+    [SerializeField] HackingMission hackingMission;
+    public bool isDone=false;
+    protected override void OnInteract(GameObject @object)
     {
         hackingPanel.SetActive(true);
+        hackingMission.player=@object;
     }
 }

@@ -1231,6 +1231,7 @@ MonoBehaviour:
   isHuman: 0
   gunModeA: {fileID: 0}
   gunModeB: {fileID: 0}
+  itemHolder: {fileID: 3418836495049816357}
 --- !u!114 &9045679940586352962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1884,7 +1885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3418836495049816357}
   m_Layer: 13
-  m_Name: Item Point
+  m_Name: ItemHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -5,10 +5,11 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class HackingMission : MonoBehaviour
+public class HackingMission : MissionObject,IInteractable
 {
-    [SerializeField] char[] word;
+    public GameObject player;
     [SerializeField] GameObject can;
+    [SerializeField] char[] word;
     [SerializeField] TMP_Text[] line0;
     [SerializeField] TMP_Text[] line1;
     [SerializeField] TMP_Text[] line2;
@@ -21,19 +22,29 @@ public class HackingMission : MonoBehaviour
     private bool stop;
     private bool click = false;
     public bool isDone=false;
+    protected override void OnInteract(GameObject @object)
+    {
+        Debug.Log("LaptopMission");
+        isDone=true;
+        //nextMission.enabled=true;
+        gameObject.GetComponent<Collider>().enabled=false;
+        mission.NextStep();
+    }
     void OnDisable()
     {
-        //@object.GetComponent<NetworkCharacterController>().enabled=false;
-        //@object.GetComponent<CharacterController>().enabled=false;
-        //@object.GetComponent<CharacterMovementHandler>().enabled=false;
-        //blokada obracania
-    }
+        player.GetComponent<CharacterInputHandler>().enabled=false;
+    //     @object.GetComponent<NetworkCharacterController>().enabled=false;
+    //     @object.GetComponent<CharacterController>().enabled=false;
+    //     @object.GetComponent<CharacterMovementHandler>().enabled=false;
+    //     blokada obracania
+     }
     void OnEnable()
     {
-        //@object.GetComponent<NetworkCharacterController>().enabled=false;
-        //@object.GetComponent<CharacterController>().enabled=false;
-        //@object.GetComponent<CharacterMovementHandler>().enabled=false;
-        //blokada obracania
+        player.GetComponent<CharacterInputHandler>().enabled=true;
+    //     @object.GetComponent<NetworkCharacterController>().enabled=false;
+    //     @object.GetComponent<CharacterController>().enabled=false;
+    //     @object.GetComponent<CharacterMovementHandler>().enabled=false;
+    //     blokada obracania
     }
 
     void Start()
@@ -75,6 +86,7 @@ public class HackingMission : MonoBehaviour
                     stop = true;
                     isDone=true;
                     can.SetActive(false);
+                    GetComponent<CharacterInputHandler>().enabled=true;
                     return;
                 }
             }

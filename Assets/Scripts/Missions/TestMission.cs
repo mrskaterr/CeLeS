@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TestMission : MissionObject
 {
-    protected override void OnInteract()
+    protected override void OnInteract(GameObject @object)
     {
-        base.OnInteract();
+        base.OnInteract(@object);
         Debug.Log("Test: " + mission.title);
     }
 }

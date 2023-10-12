@@ -34,14 +34,14 @@ public class Item : MissionObject,IInteractable
 
     }
 
-    void OnTriggerEnter(Collision other)
-    {
-        Debug.Log(other.gameObject.name);
-        if(other.gameObject.GetComponent<Morph>())
-        {
-            other.gameObject.GetComponent<Equipment>().Add(transform);
-        }
-    }
+    // void OnTriggerEnter(Collision other)
+    // {
+    //     Debug.Log(other.gameObject.name);
+    //     if(other.gameObject.GetComponent<Morph>())
+    //     {
+    //         other.gameObject.GetComponent<Equipment>().Add(transform);
+    //     }
+    // }
     public int Index()
     {
         return index;

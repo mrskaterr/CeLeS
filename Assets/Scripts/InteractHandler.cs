@@ -40,18 +40,7 @@ public class InteractHandler : MonoBehaviour
         if (!networkPlayer.isRemote)
         {
             Look4Interaction();
-
-            if (interactable != null)
-            {
-                indicator.SetActive(true);
-
-                if (Input.GetMouseButtonDown(1))
-                {
-                    interactable.Interact(gameObject);
-                }
-
-            }
-            else if (interactable2 != null)
+            if (interactable2 != null)
             {
                 indicator.SetActive(true);//TODO: Set other indicator
                 if (Input.GetMouseButtonDown(1))
@@ -68,6 +57,16 @@ public class InteractHandler : MonoBehaviour
                     interactable2.StopInteract(gameObject);
                     playerHUD.StopInteract();
                 }
+            }
+            else if (interactable != null)
+            {
+                indicator.SetActive(true);
+
+                if (Input.GetMouseButtonDown(1))
+                {
+                    interactable.Interact(gameObject);
+                }
+
             }
             else
             {

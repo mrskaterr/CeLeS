@@ -15,7 +15,7 @@ public class InteractableHold : MissionObject, IInteractableHold
 
     public void StartInteract(GameObject @object)
     {
-        StartCoroutine(Holding());
+        StartCoroutine(Holding(@object));
     }
 
     public void StopInteract(GameObject @object)
@@ -30,20 +30,20 @@ public class InteractableHold : MissionObject, IInteractableHold
     public virtual void OnFill(GameObject @object)
     {
         
-        if(@object.GetComponent<Equipment>().FindItem((int)ItemToNeed))
-        {
+        //if(@object.GetComponent<Equipment>().FindItem((int)ItemToNeed))
+        //{
             Debug.Log(gameObject.name);
             gameObject.SetActive(false);
-        }
+        //}
     }
 
-    private IEnumerator Holding()
+    private IEnumerator Holding(GameObject @object)
     {
         while (percent < holdTime)
         {
             yield return new WaitForSeconds(interval);
             percent += interval;
         }
-        OnFill(gameObject);
+        OnFill(@object);
     }
 }

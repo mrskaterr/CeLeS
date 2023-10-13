@@ -13,8 +13,13 @@ public class Equipment : MonoBehaviour
             return itemHolder;
         for(int i=0;i<itemHolder.childCount;i++)
             if(itemHolder.GetChild(i).GetComponent<Item>().Index()==index)
+            {
+                Debug.Log("item");
                 return itemHolder.GetChild(i);
+            }
+                
 
+        Debug.Log("nullfind");
         return null;
     }
     // public Transform FindItemInEquipment(EnumItem.Item enumItem)

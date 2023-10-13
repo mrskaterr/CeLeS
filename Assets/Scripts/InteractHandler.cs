@@ -54,7 +54,7 @@ public class InteractHandler : MonoBehaviour
                 }
                 else if (Input.GetMouseButtonUp(1))
                 {
-                    interactable2.StopInteract(gameObject);
+                    interactable2.StopInteract();
                     playerHUD.StopInteract();
                 }
             }
@@ -116,7 +116,7 @@ public class InteractHandler : MonoBehaviour
         }
         else
         {
-            interactable2?.StopInteract(gameObject);
+            interactable2?.StopInteract();
             playerHUD.StopInteract();
             interactable = null;
             interactable2 = null;
@@ -138,5 +138,5 @@ interface IInteractable//TOIMPROVE: change 4 virtual void
 interface IInteractableHold
 {
     void StartInteract(GameObject @object);
-    void StopInteract(GameObject @object);
+    void StopInteract();
 }

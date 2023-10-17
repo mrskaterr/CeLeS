@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class EnumItem
 {
-    public enum Item {None=0,EmptyPendrive=1,WirusPendrive=2,Screwdriver=3};
+    public enum Item {None=0,EmptyPendrive=1,WirusPendrive=2,Screwdriver=3,Sos=4,Prop};
 
 }

@@ -12,13 +12,14 @@ public class InteractableHold : MissionObject, IInteractableHold
 
     public float percent { get; protected set; } = 0;
     private readonly float interval = .1f;
-    [SerializeField] Collider nextPart;
+    [SerializeField] Collider thisCollider;
     public void StartInteract(GameObject @object)
     {
-        if(@object.GetComponent<Equipment>().FindItem((int)ItemToNeed)!=null)
-            StartCoroutine(Holding());
-        else
-            Debug.Log("null");
+        StartCoroutine(Holding());
+        // if(@object.GetComponent<Equipment>().FindItem((int)ItemToNeed)!=null)
+            
+        // else
+        //     Debug.Log("null");
     }
 
     public void StopInteract()
@@ -33,9 +34,8 @@ public class InteractableHold : MissionObject, IInteractableHold
     public virtual void OnFill()
     {
         Debug.Log("OnFill");
-        if(nextPart!=null)
-            nextPart.enabled=true;
-        GetComponent<Collider>().enabled=false;
+        thisCollider.enabled=false;
+        mission.NextStep();
     }
 
     private IEnumerator Holding()

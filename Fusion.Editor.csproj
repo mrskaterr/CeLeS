@@ -37,10 +37,10 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Editor\Fusion.Editor.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Editor\NetworkProjectConfigImporter.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Editor\Windows\RunnerVisibilityControlsWindow.cs" />
-     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Editor\NetworkProjectConfigImporterEditor.cs" />
      <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Editor\Windows\SharedSceneControlsWindow.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Editor\NetworkProjectConfigImporter.cs" />
+     <Compile Include="Assets\Plugins\Photon\Fusion\Scripts\Editor\NetworkProjectConfigImporterEditor.cs" />
      <None Include="Assets\Plugins\Photon\Fusion\Scripts\Editor\Fusion.Editor.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity 2021.3.4f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

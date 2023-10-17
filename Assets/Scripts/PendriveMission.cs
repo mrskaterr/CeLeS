@@ -7,10 +7,13 @@ public class PendriveMission : MissionObject,IInteractable
 {
    [Networked] public int Rand {get;set;}
    [SerializeField] private int Max=2;
-   [SerializeField] Collider nextMission;
    [SerializeField] Transform Pendrive;
     private int i=0;
-    public bool isDone=false;
+    void Start()
+    {
+    }
+
+
     protected override void OnInteract(GameObject @object)
     {
         if(i<Max)
@@ -26,9 +29,6 @@ public class PendriveMission : MissionObject,IInteractable
     {
         Pendrive.gameObject.SetActive(true);
         Debug.Log("Szafka");
-        isDone=true;
-        transform.GetComponent<Collider>().enabled=false;
-        nextMission.enabled=true;
         mission.NextStep();
     }
 }

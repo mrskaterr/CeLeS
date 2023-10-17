@@ -36,7 +36,7 @@ public class MissionData : NetworkBehaviour
         }
         currentStep = steps[stepIndex];
         currentStep.UnlockStep();
-        onNextStep();
+        onNextStep?.Invoke();
     }
 
     private void Done()
@@ -64,6 +64,8 @@ public class MissionData : NetworkBehaviour
         {
             for (int i = 0; i < missionObjects.Count; i++)
             {
+                if(missionObjects[i]==null)
+                    continue;
                 missionObjects[i].mission = _mission;
                 missionObjects[i].Enable();
             }

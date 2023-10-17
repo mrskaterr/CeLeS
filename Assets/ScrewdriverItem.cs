@@ -13,12 +13,10 @@ public class ScrewdriverItem : Item
     {
         transform.GetComponent<Collider>().enabled=false;
         @object.GetComponent<Equipment>().Add(transform);
-
         if(!isFind)
         {
             mission.NextStep();
+            isFind=true;
         }
-
-
     }
 }

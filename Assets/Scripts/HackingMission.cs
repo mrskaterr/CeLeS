@@ -9,10 +9,9 @@ using UnityEngine.PlayerLoop;
 
 public class HackingMission : MissionObject,IInteractable
 {
+    [SerializeField]WordsHacking wordsHacking;
     public GameObject player;
     [SerializeField] GameObject can;
-    [SerializeField] Transform PendriveWirus;
-    public Transform EmptyPendrive;
     [SerializeField] char[] word;
     [SerializeField] TMP_Text[] line0;
     [SerializeField] TMP_Text[] line1;
@@ -30,7 +29,6 @@ public class HackingMission : MissionObject,IInteractable
     {
         Debug.Log("LaptopMission");
         isDone=true;
-        //nextMission.enabled=true;
         gameObject.GetComponent<Collider>().enabled=false;
         mission.NextStep();
     }
@@ -90,14 +88,11 @@ public class HackingMission : MissionObject,IInteractable
 
                 if (i == 4)
                 {
-                    Debug.Log("donee");
+                    Debug.Log("hack done");
                     stop = true;
                     isDone=true;
                     can.SetActive(false);
-                    player.GetComponent<Equipment>().Delete(EmptyPendrive);
-                    Destroy(EmptyPendrive.gameObject);
-                    PendriveWirus.gameObject.SetActive(true);
-                    player.GetComponent<Equipment>().Add(PendriveWirus);
+                    wordsHacking.done();
                     return;
                 }
             }

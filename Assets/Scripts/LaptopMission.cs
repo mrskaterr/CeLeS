@@ -4,38 +4,31 @@ using UnityEngine;
 using Fusion;
 public class LaptopMission : MissionObject,IInteractable
 {
+    LayerMask layerMask ;
+    
     [SerializeField] Transform laptop;
     [SerializeField] List<Transform> points;
-    [SerializeField] Collider nextMission;
-    public bool isDone;
     //public GameObject player;
     [Networked] public int i {get;set;}
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.gameObject.name);
-        if(other.gameObject.GetComponent<Morph>())
-        {
-            Debug.Log("LaptopMission");
-            isDone=true;
-            nextMission.enabled=true;
-            gameObject.GetComponent<Collider>().enabled=false;
-            mission.NextStep();
-        }
-    }
-    // protected override void OnInteract(GameObject @object)
-    // {
-    //     Debug.Log("LaptopMission");
-    //     isDone=true;
-    //     nextMission.enabled=true;
-    //     gameObject.GetComponent<Collider>().enabled=false;
-    //     mission.NextStep();
-    // }
-
     [Rpc(RpcSources.All, RpcTargets.All)]
     void Start()
     {
+        layerMask =LayerMask.NameToLayer("Interactable");
+        // mission.Init();
+        //base.Enable();
         i=Random.Range(0,points.Count);
         laptop.position=points[i].position;
-        // transform.SetParent(Point[i]);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(gameObject.layer==layerMask && other.gameObject.GetComponent<Morph>())
+        {
+            Debug.Log("LaptopMission");
+            mission.NextStep();
+            GetComponent<Collider>().enabled=false;
+
+        }
+    }
+
 }

@@ -37,94 +37,98 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Missions\MissionData.cs" />
-     <Compile Include="Assets\Scripts\LaptopMission.cs" />
-     <Compile Include="Assets\Scripts\EnumItem.cs" />
-     <Compile Include="Assets\Scripts\LobbyManager.cs" />
      <Compile Include="Assets\Scripts\NetworkAnimator.cs" />
      <Compile Include="Assets\Scripts\Network\NetworkInputData.cs" />
-     <Compile Include="Assets\Scripts\Movement.cs" />
      <Compile Include="Assets\Scripts\RPCManager.cs" />
-     <Compile Include="Assets\ScrewdriverItem.cs" />
      <Compile Include="Assets\Scripts\SyncPos.cs" />
-     <Compile Include="Assets\Scripts\SpawnerV2.cs" />
      <Compile Include="Assets\Scripts\TASKS\taskCircle\Job.cs" />
      <Compile Include="Assets\Scripts\Push.cs" />
      <Compile Include="Assets\SpectateManager.cs" />
-     <Compile Include="Assets\Scripts\Missions\MissionObject.cs" />
-     <Compile Include="Assets\InteractableHold.cs" />
      <Compile Include="Assets\Scripts\PlayerUtility.cs" />
      <Compile Include="Assets\Scripts\HealthSystem.cs" />
-     <Compile Include="Assets\Scripts\Network\NetworkRunnerHandler.cs" />
      <Compile Include="Assets\Scripts\Manager.cs" />
-     <Compile Include="Assets\ReferenceHold.cs" />
-     <Compile Include="Assets\Scripts\Jar.cs" />
-     <Compile Include="Assets\Scripts\TASKS\JobHandler2.cs" />
-     <Compile Include="Assets\Scripts\Extensions\TMPTextExtension.cs" />
      <Compile Include="Assets\SpectateSync.cs" />
-     <Compile Include="Assets\Scripts\InteractHandler.cs" />
      <Compile Include="Assets\Scripts\ActivityEvents.cs" />
-     <Compile Include="Assets\Scripts\Equipment.cs" />
+     <Compile Include="Assets\changeScene.cs" />
      <Compile Include="Assets\Scripts\CharacterInputHandler.cs" />
      <Compile Include="Assets\Scripts\CaptureHandler.cs" />
      <Compile Include="Assets\Scripts\GunMode.cs" />
-     <Compile Include="Assets\Scripts\Door.cs" />
-     <Compile Include="Assets\Scripts\CarryHandler.cs" />
      <Compile Include="Assets\BlobStation.cs" />
-     <Compile Include="Assets\Scripts\Morph.cs" />
-     <Compile Include="Assets\Scripts\PlayerMovementTutorial.cs" />
+     <Compile Include="Assets\AutoScena.cs" />
      <Compile Include="Assets\Scripts\MissionManager.cs" />
      <Compile Include="Assets\Scripts\HackingMission.cs" />
      <Compile Include="Assets\Scripts\PlayerListItem.cs" />
      <Compile Include="Assets\Scripts\TASKS\JobHandler.cs" />
-     <Compile Include="Assets\Scripts\Utils.cs" />
      <Compile Include="Assets\Scripts\TASKS\Generator_Panel.cs" />
      <Compile Include="Assets\Scripts\Extensions\IntExtension.cs" />
-     <Compile Include="Assets\Item.cs" />
-     <Compile Include="Assets\Scripts\CarryGlobal.cs" />
-     <Compile Include="Assets\Scripts\SharedTimer.cs" />
-     <Compile Include="Assets\Scripts\UserInfoPrefab.cs" />
+     <Compile Include="Assets\MissionKibel.cs" />
      <Compile Include="Assets\Scripts\TASKS\taskColor\ResetColors.cs" />
      <Compile Include="Assets\Scripts\PlayerHUD.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\WordsHacking.cs" />
      <Compile Include="Assets\Scripts\PlayerRole.cs" />
      <Compile Include="Assets\Scripts\TVMission.cs" />
      <Compile Include="Assets\Scripts\LobbyManagerV2.cs" />
      <Compile Include="Assets\Scripts\TASKS\TaskTest.cs" />
+     <Compile Include="Assets\Scripts\Missions\TestMission3.cs" />
+     <Compile Include="Assets\Scripts\Teleportyzer.cs" />
+     <Compile Include="Assets\Scripts\TaskHandler.cs" />
+     <Compile Include="Assets\Scripts\LocalCameraHandler.cs" />
+     <Compile Include="Assets\Scripts\BarrelMission.cs" />
+     <Compile Include="Assets\Scripts\TASKS\taskColor\ColorButton.cs" />
+     <Compile Include="Assets\Scripts\WeaponHandler.cs" />
+     <Compile Include="Assets\Scripts\PlayfabLogin.cs" />
+     <Compile Include="Assets\Scripts\Network\Spawner.cs" />
+     <Compile Include="Assets\EscapeGameLogic.cs" />
+     <Compile Include="Assets\Wobble.cs" />
+     <Compile Include="Assets\Scripts\LoadingCanvas.cs" />
+     <Compile Include="Assets\Scripts\CharacterMovementHandler.cs" />
+     <Compile Include="Assets\Scripts\LaptopMission.cs" />
+     <Compile Include="Assets\Scripts\EnumItem.cs" />
+     <Compile Include="Assets\Scripts\LobbyManager.cs" />
+     <Compile Include="Assets\Scripts\Movement.cs" />
+     <Compile Include="Assets\AutomaticScene.cs" />
+     <Compile Include="Assets\ScrewdriverItem.cs" />
+     <Compile Include="Assets\Scripts\SpawnerV2.cs" />
+     <Compile Include="Assets\Scripts\Missions\MissionObject.cs" />
+     <Compile Include="Assets\InteractableHold.cs" />
+     <Compile Include="Assets\Scripts\Network\NetworkRunnerHandler.cs" />
+     <Compile Include="Assets\ReferenceHold.cs" />
+     <Compile Include="Assets\Scripts\Jar.cs" />
+     <Compile Include="Assets\Scripts\TASKS\JobHandler2.cs" />
+     <Compile Include="Assets\Scripts\Extensions\TMPTextExtension.cs" />
+     <Compile Include="Assets\Scripts\InteractHandler.cs" />
+     <Compile Include="Assets\Scripts\Equipment.cs" />
+     <Compile Include="Assets\Scripts\Door.cs" />
+     <Compile Include="Assets\Scripts\CarryHandler.cs" />
+     <Compile Include="Assets\Scripts\Morph.cs" />
+     <Compile Include="Assets\Scripts\PlayerMovementTutorial.cs" />
+     <Compile Include="Assets\Scripts\Utils.cs" />
+     <Compile Include="Assets\Item.cs" />
+     <Compile Include="Assets\Scripts\CarryGlobal.cs" />
+     <Compile Include="Assets\Scripts\SharedTimer.cs" />
+     <Compile Include="Assets\Scripts\UserInfoPrefab.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\WordsHacking.cs" />
      <Compile Include="Assets\Scripts\SpaceManager.cs" />
      <Compile Include="Assets\Scripts\Network\NetworkPlayer.cs" />
      <Compile Include="Assets\Scripts\TASKS\Words_Panel.cs" />
      <Compile Include="Assets\JarBlob.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
-     <Compile Include="Assets\Scripts\Missions\TestMission3.cs" />
+     <Compile Include="Assets\Break.cs" />
      <Compile Include="Assets\Scripts\Missions\TestMission2.cs" />
      <Compile Include="Assets\Scripts\PendriveMission.cs" />
      <Compile Include="Assets\Scripts\CompassHandler.cs" />
-     <Compile Include="Assets\Scripts\Teleportyzer.cs" />
+     <Compile Include="Assets\Autosc.cs" />
      <Compile Include="Assets\Scripts\MorphObject.cs" />
-     <Compile Include="Assets\Scripts\TaskHandler.cs" />
      <Compile Include="Assets\Scripts\TASKS\TaskLogic.cs" />
      <Compile Include="Assets\Scripts\NetworkCharacterController.cs" />
-     <Compile Include="Assets\Scripts\LocalCameraHandler.cs" />
      <Compile Include="Assets\Scripts\RegionSelect.cs" />
-     <Compile Include="Assets\Scripts\BarrelMission.cs" />
      <Compile Include="Assets\Scripts\Missions\TestMission.cs" />
-     <Compile Include="Assets\Scripts\TASKS\taskColor\ColorButton.cs" />
      <Compile Include="Assets\Scripts\TASKS\taskColor\TaskRemeberColor.cs" />
-     <Compile Include="Assets\Scripts\WeaponHandler.cs" />
-     <Compile Include="Assets\Scripts\PlayfabLogin.cs" />
-     <Compile Include="Assets\Scripts\Item.cs" />
-     <Compile Include="Assets\Scripts\Network\Spawner.cs" />
-     <Compile Include="Assets\EscapeGameLogic.cs" />
-     <Compile Include="Assets\Wobble.cs" />
      <Compile Include="Assets\Scripts\PlayerNetworkEventsHandler.cs" />
      <Compile Include="Assets\Bar.cs" />
      <Compile Include="Assets\Scripts\TestLogin.cs" />
      <Compile Include="Assets\Scripts\TASKS\taskCircle\Hack_Panel.cs" />
      <Compile Include="Assets\Scripts\PlayerHolder.cs" />
-     <Compile Include="Assets\Scripts\LoadingCanvas.cs" />
-     <Compile Include="Assets\Scripts\CharacterMovementHandler.cs" />
-     <Compile Include="Assets\changeScene.cs" />
      <Compile Include="Assets\AutoPlay.cs" />
      <None Include="Assets\Rendering\Shaders\Celshading 2\CustomLighting.hlsl" />
      <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />
@@ -830,11 +834,17 @@
     <Reference Include="Unity.ShaderGraph.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Editor">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.AdaptivePerformance.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AdaptivePerformance">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.AdaptivePerformance.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Animation.Rigging.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Animation.Rigging.Editor.dll</HintPath>
@@ -851,6 +861,9 @@
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Profiling.Core">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Profiling.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
@@ -860,11 +873,17 @@
     <Reference Include="Unity.TextMeshPro">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Simulator.Extension">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.AdaptivePerformance.Simulator.Extension.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AdaptivePerformance.UI.Editor">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.AdaptivePerformance.UI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
@@ -884,14 +903,17 @@
     <Reference Include="Unity.Mathematics">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Simulator.Editor">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.AdaptivePerformance.Simulator.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Services.Core.Analytics">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Burst">
-        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
@@ -907,6 +929,9 @@
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Profiler.Editor">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.AdaptivePerformance.Profiler.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>

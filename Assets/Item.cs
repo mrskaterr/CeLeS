@@ -17,7 +17,7 @@ public class Item : MissionObject,IInteractable
     {
         if(transform.parent==defaultPartent){}
 
-        else if(transform.parent.parent.parent.GetComponent<Morph>().index==-1)
+        else if(transform.GetComponentInParent<Morph>().index==-1)
         {
             transform.position=transform.parent.position;
         }
@@ -33,15 +33,6 @@ public class Item : MissionObject,IInteractable
         @object.GetComponent<Equipment>().Add(transform);
 
     }
-
-    // void OnTriggerEnter(Collision other)
-    // {
-    //     Debug.Log(other.gameObject.name);
-    //     if(other.gameObject.GetComponent<Morph>())
-    //     {
-    //         other.gameObject.GetComponent<Equipment>().Add(transform);
-    //     }
-    // }
     public int Index()
     {
         return index;

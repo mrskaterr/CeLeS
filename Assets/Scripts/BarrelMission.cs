@@ -22,10 +22,9 @@ public class BarrelMission : MissionObject,IInteractable
         if(c.gameObject.name==Area.gameObject.name)//TODO
         {
             rb.constraints=RigidbodyConstraints.FreezeAll;
-            Debug.Log("ok");
             nextPart.enabled=true; 
-            if(coll!=null)coll.enabled=false;
             mission.NextStep();
+            if(coll!=null)coll.enabled=false;
             this.enabled=false;
         }
         

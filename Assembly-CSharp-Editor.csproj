@@ -36,10 +36,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Editor\ReverseAnimationContext.cs" />
      <Compile Include="Assets\Editor\HierarchyObjectColor.cs" />
-     <Compile Include="Assets\Editor\SceneSwitchWindow.cs" />
      <Compile Include="Assets\Editor\ReadOnlyDrawer.cs" />
+     <Compile Include="Assets\Editor\ReverseAnimationContext.cs" />
+     <Compile Include="Assets\Editor\SceneSwitchWindow.cs" />
      <Compile Include="Assets\Editor\CameraPreviewWindow.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity 2021.3.4f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -812,11 +812,17 @@
     <Reference Include="Unity.ShaderGraph.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Editor">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.AdaptivePerformance.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AdaptivePerformance">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.AdaptivePerformance.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Animation.Rigging.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Animation.Rigging.Editor.dll</HintPath>
@@ -833,6 +839,9 @@
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Profiling.Core">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Profiling.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
@@ -842,11 +851,17 @@
     <Reference Include="Unity.TextMeshPro">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Simulator.Extension">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.AdaptivePerformance.Simulator.Extension.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AdaptivePerformance.UI.Editor">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.AdaptivePerformance.UI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
@@ -866,14 +881,17 @@
     <Reference Include="Unity.Mathematics">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Simulator.Editor">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.AdaptivePerformance.Simulator.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Services.Core.Analytics">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Burst">
-        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
@@ -889,6 +907,9 @@
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Profiler.Editor">
+        <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.AdaptivePerformance.Profiler.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
         <HintPath>C:\Users\Waweł\Documents\UnityProject\Pituita\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>

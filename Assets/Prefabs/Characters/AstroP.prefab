@@ -831,6 +831,8 @@ MonoBehaviour:
   crosshair: {fileID: 0}
   onHitImage: {fileID: 0}
   miniGameParent: {fileID: 0}
+  interactName: {fileID: 0}
+  interactBar: {fileID: 0}
 --- !u!114 &4941693848883023913
 MonoBehaviour:
   m_ObjectHideFlags: 0

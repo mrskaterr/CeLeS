@@ -4,21 +4,13 @@ using UnityEngine;
 
 public class TVMission : MissionObject
 {
-  [SerializeField] Collider nextPart;
-  void  OnCollisionEnter (Collision collision)
+  void  OnInteract ()
   {
-    if(collision.gameObject.GetComponent<Morph>())
-    {
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        Debug.Log("TV Mission");
-        if(nextPart!=null)
-          nextPart.enabled=true;
-        mission.NextStep();
-    }
-    if(collision.gameObject.GetComponent<BarrelMission>())
-    {
+
+      GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+      Debug.Log("TV Mission");
+      mission.NextStep();
       Debug.Log("+ 5 punktów");
-      this.enabled=false;    
-    }
+ 
   }
 }

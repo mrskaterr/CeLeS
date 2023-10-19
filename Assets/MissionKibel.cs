@@ -18,6 +18,7 @@ public class MissionKibel : MissionObject,IInteractable
             prop.GetComponentInParent<Equipment>().Delete(prop);
             
             prop.gameObject.SetActive(false);
+            prop.GetComponent<Item>().SetedefaultPartent();
         }
         if(i>=6)
         {

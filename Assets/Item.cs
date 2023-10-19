@@ -23,8 +23,7 @@ public class Item : MissionObject,IInteractable
         }
         else
         {
-            transform.GetComponent<Collider>().enabled=true;
-            transform.SetParent(defaultPartent);
+            SetedefaultPartent();
         }
     }
     protected override void OnInteract(GameObject @object)
@@ -36,6 +35,11 @@ public class Item : MissionObject,IInteractable
     public int Index()
     {
         return index;
+    }
+    public void SetedefaultPartent()
+    {
+        transform.GetComponent<Collider>().enabled=true;
+        transform.SetParent(defaultPartent);
     }
 
 }

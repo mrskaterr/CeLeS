@@ -109,7 +109,9 @@
     <Compile Include="Assets\Scripts\LocalCameraHandler.cs" />
     <Compile Include="Assets\Scripts\RegionSelect.cs" />
     <Compile Include="Assets\Scripts\Missions\TestMission.cs" />
+    <Compile Include="Assets\Rendering\Shaders\Better Celshading\ScriptableRenderFeatures\DepthNormalsFeature.cs" />
     <Compile Include="Assets\Scripts\WeaponHandler.cs" />
+    <Compile Include="Assets\InteractableHold.cs" />
     <Compile Include="Assets\Scripts\PlayfabLogin.cs" />
     <Compile Include="Assets\Scripts\Network\Spawner.cs" />
     <Compile Include="Assets\EscapeGameLogic.cs" />
@@ -120,9 +122,10 @@
     <Compile Include="Assets\Scripts\PlayerHolder.cs" />
     <Compile Include="Assets\Scripts\LoadingCanvas.cs" />
     <Compile Include="Assets\Scripts\CharacterMovementHandler.cs" />
-    <Compile Include="Assets\InteractableHold.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\CustomLighting.hlsl" />
+    <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\Outline.hlsl" />
     <None Include="Assets\Rendering\Shaders\Celshading 2\CustomLighting.hlsl" />
     <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />
   </ItemGroup>

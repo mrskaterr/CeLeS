@@ -35,94 +35,6 @@
     <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
-<<<<<<< HEAD
-=======
-  <PropertyGroup>
-    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.16</UnityProjectGeneratorVersion>
-    <UnityProjectType>Game:1</UnityProjectType>
-    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
-    <UnityVersion>2021.3.4f1</UnityVersion>
-  </PropertyGroup>
-  <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Assets\Scripts\Missions\MissionData.cs" />
-    <Compile Include="Assets\Scripts\LobbyManager.cs" />
-    <Compile Include="Assets\Scripts\NetworkAnimator.cs" />
-    <Compile Include="Assets\Scripts\Network\NetworkInputData.cs" />
-    <Compile Include="Assets\Scripts\Movement.cs" />
-    <Compile Include="Assets\Scripts\RPCManager.cs" />
-    <Compile Include="Assets\Scripts\SyncPos.cs" />
-    <Compile Include="Assets\Scripts\SpawnerV2.cs" />
-    <Compile Include="Assets\SpectateManager.cs" />
-    <Compile Include="Assets\Scripts\Missions\MissionObject.cs" />
-    <Compile Include="Assets\Scripts\PlayerUtility.cs" />
-    <Compile Include="Assets\Scripts\HealthSystem.cs" />
-    <Compile Include="Assets\Scripts\Network\NetworkRunnerHandler.cs" />
-    <Compile Include="Assets\Scripts\Manager.cs" />
-    <Compile Include="Assets\ReferenceHold.cs" />
-    <Compile Include="Assets\Scripts\Jar.cs" />
-    <Compile Include="Assets\Scripts\Extensions\TMPTextExtension.cs" />
-    <Compile Include="Assets\SpectateSync.cs" />
-    <Compile Include="Assets\Scripts\InteractHandler.cs" />
-    <Compile Include="Assets\Scripts\ActivityEvents.cs" />
-    <Compile Include="Assets\Scripts\CharacterInputHandler.cs" />
-    <Compile Include="Assets\Scripts\CaptureHandler.cs" />
-    <Compile Include="Assets\Scripts\GunMode.cs" />
-    <Compile Include="Assets\Scripts\Door.cs" />
-    <Compile Include="Assets\Scripts\CarryHandler.cs" />
-    <Compile Include="Assets\BlobStation.cs" />
-    <Compile Include="Assets\Scripts\Morph.cs" />
-    <Compile Include="Assets\Scripts\PlayerMovementTutorial.cs" />
-    <Compile Include="Assets\Scripts\MissionManager.cs" />
-    <Compile Include="Assets\Scripts\PlayerListItem.cs" />
-    <Compile Include="Assets\Scripts\Utils.cs" />
-    <Compile Include="Assets\Scripts\Extensions\IntExtension.cs" />
-    <Compile Include="Assets\Scripts\CarryGlobal.cs" />
-    <Compile Include="Assets\Scripts\SharedTimer.cs" />
-    <Compile Include="Assets\Scripts\UserInfoPrefab.cs" />
-    <Compile Include="Assets\Scripts\PlayerHUD.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\PlayerRole.cs" />
-    <Compile Include="Assets\Scripts\LobbyManagerV2.cs" />
-    <Compile Include="Assets\Scripts\SpaceManager.cs" />
-    <Compile Include="Assets\Scripts\Network\NetworkPlayer.cs" />
-    <Compile Include="Assets\JarBlob.cs" />
-    <Compile Include="Assets\Scripts\UIManager.cs" />
-    <Compile Include="Assets\Scripts\Missions\TestMission3.cs" />
-    <Compile Include="Assets\Scripts\Missions\TestMission2.cs" />
-    <Compile Include="Assets\Scripts\CompassHandler.cs" />
-    <Compile Include="Assets\Scripts\Teleportyzer.cs" />
-    <Compile Include="Assets\Scripts\MorphObject.cs" />
-    <Compile Include="Assets\Scripts\TaskHandler.cs" />
-    <Compile Include="Assets\Scripts\NetworkCharacterController.cs" />
-    <Compile Include="Assets\Scripts\LocalCameraHandler.cs" />
-    <Compile Include="Assets\Scripts\RegionSelect.cs" />
-    <Compile Include="Assets\Scripts\Missions\TestMission.cs" />
-    <Compile Include="Assets\Rendering\Shaders\Better Celshading\ScriptableRenderFeatures\DepthNormalsFeature.cs" />
-    <Compile Include="Assets\Scripts\WeaponHandler.cs" />
-    <Compile Include="Assets\InteractableHold.cs" />
-    <Compile Include="Assets\Scripts\PlayfabLogin.cs" />
-    <Compile Include="Assets\Scripts\Network\Spawner.cs" />
-    <Compile Include="Assets\EscapeGameLogic.cs" />
-    <Compile Include="Assets\Wobble.cs" />
-    <Compile Include="Assets\Scripts\PlayerNetworkEventsHandler.cs" />
-    <Compile Include="Assets\Bar.cs" />
-    <Compile Include="Assets\Scripts\TestLogin.cs" />
-    <Compile Include="Assets\Scripts\PlayerHolder.cs" />
-    <Compile Include="Assets\Scripts\LoadingCanvas.cs" />
-    <Compile Include="Assets\Scripts\CharacterMovementHandler.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\CustomLighting.hlsl" />
-    <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\Outline.hlsl" />
-    <None Include="Assets\Rendering\Shaders\Celshading 2\CustomLighting.hlsl" />
-    <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />
-  </ItemGroup>
->>>>>>> Shaders
   <ItemGroup>
      <Compile Include="Assets\Scripts\Missions\MissionData.cs" />
      <Compile Include="Assets\Scripts\NetworkAnimator.cs" />
@@ -211,6 +123,7 @@
      <Compile Include="Assets\Scripts\NetworkCharacterController.cs" />
      <Compile Include="Assets\Scripts\RegionSelect.cs" />
      <Compile Include="Assets\Scripts\Missions\TestMission.cs" />
+     <Compile Include="Assets\Rendering\Shaders\Better Celshading\ScriptableRenderFeatures\DepthNormalsFeature.cs" />
      <Compile Include="Assets\Scripts\TASKS\taskColor\TaskRemeberColor.cs" />
      <Compile Include="Assets\Scripts\PlayerNetworkEventsHandler.cs" />
      <Compile Include="Assets\Bar.cs" />
@@ -218,6 +131,8 @@
      <Compile Include="Assets\Scripts\TASKS\taskCircle\Hack_Panel.cs" />
      <Compile Include="Assets\Scripts\PlayerHolder.cs" />
      <Compile Include="Assets\AutoPlay.cs" />
+     <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\CustomLighting.hlsl" />
+     <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\Outline.hlsl" />
      <None Include="Assets\Rendering\Shaders\Celshading 2\CustomLighting.hlsl" />
      <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />
     <Reference Include="UnityEngine">

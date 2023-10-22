@@ -21,7 +21,7 @@ public class PendriveMission : MissionObject,IInteractable
         if(Rand==Max-1)
         {
             Done();
-            Pendrive.SetParent(@object.GetComponent<Equipment>().itemHolder);
+            @object.GetComponent<Equipment>().Add(Pendrive);
         }
         i++;
     }

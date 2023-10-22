@@ -15,11 +15,13 @@ public class InteractableHold : MissionObject, IInteractableHold
     [SerializeField] Collider thisCollider;
     public void StartInteract(GameObject @object)
     {
-        StartCoroutine(Holding());
-        // if(@object.GetComponent<Equipment>().FindItem((int)ItemToNeed)!=null)
-            
-        // else
-        //     Debug.Log("null");
+        
+        if(@object.GetComponent<Equipment>().isHeHad((int)ItemToNeed)!=null)
+        {
+            StartCoroutine(Holding());
+        }    
+        else
+            Debug.Log("null");
     }
 
     public void StopInteract()

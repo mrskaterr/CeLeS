@@ -8,12 +8,12 @@ public class WordsHacking : MissionObject,IInteractable
     [SerializeField] GameObject hackingPanel;
     [SerializeField] HackingMission hackingMission;
     [SerializeField] Transform PendriveWirus;
-    [SerializeField] Transform EmptyPendrive;
+    Transform EmptyPendrive;
     public bool isDone=false;
     protected override void OnInteract(GameObject @object)
     {
         player = @object.gameObject;
-        EmptyPendrive=@object.GetComponent<Equipment>().FindItem((int)EnumItem.Item.EmptyPendrive);
+        EmptyPendrive=@object.GetComponent<Equipment>().isHeHad((int)EnumItem.Item.EmptyPendrive);
         if(EmptyPendrive!=null)
         {
             @object.GetComponent<CharacterInputHandler>().enabled=false;
@@ -24,10 +24,11 @@ public class WordsHacking : MissionObject,IInteractable
     }
     public void done()
     {
-        player.GetComponent<Equipment>().Delete(EmptyPendrive);
         Destroy(EmptyPendrive.gameObject);
+        Debug.Log(player.name);
         PendriveWirus.gameObject.SetActive(true);
-        player.GetComponent<Equipment>().Add(PendriveWirus);
+        player.GetComponentInChildren<Equipment>().Add(PendriveWirus);
+        PendriveWirus.SetParent(player.GetComponentInChildren<Equipment>().itemHolder);
         mission.NextStep();
     }
 }

@@ -1,38 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class Equipment : MonoBehaviour
 {
     public Transform itemHolder;
-    private List<Transform> Items=new();
-
-    public Transform FindItem(int index)
+[SerializeField] TMP_Text nameItem;
+    void Update()
     {
-        for(int i=0;i<itemHolder.childCount;i++)
-            if(itemHolder.GetChild(i).GetComponent<Item>().Index()==index)
-                return itemHolder.GetChild(i);
-                
-        Debug.Log("nullfind");
-        return null;
+        //nameItem.text=itemHolder.GetChild(0).name;
+        if(itemHolder.childCount==0)
+            nameItem.text="";
+    }
+    public Transform isHeHad(int index)
+    {
+        int count=itemHolder.childCount;
+        if (count==1 && itemHolder.GetChild(0).GetComponent<Item>().Index()==index)
+            return itemHolder.GetChild(0);
+        else
+        {       
+            Debug.Log("equipment  count:"+count);
+            return null;
+        }
     }
 
     public void Add(Transform t)
     {
-        t.SetParent(itemHolder);
-        Items.Add(t);
-    }
-    public void Delete(Transform t)
-    {
-        Items.Remove(t);
+        if(itemHolder.childCount==0)
+            t.SetParent(itemHolder);
+            nameItem.text=t.name;    
     }
 
 }
-    // public Transform FindItemInEquipment(EnumItem.Item enumItem)
-    // {
-    //     for(int i=0;i<Items.Count;i++)
-    //         if(Items[i].GetComponent<Item>().Index()==(int)enumItem)
-    //             return Items[i];
-
-    //     return null;
-    // }

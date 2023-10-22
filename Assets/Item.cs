@@ -7,19 +7,26 @@ public class Item : MissionObject,IInteractable
 {
     [SerializeField] Transform defaultPartent;
     [SerializeField] EnumItem.Item item;
+    Collider coll;
+    private const string interactableLayerName = "Interactable";
+    private const string notvisible = "Default";
     private int index;
     void Start()
     {
+        coll=transform.GetComponent<Collider>();
         index=(int)item;
+        
     }
 
     void Update()
     {
         if(transform.parent==defaultPartent){}
 
-        else if(transform.GetComponentInParent<Morph>().index==-1)
+        else if(transform.GetComponentInParent<Morph>() 
+        && transform.GetComponentInParent<Morph>().index==-1)
         {
             transform.position=transform.parent.position;
+            this.gameObject.layer=LayerMask.NameToLayer(interactableLayerName);
         }
         else
         {
@@ -28,9 +35,13 @@ public class Item : MissionObject,IInteractable
     }
     protected override void OnInteract(GameObject @object)
     {
-        transform.GetComponent<Collider>().enabled=false;
-        @object.GetComponent<Equipment>().Add(transform);
-
+        if(@object.GetComponent<Equipment>().itemHolder.childCount==0)
+        {
+            coll.enabled=false;
+            
+            @object.GetComponent<Equipment>().Add(transform);
+        }
+        
     }
     public int Index()
     {
@@ -38,8 +49,9 @@ public class Item : MissionObject,IInteractable
     }
     public void SetedefaultPartent()
     {
-        transform.GetComponent<Collider>().enabled=true;
+        coll.enabled=true;
         transform.SetParent(defaultPartent);
+        this.gameObject.layer=LayerMask.NameToLayer(interactableLayerName);
     }
 
 }

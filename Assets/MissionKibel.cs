@@ -11,14 +11,12 @@ public class MissionKibel : MissionObject,IInteractable
     }
     protected override void OnInteract(GameObject @object)
     {
-        Transform prop=@object.GetComponent<Equipment>().FindItem((int)EnumItem.Item.Prop);
+        Transform prop=@object.GetComponent<Equipment>().isHeHad((int)EnumItem.Item.Prop);
         if(prop!=null)
         {
             i++;
-            prop.GetComponentInParent<Equipment>().Delete(prop);
-            
-            prop.gameObject.SetActive(false);
             prop.GetComponent<Item>().SetedefaultPartent();
+            prop.gameObject.SetActive(false);
         }
         if(i>=6)
         {

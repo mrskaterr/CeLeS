@@ -52922,6 +52922,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8706257776208174351}
+  - component: {fileID: 8706257776208174352}
   m_Layer: 0
   m_Name: Laptop
   m_TagString: Untagged
@@ -54020,6 +54021,29 @@ Transform:
   m_Father: {fileID: 418925125}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 145.961, z: 0}
+--- !u!114 &8706257776208174352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6583775898351511183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectInterest: 1
+  DefaultInterestGroups: []
+  DestroyWhenStateAuthorityLeaves: 0
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
+  Flags: 2561
+  NetworkGuid:
+    RawGuidValue: 21e582cd73dc49d084b3aeae5e1b6cbe
+  NestedObjects: []
+  NetworkedBehaviours: []
+  SimulationBehaviours: []
 --- !u!23 &8849026679932199691
 MeshRenderer:
   m_ObjectHideFlags: 0

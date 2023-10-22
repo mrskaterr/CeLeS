@@ -9,7 +9,7 @@ public class Item : MissionObject,IInteractable
     [SerializeField] EnumItem.Item item;
     Collider coll;
     private const string interactableLayerName = "Interactable";
-    private const string notvisible = "Default";
+    private const string notvisible = "P4";
     private int index;
     void Start()
     {

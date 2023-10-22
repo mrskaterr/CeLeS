@@ -67,7 +67,7 @@ public class MissionData : NetworkBehaviour
                 if(missionObjects[i]==null)
                     continue;
                 missionObjects[i].mission = _mission;
-                missionObjects[i].Enable();
+                //missionObjects[i].Enable();
             }
         }
 

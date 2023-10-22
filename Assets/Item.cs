@@ -26,7 +26,7 @@ public class Item : MissionObject,IInteractable
         && transform.GetComponentInParent<Morph>().index==-1)
         {
             transform.position=transform.parent.position;
-            this.gameObject.layer=LayerMask.NameToLayer(interactableLayerName);
+            this.gameObject.layer=LayerMask.NameToLayer(notvisible);
         }
         else
         {

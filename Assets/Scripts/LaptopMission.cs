@@ -22,7 +22,7 @@ public class LaptopMission : MissionObject,IInteractable
 
     void OnTriggerEnter(Collider other)
     {
-        if(gameObject.layer==layerMask && other.gameObject.GetComponent<Morph>())
+        if(other.gameObject.GetComponent<Morph>())
         {
             Debug.Log("LaptopMission");
             mission.NextStep();

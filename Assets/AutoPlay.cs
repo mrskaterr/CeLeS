@@ -7,22 +7,19 @@ using UnityEditor.SearchService;
 using UnityEngine.SceneManagement; 
  
 public class AutoPlay : MonoBehaviour 
-{ 
-    [SerializeField] string log="test@test.com"; 
-    [SerializeField] string pass="123456"; 
-    [SerializeField] TMP_InputField login; 
-    [SerializeField] TMP_InputField password; 
+{   public bool soloGame;
+    string whoIs;
     [SerializeField] GameObject Manager; 
-    [SerializeField] GameObject CustomGame;  
-     
+    [SerializeField] GameObject CustomGame;
     [SerializeField] GameObject CreateOrJoin;  
     [SerializeField] GameObject PrivateRoomDetails; 
     bool []isDone=new bool[]{false,false,false}; 
+    public void NameButton(string buff)
+    {
+        whoIs=buff;
+    }
     void Start() 
     { 
-        SceneManager.GetActiveScene(); 
-        login.text=log; 
-        password.text=pass; 
         Manager.GetComponent<PlayfabLogin>().LoginButtonMethod(); 
     } 
     void Update() 
@@ -40,10 +37,17 @@ public class AutoPlay : MonoBehaviour
             isDone[1]=true; 
         } 
         if(!isDone[2] && PrivateRoomDetails.activeInHierarchy) 
-        { 
-            Manager.GetComponent<LobbyManagerV2>().SetRole(4); 
-            Manager.GetComponent<LobbyManagerV2>().IsReady(); 
-            isDone[2]=true; 
+        {
+            if(whoIs=="1" )
+                Manager.GetComponent<LobbyManagerV2>().SetRole(4);
+            if(whoIs=="3")
+                Manager.GetComponent<LobbyManagerV2>().SetRole(5);
+            if(whoIs=="2")
+                Manager.GetComponent<LobbyManagerV2>().SetRole(2); 
+            if(soloGame)
+                Manager.GetComponent<LobbyManagerV2>().IsReady();
+            
+            isDone[2]=true;
         } 
  
     } 

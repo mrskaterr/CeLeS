@@ -28673,6 +28673,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2051683869}
     - target: {fileID: 5409665337354812157, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
+      propertyPath: soloGame
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409665337354812157, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
       propertyPath: CustomGame
       value: 
       objectReference: {fileID: 1618882356}

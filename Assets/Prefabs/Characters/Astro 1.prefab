@@ -10213,7 +10213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  localCamera: {fileID: 0}
+  localCamera: {fileID: 1709360103428396704}
   audioListener: {fileID: 142242121073978863}
   cameraSens: 100
 --- !u!114 &5728834142079309820

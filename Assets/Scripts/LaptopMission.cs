@@ -5,19 +5,17 @@ using Fusion;
 public class LaptopMission : MissionObject,IInteractable
 {
     LayerMask layerMask ;
-    
+    [SerializeField] MissionManager manager;
     [SerializeField] Transform laptop;
     [SerializeField] List<Transform> points;
     //public GameObject player;
-    [Networked] public int i {get;set;}
-    [Rpc(RpcSources.All, RpcTargets.All)]
-    void Start()
+    IEnumerator Start()
     {
-        layerMask =LayerMask.NameToLayer("Interactable");
+        yield return new WaitForSeconds(1f);
+        layerMask = LayerMask.NameToLayer("Interactable");
+        laptop.position=points[manager.LaptopPositionIndex].position;
         // mission.Init();
         //base.Enable();
-        i=Random.Range(0,points.Count);
-        laptop.position=points[i].position;
     }
 
     void OnTriggerEnter(Collider other)

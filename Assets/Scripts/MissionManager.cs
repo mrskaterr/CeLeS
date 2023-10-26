@@ -17,6 +17,13 @@ public class MissionManager : NetworkBehaviour
     [Networked] public int roomIndexC { get; set; } = -1;
     [Networked] public int roomIndexD { get; set; } = -1;
     [Networked] public int roomIndexE { get; set; } = -1;
+    [Networked] public int LaptopPositionIndex { get; set; } = 0 ;
+
+    void Start()
+    {
+        LaptopPositionIndex=Random.RandomRange(0,5);
+    }
+
 
     public override void Spawned()
     {

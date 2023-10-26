@@ -33,6 +33,7 @@ public class LocalCameraHandler : MonoBehaviour
         {
             cam.transform.parent = null;
         }
+        CamerasHolder.AddCamera(cam);
     }
 
     private void Update()

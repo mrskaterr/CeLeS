@@ -49,7 +49,7 @@ public class CharacterMovementHandler : NetworkTransform
             rotation.eulerAngles = new Vector3(0, rotation.eulerAngles.y, rotation.eulerAngles.z);
             transform.rotation = rotation;
  
-            networkRigidBody.WriteVelocity(networkInputData.velocity);
+            //networkRigidBody. (transform.forward * movement.Velocity.y + transform.right * movement.Velocity.x );
 
             networkAnimator.SetMoveAnim(networkInputData.velocity.magnitude > 0);
 

@@ -9,7 +9,7 @@ public class CharacterInputHandler : MonoBehaviour
     [SerializeField] int HowManyJump=3;
     [SerializeField] LocalCameraHandler cameraHandler;
 
-    private Vector2 moveInput = Vector2.zero;
+    public Vector2 moveInput = Vector2.zero;
     private Vector2 viewInput = Vector2.zero;
     private bool jumpInput = false;
     private bool fireInput = false;//TODO: interact
@@ -40,8 +40,8 @@ public class CharacterInputHandler : MonoBehaviour
         viewInput.x = Input.GetAxis("Mouse X");
         viewInput.y = Input.GetAxis("Mouse Y") * -1;
 
-        // moveInput.x = Input.GetAxis("Horizontal");//TODO: new input system
-        // moveInput.y = Input.GetAxis("Vertical");
+        moveInput.x = Input.GetAxis("Horizontal");//TODO: new input system
+        moveInput.y = Input.GetAxis("Vertical");
 
         if (Input.GetButton("Fire1"))
         {

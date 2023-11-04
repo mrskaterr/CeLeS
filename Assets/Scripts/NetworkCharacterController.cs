@@ -105,7 +105,7 @@ public class NetworkCharacterController : NetworkTransform
         moveVelocity.x = horizontalVel.x;
         moveVelocity.z = horizontalVel.z;
 
-        rigidbody.MovePosition(moveVelocity * deltaTime);
+        //rigidbody.MovePosition(moveVelocity * deltaTime);
 
         Velocity = (transform.position - previousPos) * Runner.Simulation.Config.TickRate;
         IsGrounded = movement._Grounded;

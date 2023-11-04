@@ -1058,6 +1058,7 @@ MonoBehaviour:
   canSneak: 0
   HowManyJump: 3
   cameraHandler: {fileID: 4591282623768988322}
+  moveInput: {x: 0, y: 0}
 --- !u!114 &1198443442275639798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1267,6 +1268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d59576be15d8e149a3b1aacff17d8f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotatioX: 500
+  rotatioY: 500
   FootPoint: {fileID: 5056665388738884766, guid: 783e73205fcd14e4aa9cdad82528b4aa, type: 3}
   Speed: 5
   runSpeed: 10
@@ -1284,7 +1287,7 @@ MonoBehaviour:
   Lock: 8
   isDashing: 0
   isRunning: 0
-  isJumping: 0
+  isJumping: 1
   Velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &-2402374066483622443
 MonoBehaviour:
@@ -2494,6 +2497,7 @@ MonoBehaviour:
   TPSOriginTransform: {fileID: 3931227628573836393}
   networkRb: {fileID: -2402374066483622443}
   networkAnimator: {fileID: 3519571756437616018}
+  movement: {fileID: 3179578096632399457}
 --- !u!1 &5705061097476139718
 GameObject:
   m_ObjectHideFlags: 0

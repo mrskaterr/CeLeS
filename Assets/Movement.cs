@@ -6,9 +6,10 @@ public class Movement : MonoBehaviour
 {
     
     CharacterInputHandler characterInputHandler;
+    public float rotatioX;
+    public float rotatioY;
     [SerializeField] Transform FootPoint;
     [SerializeField] float Speed;
-    //[SerializeField]
     float walkSpeed;
     [SerializeField] float runSpeed;
     [SerializeField] float JumpForce ;
@@ -35,6 +36,7 @@ public class Movement : MonoBehaviour
     public bool isJumping;
     [HideInInspector]
     public Vector3 Velocity;
+    private Vector3 _MoveInput;
     void Awake()
     {
         characterInputHandler= GetComponent<CharacterInputHandler>();
@@ -47,10 +49,10 @@ public class Movement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Velocity.x = Input.GetAxis("Horizontal");
-        Velocity.z = Input.GetAxisRaw("Vertical");
+        Velocity.x = characterInputHandler.moveInput.x;
+        Velocity.z = characterInputHandler.moveInput.y;
 
-        if(_Grounded==false && Physics.OverlapSphere(FootPoint.position,RadiusOverlapSphere,GroundLayer).Length>0)
+        if (_Grounded==false && Physics.OverlapSphere(FootPoint.position,RadiusOverlapSphere,GroundLayer).Length>0)
         {
             _Grounded = true;
             isJumping = false;
@@ -65,53 +67,56 @@ public class Movement : MonoBehaviour
             Velocity.y=_Rigidbody.velocity.y;
         }
 
+        _MoveInput = transform.forward * Velocity.z + transform.right * Velocity.x;
+
+        _Rigidbody.MovePosition(transform.position + _MoveInput.normalized * Time.fixedDeltaTime * Speed);
+
         _Rigidbody.velocity = Velocity;
 
         //Dash
-        // if (isDashing &&  currentDashResetTime>DashResetTime)
-        // {
-        //     currentDashTime = 0.0f;
-        //     currentDashResetTime= 0.0f;
-        // }
-        // if (currentDashTime < MaxDashTime)
-        // {
-        //     Speed=DashSpeed;
-        //     currentDashTime += DashStoppingSpeed;
-        // }
-        // else
-        // {
-        //     Speed=walkSpeed;
-        //     currentDashResetTime += DashStoppingSpeed;
-        // }
+        //if (isDashing && currentDashResetTime > DashResetTime)
+        //{
+        //    currentDashTime = 0.0f;
+        //    currentDashResetTime = 0.0f;
+        //}
+        //if (currentDashTime < MaxDashTime)
+        //{
+        //    Speed = DashSpeed;
+        //    currentDashTime += DashStoppingSpeed;
+        //}
+        //else
+        //{
+        //    Speed = walkSpeed;
+        //    currentDashResetTime += DashStoppingSpeed;
+        //}
 
-        // //Sprint, kucanie
+        //sprint, kucanie
 
-	    // if(Input.GetKey(KeyCode.LeftShift)) 
-        // {
-		//     Speed = runSpeed;
-	    // }
-        // else if(Input.GetKey(KeyCode.LeftControl) || (Physics.Raycast( transform.position , Vector3.up, _Length)/*CanStand*/) ) 
-        // {
-	    //     transform.localScale = new Vector3(1,CrouchHeight,1);
-	    //     Speed = CrouchSpeed;
-        // }
-        // else
-        // {
-        //     transform.localScale = new Vector3(1,_ScaleY,1);
-	    //     Speed = walkSpeed;
-        // }
+        //if (Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    Speed = runSpeed;
+        //}
+        //else if (Input.GetKey(KeyCode.LeftControl) || (Physics.Raycast(transform.position, Vector3.up, _Length)/*canstand*/))
+        //{
+        //    transform.localScale = new Vector3(1, CrouchHeight, 1);
+        //    Speed = CrouchSpeed;
+        //}
+        //else
+        //{
+        //    transform.localScale = new Vector3(1, _ScaleY, 1);
+        //    Speed = walkSpeed;
+        //}
 
-        
+        //if (!_Grounded)
+        //    Speed *= Lock;
     }
-    
-    // void FixedUpdate()
-    // {
-    //     if(!_Grounded)
-    //         Speed*=Lock;
-    // } 
 
-    // public void Jump()
-    // {
-    //     _Grounded=false;
-    // }
+
+
+
+
+    public void Jump()
+    {
+        _Grounded = false;
+    }
 }

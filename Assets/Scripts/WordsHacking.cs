@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
+
 public class WordsHacking : MissionObject,IInteractable
 {
     public GameObject player;
@@ -10,6 +11,8 @@ public class WordsHacking : MissionObject,IInteractable
     [SerializeField] Transform PendriveWirus;
     Transform EmptyPendrive;
     public bool isDone=false;
+    public string[] Words;
+
     protected override void OnInteract(GameObject @object)
     {
         player = @object.gameObject;
@@ -30,5 +33,9 @@ public class WordsHacking : MissionObject,IInteractable
         player.GetComponentInChildren<Equipment>().Add(PendriveWirus);
         PendriveWirus.SetParent(player.GetComponentInChildren<Equipment>().itemHolder);
         mission.NextStep();
+    }
+    public char[] GetHackingPassword()
+    {
+        return Words[Random.Range(0, Words.Length)].ToCharArray();
     }
 }

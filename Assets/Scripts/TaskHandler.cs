@@ -15,7 +15,7 @@ public class TaskHandler : MonoBehaviour
 
     void Update()
     {
-        if(toDo!=null)
+        if(toDo.text!=null)
             toDo.text=GameManager.instance.missionManager.rooms[0].missions[0].currentStep.description;    
     }
     private void Init()

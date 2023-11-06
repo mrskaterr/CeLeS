@@ -50,12 +50,10 @@
      <Compile Include="Assets\Scripts\Manager.cs" />
      <Compile Include="Assets\SpectateSync.cs" />
      <Compile Include="Assets\Scripts\ActivityEvents.cs" />
-     <Compile Include="Assets\changeScene.cs" />
      <Compile Include="Assets\Scripts\CharacterInputHandler.cs" />
      <Compile Include="Assets\Scripts\CaptureHandler.cs" />
      <Compile Include="Assets\Scripts\GunMode.cs" />
      <Compile Include="Assets\BlobStation.cs" />
-     <Compile Include="Assets\AutoScena.cs" />
      <Compile Include="Assets\Scripts\MissionManager.cs" />
      <Compile Include="Assets\Scripts\HackingMission.cs" />
      <Compile Include="Assets\Scripts\PlayerListItem.cs" />
@@ -86,7 +84,6 @@
      <Compile Include="Assets\Scripts\EnumItem.cs" />
      <Compile Include="Assets\Scripts\LobbyManager.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
-     <Compile Include="Assets\AutomaticScene.cs" />
      <Compile Include="Assets\ScrewdriverItem.cs" />
      <Compile Include="Assets\Scripts\SpawnerV2.cs" />
      <Compile Include="Assets\Scripts\Missions\MissionObject.cs" />
@@ -118,7 +115,6 @@
      <Compile Include="Assets\Scripts\Missions\TestMission2.cs" />
      <Compile Include="Assets\Scripts\PendriveMission.cs" />
      <Compile Include="Assets\Scripts\CompassHandler.cs" />
-     <Compile Include="Assets\Autosc.cs" />
      <Compile Include="Assets\Scripts\MorphObject.cs" />
      <Compile Include="Assets\CamerasHolder.cs" />
      <Compile Include="Assets\Scripts\TASKS\TaskLogic.cs" />

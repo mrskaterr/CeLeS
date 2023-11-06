@@ -12,12 +12,13 @@ public class HackingMission : MissionObject,IInteractable
     [SerializeField]WordsHacking wordsHacking;
     public GameObject player;
     [SerializeField] GameObject can;
-    [SerializeField] char[] word;
+    [SerializeField] TMP_Text Password;
     [SerializeField] TMP_Text[] line0;
     [SerializeField] TMP_Text[] line1;
     [SerializeField] TMP_Text[] line2;
     [SerializeField] TMP_Text[] line3;
     [SerializeField] TMP_Text[] line4;
+    private char[] word;
     private TMP_Text[] line;
     private TMP_Text[][] line22;
     private int j = 0;
@@ -27,7 +28,6 @@ public class HackingMission : MissionObject,IInteractable
     public bool isDone=false;
     protected override void OnInteract(GameObject @object)
     {
-        Debug.Log("LaptopMission");
         isDone=true;
         gameObject.GetComponent<Collider>().enabled=false;
         mission.NextStep();
@@ -44,6 +44,8 @@ public class HackingMission : MissionObject,IInteractable
     //  }
     void OnEnable()
     {
+        word = wordsHacking.GetHackingPassword();
+        Password.text = word.ArrayToString();
         player.GetComponent<CharacterInputHandler>().enabled=false;
     }
     //     player.GetComponent<CharacterInputHandler>().enabled=true;

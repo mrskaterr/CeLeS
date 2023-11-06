@@ -569,7 +569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8128906851750934260}
   - component: {fileID: 2622132126378893654}
-  m_Layer: 23
+  m_Layer: 13
   m_Name: Cartoon Blue Eye.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -858,7 +858,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8402535493922726688}
   - component: {fileID: 7669995449210380513}
-  m_Layer: 23
+  m_Layer: 13
   m_Name: Mitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1933,7 +1933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5963296656186544464}
-  m_Layer: 23
+  m_Layer: 13
   m_Name: Eye1_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2653,7 +2653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2574829596362852944}
   - component: {fileID: 5990713746586635283}
-  m_Layer: 23
+  m_Layer: 13
   m_Name: Cartoon Blue Eye.016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3073,7 +3073,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3423407462084291370}
-  m_Layer: 23
+  m_Layer: 13
   m_Name: MITCH_IDLE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3105,7 +3105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6493449090773746371}
-  m_Layer: 23
+  m_Layer: 13
   m_Name: Eye2_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3618,7 +3618,7 @@ GameObject:
   - component: {fileID: 1276838684997832800}
   - component: {fileID: 1870741477584856941}
   - component: {fileID: 473084353214561748}
-  m_Layer: 23
+  m_Layer: 13
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3699,7 +3699,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7562494357892035655}
-  m_Layer: 23
+  m_Layer: 13
   m_Name: Eye3_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3896,7 +3896,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1771169096994271531}
-  m_Layer: 23
+  m_Layer: 13
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4012,7 +4012,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1566375971859557968}
-  m_Layer: 23
+  m_Layer: 13
   m_Name: Eye1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4108,7 +4108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6270787201998481045}
-  m_Layer: 23
+  m_Layer: 13
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4252,7 +4252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7631814596458026954}
   - component: {fileID: 5131723546485432271}
-  m_Layer: 23
+  m_Layer: 13
   m_Name: Cartoon Blue Eye.017
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4733,7 +4733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6042684749538245241}
-  m_Layer: 23
+  m_Layer: 13
   m_Name: Eye2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4765,7 +4765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4275956749980724401}
-  m_Layer: 23
+  m_Layer: 13
   m_Name: Eye3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

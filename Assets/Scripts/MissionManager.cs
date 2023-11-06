@@ -5,6 +5,7 @@ using Fusion;
 
 public class MissionManager : NetworkBehaviour
 {
+    
     [HideInInspector] public List<MissionData> missions = new List<MissionData>();
     public List<RoomList> rooms = new List<RoomList>();
     [Networked] public int missionIndexA { get; set; } = -1;
@@ -17,25 +18,28 @@ public class MissionManager : NetworkBehaviour
     [Networked] public int roomIndexC { get; set; } = -1;
     [Networked] public int roomIndexD { get; set; } = -1;
     [Networked] public int roomIndexE { get; set; } = -1;
-    [Networked] public int LaptopPositionIndex { get; set; } = 0 ;
-
-    void Start()
-    {
-        LaptopPositionIndex=Random.RandomRange(0,5);
-    }
-
+    [Networked] public int LaptopPositionIndex { get; set; }=-1;
+    [SerializeField] LaptopMission laptop;
 
     public override void Spawned()
     {
         base.Spawned();
         GenerateIndexes();
         SetMissions();
+        while(laptop.SetPosition(LaptopPositionIndex))
+            RandomizeLaptopPosition();
+        
     }
 
     public void GenerateIndexes()
     {
         RandomizeRooms();
         RandomizeMissions();
+       
+    }
+    private void RandomizeLaptopPosition()
+    {
+        LaptopPositionIndex=Random.Range(0,6);
     }
 
     private void RandomizeRooms()
@@ -109,6 +113,7 @@ public class MissionManager : NetworkBehaviour
         {
             missions[i].Init();
         }
+
     }
 
     [System.Serializable]

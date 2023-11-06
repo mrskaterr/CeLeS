@@ -4,20 +4,28 @@ using UnityEngine;
 using Fusion;
 public class LaptopMission : MissionObject,IInteractable
 {
-    LayerMask layerMask ;
-    [SerializeField] MissionManager manager;
     [SerializeField] Transform laptop;
     [SerializeField] List<Transform> points;
     //public GameObject player;
-    IEnumerator Start()
+
+    public bool SetPosition(int index)
     {
-        yield return new WaitForSeconds(1f);
-        layerMask = LayerMask.NameToLayer("Interactable");
-        laptop.position=points[manager.LaptopPositionIndex].position;
-        // mission.Init();
-        //base.Enable();
+
+            if(index<1)  
+                return true;
+            else    
+            {
+                Debug.Log(index);
+                laptop.position = points[index].position;
+                return false;
+            }
     }
 
+    // every 2 seconds perform the print()
+    private IEnumerator WaitAndPrint(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+    }
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.GetComponent<Morph>())

@@ -15,7 +15,6 @@ public class MissionData : NetworkBehaviour
     public Action onDone;
 
     private int stepIndex = 0;
-
     public void Init()
     {
         currentStep = steps[0];
@@ -27,6 +26,7 @@ public class MissionData : NetworkBehaviour
 
     public void NextStep()//TOFIX: Add bool and check last with false
     {
+        progresbar.SetSlider();
         currentStep.LockStep();
         stepIndex++;
         if(stepIndex >= steps.Count)

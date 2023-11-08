@@ -70,12 +70,10 @@
     <Compile Include="Assets\Scripts\Manager.cs" />
     <Compile Include="Assets\SpectateSync.cs" />
     <Compile Include="Assets\Scripts\ActivityEvents.cs" />
-    <Compile Include="Assets\changeScene.cs" />
     <Compile Include="Assets\Scripts\CharacterInputHandler.cs" />
     <Compile Include="Assets\Scripts\CaptureHandler.cs" />
     <Compile Include="Assets\Scripts\GunMode.cs" />
     <Compile Include="Assets\BlobStation.cs" />
-    <Compile Include="Assets\AutoScena.cs" />
     <Compile Include="Assets\Scripts\MissionManager.cs" />
     <Compile Include="Assets\Scripts\HackingMission.cs" />
     <Compile Include="Assets\Scripts\PlayerListItem.cs" />
@@ -152,7 +150,7 @@
     <Compile Include="Assets\Scripts\TestLogin.cs" />
     <Compile Include="Assets\Scripts\TASKS\taskCircle\Hack_Panel.cs" />
     <Compile Include="Assets\Scripts\PlayerHolder.cs" />
-    <Compile Include="Assets\AutoPlay.cs" />
+    <Compile Include="Assets\NetworkRandomizeManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\CustomLighting.hlsl" />

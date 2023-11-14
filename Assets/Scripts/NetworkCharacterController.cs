@@ -13,12 +13,22 @@ public class NetworkCharacterController : NetworkTransform
     public float acceleration = 10.0f;
     public float braking = 10.0f;
     public float maxSpeed = 2.0f;
+    public float runSpeed = 20f;
     public float rotationSpeed = 15.0f;
     public float viewVerticalSpeed = 50;
-
+    public float MaxDashTime=5f;
+    public float DashSpeed=10f;
+    public float DashStoppingSpeed=0.1f;
+    public float DashResetTime=5f;
+    private float currentDashTime;
+    private float currentDashResetTime;
+    private float walkSpeed;
+    private bool DoubleJump = true;
     [Networked]
     [HideInInspector]
     public bool IsGrounded { get; set; }
+    public bool IsDash;
+    public bool IsSprinting;
 
     [Networked]
     [HideInInspector]
@@ -34,8 +44,33 @@ public class NetworkCharacterController : NetworkTransform
     {
         base.Awake();
         CacheController();
+        currentDashTime = MaxDashTime;
+        walkSpeed=maxSpeed;
     }
+    public override void FixedUpdateNetwork()
+    {
+        //Dash
+        if (IsDash && currentDashResetTime>DashResetTime)
+        {
+            currentDashTime = 0.0f;
+            currentDashResetTime= 0.0f;
+            
+            IsDash=false;
+        }
+        if (currentDashTime < MaxDashTime)
+        {
+            maxSpeed=DashSpeed;
+            currentDashTime += DashStoppingSpeed;
+        }
+        else
+        {
+            maxSpeed=walkSpeed;
+            currentDashResetTime += DashStoppingSpeed;
+        }
 
+
+
+    }
     public override void Spawned()
     {
         base.Spawned();
@@ -62,6 +97,7 @@ public class NetworkCharacterController : NetworkTransform
     }
     public virtual void Jump(bool ignoreGrounded = false, float? overrideImpulse = null)
     {
+        
         if (IsGrounded || ignoreGrounded)
         {
             var newVel = Velocity;
@@ -94,7 +130,7 @@ public class NetworkCharacterController : NetworkTransform
         }
         else
         {
-            horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, maxSpeed);
+            horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, IsSprinting ? runSpeed : maxSpeed);
         }
 
         moveVelocity.x = horizontalVel.x;

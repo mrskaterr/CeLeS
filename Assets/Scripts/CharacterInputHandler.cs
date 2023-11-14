@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CharacterInputHandler : MonoBehaviour
@@ -14,7 +15,8 @@ public class CharacterInputHandler : MonoBehaviour
     private bool fireInput = false;//TODO: interact
     private float speedStep = 0;
     private bool sneakyInput = false;
-
+    private bool dashInput= false;
+    private bool sprintInput=false;
     private Vector3 sneakRot = Vector3.zero;
 
     private CharacterMovementHandler characterMovementHandler;
@@ -59,6 +61,21 @@ public class CharacterInputHandler : MonoBehaviour
             sneakyInput = false;
         }
 
+        if(Input.GetKeyDown(KeyCode.RightShift))
+        {
+            dashInput=true;
+        }
+        if(Input.GetKeyDown(KeyCode.LeftShift)) 
+        {
+            Debug.Log("Sprint");
+		    sprintInput=true;
+	    }
+        if(Input.GetKeyUp(KeyCode.LeftShift)) 
+        {
+            Debug.Log("Sprint");
+		    sprintInput=false;
+	    }
+
         moveInput.y += speedStep;
 
         cameraHandler.SetViewInput(viewInput);
@@ -83,9 +100,12 @@ public class CharacterInputHandler : MonoBehaviour
 
         networkInputData.isFirePressed = fireInput;
 
-        jumpInput = false;
-        fireInput= false;
+        networkInputData.isDashPressed = dashInput;
 
+        networkInputData.isSprintPressed = sprintInput;
+        jumpInput = false;
+        fireInput = false;
+        dashInput = false;
         return networkInputData;
     }
 }

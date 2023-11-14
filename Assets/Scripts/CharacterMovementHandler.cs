@@ -48,6 +48,18 @@ public class CharacterMovementHandler : NetworkBehaviour
             {
                 networkCharacterController.Jump();
             }
+            if (networkInputData.isDashPressed)
+            {
+                networkCharacterController.IsDash=true;
+            }
+            if (networkInputData.isSprintPressed)
+            {
+                networkCharacterController.IsSprinting=true;
+            }
+            else
+            {
+                networkCharacterController.IsSprinting=false;
+            }
         }
     }
 }

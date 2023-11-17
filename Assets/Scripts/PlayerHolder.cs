@@ -66,14 +66,4 @@ public class PlayerHolder : MonoBehaviour
         }
         return amount;
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            Debug.Log($"All: {GetPlayersAmount()}," +
-                $"Hunters: {GetHuntersAmount()}, " +
-                $"All Blobs: {GetBlobsAmount()} ( Alive: {GetAliveBlobsAmount()} )");
-        }
-    }
 }

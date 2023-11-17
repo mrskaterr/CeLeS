@@ -5,7 +5,6 @@ using Fusion;
 
 public class MissionManager : NetworkBehaviour
 {
-    public static int Score=0;
     [HideInInspector] public List<MissionData> missions = new List<MissionData>();
     public List<RoomList> rooms = new List<RoomList>();
     [Networked] public int missionIndexA { get; set; } = -1;

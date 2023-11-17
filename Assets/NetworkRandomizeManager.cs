@@ -43,14 +43,6 @@ public class NetworkRandomizeManager : NetworkBehaviour
     {
         base.Spawned();
         GenerateSeed();
-        StartCoroutine(Test());
         print($"Random(seed: {seed}): {GetRandomNumber(0, 4)}");
-    }
-
-    [SerializeField] TMP_Text test;
-    IEnumerator Test()
-    {
-        yield return new WaitForSeconds(1);
-        test.text = $"Random(seed: {seed}): {GetRandomNumber(0, 4)}";
     }
 }

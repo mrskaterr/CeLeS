@@ -1257,6 +1257,7 @@ MonoBehaviour:
   braking: 10
   maxSpeed: 5
   runSpeed: 20
+  kneelingSpeed: 1
   rotationSpeed: 480
   viewVerticalSpeed: 390
   MaxDashTime: 5
@@ -1266,7 +1267,10 @@ MonoBehaviour:
   _IsGrounded: 0
   IsDash: 0
   IsSprinting: 0
+  maxStamina: 5
+  isKneeling: 0
   _Velocity: {x: 0, y: 0, z: 0}
+  hitbox: {fileID: 2032232850014977336}
 --- !u!114 &4309556519627489336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1296,8 +1300,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canSneak: 0
+  canSprinting: 0
   cameraHandler: {fileID: 4591282623768988322}
-  DEBUG: {fileID: 0}
 --- !u!143 &8105936159554550944
 CharacterController:
   m_ObjectHideFlags: 0

@@ -98,4 +98,8 @@ public class LocalCameraHandler : MonoBehaviour
             fps = false;
         }
     }
+    public void ChangePositionCam(float y)
+    {
+        anchorPoint.position+=new Vector3(0,y,0);
+    }
 }

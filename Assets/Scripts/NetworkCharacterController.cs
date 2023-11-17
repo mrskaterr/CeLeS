@@ -1,5 +1,6 @@
 using System;
 using Fusion;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -12,50 +13,76 @@ public class NetworkCharacterController : NetworkTransform
     public float jumpImpulse = 8.0f;
     public float acceleration = 10.0f;
     public float braking = 10.0f;
+    public float maxStamina=5f;
     public float maxSpeed = 2.0f;
     public float runSpeed = 20f;
+    private float walkSpeed;
+    public float kneelingSpeed=1f;
     public float rotationSpeed = 15.0f;
     public float viewVerticalSpeed = 50;
-    public float MaxDashTime=5f;
     public float DashSpeed=10f;
+    public float MaxDashTime=5f;
     public float DashStoppingSpeed=0.1f;
     public float DashResetTime=5f;
     private float currentDashTime;
     private float currentDashResetTime;
-    private float walkSpeed;
-    private bool DoubleJump = true;
     [Networked]
     [HideInInspector]
     public bool IsGrounded { get; set; }
-    public bool IsDash;
+    [HideInInspector]
+    public bool IsDashing;
+    [HideInInspector]
     public bool IsSprinting;
+    private float cunrrentStamina=0;
+    [HideInInspector]
+    public bool isKneeling;
 
     [Networked]
     [HideInInspector]
     public Vector3 Velocity { get; set; }
-
     protected override Vector3 DefaultTeleportInterpolationVelocity => Velocity;
-
     protected override Vector3 DefaultTeleportInterpolationAngularVelocity => new Vector3(0f, 0f, rotationSpeed);
 
-    public CharacterController Controller { get; private set; }
+    [SerializeField] Hitbox hitbox;
+    private Vector3 orginalControlerCenter;
+    private float orginalHeighControler;
+    private Vector3 kneelingControlerCenter=new Vector3(0,-0.5f,0);
+    private float kneelingHeigh=1f; 
 
+    public CharacterController Controller { get; private set; }
+    private CharacterInputHandler inputHandler;
+    Hitbox clonehb;
     protected override void Awake()
     {
         base.Awake();
         CacheController();
         currentDashTime = MaxDashTime;
         walkSpeed=maxSpeed;
+        orginalHeighControler=Controller.height;
+        orginalControlerCenter=Controller.center;
+        inputHandler=GetComponent<CharacterInputHandler>();
     }
     public override void FixedUpdateNetwork()
     {
-        //Dash
-        if (IsDash && currentDashResetTime>DashResetTime)
+        if(IsSprinting && cunrrentStamina>0f)
+        {
+            cunrrentStamina-=Time.deltaTime;
+            if(cunrrentStamina<=0f)
+                inputHandler.canSprinting=false;
+        }
+        else if(!IsSprinting && cunrrentStamina<=maxStamina)
+        {
+            cunrrentStamina+=Time.deltaTime;
+            if(cunrrentStamina>=maxStamina)
+                inputHandler.canSprinting=true;
+        }
+
+        if (IsDashing && currentDashResetTime>DashResetTime)
         {
             currentDashTime = 0.0f;
             currentDashResetTime= 0.0f;
             
-            IsDash=false;
+            IsDashing=false;
         }
         if (currentDashTime < MaxDashTime)
         {
@@ -75,6 +102,18 @@ public class NetworkCharacterController : NetworkTransform
     {
         base.Spawned();
         CacheController();
+    }
+    public void Kneeling(LocalCameraHandler camera)
+    {
+        Controller.height=kneelingHeigh;
+        Controller.center=kneelingControlerCenter;
+        camera.ChangePositionCam(kneelingHeigh-orginalHeighControler);
+    }
+    public void Standing(LocalCameraHandler camera)
+    {
+        Controller.height=orginalHeighControler;
+        Controller.center=orginalControlerCenter;
+        camera.ChangePositionCam(orginalHeighControler-kneelingHeigh);
     }
 
     private void CacheController()
@@ -130,7 +169,7 @@ public class NetworkCharacterController : NetworkTransform
         }
         else
         {
-            horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, IsSprinting ? runSpeed : maxSpeed);
+            horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, isKneeling ? kneelingSpeed : IsSprinting ? runSpeed : maxSpeed);
         }
 
         moveVelocity.x = horizontalVel.x;

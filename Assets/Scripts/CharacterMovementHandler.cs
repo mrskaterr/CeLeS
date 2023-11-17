@@ -50,7 +50,7 @@ public class CharacterMovementHandler : NetworkBehaviour
             }
             if (networkInputData.isDashPressed)
             {
-                networkCharacterController.IsDash=true;
+                networkCharacterController.IsDashing=true;
             }
             if (networkInputData.isSprintPressed)
             {
@@ -60,6 +60,16 @@ public class CharacterMovementHandler : NetworkBehaviour
             {
                 networkCharacterController.IsSprinting=false;
             }
+            if(networkInputData.isKneelingPressed)
+            {
+                networkCharacterController.isKneeling=true;
+            }
+            else
+            {
+                networkCharacterController.isKneeling=false;    
+            }
+
         }
+
     }
 }

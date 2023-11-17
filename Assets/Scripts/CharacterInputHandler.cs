@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterInputHandler : MonoBehaviour
 {
     public bool canSneak = false;
-    
+    public bool canSprinting;
     [SerializeField] LocalCameraHandler cameraHandler;
 
     private Vector2 moveInput = Vector2.zero;
@@ -17,17 +17,27 @@ public class CharacterInputHandler : MonoBehaviour
     private bool sneakyInput = false;
     private bool dashInput= false;
     private bool sprintInput=false;
+    private bool kneelingInput=false;
     private Vector3 sneakRot = Vector3.zero;
+    private bool isHuman;
 
     private CharacterMovementHandler characterMovementHandler;
+    private NetworkCharacterController controler;
     private void Awake()
     {
+        
+        if(gameObject.GetComponent<Morph>())
+            isHuman=false;
+        else
+            isHuman=true;
         characterMovementHandler = GetComponent<CharacterMovementHandler>();
     }
     private void Start()
     {
+        controler=GetComponent<NetworkCharacterController>();
         Cursor.lockState = CursorLockMode.Locked;//TOIMPROVE: Utils
         Cursor.visible = false;
+
     }
 
     private void Update()
@@ -60,22 +70,30 @@ public class CharacterInputHandler : MonoBehaviour
         {
             sneakyInput = false;
         }
-
-        if(Input.GetKeyDown(KeyCode.RightShift))
+    
+        if(!isHuman && Input.GetKeyDown(KeyCode.RightShift))
         {
             dashInput=true;
         }
-        if(Input.GetKeyDown(KeyCode.LeftShift)) 
+        if(isHuman && canSprinting && Input.GetKeyDown(KeyCode.LeftShift)) 
         {
-            Debug.Log("Sprint");
 		    sprintInput=true;
 	    }
-        if(Input.GetKeyUp(KeyCode.LeftShift)) 
+        if(isHuman && Input.GetKeyUp(KeyCode.LeftShift) || !canSprinting) 
         {
-            Debug.Log("Sprint");
 		    sprintInput=false;
 	    }
-
+        
+        if(isHuman && Input.GetKeyDown(KeyCode.Z)) 
+        {
+		    kneelingInput=true;
+            controler.Kneeling(cameraHandler);
+	    }
+        if(isHuman && Input.GetKeyUp(KeyCode.Z))
+        {
+		    kneelingInput=false;
+            controler.Standing(cameraHandler);
+	    }
         moveInput.y += speedStep;
 
         cameraHandler.SetViewInput(viewInput);
@@ -103,6 +121,9 @@ public class CharacterInputHandler : MonoBehaviour
         networkInputData.isDashPressed = dashInput;
 
         networkInputData.isSprintPressed = sprintInput;
+
+        networkInputData.isKneelingPressed = kneelingInput;
+        
         jumpInput = false;
         fireInput = false;
         dashInput = false;

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
+using UnityEngine.Events;
 
 public class InteractableHold : MissionObject, IInteractableHold
 {
@@ -12,12 +14,19 @@ public class InteractableHold : MissionObject, IInteractableHold
 
     public float percent { get; protected set; } = 0;
     private readonly float interval = .1f;
-    [SerializeField] Collider thisCollider;
+    private Transform itemToDestroy;
+    [SerializeField] private UnityEvent toDo;
+
+    private void ToDo()
+    {
+        toDo.Invoke();
+    }
     public void StartInteract(GameObject @object)
     {
         
         if(@object.GetComponent<Equipment>().isHeHad((int)ItemToNeed)!=null)
         {
+            itemToDestroy=@object.GetComponent<Equipment>().isHeHad((int)ItemToNeed);
             StartCoroutine(Holding());
         }    
         else
@@ -36,7 +45,7 @@ public class InteractableHold : MissionObject, IInteractableHold
     public virtual void OnFill()
     {
         Debug.Log("OnFill");
-        thisCollider.enabled=false;
+        ToDo();
         mission.NextStep();
     }
 
@@ -48,5 +57,9 @@ public class InteractableHold : MissionObject, IInteractableHold
             percent += interval;
         }
         OnFill();
+    }
+    public void DestroyUsedItem()
+    {
+        Destroy(itemToDestroy);
     }
 }

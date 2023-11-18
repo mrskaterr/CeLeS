@@ -10,12 +10,11 @@ public class Item : MissionObject,IInteractable
     Collider coll;
     private const string interactableLayerName = "Interactable";
     private const string notvisible = "P4";
-    private int index;
+    private int ID;
     void Start()
     {
         coll=transform.GetComponent<Collider>();
-        index=(int)item;
-        
+        ID=(int)item;
     }
 
     void Update()
@@ -43,9 +42,9 @@ public class Item : MissionObject,IInteractable
         }
         
     }
-    public int Index()
+    public int GetID()
     {
-        return index;
+        return ID;
     }
     public void SetedefaultPartent()
     {

@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TVMission : MissionObject
+public class TVMission : MissionObject,IInteractable
 {
-  void  OnInteract ()
-  {
+    [SerializeField] Rigidbody rb;
 
-      GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-      Debug.Log("TV Mission");
-      mission.NextStep();
-      Debug.Log("+ 5 punktów");
- 
-  }
+    void OnTriggerEnter(Collider other)
+    {
+        rb.isKinematic=false;
+        rb.useGravity=true;
+        GetComponent<Collider>().isTrigger=false;
+    }
 }

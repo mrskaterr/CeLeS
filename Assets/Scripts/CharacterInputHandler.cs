@@ -71,12 +71,13 @@ public class CharacterInputHandler : MonoBehaviour
             sneakyInput = false;
         }
     
-        if(!isHuman && Input.GetKeyDown(KeyCode.RightShift))
+        if(!isHuman && Input.GetKeyDown(KeyCode.LeftShift))
         {
             dashInput=true;
         }
         if(isHuman && canSprinting && Input.GetKeyDown(KeyCode.LeftShift)) 
         {
+            
 		    sprintInput=true;
 	    }
         if(isHuman && Input.GetKeyUp(KeyCode.LeftShift) || !canSprinting) 

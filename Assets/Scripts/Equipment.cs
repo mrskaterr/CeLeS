@@ -28,6 +28,7 @@ public class Equipment : MonoBehaviour
 
     public bool Add(Transform t)
     {
+        t.gameObject.SetActive(true);
         if(itemHolder.childCount==0)
         {
             t.SetParent(itemHolder);

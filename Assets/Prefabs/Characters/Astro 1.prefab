@@ -10135,7 +10135,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 914000117338503544}
   - {fileID: 233545086461991381}
@@ -10285,13 +10285,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.7
+  m_Height: 1.1
   m_Radius: 0.15
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: -0.15, z: 0}
+  m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!114 &4342187031045535484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20958,7 +20958,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5560928675984028951}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.596, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26275,7 +26275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   SphereRadius: 0
-  BoxExtents: {x: 0.5, y: 1, z: 0.5}
+  BoxExtents: {x: 0.3, y: 0.5, z: 0.3}
   Offset: {x: 0, y: 0, z: 0}
   Root: {fileID: 1198443442275639798}
   GizmosColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
@@ -26304,8 +26304,8 @@ Transform:
   m_GameObject: {fileID: 6978682924994910890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7329078067563051633}
   m_Father: {fileID: 2509286752518346726}
@@ -31879,6 +31879,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2509286752518346726}
     m_Modifications:
+    - target: {fileID: 667731115175768618, guid: 20a07dad1f9ebed4698d7dc5d880b044, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2677968302927315535, guid: 20a07dad1f9ebed4698d7dc5d880b044, type: 3}
       propertyPath: m_Name
       value: Canvas

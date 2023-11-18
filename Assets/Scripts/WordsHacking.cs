@@ -21,7 +21,7 @@ public class WordsHacking : MissionObject,IInteractable
         {
             @object.GetComponent<CharacterInputHandler>().enabled=false;
             hackingPanel.SetActive(true);
-            hackingMission.player=@object;
+            hackingMission.player=@object.gameObject;
         }
 
     }
@@ -32,7 +32,7 @@ public class WordsHacking : MissionObject,IInteractable
         PendriveWirus.gameObject.SetActive(true);
         player.GetComponentInChildren<Equipment>().Add(PendriveWirus);
         PendriveWirus.SetParent(player.GetComponentInChildren<Equipment>().itemHolder);
-        mission.NextStep();
+        NextTask();
     }
     public char[] GetHackingPassword()
     {

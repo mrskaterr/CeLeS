@@ -14,7 +14,9 @@ public class RPCManager : NetworkBehaviour
     [Networked(OnChanged = nameof(OnIsReadyChange))]
     public bool isReady { get; set; } = false;
     [SerializeField] private GameObject hunterAvatar;
-    [SerializeField] private GameObject blobAvatar;
+    [SerializeField] private GameObject blobAvatarA;
+    [SerializeField] private GameObject blobAvatarB;
+    [SerializeField] private GameObject blobAvatarC;
     //public static GameObject Avatar;
     public PlayerRef owner;
     public NetworkObject playerAvatar;
@@ -88,11 +90,16 @@ public class RPCManager : NetworkBehaviour
     }
     public GameObject PlayerAvatar()
     {
-        if(roleIndex == 4 || roleIndex == 5 || roleIndex == 6)//TOIMPROVE:switch and list of available
+        return roleIndex switch
         {
-            return blobAvatar;
-        }
-        return hunterAvatar;
+            1 => hunterAvatar,
+            2 => hunterAvatar,
+            3 => hunterAvatar,
+            4 => blobAvatarA,
+            5 => blobAvatarB,
+            6 => blobAvatarC,
+            _ => null
+        };
     }
 
     public bool IsHuman()

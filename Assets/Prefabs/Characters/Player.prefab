@@ -75,5 +75,8 @@ MonoBehaviour:
   _roleIndex: 0
   _isReady: 0
   hunterAvatar: {fileID: 2264008909498982632, guid: 99a6aa671432bc840b1a58745c82c652, type: 3}
-  blobAvatar: {fileID: 2264008909498982632, guid: d9ef4c693536ffb419fd82538b75507f, type: 3}
+  blobAvatarA: {fileID: 159558250652251320, guid: 8324c11e281be994d98f7747bc1dd691, type: 3}
+  blobAvatarB: {fileID: 3458674135147759616, guid: b36dd3e4b2e8d2a4e88f48ce8a51449b, type: 3}
+  blobAvatarC: {fileID: 2264008909498982632, guid: d9ef4c693536ffb419fd82538b75507f, type: 3}
   playerAvatar: {fileID: 0}
+  _isCaptured: 0

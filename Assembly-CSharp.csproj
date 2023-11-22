@@ -55,12 +55,14 @@
      <Compile Include="Assets\Scripts\CaptureHandler.cs" />
      <Compile Include="Assets\Scripts\GunMode.cs" />
      <Compile Include="Assets\BlobStation.cs" />
+     <Compile Include="Assets\Scripts\MissionScript\RandomInteractMission.cs" />
      <Compile Include="Assets\Scripts\MissionScript\BehaviorMission\MissionManager.cs" />
      <Compile Include="Assets\Scripts\MissionScript\HackingMission.cs" />
      <Compile Include="Assets\Scripts\PlayerListItem.cs" />
      <Compile Include="Assets\Scripts\TASKS\JobHandler.cs" />
      <Compile Include="Assets\Scripts\TASKS\Generator_Panel.cs" />
      <Compile Include="Assets\Scripts\Extensions\IntExtension.cs" />
+     <Compile Include="Assets\Scripts\MissionScript\FindingTriggerMission.cs" />
      <Compile Include="Assets\Scripts\TASKS\taskColor\ResetColors.cs" />
      <Compile Include="Assets\Scripts\PlayerHUD.cs" />
      <Compile Include="Assets\Scripts\PlayerRole.cs" />
@@ -68,6 +70,7 @@
      <Compile Include="Assets\Scripts\TASKS\TaskTest.cs" />
      <Compile Include="Assets\Scripts\MissionScript\BehaviorMission\TestMission3.cs" />
      <Compile Include="Assets\Scripts\Teleportyzer.cs" />
+     <Compile Include="Assets\Scripts\MissionScript\ChangePositionMission.cs" />
      <Compile Include="Assets\Scripts\TaskHandler.cs" />
      <Compile Include="Assets\Scripts\LocalCameraHandler.cs" />
      <Compile Include="Assets\Scripts\TASKS\taskColor\ColorButton.cs" />
@@ -125,9 +128,6 @@
      <Compile Include="Assets\Scripts\TASKS\taskCircle\Hack_Panel.cs" />
      <Compile Include="Assets\Scripts\PlayerHolder.cs" />
      <Compile Include="Assets\Scripts\AutoPlay.cs" />
-     <Compile Include="Assets\Scripts\MissionScript\FindingTriggerMission.cs" />
-     <Compile Include="Assets\Scripts\MissionScript\ChangePositionMission.cs" />
-     <Compile Include="Assets\Scripts\MissionScript\RandomInteractMission.cs" />
      <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\CustomLighting.hlsl" />
      <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\Outline.hlsl" />
      <None Include="Assets\Rendering\Shaders\Celshading 2\CustomLighting.hlsl" />

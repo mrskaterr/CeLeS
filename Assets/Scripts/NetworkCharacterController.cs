@@ -21,16 +21,19 @@ public class NetworkCharacterController : NetworkTransform
     public float rotationSpeed = 15.0f;
     public float viewVerticalSpeed = 50;
     public float DashSpeed=10f;
-    public float MaxDashTime=5f;
-    public float DashStoppingSpeed=0.1f;
-    public float DashResetTime=5f;
+    public int DashMaxAmount=2;
+    public int DashCurrentAmount=0;
+    
+    public float MaxDashTime=1f;
+    public float DashResetTime=100f;
     private float currentDashTime;
     private float currentDashResetTime;
     [Networked]
     [HideInInspector]
     public bool IsGrounded { get; set; }
     [HideInInspector]
-    public bool IsDashing;
+    public bool StartDashing;
+    
     [HideInInspector]
     public bool IsSprinting;
     private float cunrrentStamina=0;
@@ -51,7 +54,6 @@ public class NetworkCharacterController : NetworkTransform
 
     public CharacterController Controller { get; private set; }
     private CharacterInputHandler inputHandler;
-    Hitbox clonehb;
     protected override void Awake()
     {
         base.Awake();
@@ -77,26 +79,26 @@ public class NetworkCharacterController : NetworkTransform
                 inputHandler.canSprinting=true;
         }
 
-        if (IsDashing && currentDashResetTime>DashResetTime)
+      
+        if (StartDashing &&  DashCurrentAmount<DashMaxAmount )
         {
+            DashCurrentAmount++;
             currentDashTime = 0.0f;
             currentDashResetTime= 0.0f;
-            
-            IsDashing=false;
+            StartDashing=false;
         }
         if (currentDashTime < MaxDashTime)
         {
             maxSpeed=DashSpeed;
-            currentDashTime += DashStoppingSpeed;
+            currentDashTime += Time.fixedDeltaTime;
         }
         else
         {
             maxSpeed=walkSpeed;
-            currentDashResetTime += DashStoppingSpeed;
+            currentDashResetTime += Time.fixedDeltaTime;
+            if(currentDashResetTime>=DashResetTime)
+                DashCurrentAmount=0;
         }
-
-
-
     }
     public override void Spawned()
     {

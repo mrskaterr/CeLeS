@@ -8,6 +8,7 @@ public class FindingTriggerMission : MissionObject,IInteractable
     [SerializeField] Transform mainTransform;
     [SerializeField] List<Transform> points;
     [SerializeField] private UnityEvent toDo;
+    private const string interactableLayerName = "Interactable";
     //public GameObject player;
     private void ToDo()
     {
@@ -17,7 +18,7 @@ public class FindingTriggerMission : MissionObject,IInteractable
     }
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponent<Morph>())
+        if(other.gameObject.GetComponent<Morph>() && LayerMask.NameToLayer(interactableLayerName)==gameObject.layer)
             ToDo();
     }
     public void SetPosition(int index)

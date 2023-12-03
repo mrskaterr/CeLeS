@@ -50,7 +50,11 @@ public class CharacterMovementHandler : NetworkBehaviour
             }
             if (networkInputData.isDashPressed)
             {
-                networkCharacterController.IsDashing=true;
+                networkCharacterController.StartDashing=true;
+            }
+            else
+            {
+                networkCharacterController.StartDashing=false;
             }
             if (networkInputData.isSprintPressed)
             {

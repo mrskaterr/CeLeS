@@ -8,6 +8,7 @@ public class Item : MissionObject,IInteractable
 {
     [SerializeField] Transform defaultPartent;
     [SerializeField] EnumItem.Item item;
+    public Sprite icon;
     [SerializeField] float blockInteract=1f;
     Collider coll;
     private const string interactableLayerName = "Interactable";
@@ -76,6 +77,7 @@ public class Item : MissionObject,IInteractable
     }
     public void SeteDefaultPartent(GameObject @object)
     {
+        @object.GetComponent<Equipment>().ResetIcon();
         lastPlayer=@object;
         coll.enabled=true;
         transform.SetParent(defaultPartent);

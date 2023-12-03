@@ -27,4 +27,11 @@ public class ScoreManager : NetworkBehaviour
             Score += 5;
         }
     }
+    public void AddScore(int score=0)
+    {
+        if(score<=0)
+            Score+=5;
+        else
+            Score+=score;
+    }
 }

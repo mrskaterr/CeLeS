@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ScoreManager : NetworkBehaviour
 {
-    [Networked(OnChanged = nameof(OnScoreUpdate))]
+    [Networked(OnChanged = nameof(OnScoreUpdate), OnChangedTargets = OnChangedTargets.All)]
     public int Score { get; set; }
 
     [SerializeField] private Image progressBar;
@@ -12,13 +12,20 @@ public class ScoreManager : NetworkBehaviour
 
     private static void OnScoreUpdate(Changed<ScoreManager> _changed)
     {
-        _changed.Behaviour.progressBar.fillAmount = _changed.Behaviour.Score / (float)_changed.Behaviour.scoreTarget;
         _changed.Behaviour.Rpc_MyStaticRpc(_changed.Behaviour.Score);
         //If Score greater than scoreTarget end game ( blobs wins )
     }
 
+    private void UpdateBar(int _points)
+    {
+        progressBar.fillAmount = (float) _points / (float) scoreTarget;
+    }
+
     [Rpc]
-    public void Rpc_MyStaticRpc(int a) { print(a); }
+    public void Rpc_MyStaticRpc(int a)
+    {
+        UpdateBar(a);
+    }
 
     private void Update()
     {

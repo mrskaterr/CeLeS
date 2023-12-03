@@ -1731,7 +1731,7 @@ MonoBehaviour:
           m_StringArgument: test@test.com
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 724026356}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -9747,11 +9747,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &724026356 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5409665337354812155, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-  m_PrefabInstance: {fileID: 1588594916}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &724326335
 GameObject:
   m_ObjectHideFlags: 0
@@ -19950,91 +19945,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586536969}
   m_CullTransparentMesh: 1
---- !u!1001 &1588594916
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5409665337354812154, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409665337354812154, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 12.545031
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409665337354812154, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.9657851
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409665337354812154, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -7.900432
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409665337354812154, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409665337354812154, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409665337354812154, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409665337354812154, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409665337354812154, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409665337354812154, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409665337354812154, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409665337354812155, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: m_Name
-      value: AutoPlay
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409665337354812155, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409665337354812157, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: Manager
-      value: 
-      objectReference: {fileID: 2051683869}
-    - target: {fileID: 5409665337354812157, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: soloGame
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409665337354812157, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409665337354812157, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: CustomGame
-      value: 
-      objectReference: {fileID: 1618882356}
-    - target: {fileID: 5409665337354812157, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: CreateOrJoin
-      value: 
-      objectReference: {fileID: 1843513068}
-    - target: {fileID: 5409665337354812157, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
-      propertyPath: PrivateRoomDetails
-      value: 
-      objectReference: {fileID: 828684561}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a5226b492ddc35d45aaab878fea8349b, type: 3}
 --- !u!1 &1591702191
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,16 +7,18 @@ public class TaskHandler : MonoBehaviour
 {
     [SerializeField] TMP_Text progressTxt;
     [SerializeField] TMP_Text toDo;
+    private int rnd;
 
     private void Start()
     {
+        rnd = Random.Range(0,5);
         Invoke(nameof(Init), 3);
     }
 
     void Update()
     {
         if(toDo.text!=null)
-            toDo.text=GameManager.instance.missionManager.rooms[0].missions[0].currentStep.description;    
+            toDo.text=GameManager.instance.missionManager.rooms[rnd].missions[0].currentStep.description;    
     }
     private void Init()
     {

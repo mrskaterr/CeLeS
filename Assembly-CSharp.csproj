@@ -79,6 +79,7 @@
      <Compile Include="Assets\Scripts\Network\Spawner.cs" />
      <Compile Include="Assets\EscapeGameLogic.cs" />
      <Compile Include="Assets\Wobble.cs" />
+     <Compile Include="Assets\OrderStation.cs" />
      <Compile Include="Assets\Scripts\LoadingCanvas.cs" />
      <Compile Include="Assets\Scripts\CharacterMovementHandler.cs" />
      <Compile Include="Assets\Scripts\EnumItem.cs" />
@@ -121,6 +122,7 @@
      <Compile Include="Assets\Scripts\MissionScript\BehaviorMission\TestMission.cs" />
      <Compile Include="Assets\Rendering\Shaders\Better Celshading\ScriptableRenderFeatures\DepthNormalsFeature.cs" />
      <Compile Include="Assets\Scripts\TASKS\taskColor\TaskRemeberColor.cs" />
+     <Compile Include="Assets\IsDone.cs" />
      <Compile Include="Assets\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\PlayerNetworkEventsHandler.cs" />
      <Compile Include="Assets\Bar.cs" />
@@ -128,8 +130,6 @@
      <Compile Include="Assets\Scripts\TASKS\taskCircle\Hack_Panel.cs" />
      <Compile Include="Assets\Scripts\PlayerHolder.cs" />
      <Compile Include="Assets\Scripts\AutoPlay.cs" />
-     <Compile Include="Assets\IsDone.cs" />
-     <Compile Include="Assets\OrderStation.cs" />
      <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\CustomLighting.hlsl" />
      <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\Outline.hlsl" />
      <None Include="Assets\Rendering\Shaders\Celshading 2\CustomLighting.hlsl" />

@@ -1558,8 +1558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemHolder: {fileID: 3418836495049816357}
-  nameItem: {fileID: 7214523902992933041}
-  iconItem: {fileID: 2003860345988988287}
+  itemIcon: {fileID: 8779637310377013671}
 --- !u!1 &2382106172228745221
 GameObject:
   m_ObjectHideFlags: 0
@@ -4756,7 +4755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6860813009494213130
 RectTransform:
   m_ObjectHideFlags: 0

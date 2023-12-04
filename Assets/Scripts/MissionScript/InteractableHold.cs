@@ -19,6 +19,8 @@ public class InteractableHold : MissionObject, IInteractableHold
     private int iterator=0;
     [SerializeField] private UnityEvent step;
     [SerializeField] private UnityEvent completed;
+    public bool oneStep=true;
+
     private void Step()
     {
         step.Invoke();
@@ -27,7 +29,7 @@ public class InteractableHold : MissionObject, IInteractableHold
     private void Completed()
     {
         completed.Invoke();
-        NextTask();
+        if(oneStep)NextTask();
     }
     public void StartInteract(GameObject @object)
     {

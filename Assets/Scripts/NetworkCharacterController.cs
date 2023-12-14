@@ -15,39 +15,21 @@ public class NetworkCharacterController : NetworkTransform
     public float jumpImpulse = 8.0f;
     public float acceleration = 10.0f;
     public float braking = 10.0f;
-    public float maxStamina = 5f;
     public float maxSpeed = 2.0f;
     public float runSpeed = 20f;
-    public float kneelingSpeed = 1f;
     public float rotationSpeed = 15.0f;
     public float viewVerticalSpeed = 50;
 
     [Networked]
     [HideInInspector]
     public bool IsGrounded { get; set; }
-
-    
-    [HideInInspector]
-    public bool IsSprinting;
-    private float cunrrentStamina=0;
-    [HideInInspector]
-    public bool isKneeling;
-
     [Networked]
     [HideInInspector]
     public Vector3 Velocity { get; set; }
     protected override Vector3 DefaultTeleportInterpolationVelocity => Velocity;
     protected override Vector3 DefaultTeleportInterpolationAngularVelocity => new Vector3(0f, 0f, rotationSpeed);
-
-    [SerializeField] Hitbox hitbox;
-    private Vector3 orginalControlerCenter;
-    private float orginalHeighControler;
-    private Vector3 kneelingControlerCenter=new Vector3(0,-0.5f,0);
-    private float kneelingHeigh=1f; 
-
     public CharacterController Controller { get; private set; }
     private CharacterInputHandler inputHandler;
-
     private DashHandler dashHendler;
 
     protected override void Awake()
@@ -55,24 +37,11 @@ public class NetworkCharacterController : NetworkTransform
         base.Awake();
         CacheController();
         dashHendler=GetComponent<DashHandler>();
-        orginalHeighControler=Controller.height;
-        orginalControlerCenter=Controller.center;
         inputHandler=GetComponent<CharacterInputHandler>();
     }
     public override void FixedUpdateNetwork()
     {
-        if(IsSprinting && cunrrentStamina>0f)
-        {
-            cunrrentStamina-=Time.deltaTime;
-            if(cunrrentStamina<=0f)
-                inputHandler.canSprinting=false;
-        }
-        else if(!IsSprinting && cunrrentStamina<=maxStamina)
-        {
-            cunrrentStamina+=Time.deltaTime;
-            if(cunrrentStamina>=maxStamina)
-                inputHandler.canSprinting=true;
-        }
+
 
         dashHendler?.Dash();
     }
@@ -81,19 +50,6 @@ public class NetworkCharacterController : NetworkTransform
         base.Spawned();
         CacheController();
     }
-    public void Kneeling(LocalCameraHandler camera)
-    {
-        Controller.height=kneelingHeigh;
-        Controller.center=kneelingControlerCenter;
-        camera.ChangePositionCam(kneelingHeigh-orginalHeighControler);
-    }
-    public void Standing(LocalCameraHandler camera)
-    {
-        Controller.height=orginalHeighControler;
-        Controller.center=orginalControlerCenter;
-        camera.ChangePositionCam(orginalHeighControler-kneelingHeigh);
-    }
-
     private void CacheController()
     {
         if (Controller == null)
@@ -147,7 +103,7 @@ public class NetworkCharacterController : NetworkTransform
         }
         else
         {
-            horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, isKneeling ? kneelingSpeed : IsSprinting ? runSpeed : maxSpeed);
+            horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime,maxSpeed); //isKneeling ? kneelingSpeed : IsSprinting ? runSpeed : maxSpeed);
         }
 
         moveVelocity.x = horizontalVel.x;
@@ -163,4 +119,31 @@ public class NetworkCharacterController : NetworkTransform
     {
         transform.Rotate(0, _rotationInput * Runner.DeltaTime * rotationSpeed, 0);
     }
+
 }
+/*       
+        
+            protected override void Awake()
+    {
+        orginalHeighControler=Controller.height;
+        orginalControlerCenter=Controller.center;
+    }
+        
+    public float kneelingSpeed = 1f;
+    [HideInInspector]
+    public bool isKneeling;
+
+       public void Kneeling(LocalCameraHandler camera)
+    {
+        Controller.height=kneelingHeigh;
+        Controller.center=kneelingControlerCenter;
+        camera.ChangePositionCam(kneelingHeigh-orginalHeighControler);
+    }
+    public void Standing(LocalCameraHandler camera)
+    {
+        Controller.height=orginalHeighControler;
+        Controller.center=orginalControlerCenter;
+        camera.ChangePositionCam(orginalHeighControler-kneelingHeigh);
+    }
+        
+*/

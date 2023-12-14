@@ -10117,6 +10117,7 @@ GameObject:
   - component: {fileID: 5030489034049793712}
   - component: {fileID: 8233274512002171136}
   - component: {fileID: 7662483348007639774}
+  - component: {fileID: 4971357744666230807}
   m_Layer: 0
   m_Name: Astro 1
   m_TagString: Untagged
@@ -10226,23 +10227,12 @@ MonoBehaviour:
   jumpImpulse: 8
   acceleration: 40
   braking: 10
-  maxStamina: 5
   maxSpeed: 5
   runSpeed: 20
-  kneelingSpeed: 1
   rotationSpeed: 480
   viewVerticalSpeed: 390
-  DashSpeed: 10
-  DashMaxAmount: 2
-  DashCurrentAmount: 0
-  MaxDashTime: 5
-  DashResetTime: 5
   _IsGrounded: 0
-  StartDashing: 0
-  IsSprinting: 0
-  isKneeling: 0
   _Velocity: {x: 0, y: 0, z: 0}
-  hitbox: {fileID: 2032232850014977336}
 --- !u!114 &4309556519627489336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10521,6 +10511,20 @@ MonoBehaviour:
   holdCenter: {fileID: 5941389429022916072}
   captureHandler: {fileID: 0}
   _available: 0
+--- !u!114 &4971357744666230807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2264008909498982632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da4b3cbacf697e409f3cf20bf68a0be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxStamina: 5
+  IsSprinting: 0
 --- !u!1 &2308542966252323962
 GameObject:
   m_ObjectHideFlags: 0

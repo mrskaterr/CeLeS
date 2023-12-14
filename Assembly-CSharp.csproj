@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\Teleportyzer.cs" />
      <Compile Include="Assets\Scripts\MissionScript\ChangePositionMission.cs" />
      <Compile Include="Assets\Scripts\TaskHandler.cs" />
+     <Compile Include="Assets\SprintHandler.cs" />
      <Compile Include="Assets\Scripts\LocalCameraHandler.cs" />
      <Compile Include="Assets\Scripts\TASKS\taskColor\ColorButton.cs" />
      <Compile Include="Assets\Scripts\WeaponHandler.cs" />
@@ -89,7 +90,7 @@
      <Compile Include="Assets\Scripts\MissionScript\BehaviorMission\MissionObject.cs" />
      <Compile Include="Assets\Scripts\MissionScript\InteractableHold.cs" />
      <Compile Include="Assets\Scripts\Network\NetworkRunnerHandler.cs" />
-     <Compile Include="Assets\ReferenceHold.cs" />
+     <Compile Include="Assets\Scripts\ReferenceHold.cs" />
      <Compile Include="Assets\Scripts\Jar.cs" />
      <Compile Include="Assets\Scripts\TASKS\JobHandler2.cs" />
      <Compile Include="Assets\Scripts\Extensions\TMPTextExtension.cs" />
@@ -130,7 +131,6 @@
      <Compile Include="Assets\Scripts\TASKS\taskCircle\Hack_Panel.cs" />
      <Compile Include="Assets\Scripts\PlayerHolder.cs" />
      <Compile Include="Assets\Scripts\AutoPlay.cs" />
-     <Compile Include="Assets\ScreenResolution.cs" />
      <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\CustomLighting.hlsl" />
      <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\Outline.hlsl" />
      <None Include="Assets\Rendering\Shaders\Celshading 2\CustomLighting.hlsl" />

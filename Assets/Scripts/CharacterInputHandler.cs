@@ -85,16 +85,16 @@ public class CharacterInputHandler : MonoBehaviour
 		    sprintInput=false;
 	    }
         
-        if(isHuman && Input.GetKeyDown(KeyCode.Z)) 
-        {
-		    kneelingInput=true;
-            controler.Kneeling(cameraHandler);
-	    }
-        if(isHuman && Input.GetKeyUp(KeyCode.Z))
-        {
-		    kneelingInput=false;
-            controler.Standing(cameraHandler);
-	    }
+        // if(isHuman && Input.GetKeyDown(KeyCode.Z)) 
+        // {
+		//     kneelingInput=true;
+        //     controler.Kneeling(cameraHandler);
+	    // }
+        // if(isHuman && Input.GetKeyUp(KeyCode.Z))
+        // {
+		//     kneelingInput=false;
+        //     controler.Standing(cameraHandler);
+	    // }
         moveInput.y += speedStep;
 
         cameraHandler.SetViewInput(viewInput);

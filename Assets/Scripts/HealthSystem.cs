@@ -24,10 +24,7 @@ public class HealthSystem : NetworkBehaviour
     {
         HUD = GetComponent<PlayerHUD>();
         captureHandler = GetComponent<CaptureHandler>();
-    }
-
-    private void Start()
-    {
+        
         coroutines=new List<Coroutine>();
         HP = MaxHP;
         isDead = false;
@@ -36,7 +33,7 @@ public class HealthSystem : NetworkBehaviour
 
     private void Update()
     {
-        jar.SetActive(isDead && !captureHandler.isCarried);
+        jar.SetActive(isDead && !captureHandler.isCarried);////////////
     }
 
     private IEnumerator OnHit()
@@ -102,7 +99,6 @@ public class HealthSystem : NetworkBehaviour
     private void Damage()
     {
         //yield return new WaitForSeconds(0.2f);
-
     }
 
     private static void OnHPChanged(Changed<HealthSystem> _changed)

@@ -59,22 +59,22 @@ public class CharacterMovementHandler : NetworkBehaviour
             {
                 dashHandler.startDashing=false;
             }
-            if (networkInputData.isSprintPressed)
-            {
-                networkCharacterController.IsSprinting=true;
-            }
-            else
-            {
-                networkCharacterController.IsSprinting=false;
-            }
-            if(networkInputData.isKneelingPressed)
-            {
-                networkCharacterController.isKneeling=true;
-            }
-            else
-            {
-                networkCharacterController.isKneeling=false;    
-            }
+            //if (networkInputData.isSprintPressed)
+            //{
+            //     networkCharacterController.IsSprinting=true;
+            // }
+            // else
+            // {
+            //     networkCharacterController.IsSprinting=false;
+            // }
+            // if(networkInputData.isKneelingPressed)
+            // {
+            //     networkCharacterController.isKneeling=true;
+            // }
+            // else
+            // {
+            //     networkCharacterController.isKneeling=false;    
+            // }
 
         }
 

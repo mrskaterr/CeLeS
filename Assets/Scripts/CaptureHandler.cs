@@ -84,7 +84,7 @@ public class CaptureHandler : NetworkBehaviour
         transform.parent = null;
         isCarried = false;
         cameraHandler.ChangePerspective(-1);
-        healthSystem.Restore();
+        healthSystem?.Restore();
         HUD.ToggleMiniGame(false);
     }
 

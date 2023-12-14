@@ -981,6 +981,7 @@ MonoBehaviour:
   modelRoot: {fileID: 7461508649267332004}
   cam: {fileID: 7134201537511432197}
   audioListener: {fileID: 142242121073978863}
+  isRemote: 0
 --- !u!114 &7902133138066633292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,11 +1043,23 @@ MonoBehaviour:
   jumpImpulse: 8
   acceleration: 40
   braking: 10
+  maxStamina: 5
   maxSpeed: 5
+  runSpeed: 20
+  kneelingSpeed: 1
   rotationSpeed: 480
   viewVerticalSpeed: 390
+  DashSpeed: 10
+  DashMaxAmount: 2
+  DashCurrentAmount: 0
+  MaxDashTime: 1
+  DashResetTime: 100
   _IsGrounded: 0
+  StartDashing: 0
+  IsSprinting: 0
+  isKneeling: 0
   _Velocity: {x: 0, y: 0, z: 0}
+  hitbox: {fileID: 0}
 --- !u!114 &4309556519627489336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,6 +1089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canSneak: 0
+  canSprinting: 0
   cameraHandler: {fileID: 4591282623768988322}
 --- !u!143 &8105936159554550944
 CharacterController:
@@ -1126,11 +1140,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  _HP: 0
+  timeToRegeneration: 5
   _isDead: 0
-  onHitImage: {fileID: 4830711948409155865}
+  MaxHP: 1000
   healthTxt: {fileID: 238306719813990287}
   jar: {fileID: 5393301215034139895}
+  body: {fileID: 0}
 --- !u!114 &1899204561682557252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,6 +1167,9 @@ MonoBehaviour:
   fpsCam: {fileID: 7134201537511432197}
   tpsCam: {fileID: 1117024196094038167}
   cameraHandler: {fileID: 4591282623768988322}
+  isHuman: 1
+  gunModeA: {fileID: 0}
+  gunModeB: {fileID: 0}
 --- !u!114 &9045679940586352962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,6 +1207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressTxt: {fileID: 2779692504986208538}
+  toDo: {fileID: 0}
 --- !u!114 &7213504974714521972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1203,6 +1222,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txt: {fileID: 8892269207359774644}
   pauseMenu: {fileID: 5705061097476139718}
+  spaceNameTxt: {fileID: 0}
+  rotationTxt: {fileID: 0}
+  crosshair: {fileID: 0}
+  onHitImage: {fileID: 0}
+  miniGameParent: {fileID: 0}
+  interactName: {fileID: 0}
+  interactBar: {fileID: 0}
 --- !u!114 &7191323721722475042
 MonoBehaviour:
   m_ObjectHideFlags: 0

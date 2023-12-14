@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
+using Unity.VisualScripting;
 
 public class CharacterMovementHandler : NetworkBehaviour
 {
     private NetworkCharacterController networkCharacterController;
+    private DashHandler dashHandler;
     private NetworkAnimator networkAnimator;
 
     [SerializeField] private Camera localCamera;
@@ -14,6 +16,7 @@ public class CharacterMovementHandler : NetworkBehaviour
 
     private void Awake()
     {
+        dashHandler = GetComponent<DashHandler>();
         networkCharacterController = GetComponent<NetworkCharacterController>();
         networkAnimator = GetComponent<NetworkAnimator>();
     }
@@ -48,13 +51,13 @@ public class CharacterMovementHandler : NetworkBehaviour
             {
                 networkCharacterController.Jump();
             }
-            if (networkInputData.isDashPressed)
+            if (networkInputData.isDashPressed && dashHandler)
             {
-                networkCharacterController.StartDashing=true;
+                dashHandler.startDashing=true;
             }
-            else
+            else if( dashHandler)
             {
-                networkCharacterController.StartDashing=false;
+                dashHandler.startDashing=false;
             }
             if (networkInputData.isSprintPressed)
             {

@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: eyes
       value: 
       objectReference: {fileID: 856124224246932760}
+    - target: {fileID: 9048199011143548180, guid: d9ef4c693536ffb419fd82538b75507f, type: 3}
+      propertyPath: timeToRegeneration
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9ef4c693536ffb419fd82538b75507f, type: 3}
 --- !u!4 &5594717159579502712 stripped

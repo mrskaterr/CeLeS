@@ -4926,9 +4926,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  firstMode: {fileID: 7940372622725298971}
-  secondMode: {fileID: 2310324647238262444}
-  fireMode: 0
+  fireGun: {fileID: 7940372622725298971}
+  unmorphGun: {fileID: 2310324647238262444}
 --- !u!1 &359223782983024618
 GameObject:
   m_ObjectHideFlags: 0
@@ -10161,7 +10160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   modelRoot: {fileID: 6978682924994910890}
-  cam: {fileID: 0}
+  cam: {fileID: 1709360103428396704}
   audioListener: {fileID: 142242121073978863}
   isRemote: 0
 --- !u!114 &7902133138066633292
@@ -10234,11 +10233,12 @@ MonoBehaviour:
   rotationSpeed: 480
   viewVerticalSpeed: 390
   DashSpeed: 10
+  DashMaxAmount: 2
+  DashCurrentAmount: 0
   MaxDashTime: 5
-  DashStoppingSpeed: 0.1
   DashResetTime: 5
   _IsGrounded: 0
-  IsDashing: 0
+  StartDashing: 0
   IsSprinting: 0
   isKneeling: 0
   _Velocity: {x: 0, y: 0, z: 0}
@@ -10311,11 +10311,8 @@ MonoBehaviour:
   range: 3
   indicator: {fileID: 2240025818718178350}
   fpsCam: {fileID: 1709360103428396704}
-  tpsCam: {fileID: 0}
+  tpsCam: {fileID: 1709360103428396704}
   cameraHandler: {fileID: 4591282623768988322}
-  isHuman: 1
-  gunModeA: {fileID: 7045311374640270988}
-  gunModeB: {fileID: 147843439021827110}
 --- !u!114 &2196652397391590685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10337,6 +10334,9 @@ MonoBehaviour:
     m_Bits: 129
   hitMarker: {fileID: 2240025818718178350}
   gunMode: {fileID: 7045311374640270988}
+  damage: 1
+  timeBetweenFire: 0.1
+  timeBetweenUnMorph: 1
 --- !u!114 &1198443442275639798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15668,9 +15668,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  firstMode: {fileID: 9175172684302809392}
-  secondMode: {fileID: 1925758299144995784}
-  fireMode: 0
+  fireGun: {fileID: 9175172684302809392}
+  unmorphGun: {fileID: 1925758299144995784}
 --- !u!1 &3560131437656660703
 GameObject:
   m_ObjectHideFlags: 0
@@ -20958,7 +20957,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5560928675984028951}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0.596, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

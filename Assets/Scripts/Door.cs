@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {   
-    // [SerializeField] LayerMask acceptableLayers;
-    // [Space]
     [SerializeField] AudioSource OpenSound;
     [SerializeField] AudioSource CloseSound;
-    Animator animator;
-    
-    private void Awake()
+    private Animator animator;
+    void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator=GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
+    { 
+        DoorAnimation(true,CloseSound,OpenSound);
+    } 
+
+    void OnTriggerExit(Collider other)
     {
-        CloseSound.Stop();
-        animator.SetBool("open", true);
-        OpenSound.Play();
+        DoorAnimation(false,OpenSound,CloseSound);
     }
-    private void OnTriggerExit(Collider other)
+    private void DoorAnimation(bool isOpenAnimation,AudioSource StopSound,AudioSource PlaySound)
     {
-        OpenSound.Stop();
-        animator.SetBool("open", false);
-        CloseSound.Play();
+        StopSound.Stop();
+        animator.SetBool("open", isOpenAnimation);
+        PlaySound.Play();
     }
 }

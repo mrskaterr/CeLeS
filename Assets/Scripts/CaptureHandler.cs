@@ -30,7 +30,7 @@ public class CaptureHandler : NetworkBehaviour
 
     private void Init()
     {
-        carryGlobal = GameManager.instance.GetComponent<CarryGlobal>();
+        //carryGlobal = GameManager.instance.GetComponent<CarryGlobal>();
         healthSystem = GetComponent<HealthSystem>();
         HUD = GetComponent<PlayerHUD>();
 

@@ -6,15 +6,19 @@ using Fusion;
 public class WeaponHandler : NetworkBehaviour
 {
     [Networked(OnChanged = nameof(OnFireChanged))]
-    public bool isFiring { get; set; }
+    [HideInInspector] public bool isFiring { get; set; }
 
     [SerializeField] private ParticleSystem fireParticleSystem;
     [SerializeField] private Transform aimPoint;
     [SerializeField] private LayerMask targetLayerMask;
     [SerializeField] private GameObject hitMarker;
     [SerializeField] private GunMode gunMode;
-
-    private float lastTimeFired = 0;
+    [SerializeField] int damage=1;
+    [SerializeField] float timeBetweenFire=.1f;
+    [SerializeField] float timeBetweenUnMorph=1f;
+    private float lastFiredTime = 0;
+    private float lastUnMorphTime = 0;
+    private float hitDistance = 100;
 
     void Update()
     {
@@ -26,11 +30,11 @@ public class WeaponHandler : NetworkBehaviour
     {
         if(GetInput(out NetworkInputData _networkInputData))
         {
-            if (_networkInputData.isFirePressed && gunMode.fireMode)
+            if (_networkInputData.isFirePressed && gunMode.isFireMode())
             {
                 Fire(_networkInputData.aimForwardVector);
             }
-            if (_networkInputData.isFirePressed && !gunMode.fireMode)
+            if (_networkInputData.isFirePressed && !gunMode.isFireMode())
             {
                 UnMorph(_networkInputData.aimForwardVector);
             }
@@ -39,13 +43,12 @@ public class WeaponHandler : NetworkBehaviour
 
     private void UnMorph(Vector3 _aimForwardVector)
     {
+
         // if(Time.time - lastTimeFired < .15f)//TODO: MN
         // {
         //     return;
         // }
-        Runner.LagCompensation.Raycast(aimPoint.position, _aimForwardVector, 100, Object.InputAuthority, out var hitInfo, targetLayerMask, HitOptions.IncludePhysX); //TODO: MN
-
-        float hitDistance = 100;
+        Runner.LagCompensation.Raycast(aimPoint.position, _aimForwardVector, hitDistance, Object.InputAuthority, out var hitInfo, targetLayerMask, HitOptions.IncludePhysX); //TODO: MN
 
         if(hitInfo.Distance > 0) { hitDistance = hitInfo.Distance; }
 
@@ -55,19 +58,20 @@ public class WeaponHandler : NetworkBehaviour
 
             hitInfo.Hitbox.transform.root.GetComponent<Morph>().RPC_UnMorph();
         }
+
+        // lastUnMorphTime = Time.time;
     }
     private void Fire(Vector3 _aimForwardVector)
     {
-        if(Time.time - lastTimeFired < 1f)//TODO: MN
+        if(Time.time - lastFiredTime < timeBetweenFire)//TODO: MN
         {
             return;
         }
 
         StartCoroutine(FireFX());
 
-        Runner.LagCompensation.Raycast(aimPoint.position, _aimForwardVector, 100, Object.InputAuthority, out var hitInfo, targetLayerMask, HitOptions.IncludePhysX); //TODO: MN
+        Runner.LagCompensation.Raycast(aimPoint.position, _aimForwardVector, hitDistance, Object.InputAuthority, out var hitInfo, targetLayerMask, HitOptions.IncludePhysX); //TODO: MN
 
-        float hitDistance = 100;
         bool isHitOtherPlayer = false;
 
         if(hitInfo.Distance > 0) { hitDistance = hitInfo.Distance; }
@@ -75,7 +79,6 @@ public class WeaponHandler : NetworkBehaviour
         if(hitInfo.Hitbox != null)
         {
             Debug.Log($"{Time.time} {transform.name} hit hitbox {hitInfo.Hitbox.transform.root.name}");
-
             if (Object.HasStateAuthority && hitInfo.Hitbox.transform.root.GetComponent<Morph>()?.index==-1)
             {
                 hitInfo.Hitbox.transform.root.GetComponent<HealthSystem>().RPC_OnTakeDamage();
@@ -96,22 +99,23 @@ public class WeaponHandler : NetworkBehaviour
         {
             Debug.DrawRay(aimPoint.position, _aimForwardVector * hitDistance, Color.green, 1);
         }
-
-        lastTimeFired = Time.time;
+        
+        
+        lastFiredTime = Time.time;
     }
 
     private IEnumerator FireFX()
     {
         isFiring = true;
         fireParticleSystem.Play();
-        yield return new WaitForSeconds(.09f);//TOIMPROVE: define this
+        yield return new WaitForSeconds(timeBetweenFire);
         isFiring = false;
     }
 
     private IEnumerator HitFX()
     {
         hitMarker.SetActive(true);
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(timeBetweenFire);
         hitMarker.SetActive(false);
     }
 

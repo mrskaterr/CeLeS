@@ -4,13 +4,16 @@ using UnityEngine;
 using Fusion;
 public class GunMode : NetworkBehaviour
 {
-    [SerializeField] GameObject firstMode;
-    [SerializeField] GameObject secondMode;
-    private bool canSwapMode = true;
-    [HideInInspector]public bool fireMode;
-    void Start()
+    [SerializeField] GameObject fireGun;
+    [SerializeField] GameObject unmorphGun;
+    private void FireMode(bool _v)
     {
-        fireMode = true;
+        fireGun.SetActive(_v);
+        unmorphGun.SetActive(!_v);
+    }
+    public bool isFireMode()
+    {
+        return fireGun.activeInHierarchy;
     }
 
     public void SwapMode()
@@ -21,18 +24,13 @@ public class GunMode : NetworkBehaviour
     [Rpc(RpcSources.All, RpcTargets.All)]
     public void RPC_SwapMode()
     {
-        if(firstMode.activeInHierarchy && canSwapMode)
-        { 
-            firstMode.SetActive(false);
-            secondMode.SetActive(true);
-            fireMode=false;
-        }
-        else if(secondMode.activeInHierarchy && canSwapMode)
-        {
-            secondMode.SetActive(false);
-            firstMode.SetActive(true);
-            fireMode=true;;
-        }
+        if(!fireGun.activeInHierarchy  && !unmorphGun.activeInHierarchy)
+            return;
+            
+        if(isFireMode())
+            FireMode(true);
+        else if(!isFireMode())
+            FireMode(false);
     } 
 }
 

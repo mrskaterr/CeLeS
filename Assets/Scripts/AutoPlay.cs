@@ -13,10 +13,6 @@ public class AutoPlay : MonoBehaviour
     [SerializeField] GameObject CreateOrJoin;  
     [SerializeField] GameObject PrivateRoomDetails; 
     bool []isDone=new bool[]{false,false,false}; 
-    public void NameButton(string buff)
-    {
-        whoIs=buff;
-    }
     void Start() 
     { 
         Manager.GetComponent<PlayfabLogin>().LoginButtonMethod(); 
@@ -49,5 +45,10 @@ public class AutoPlay : MonoBehaviour
             isDone[2]=true;
         } 
  
+    }
+    public void SetActive2(string name)
+    {
+        gameObject.SetActive(true);
+        whoIs=name;
     } 
 } 

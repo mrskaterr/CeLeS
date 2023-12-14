@@ -2,6 +2,8 @@ using System;
 using Fusion;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro; 
 
 [RequireComponent(typeof(CharacterController))]
 [OrderBefore(typeof(NetworkTransform))]
@@ -13,26 +15,17 @@ public class NetworkCharacterController : NetworkTransform
     public float jumpImpulse = 8.0f;
     public float acceleration = 10.0f;
     public float braking = 10.0f;
-    public float maxStamina=5f;
+    public float maxStamina = 5f;
     public float maxSpeed = 2.0f;
     public float runSpeed = 20f;
-    private float walkSpeed;
-    public float kneelingSpeed=1f;
+    public float kneelingSpeed = 1f;
     public float rotationSpeed = 15.0f;
     public float viewVerticalSpeed = 50;
-    public float DashSpeed=10f;
-    public int DashMaxAmount=2;
-    public int DashCurrentAmount=0;
-    
-    public float MaxDashTime=1f;
-    public float DashResetTime=100f;
-    private float currentDashTime;
-    private float currentDashResetTime;
+
     [Networked]
     [HideInInspector]
     public bool IsGrounded { get; set; }
-    [HideInInspector]
-    public bool StartDashing;
+
     
     [HideInInspector]
     public bool IsSprinting;
@@ -54,12 +47,14 @@ public class NetworkCharacterController : NetworkTransform
 
     public CharacterController Controller { get; private set; }
     private CharacterInputHandler inputHandler;
+
+    private DashHandler dashHendler;
+
     protected override void Awake()
     {
         base.Awake();
         CacheController();
-        currentDashTime = MaxDashTime;
-        walkSpeed=maxSpeed;
+        dashHendler=GetComponent<DashHandler>();
         orginalHeighControler=Controller.height;
         orginalControlerCenter=Controller.center;
         inputHandler=GetComponent<CharacterInputHandler>();
@@ -79,26 +74,7 @@ public class NetworkCharacterController : NetworkTransform
                 inputHandler.canSprinting=true;
         }
 
-      
-        if (StartDashing &&  DashCurrentAmount<DashMaxAmount )
-        {
-            DashCurrentAmount++;
-            currentDashTime = 0.0f;
-            currentDashResetTime= 0.0f;
-            StartDashing=false;
-        }
-        if (currentDashTime < MaxDashTime)
-        {
-            maxSpeed=DashSpeed;
-            currentDashTime += Time.fixedDeltaTime;
-        }
-        else
-        {
-            maxSpeed=walkSpeed;
-            currentDashResetTime += Time.fixedDeltaTime;
-            if(currentDashResetTime>=DashResetTime)
-                DashCurrentAmount=0;
-        }
+        dashHendler?.Dash();
     }
     public override void Spawned()
     {

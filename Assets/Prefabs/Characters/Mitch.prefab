@@ -989,6 +989,7 @@ GameObject:
   - component: {fileID: 1810907666366902400}
   - component: {fileID: 123680732734331489}
   - component: {fileID: 1461622954191475974}
+  - component: {fileID: 9120316357135298121}
   m_Layer: 23
   m_Name: Captured Body
   m_TagString: Untagged
@@ -1040,6 +1041,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   captureHandler: {fileID: 1113708131128327997}
+--- !u!114 &9120316357135298121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2234195068144005178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb1b2774c7cd11419733bb588b51448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reference: {fileID: 2509286752518346726}
 --- !u!1 &2240025818718178350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,19 +1269,20 @@ MonoBehaviour:
   jumpImpulse: 8
   acceleration: 40
   braking: 10
+  maxStamina: 5
   maxSpeed: 5
   runSpeed: 20
   kneelingSpeed: 1
   rotationSpeed: 480
   viewVerticalSpeed: 390
-  MaxDashTime: 5
   DashSpeed: 10
-  DashStoppingSpeed: 0.1
+  DashMaxAmount: 2
+  DashCurrentAmount: 0
+  MaxDashTime: 5
   DashResetTime: 5
   _IsGrounded: 0
-  IsDash: 0
+  StartDashing: 0
   IsSprinting: 0
-  maxStamina: 5
   isKneeling: 0
   _Velocity: {x: 0, y: 0, z: 0}
   hitbox: {fileID: 2032232850014977336}

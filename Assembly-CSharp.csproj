@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\MissionScript\BehaviorMission\MissionData.cs" />
     <Compile Include="Assets\Scripts\NetworkAnimator.cs" />
     <Compile Include="Assets\Scripts\Network\NetworkInputData.cs" />
+    <Compile Include="Assets\TestArc.cs" />
     <Compile Include="Assets\Scripts\RPCManager.cs" />
     <Compile Include="Assets\Scripts\SyncPos.cs" />
     <Compile Include="Assets\NetworkRandomizeManager.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets\Scripts\MissionScript\ChangePositionMission.cs" />
     <Compile Include="Assets\Scripts\TaskHandler.cs" />
     <Compile Include="Assets\Scripts\LocalCameraHandler.cs" />
+    <Compile Include="Assets\MorphBullet.cs" />
     <Compile Include="Assets\Scripts\TASKS\taskColor\ColorButton.cs" />
     <Compile Include="Assets\Scripts\WeaponHandler.cs" />
     <Compile Include="Assets\Scripts\PlayfabLogin.cs" />
@@ -147,10 +149,8 @@
     <Compile Include="Assets\Scripts\TestLogin.cs" />
     <Compile Include="Assets\Scripts\TASKS\taskCircle\Hack_Panel.cs" />
     <Compile Include="Assets\Scripts\PlayerHolder.cs" />
-    <Compile Include="Assets\Scripts\AutoPlay.cs" />
     <Compile Include="Assets\ArcHandler.cs" />
-    <Compile Include="Assets\TestArc.cs" />
-    <Compile Include="Assets\MorphBullet.cs" />
+    <Compile Include="Assets\Scripts\AutoPlay.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\CustomLighting.hlsl" />

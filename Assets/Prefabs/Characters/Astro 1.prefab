@@ -10054,7 +10054,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832770455936933740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.685, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3649, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10161,7 +10161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   modelRoot: {fileID: 6978682924994910890}
-  cam: {fileID: 0}
+  cam: {fileID: 1709360103428396704}
   audioListener: {fileID: 142242121073978863}
   isRemote: 0
 --- !u!114 &7902133138066633292
@@ -10234,11 +10234,12 @@ MonoBehaviour:
   rotationSpeed: 480
   viewVerticalSpeed: 390
   DashSpeed: 10
+  DashMaxAmount: 2
+  DashCurrentAmount: 0
   MaxDashTime: 5
-  DashStoppingSpeed: 0.1
   DashResetTime: 5
   _IsGrounded: 0
-  IsDashing: 0
+  StartDashing: 0
   IsSprinting: 0
   isKneeling: 0
   _Velocity: {x: 0, y: 0, z: 0}
@@ -10313,9 +10314,6 @@ MonoBehaviour:
   fpsCam: {fileID: 1709360103428396704}
   tpsCam: {fileID: 0}
   cameraHandler: {fileID: 4591282623768988322}
-  isHuman: 1
-  gunModeA: {fileID: 7045311374640270988}
-  gunModeB: {fileID: 147843439021827110}
 --- !u!114 &2196652397391590685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20958,7 +20956,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5560928675984028951}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0.596, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

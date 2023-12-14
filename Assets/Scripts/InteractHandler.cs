@@ -13,13 +13,9 @@ public class InteractHandler : MonoBehaviour
     [SerializeField] private Camera tpsCam;
     [SerializeField] private LocalCameraHandler cameraHandler;
     [Space]
-    [SerializeField] private bool isHuman = true;
     private NetworkPlayer networkPlayer;
     private Morph morph;
     private CarryHandler carryHandler;
-    [SerializeField] private GunMode gunModeA;//TOIMPROVE: merge into 1 var
-    [SerializeField] private GunMode gunModeB;
-
     private IInteractable interactable;
     private InteractableHold interactable2;
 
@@ -73,23 +69,10 @@ public class InteractHandler : MonoBehaviour
                 indicator.SetActive(false);
                 if (Input.GetMouseButtonDown(1))
                 {
-                    if (isHuman)
-                    {
-                        if (gunModeA.isActiveAndEnabled)
-                        {
-                            gunModeA.SwapMode();
-                            gunModeB.SwapMode();
-                        }
-                        else
-                        {
-                            carryHandler.RPC_Leave();
-                            //carryHandler.PutDown();
-                        }
-                    }
+                    if (RPCManager.Local.IsHuman())
+                        carryHandler?.RPC_Leave();//carryHandler.PutDown();
                     else
-                    {
                         morph.index = -1;
-                    }
                 }
             } 
         }

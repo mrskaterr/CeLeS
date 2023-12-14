@@ -14,9 +14,14 @@ public class WeaponHandler : NetworkBehaviour
     [SerializeField] private GameObject hitMarker;
     [SerializeField] private GunMode gunMode;
 
-
     private float lastTimeFired = 0;
 
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+            gunMode.SwapMode();
+
+    }
     public override void FixedUpdateNetwork()
     {
         if(GetInput(out NetworkInputData _networkInputData))
@@ -34,10 +39,10 @@ public class WeaponHandler : NetworkBehaviour
 
     private void UnMorph(Vector3 _aimForwardVector)
     {
-        if(Time.time - lastTimeFired < .15f)//TODO: MN
-        {
-            return;
-        }
+        // if(Time.time - lastTimeFired < .15f)//TODO: MN
+        // {
+        //     return;
+        // }
         Runner.LagCompensation.Raycast(aimPoint.position, _aimForwardVector, 100, Object.InputAuthority, out var hitInfo, targetLayerMask, HitOptions.IncludePhysX); //TODO: MN
 
         float hitDistance = 100;
@@ -71,7 +76,7 @@ public class WeaponHandler : NetworkBehaviour
         {
             Debug.Log($"{Time.time} {transform.name} hit hitbox {hitInfo.Hitbox.transform.root.name}");
 
-            if (Object.HasStateAuthority && hitInfo.Hitbox.transform.root.GetComponent<Morph>().index==-1)
+            if (Object.HasStateAuthority && hitInfo.Hitbox.transform.root.GetComponent<Morph>()?.index==-1)
             {
                 hitInfo.Hitbox.transform.root.GetComponent<HealthSystem>().RPC_OnTakeDamage();
                 StartCoroutine(HitFX());

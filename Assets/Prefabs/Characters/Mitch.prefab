@@ -1352,11 +1352,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  _HP: 0
   _isDead: 0
+  MaxHp: 200
   healthTxt: {fileID: 238306719813990287}
   jar: {fileID: 2234195068144005178}
   body: {fileID: 7461508649267332004}
+  timeToRegeneration: 5
+  timeToStepRegeneration: 0.1
 --- !u!114 &1899204561682557252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,9 +1380,6 @@ MonoBehaviour:
   fpsCam: {fileID: 7134201537511432197}
   tpsCam: {fileID: 1117024196094038167}
   cameraHandler: {fileID: 4591282623768988322}
-  isHuman: 0
-  gunModeA: {fileID: 0}
-  gunModeB: {fileID: 0}
 --- !u!114 &9045679940586352962
 MonoBehaviour:
   m_ObjectHideFlags: 0

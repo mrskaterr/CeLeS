@@ -7,25 +7,25 @@ using TMPro;
 public class HealthSystem : NetworkBehaviour
 {
     [Networked(OnChanged = nameof(OnHPChanged))]
-    [SerializeField] private int HP { get; set; }
-
+    private int HP { get; set; }
+    [HideInInspector]
     [Networked(OnChanged = nameof(OnStateChanged))]
     public bool isDead { get; set; }
-
-    private bool isInitialized = false;
-
-    private const int startingHP = 5;
-
+    [SerializeField]  int MaxHp;
     [SerializeField] private TMP_Text healthTxt;
     [SerializeField] private GameObject jar;
     [SerializeField] private GameObject body;
-    List<Coroutine>  coroutines;
-
+    [SerializeField] float timeToRegeneration=5f;
+    [SerializeField] float timeToStepRegeneration=0.1f;
+    private CharacterController controller;
     private PlayerHUD HUD;
     private CaptureHandler captureHandler;
+    private List<Coroutine>  coroutines;
+    private bool isInitialized = false;
 
     private void Awake()
     {
+        controller = GetComponent<CharacterController>();
         HUD = GetComponent<PlayerHUD>();
         captureHandler = GetComponent<CaptureHandler>();
     }
@@ -33,9 +33,8 @@ public class HealthSystem : NetworkBehaviour
     private void Start()
     {
         coroutines=new List<Coroutine>();
-        HP = startingHP;
+        HP = MaxHp;
         isDead = false;
-
         isInitialized = true;
     }
 
@@ -68,25 +67,22 @@ public class HealthSystem : NetworkBehaviour
             HUD.ToggleMiniGame(true);
         }
     }
-    IEnumerator HealthRegeneration(float FirstWaiting,float ForWainting)
+    IEnumerator HealthRegeneration()
     {
-        yield return new WaitForSeconds(FirstWaiting);
-        while(!isDead && HP < startingHP)
-            {
-                HP += 1;
-                yield return new WaitForSeconds(ForWainting);
-            }
+        yield return new WaitForSeconds(timeToRegeneration);
+        while(!isDead && HP < MaxHp)
+        {
+            HP ++;
+            yield return new WaitForSeconds(timeToStepRegeneration);
+        }
     }
     [Rpc]//TOIMPROVE: source & target
     public void RPC_OnTakeDamage()
     {
         HP--;
-        for(int i=0;i< coroutines.Count;i++)
-            StopCoroutine(coroutines[i]);
-        
+        for(int i=0;i< coroutines.Count;i++)StopCoroutine(coroutines[i]);        
         coroutines.Clear();
-        
-        coroutines.Add( StartCoroutine(HealthRegeneration(5f,1f)));
+        coroutines.Add( StartCoroutine(HealthRegeneration()));
 
         Debug.Log($"{transform.name} took damage got {HP} left");
         if (HP <= 0)
@@ -96,8 +92,7 @@ public class HealthSystem : NetworkBehaviour
         }
         if (isDead)
         {
-            GetComponent<CharacterController>().enabled = false;
-            
+            controller.enabled = false;
             body.SetActive(false);
             captureHandler.isFree = false;
             return;
@@ -106,7 +101,6 @@ public class HealthSystem : NetworkBehaviour
     private void Damage()
     {
         //yield return new WaitForSeconds(0.2f);
-
     }
 
     private static void OnHPChanged(Changed<HealthSystem> _changed)
@@ -115,7 +109,6 @@ public class HealthSystem : NetworkBehaviour
         int newHP = _changed.Behaviour.HP;
         _changed.LoadOld();
         int oldHP = _changed.Behaviour.HP;
-
         if (newHP < oldHP) { _changed.Behaviour.OnHPReduced(); }
     }
 
@@ -135,9 +128,9 @@ public class HealthSystem : NetworkBehaviour
 
     public void Restore()
     {
-        HP = startingHP;
+        HP = MaxHp;
         isDead = false;
-        GetComponent<CharacterController>().enabled = true;
+        controller.enabled = true;
         body.SetActive(true);
         HUD.ToggleCrosshair(true);
         HUD.ToggleOnHitImage(false);

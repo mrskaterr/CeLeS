@@ -13,7 +13,8 @@ public class WeaponHandler : NetworkBehaviour
     [SerializeField] private LayerMask targetLayerMask;
     [SerializeField] private GameObject hitMarker;
     [SerializeField] private GunMode gunMode;
-
+    float hitDistance = 100;
+    private float timebetweenFire=0.10f;
     private float lastTimeFired = 0;
 
     void Update()
@@ -30,7 +31,7 @@ public class WeaponHandler : NetworkBehaviour
             {
                 Fire(_networkInputData.aimForwardVector);
             }
-            if (_networkInputData.isFirePressed && !gunMode.fireMode)
+            else if (_networkInputData.isFirePressed && !gunMode.fireMode)
             {
                 UnMorph(_networkInputData.aimForwardVector);
             }
@@ -58,7 +59,7 @@ public class WeaponHandler : NetworkBehaviour
     }
     private void Fire(Vector3 _aimForwardVector)
     {
-        if(Time.time - lastTimeFired < 1f)//TODO: MN
+        if(Time.time - lastTimeFired < timebetweenFire)//TODO: MN
         {
             return;
         }
@@ -67,7 +68,7 @@ public class WeaponHandler : NetworkBehaviour
 
         Runner.LagCompensation.Raycast(aimPoint.position, _aimForwardVector, 100, Object.InputAuthority, out var hitInfo, targetLayerMask, HitOptions.IncludePhysX); //TODO: MN
 
-        float hitDistance = 100;
+
         bool isHitOtherPlayer = false;
 
         if(hitInfo.Distance > 0) { hitDistance = hitInfo.Distance; }

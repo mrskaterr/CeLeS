@@ -26,7 +26,7 @@ public class CharacterInputHandler : MonoBehaviour
     private void Awake()
     {
         
-        if(gameObject.GetComponent<Morph>())
+        if(RPCManager.Local.IsHuman())
             isHuman=false;
         else
             isHuman=true;

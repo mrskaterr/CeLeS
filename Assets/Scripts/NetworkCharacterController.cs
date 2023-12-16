@@ -18,12 +18,11 @@ public class NetworkCharacterController : NetworkTransform
     public float runSpeed = 20f;
     private float walkSpeed;
     public float kneelingSpeed=1f;
-    public float rotationSpeed = 15.0f;
-    public float viewVerticalSpeed = 50;
+    public float rotationSpeed;
+    public float viewVerticalSpeed;
     public float DashSpeed=10f;
     public int DashMaxAmount=2;
     public int DashCurrentAmount=0;
-    
     public float MaxDashTime=1f;
     public float DashResetTime=100f;
     private float currentDashTime;
@@ -39,21 +38,24 @@ public class NetworkCharacterController : NetworkTransform
     private float cunrrentStamina=0;
     [HideInInspector]
     public bool isKneeling;
-
     [Networked]
     [HideInInspector]
     public Vector3 Velocity { get; set; }
     protected override Vector3 DefaultTeleportInterpolationVelocity => Velocity;
-    protected override Vector3 DefaultTeleportInterpolationAngularVelocity => new Vector3(0f, 0f, rotationSpeed);
-
+    protected override Vector3 DefaultTeleportInterpolationAngularVelocity => new Vector3(0f, 0f, RotationSpeed());
     [SerializeField] Hitbox hitbox;
     private Vector3 orginalControlerCenter;
     private float orginalHeighControler;
     private Vector3 kneelingControlerCenter=new Vector3(0,-0.5f,0);
     private float kneelingHeigh=1f; 
-
     public CharacterController Controller { get; private set; }
     private CharacterInputHandler inputHandler;
+    private WeaponHandler weaponHandler;
+
+    void Start()
+    {
+        weaponHandler=GetComponent<WeaponHandler>();
+    }
     protected override void Awake()
     {
         base.Awake();
@@ -63,6 +65,7 @@ public class NetworkCharacterController : NetworkTransform
         orginalHeighControler=Controller.height;
         orginalControlerCenter=Controller.center;
         inputHandler=GetComponent<CharacterInputHandler>();
+
     }
     public override void FixedUpdateNetwork()
     {
@@ -182,9 +185,36 @@ public class NetworkCharacterController : NetworkTransform
         Velocity = (transform.position - previousPos) * Runner.Simulation.Config.TickRate;
         IsGrounded = Controller.isGrounded;
     }
+    public void MaxSpeed(bool _b)
+    {
+        Debug.Log("MaxSpeed(bool");
+        if(_b)
+            maxSpeed=walkSpeed;
+        else
+        {
+            walkSpeed=0.02f;//to do
+        }
+
+    }
 
     public void Rotate(float _rotationInput)
     {
-        transform.Rotate(0, _rotationInput * Runner.DeltaTime * rotationSpeed, 0);
+        transform.Rotate(0, _rotationInput * Runner.DeltaTime * RotationSpeed(), 0);
+    }
+    public float RotationSpeed()//ViewVerticalSpeed()
+    { 
+        if(weaponHandler)
+            if(weaponHandler.isFiring)
+                return rotationSpeed * 0.1f;
+        return rotationSpeed;
+    }
+    public float ViewVerticalSpeed()
+    {
+        if(weaponHandler)
+            if(weaponHandler.isFiring)
+            return viewVerticalSpeed * 0.1f;
+        
+        return viewVerticalSpeed;
+
     }
 }

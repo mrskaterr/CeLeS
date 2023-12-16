@@ -20,7 +20,8 @@ public class LocalCameraHandler : MonoBehaviour
     private Vector2 viewInput;
 
     private SpectateSync sync;
-
+    private float viewVerticalSpeed;
+    private float rotationSpeed;
     private void Awake()
     {
         cam = GetComponent<Camera>();
@@ -38,6 +39,9 @@ public class LocalCameraHandler : MonoBehaviour
 
     private void Update()
     {
+        
+        rotationSpeed = networkCC.RotationSpeed();
+        viewVerticalSpeed = networkCC.ViewVerticalSpeed();
         if (sync != null)
         {
             sync.ver = (int)(cameraRotationX * 10000);
@@ -52,10 +56,10 @@ public class LocalCameraHandler : MonoBehaviour
         {
             cam.transform.position = anchorPoint.position;
 
-            cameraRotationX += viewInput.y * Time.deltaTime * networkCC.viewVerticalSpeed;
+            cameraRotationX += viewInput.y * Time.deltaTime *  viewVerticalSpeed;
             cameraRotationX = Mathf.Clamp(cameraRotationX, -90, 90);
 
-            cameraRotationY += viewInput.x * Time.deltaTime * networkCC.rotationSpeed;
+            cameraRotationY += viewInput.x * Time.deltaTime * rotationSpeed;
 
             cam.transform.rotation = Quaternion.Euler(cameraRotationX, cameraRotationY, 0);
             if (networkAnimator != null)
@@ -68,10 +72,10 @@ public class LocalCameraHandler : MonoBehaviour
         }
         else
         {
-            cameraRotationX += viewInput.y * Time.deltaTime * networkCC.viewVerticalSpeed;
+            cameraRotationX += viewInput.y * Time.deltaTime * viewVerticalSpeed;
             cameraRotationX = Mathf.Clamp(cameraRotationX, -60, 30);
 
-            cameraRotationY += viewInput.x * Time.deltaTime * networkCC.rotationSpeed;
+            cameraRotationY += viewInput.x * Time.deltaTime * rotationSpeed;
 
             TPSOriginTransform.rotation = Quaternion.Euler(cameraRotationX, cameraRotationY, 0);
             cam.transform.position = anchorPoint.position;

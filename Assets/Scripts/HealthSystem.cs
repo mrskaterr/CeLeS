@@ -18,13 +18,15 @@ public class HealthSystem : NetworkBehaviour
     [SerializeField] float timeToRegeneration=5f;
     [SerializeField] float timeToStepRegeneration=0.1f;
     private CharacterController controller;
+    private NetworkCharacterController networkController;
     private PlayerHUD HUD;
     private CaptureHandler captureHandler;
     private List<Coroutine>  coroutines;
-    private bool isInitialized = false;
+    //private bool isInitialized = false;
 
     private void Awake()
     {
+        networkController=GetComponent<NetworkCharacterController>();
         controller = GetComponent<CharacterController>();
         HUD = GetComponent<PlayerHUD>();
         captureHandler = GetComponent<CaptureHandler>();
@@ -32,19 +34,24 @@ public class HealthSystem : NetworkBehaviour
 
     private void Start()
     {
+
         coroutines=new List<Coroutine>();
         HP = MaxHp;
         isDead = false;
-        isInitialized = true;
+        //isInitialized = true;
+        networkController.MaxSpeed(false);
     }
 
     private void Update()
     {
+        
         jar.SetActive(isDead && !captureHandler.isCarried);
     }
 
     private IEnumerator OnHit()
     {
+        Debug.Log("on hit");
+        networkController.MaxSpeed(false);
         //if (Object.HasInputAuthority)
         //{
             
@@ -56,7 +63,10 @@ public class HealthSystem : NetworkBehaviour
         // }
         HUD.ToggleOnHitImage(true);
 
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(2f);
+         Debug.Log("2second");
+
+        networkController.MaxSpeed(true);
 
         if (!isDead)
         {
@@ -70,7 +80,7 @@ public class HealthSystem : NetworkBehaviour
     IEnumerator HealthRegeneration()
     {
         yield return new WaitForSeconds(timeToRegeneration);
-        while(!isDead && HP < MaxHp)
+        while(!isDead && HP <MaxHp)
         {
             HP ++;
             yield return new WaitForSeconds(timeToStepRegeneration);
@@ -79,12 +89,14 @@ public class HealthSystem : NetworkBehaviour
     [Rpc]//TOIMPROVE: source & target
     public void RPC_OnTakeDamage()
     {
+
         HP--;
+        networkController.MaxSpeed(false);
         for(int i=0;i< coroutines.Count;i++)StopCoroutine(coroutines[i]);        
         coroutines.Clear();
         coroutines.Add( StartCoroutine(HealthRegeneration()));
 
-        Debug.Log($"{transform.name} took damage got {HP} left");
+//        Debug.Log($"{transform.name} took damage got {HP} left");
         if (HP <= 0)
         {
             Debug.Log($"{transform.name} died");
@@ -109,13 +121,17 @@ public class HealthSystem : NetworkBehaviour
         int newHP = _changed.Behaviour.HP;
         _changed.LoadOld();
         int oldHP = _changed.Behaviour.HP;
-        if (newHP < oldHP) { _changed.Behaviour.OnHPReduced(); }
+        if (newHP < oldHP) 
+        {
+            Debug.Log("kurwa działasz ?");
+            _changed.Behaviour.OnHPReduced();
+        }
     }
 
     private void OnHPReduced()
     {
-        if (!isInitialized) { return; }
-
+        //if (isInitialized) { return; }
+        Debug.Log("isint");
         StartCoroutine(OnHit());
     }
 

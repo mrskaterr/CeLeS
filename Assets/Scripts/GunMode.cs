@@ -33,7 +33,7 @@ public class GunMode : NetworkBehaviour
             firstMode.SetActive(true);
             fireMode=true;;
         }
-    } 
+    }
 }
 
 

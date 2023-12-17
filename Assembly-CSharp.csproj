@@ -62,6 +62,7 @@
     <Compile Include="Assets\TestArc.cs" />
     <Compile Include="Assets\Scripts\RPCManager.cs" />
     <Compile Include="Assets\Scripts\SyncPos.cs" />
+    <Compile Include="Assets\UnmorphWave.cs" />
     <Compile Include="Assets\NetworkRandomizeManager.cs" />
     <Compile Include="Assets\Scripts\TASKS\taskCircle\Job.cs" />
     <Compile Include="Assets\Scripts\Push.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Assets\Scripts\PlayerUtility.cs" />
     <Compile Include="Assets\Scripts\HealthSystem.cs" />
     <Compile Include="Assets\Scripts\Manager.cs" />
+    <Compile Include="Assets\Sonar.cs" />
     <Compile Include="Assets\SpectateSync.cs" />
     <Compile Include="Assets\Scripts\ActivityEvents.cs" />
     <Compile Include="Assets\Scripts\CharacterInputHandler.cs" />

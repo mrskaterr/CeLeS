@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
+using UnityEngine.Events;
 
 public class WeaponHandler : NetworkBehaviour
 {
@@ -13,7 +14,11 @@ public class WeaponHandler : NetworkBehaviour
     [SerializeField] private LayerMask targetLayerMask;
     [SerializeField] private GameObject hitMarker;
     [SerializeField] private GunMode gunMode;
+    private bool isGadgetActive;
+    [SerializeField] private UnityEvent gadgetAction;
 
+    [SerializeField] private GameObject[] gun;
+    [SerializeField] private GameObject gadget;
 
     private float lastTimeFired = 0;
 
@@ -21,6 +26,10 @@ public class WeaponHandler : NetworkBehaviour
     {
         if(GetInput(out NetworkInputData _networkInputData))
         {
+            if(_networkInputData.isFirePressed && isGadgetActive)
+            {
+                gadgetAction?.Invoke();
+            }
             if (_networkInputData.isFirePressed && gunMode.fireMode)
             {
                 Fire(_networkInputData.aimForwardVector);
@@ -30,6 +39,11 @@ public class WeaponHandler : NetworkBehaviour
                 UnMorph(_networkInputData.aimForwardVector);
             }
         }
+    }
+
+    private void Update()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") != 0) { RPC_SwapGadget(); }
     }
 
     private void UnMorph(Vector3 _aimForwardVector)
@@ -130,5 +144,27 @@ public class WeaponHandler : NetworkBehaviour
         {
             fireParticleSystem.Play();
         }
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void RPC_SwapGadget()
+    {
+        if (isGadgetActive)
+        {
+            gadget.SetActive(false);
+            foreach (GameObject part in gun)
+            {
+                part.SetActive(true);
+            }
+        }
+        else
+        {
+            gadget.SetActive(true);
+            foreach (GameObject part in gun)
+            {
+                part.SetActive(false);
+            }
+        }
+        isGadgetActive = !isGadgetActive;
     }
 }

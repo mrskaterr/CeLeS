@@ -8,33 +8,39 @@ public class WeaponHandler : NetworkBehaviour
 {
     [Networked(OnChanged = nameof(OnFireChanged))]
     public bool isFiring{ get; set; }
-    [Networked(OnChanged = nameof(OnFireCurrentChanged))]
-    public bool isFiringCurrent2{ get; set; }
+    [Networked]
+    public bool isCurrentFiring{ get; set; }
+    private float FiringTime{ get; set; }
     [SerializeField] private ParticleSystem fireParticleSystem;
     [SerializeField] private Transform aimPoint;
     [SerializeField] private LayerMask targetLayerMask;
     [SerializeField] private GameObject hitMarker;
     [SerializeField] private GunMode gunMode;
-    private float timebetweenFire=0.10f;
+    private float timebetweenFire=0.1f;
     private float lastTimeFired = 0;
     private float hitDistance = 100;
+    void Start()
+    {
+        isCurrentFiring=false;
+        FiringTime = Time.time;
+    }
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))//to do network
+        if(Input.GetMouseButtonDown(1))//to do network
             gunMode.SwapMode();
     }
     public override void FixedUpdateNetwork()
     {
         if(GetInput(out NetworkInputData _networkInputData))
         {
-            if (true/*_networkInputData.isFirePressed/*/ && gunMode.fireMode)
+            if (/*_networkInputData.isFirePressed*/true && gunMode.fireMode)
             {
                 Fire(_networkInputData.aimForwardVector);
-                isFiringCurrent2=true;
+                isFiring = true;
             }
-            if(!_networkInputData.isFirePressed/*true*/ && gunMode.fireMode)
+            else if(!_networkInputData.isFirePressed && gunMode.fireMode)
             {
-                isFiringCurrent2=false;
+                isFiring=false;
             }
             if (_networkInputData.isFirePressed && !gunMode.fireMode)
             {
@@ -109,71 +115,37 @@ public class WeaponHandler : NetworkBehaviour
     private IEnumerator HitFX()
     {
         hitMarker.SetActive(true);
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(timebetweenFire);
         hitMarker.SetActive(false);
     }
 
     private IEnumerator FireFX()
     {
-        isFiring = true;
         fireParticleSystem.Play();
-        yield return new WaitForSeconds(.09f);//TOIMPROVE: define this
-        isFiring = false;
-        //isfiring=true; to do
+        yield return new WaitForSeconds(timebetweenFire);//TOIMPROVE: define this
     }
     private static void OnFireChanged(Changed<WeaponHandler> _changed)
     {
-        bool isFiringCurrent = _changed.Behaviour.isFiring;
+        bool FiringCurrent = _changed.Behaviour.isFiring;
 
         _changed.LoadOld();
 
-        bool isFiringOld = _changed.Behaviour.isFiring;
+        bool FiringOld = _changed.Behaviour.isFiring;
         
-        
-        //_changed.LoadNew();// WoW  łeb mi się naprawił
-        
-        
-        if (isFiringCurrent && !isFiringOld)
+        if (FiringCurrent && !FiringOld)
         {
             _changed.Behaviour.OnFireRemote();
-            //RotationSpeed()//ViewVerticalSpeed() to do 
+            
         }
-
-    }
-    
-    private static void OnFireCurrentChanged(Changed<WeaponHandler> _changed)
-    {
-        bool buff = _changed.Behaviour.isFiringCurrent2;
-
-        _changed.LoadOld();
-
-        bool buffOld = _changed.Behaviour.isFiringCurrent2;
-
-        if (buff && !buffOld)
+        if(!FiringCurrent && FiringOld)
         {
-            Debug.Log("onfire");
+            _changed.Behaviour.FiringTime=Time.time;
         }
-        else if(!buff && buffOld)
-        {
-            Debug.Log("onfire2");
-        }
-        else
-            Debug.Log("else");
 
     }
-
-    private void onfire()
-    {
-        Debug.Log("onfire");   
-    }
-    private void onfire2()
-    {
-        Debug.Log("onfire2");
-    }
-
     private void OnFireRemote()
     {
-        if (Object.HasInputAuthority)
+        if (!Object.HasInputAuthority)
         {
             fireParticleSystem.Play();
             Debug.Log("!");

@@ -39,7 +39,6 @@ public class HealthSystem : NetworkBehaviour
         HP = MaxHp;
         isDead = false;
         //isInitialized = true;
-        networkController.MaxSpeed(false);
     }
 
     private void Update()
@@ -64,8 +63,7 @@ public class HealthSystem : NetworkBehaviour
         HUD.ToggleOnHitImage(true);
 
         yield return new WaitForSeconds(2f);
-         Debug.Log("2second");
-
+        Debug.Log("2second");
         networkController.MaxSpeed(true);
 
         if (!isDead)
@@ -91,7 +89,6 @@ public class HealthSystem : NetworkBehaviour
     {
 
         HP--;
-        networkController.MaxSpeed(false);
         for(int i=0;i< coroutines.Count;i++)StopCoroutine(coroutines[i]);        
         coroutines.Clear();
         coroutines.Add( StartCoroutine(HealthRegeneration()));
@@ -131,8 +128,11 @@ public class HealthSystem : NetworkBehaviour
     private void OnHPReduced()
     {
         //if (isInitialized) { return; }
+
         Debug.Log("isint");
+        // StopAllCoroutines();
         StartCoroutine(OnHit());
+
     }
 
     private void DebugHP() { healthTxt.text = HP.ToString(); }

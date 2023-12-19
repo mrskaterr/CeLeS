@@ -17,8 +17,11 @@ public class NetworkCharacterController : NetworkTransform
     public float maxSpeed = 2.0f;
     public float runSpeed = 20f;
     private float walkSpeed;
+    private float originalWalkSpeed;
     public float kneelingSpeed=1f;
+    public float rotationSlow=0.1f;
     public float rotationSpeed;
+    public float viewVerticalSlow=0.1f;
     public float viewVerticalSpeed;
     public float DashSpeed=10f;
     public int DashMaxAmount=2;
@@ -62,6 +65,7 @@ public class NetworkCharacterController : NetworkTransform
         CacheController();
         currentDashTime = MaxDashTime;
         walkSpeed=maxSpeed;
+        originalWalkSpeed=walkSpeed;
         orginalHeighControler=Controller.height;
         orginalControlerCenter=Controller.center;
         inputHandler=GetComponent<CharacterInputHandler>();
@@ -187,14 +191,10 @@ public class NetworkCharacterController : NetworkTransform
     }
     public void MaxSpeed(bool _b)
     {
-        Debug.Log("MaxSpeed(bool");
         if(_b)
-            maxSpeed=walkSpeed;
+            walkSpeed=originalWalkSpeed;
         else
-        {
-            walkSpeed=0.02f;//to do
-        }
-
+            walkSpeed=0.5f;
     }
 
     public void Rotate(float _rotationInput)

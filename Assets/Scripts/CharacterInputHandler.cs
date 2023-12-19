@@ -55,9 +55,13 @@ public class CharacterInputHandler : MonoBehaviour
             jumpInput = true;
         }
 
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
             fireInput = true;
+        }
+         if(Input.GetButtonUp("Fire1"))
+        {
+            fireInput = false;
         }
 
         if (Input.GetButtonDown("Fire2") && canSneak)
@@ -126,7 +130,6 @@ public class CharacterInputHandler : MonoBehaviour
         networkInputData.isKneelingPressed = kneelingInput;
         
         jumpInput = false;
-        fireInput = false;
         dashInput = false;
         return networkInputData;
     }

@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: f0eb4277b92dee347b2ffb445310475e
+guid: 87ff9280a78b95947a18f9e663eb1bbd
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aGradientTxt
+    second: {fileID: 2100000, guid: 380f6c30e31c6df479b481437947cf31, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -64,14 +64,6 @@ public class CharacterMovementHandler : NetworkBehaviour
             {
                 networkCharacterController.IsSprinting=false;
             }
-            if(networkInputData.isKneelingPressed)
-            {
-                networkCharacterController.isKneeling=true;
-            }
-            else
-            {
-                networkCharacterController.isKneeling=false;    
-            }
 
         }
 

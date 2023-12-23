@@ -18,7 +18,6 @@ public class NetworkCharacterController : NetworkTransform
     public float runSpeed = 20f;
     private float walkSpeed;
     private float originalWalkSpeed;
-    public float kneelingSpeed=1f;
     public float rotationSlow=0.1f;
     public float rotationSpeed;
     public float viewVerticalSlow=0.1f;
@@ -39,18 +38,11 @@ public class NetworkCharacterController : NetworkTransform
     [HideInInspector]
     public bool IsSprinting;
     private float cunrrentStamina=0;
-    [HideInInspector]
-    public bool isKneeling;
     [Networked]
     [HideInInspector]
     public Vector3 Velocity { get; set; }
     protected override Vector3 DefaultTeleportInterpolationVelocity => Velocity;
     protected override Vector3 DefaultTeleportInterpolationAngularVelocity => new Vector3(0f, 0f, RotationSpeed());
-    [SerializeField] Hitbox hitbox;
-    private Vector3 orginalControlerCenter;
-    private float orginalHeighControler;
-    private Vector3 kneelingControlerCenter=new Vector3(0,-0.5f,0);
-    private float kneelingHeigh=1f; 
     public CharacterController Controller { get; private set; }
     private CharacterInputHandler inputHandler;
     private WeaponHandler weaponHandler;
@@ -66,8 +58,6 @@ public class NetworkCharacterController : NetworkTransform
         currentDashTime = MaxDashTime;
         walkSpeed=maxSpeed;
         originalWalkSpeed=walkSpeed;
-        orginalHeighControler=Controller.height;
-        orginalControlerCenter=Controller.center;
         inputHandler=GetComponent<CharacterInputHandler>();
 
     }
@@ -111,18 +101,6 @@ public class NetworkCharacterController : NetworkTransform
     {
         base.Spawned();
         CacheController();
-    }
-    public void Kneeling(LocalCameraHandler camera)
-    {
-        Controller.height=kneelingHeigh;
-        Controller.center=kneelingControlerCenter;
-        camera.ChangePositionCam(kneelingHeigh-orginalHeighControler);
-    }
-    public void Standing(LocalCameraHandler camera)
-    {
-        Controller.height=orginalHeighControler;
-        Controller.center=orginalControlerCenter;
-        camera.ChangePositionCam(orginalHeighControler-kneelingHeigh);
     }
 
     private void CacheController()
@@ -178,7 +156,7 @@ public class NetworkCharacterController : NetworkTransform
         }
         else
         {
-            horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, isKneeling ? kneelingSpeed : IsSprinting ? runSpeed : maxSpeed);
+            horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, IsSprinting ? runSpeed : maxSpeed);
         }
 
         moveVelocity.x = horizontalVel.x;

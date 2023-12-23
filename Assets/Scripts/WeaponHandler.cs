@@ -17,8 +17,10 @@ public class WeaponHandler : NetworkBehaviour
     [SerializeField] private GameObject hitMarker;
     [SerializeField] private GunMode gunMode;
     private float timebetweenFire=0.1f;
+    
+    private float timebetweenUnmoprh=0.1f;
     private float lastTimeFired = 0;
-    private float hitDistance = 100;
+    private float lastTimeUnmorph = 0;
     void Start()
     {
         isCurrentFiring=false;
@@ -33,7 +35,7 @@ public class WeaponHandler : NetworkBehaviour
     {
         if(GetInput(out NetworkInputData _networkInputData))
         {
-            if (/*_networkInputData.isFirePressed*/true && gunMode.fireMode)
+            if (_networkInputData.isFirePressed && gunMode.fireMode)
             {
                 Fire(_networkInputData.aimForwardVector);
                 isFiring = true;
@@ -51,13 +53,13 @@ public class WeaponHandler : NetworkBehaviour
 
     private void UnMorph(Vector3 _aimForwardVector)
     {
-        // if(Time.time - lastTimeFired < .15f)//TODO: MN
-        // {
-        //     return;
-        // }
+        if(Time.time - lastTimeUnmorph < timebetweenUnmoprh)//TODO: MN
+        {
+            return;
+        }
         Runner.LagCompensation.Raycast(aimPoint.position, _aimForwardVector, 100, Object.InputAuthority, out var hitInfo, targetLayerMask, HitOptions.IncludePhysX); //TODO: MN
-
-
+        
+        float hitDistance = 0;
         if(hitInfo.Distance > 0) { hitDistance = hitInfo.Distance; }
 
         if(hitInfo.Hitbox != null)
@@ -66,6 +68,7 @@ public class WeaponHandler : NetworkBehaviour
 
             hitInfo.Hitbox.transform.root.GetComponent<Morph>().RPC_UnMorph();
         }
+        lastTimeUnmorph = Time.time;
     }
     private void Fire(Vector3 _aimForwardVector)
     {
@@ -78,7 +81,7 @@ public class WeaponHandler : NetworkBehaviour
         StartCoroutine(FireFX());
 
         Runner.LagCompensation.Raycast(aimPoint.position, _aimForwardVector, 100, Object.InputAuthority, out var hitInfo, targetLayerMask, HitOptions.IncludePhysX); //TODO: MN
-
+        float hitDistance = 0;
 
         bool isHitOtherPlayer = false;
 

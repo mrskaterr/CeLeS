@@ -11106,6 +11106,9 @@ MonoBehaviour:
     m_Bits: 129
   hitMarker: {fileID: 2240025818718178350}
   gunMode: {fileID: 7045311374640270988}
+  gadgetAction:
+    m_PersistentCalls:
+      m_Calls: []
   gun:
   - {fileID: 359073346067238175}
   - {fileID: 3437504402382973558}
@@ -16355,6 +16358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6106512656146724229}
+  - component: {fileID: 4247282762018027052}
   m_Layer: 0
   m_Name: Lock
   m_TagString: Untagged
@@ -16381,6 +16385,18 @@ Transform:
   m_Father: {fileID: 4999165232457706697}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 15}
+--- !u!114 &4247282762018027052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2778101324573280198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52aa4ab4c8b216649a290be4fb210a38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2795687266228030269
 GameObject:
   m_ObjectHideFlags: 0

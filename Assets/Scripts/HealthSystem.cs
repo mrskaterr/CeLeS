@@ -49,7 +49,6 @@ public class HealthSystem : NetworkBehaviour
 
     private IEnumerator OnHit()
     {
-        Debug.Log("on hit");
         networkController.MaxSpeed(false);
         //if (Object.HasInputAuthority)
         //{
@@ -62,8 +61,7 @@ public class HealthSystem : NetworkBehaviour
         // }
         HUD.ToggleOnHitImage(true);
 
-        yield return new WaitForSeconds(2f);
-        Debug.Log("2second");
+        yield return new WaitForSeconds(2f);;
         networkController.MaxSpeed(true);
 
         if (!isDead)
@@ -120,7 +118,6 @@ public class HealthSystem : NetworkBehaviour
         int oldHP = _changed.Behaviour.HP;
         if (newHP < oldHP) 
         {
-            Debug.Log("kurwa działasz ?");
             _changed.Behaviour.OnHPReduced();
         }
     }
@@ -128,11 +125,8 @@ public class HealthSystem : NetworkBehaviour
     private void OnHPReduced()
     {
         //if (isInitialized) { return; }
-
-        Debug.Log("isint");
         // StopAllCoroutines();
         StartCoroutine(OnHit());
-
     }
 
     private void DebugHP() { healthTxt.text = HP.ToString(); }

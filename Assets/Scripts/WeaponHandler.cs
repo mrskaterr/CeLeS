@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
 using System.Security.Cryptography.X509Certificates;
+using Unity.Mathematics;
 
 public class WeaponHandler : NetworkBehaviour
 { 
@@ -29,29 +30,29 @@ public class WeaponHandler : NetworkBehaviour
     void Update()
     {
         if(Input.GetMouseButtonDown(1))//to do network
-            gunMode.SwapMode();
+            gunMode.RPC_SwapMode();
     }
     public override void FixedUpdateNetwork()
     {
         if(GetInput(out NetworkInputData _networkInputData))
         {
-            if (_networkInputData.isFirePressed && gunMode.fireMode)
+            if (_networkInputData.isFirePressed && gunMode.isVacuumMode)
             {
                 Fire(_networkInputData.aimForwardVector);
                 isFiring = true;
                 audioHandler.PlayClip(vacuumAudioClip);
             }
-            else if(!_networkInputData.isFirePressed && gunMode.fireMode)
+            else if(!_networkInputData.isFirePressed && gunMode.isVacuumMode)
             {
                 audioHandler.StopClip(vacuumAudioClip);
                 isFiring=false;
             }
-            if (_networkInputData.isFirePressed && !gunMode.fireMode)
+            if (_networkInputData.isFirePressed && !gunMode.isVacuumMode)
             {
                 UnMorph(_networkInputData.aimForwardVector);
                 audioHandler.PlayClip(unmorphAudioClip);
             }
-            else if (!_networkInputData.isFirePressed && !gunMode.fireMode)
+            else if (!_networkInputData.isFirePressed && !gunMode.isVacuumMode)
             {
                 audioHandler.StopClip(unmorphAudioClip);
             }
@@ -60,21 +61,44 @@ public class WeaponHandler : NetworkBehaviour
 
     private void UnMorph(Vector3 _aimForwardVector)
     {
+        List<LagCompensatedHit> hitInfo2=new List<LagCompensatedHit>();
         if(Time.time - lastTimeUnmorph < timebetweenUnmoprh)//TODO: MN
         {
             return;
         }
-        Runner.LagCompensation.Raycast(aimPoint.position, _aimForwardVector, 100, Object.InputAuthority, out var hitInfo, targetLayerMask, HitOptions.IncludePhysX); //TODO: MN
+        //Runner.LagCompensation.Raycast(aimPoint.position, _aimForwardVector, 100, Object.InputAuthority, out var hitInfo, targetLayerMask, HitOptions.IncludePhysX); //TODO: MN
+        // float hitDistance = 0;
+        // if(hitInfo.Distance > 0) { hitDistance = hitInfo.Distance; }
+
+        // if(hitInfo.Hitbox != null)
+        // {
+        //     Debug.Log($"{Time.time} {transform.name} hit hitbox {hitInfo.Hitbox.transform.root.name}");
+
+        //     hitInfo.Hitbox.transform.root.GetComponent<Morph>().RPC_UnMorph();
+        // }
+        // Runner.LagCompensation.OverlapBox(aimPoint.position,
+        //                                     new Vector3(1,1,1),
+        //                                     Quaternion.Euler(_aimForwardVector),
+        //                                     Object.InputAuthority,
+        //                                     hitInfo2,
+        //                                     targetLayerMask,
+        //                                     HitOptions.IncludePhysX);
         
-        float hitDistance = 0;
-        if(hitInfo.Distance > 0) { hitDistance = hitInfo.Distance; }
-
-        if(hitInfo.Hitbox != null)
+        Runner.LagCompensation.OverlapSphere(aimPoint.position + _aimForwardVector,1,Object.InputAuthority,hitInfo2,targetLayerMask,HitOptions.IncludePhysX); 
+   
+        for(int i=0;i<hitInfo2.Count;i++)
         {
-            Debug.Log($"{Time.time} {transform.name} hit hitbox {hitInfo.Hitbox.transform.root.name}");
-
-            hitInfo.Hitbox.transform.root.GetComponent<Morph>().RPC_UnMorph();
-        }
+            if(hitInfo2[i].Hitbox != null )
+            {
+                Debug.Log($" {transform.name} hit hitbox {hitInfo2[i].Hitbox.transform.root.name} distance {hitInfo2[i].Distance}");
+                hitInfo2[i].Hitbox.transform.root.GetComponent<Morph>()?.RPC_UnMorph();
+            }
+            if(hitInfo2[i].Collider != null)
+            {
+                Debug.Log(hitInfo2[i].Collider.transform.name);
+                //Debug.Log($"{Time.time} {transform.name} hit PhysX collider {hitInfo.Collider.transform.name}");
+            }
+        } 
         lastTimeUnmorph = Time.time;
     }
     private void Fire(Vector3 _aimForwardVector)

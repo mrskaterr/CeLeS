@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic; 
 using UnityEngine; 
 using TMPro; 
-using UnityEngine.UI; 
+using UnityEngine.UI;
+using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
 
- 
+
 public class AutoPlay : MonoBehaviour 
 {   public bool soloGame;
     string whoIs;
@@ -12,6 +14,7 @@ public class AutoPlay : MonoBehaviour
     [SerializeField] GameObject CustomGame;
     [SerializeField] GameObject CreateOrJoin;  
     [SerializeField] GameObject PrivateRoomDetails; 
+
     bool []isDone=new bool[]{false,false,false}; 
     public void NameButton(string buff)
     {
@@ -19,6 +22,8 @@ public class AutoPlay : MonoBehaviour
     }
     void Start() 
     { 
+        if(SceneManager.GetActiveScene()!=SceneManager.GetSceneAt(0))
+            this.enabled=false;
         Manager.GetComponent<PlayfabLogin>().LoginButtonMethod(); 
     } 
     void Update() 

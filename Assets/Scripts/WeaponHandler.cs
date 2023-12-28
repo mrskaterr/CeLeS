@@ -5,26 +5,26 @@ using Fusion;
 using System.Security.Cryptography.X509Certificates;
 
 public class WeaponHandler : NetworkBehaviour
-{
+{ 
+
     [Networked(OnChanged = nameof(OnFireChanged))]
-    public bool isFiring{ get; set; }
-    [Networked]
-    public bool isCurrentFiring{ get; set; }
-    private float FiringTime{ get; set; }
+    [HideInInspector]public bool isFiring{ get; set; }
+    [SerializeField] AudioClip vacuumAudioClip;
+    [SerializeField] AudioClip unmorphAudioClip;
+    [Space]
     [SerializeField] private ParticleSystem fireParticleSystem;
     [SerializeField] private Transform aimPoint;
     [SerializeField] private LayerMask targetLayerMask;
     [SerializeField] private GameObject hitMarker;
     [SerializeField] private GunMode gunMode;
+    private AudioHandler audioHandler;
     private float timebetweenFire=0.1f;
-    
     private float timebetweenUnmoprh=0.1f;
     private float lastTimeFired = 0;
     private float lastTimeUnmorph = 0;
     void Start()
     {
-        isCurrentFiring=false;
-        FiringTime = Time.time;
+        audioHandler = GetComponent<AudioHandler>();
     }
     void Update()
     {
@@ -39,14 +39,21 @@ public class WeaponHandler : NetworkBehaviour
             {
                 Fire(_networkInputData.aimForwardVector);
                 isFiring = true;
+                audioHandler.PlayClip(vacuumAudioClip);
             }
             else if(!_networkInputData.isFirePressed && gunMode.fireMode)
             {
+                audioHandler.StopClip(vacuumAudioClip);
                 isFiring=false;
             }
             if (_networkInputData.isFirePressed && !gunMode.fireMode)
             {
                 UnMorph(_networkInputData.aimForwardVector);
+                audioHandler.PlayClip(unmorphAudioClip);
+            }
+            else if (!_networkInputData.isFirePressed && !gunMode.fireMode)
+            {
+                audioHandler.StopClip(unmorphAudioClip);
             }
         }
     }
@@ -139,10 +146,6 @@ public class WeaponHandler : NetworkBehaviour
         {
             _changed.Behaviour.OnFireRemote();
             
-        }
-        if(!FiringCurrent && FiringOld)
-        {
-            _changed.Behaviour.FiringTime=Time.time;
         }
 
     }

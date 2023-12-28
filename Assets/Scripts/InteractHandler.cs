@@ -12,6 +12,9 @@ public class InteractHandler : MonoBehaviour
     [SerializeField] private Camera fpsCam;
     [SerializeField] private Camera tpsCam;
     [SerializeField] private LocalCameraHandler cameraHandler;
+
+
+
     [Space]
     private NetworkPlayer networkPlayer;
     private Morph morph;
@@ -50,7 +53,7 @@ public class InteractHandler : MonoBehaviour
                 }
                 else if (Input.GetMouseButtonUp(1))
                 {
-                    interactable2.StopInteract();
+                    interactable2.StopInteract(gameObject);
                     playerHUD.StopInteract();
                 }
             }
@@ -99,7 +102,7 @@ public class InteractHandler : MonoBehaviour
         }
         else
         {
-            interactable2?.StopInteract();
+            interactable2?.StopInteract(gameObject);
             playerHUD.StopInteract();
             interactable = null;
             interactable2 = null;
@@ -121,5 +124,5 @@ interface IInteractable//TOIMPROVE: change 4 virtual void
 interface IInteractableHold
 {
     void StartInteract(GameObject @object);
-    void StopInteract();
+    void StopInteract(GameObject @object);
 }

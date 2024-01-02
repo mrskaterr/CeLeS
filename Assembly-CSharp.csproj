@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\PlayerUtility.cs" />
      <Compile Include="Assets\Scripts\HealthSystem.cs" />
      <Compile Include="Assets\Scripts\Manager.cs" />
+     <Compile Include="Assets\MorphBullet.cs" />
      <Compile Include="Assets\SpectateSync.cs" />
      <Compile Include="Assets\Scripts\ActivityEvents.cs" />
      <Compile Include="Assets\Scripts\CharacterInputHandler.cs" />
@@ -86,6 +87,7 @@
      <Compile Include="Assets\Scripts\LobbyManager.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
      <Compile Include="Assets\Scripts\SpawnerV2.cs" />
+     <Compile Include="Assets\TestArc.cs" />
      <Compile Include="Assets\Scripts\MissionScript\BehaviorMission\MissionObject.cs" />
      <Compile Include="Assets\Scripts\MissionScript\InteractableHold.cs" />
      <Compile Include="Assets\Scripts\Network\NetworkRunnerHandler.cs" />
@@ -131,10 +133,9 @@
      <Compile Include="Assets\Scripts\TestLogin.cs" />
      <Compile Include="Assets\Scripts\TASKS\taskCircle\Hack_Panel.cs" />
      <Compile Include="Assets\Scripts\PlayerHolder.cs" />
-     <Compile Include="Assets\Scripts\AutoPlay.cs" />
      <Compile Include="Assets\Scripts\ArcHandler.cs" />
-     <Compile Include="Assets\MorphBullet.cs" />
-     <Compile Include="Assets\TestArc.cs" />
+     <Compile Include="Assets\Scripts\AutoPlay.cs" />
+     <Compile Include="Assets\Ranking.cs" />
      <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\CustomLighting.hlsl" />
      <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\Outline.hlsl" />
      <None Include="Assets\Rendering\Shaders\Celshading 2\CustomLighting.hlsl" />

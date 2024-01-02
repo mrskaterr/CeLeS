@@ -103,6 +103,7 @@
      <Compile Include="Assets\Scripts\MissionScript\Item.cs" />
      <Compile Include="Assets\Scripts\CarryGlobal.cs" />
      <Compile Include="Assets\Scripts\SharedTimer.cs" />
+     <Compile Include="Assets\LookAt.cs" />
      <Compile Include="Assets\Scripts\UserInfoPrefab.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\WordsHacking.cs" />
@@ -131,7 +132,6 @@
      <Compile Include="Assets\Scripts\TASKS\taskCircle\Hack_Panel.cs" />
      <Compile Include="Assets\Scripts\PlayerHolder.cs" />
      <Compile Include="Assets\Scripts\AutoPlay.cs" />
-     <Compile Include="Assets\LookAt.cs" />
      <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\CustomLighting.hlsl" />
      <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\Outline.hlsl" />
      <None Include="Assets\Rendering\Shaders\Celshading 2\CustomLighting.hlsl" />

@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fusion;
+using TMPro;
 using System.Security.Cryptography.X509Certificates;
 using Unity.Mathematics;
+using System;
 
 public class WeaponHandler : NetworkBehaviour
 { 
-
     [Networked(OnChanged = nameof(OnFireChanged))]
     [HideInInspector]public bool isFiring{ get; set; }
     [SerializeField] AudioClip vacuumAudioClip;
@@ -18,34 +19,65 @@ public class WeaponHandler : NetworkBehaviour
     [SerializeField] private LayerMask targetLayerMask;
     [SerializeField] private GameObject hitMarker;
     [SerializeField] private GunMode gunMode;
+    [SerializeField] private int ammoMaxCount;
+    [SerializeField] private float timeToReload;
+    private int ammoCurrentCount;
+    [SerializeField] TMP_Text ammoCountTxt;
     private AudioHandler audioHandler;
     private float timebetweenFire=0.1f;
     private float timebetweenUnmoprh=0.1f;
     private float lastTimeFired = 0;
     private float lastTimeUnmorph = 0;
+    private Coroutine  reloadCoroutine;
+    private bool isReloading=false;
     void Start()
     {
         audioHandler = GetComponent<AudioHandler>();
+        ammoCurrentCount=ammoMaxCount;
+        ammoCountTxt.text=ammoCurrentCount.ToString();
     }
     void Update()
     {
-        if(Input.GetMouseButtonDown(1))//to do network
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            isReloading=true;
+            reloadCoroutine = StartCoroutine(Reload());
+        }       
+        if(Input.GetKeyUp(KeyCode.R))
+        {
+            isReloading=false;
+            StopCoroutine(reloadCoroutine);
+        }
+        if(!isReloading && !isFiring  && Input.GetMouseButtonDown(1))
+        {
             gunMode.RPC_SwapMode();
+        }
     }
+    IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(timeToReload);
+        ammoCurrentCount=ammoMaxCount;
+        ammoCountTxt.text=ammoCurrentCount.ToString();
+    }
+
+
     public override void FixedUpdateNetwork()
     {
+        if(isReloading)
+            return;
         if(GetInput(out NetworkInputData _networkInputData))
         {
             if (_networkInputData.isFirePressed && gunMode.isVacuumMode)
             {
-                Fire(_networkInputData.aimForwardVector);
                 isFiring = true;
+                Fire(_networkInputData.aimForwardVector);
                 audioHandler.PlayClip(vacuumAudioClip);
             }
             else if(!_networkInputData.isFirePressed && gunMode.isVacuumMode)
             {
-                audioHandler.StopClip(vacuumAudioClip);
                 isFiring=false;
+                audioHandler.StopClip(vacuumAudioClip);
             }
             if (_networkInputData.isFirePressed && !gunMode.isVacuumMode)
             {
@@ -103,7 +135,12 @@ public class WeaponHandler : NetworkBehaviour
     }
     private void Fire(Vector3 _aimForwardVector)
     {
-
+        if(ammoCurrentCount<=0 )
+        {
+            isFiring=false;
+            ammoCountTxt.text=ammoCurrentCount.ToString();
+            return;
+        }
         if(Time.time - lastTimeFired < timebetweenFire)//TODO: MN
         {
             return;
@@ -143,7 +180,8 @@ public class WeaponHandler : NetworkBehaviour
         {
             Debug.DrawRay(aimPoint.position, _aimForwardVector * hitDistance, Color.green, 1);
         }
-
+        ammoCurrentCount--;
+        ammoCountTxt.text=ammoCurrentCount.ToString();
         lastTimeFired = Time.time;
     }
     private IEnumerator HitFX()

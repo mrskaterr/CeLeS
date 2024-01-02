@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement;
 
 
 public class AutoPlay : MonoBehaviour 
-{   public bool soloGame;
+{  
+    public bool soloGame;
     string whoIs;
     [SerializeField] GameObject Manager; 
     [SerializeField] GameObject CustomGame;
@@ -21,7 +22,7 @@ public class AutoPlay : MonoBehaviour
         whoIs=buff;
     }
     void Start() 
-    { 
+    {
         if(SceneManager.GetActiveScene()!=SceneManager.GetSceneAt(0))
             this.enabled=false;
         Manager.GetComponent<PlayfabLogin>().LoginButtonMethod(); 

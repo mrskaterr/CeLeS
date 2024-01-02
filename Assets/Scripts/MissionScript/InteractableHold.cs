@@ -17,8 +17,6 @@ public class InteractableHold : MissionObject, IInteractableHold
     private Transform itemToDestroy;
     private int iterator=0;
     [Space]
-    [SerializeField] AudioSource audioDone;
-    [SerializeField] AudioSource audioLoading;
     [SerializeField] private UnityEvent step;
     [SerializeField] private UnityEvent completed;
     public bool oneStep=true;

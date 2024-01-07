@@ -13,10 +13,11 @@ public class AudioHandler : MonoBehaviour
     {
         if(!stepAudio.isPlaying)
             stepAudio.Play();
+        
     }
-    public void NinjaMode(float time)
+    public void NinjaMode(bool active)
     {
-        StartCoroutine(WaitAndEnale(time));
+        stepAudio.enabled=active;
     }
     public void PlayClip(AudioClip audioClip)
     {
@@ -39,13 +40,6 @@ public class AudioHandler : MonoBehaviour
         interactDone.SetActive(true);
             yield return new WaitForSeconds(time);
         interactDone.SetActive(false);
-
-    }
-    private IEnumerator WaitAndEnale(float time)
-    {
-        stepAudio.enabled=false;
-            yield return new WaitForSeconds(time);
-        stepAudio.enabled=true;
 
     }
     public void InteractLoading(bool isInteract)

@@ -1265,6 +1265,7 @@ MonoBehaviour:
   viewVerticalSpeed: 390
   _IsGrounded: 0
   StartDashing: 0
+  StartNinjaMode: 0
   IsSprinting: 0
   _Velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &4309556519627489336
@@ -1588,7 +1589,7 @@ MonoBehaviour:
   dashSpeed: 10
   dashMaxAmount: 2
   maxDashTime: 1
-  dashResetTime: 100
+  dashResetTime: 10
 --- !u!114 &-3350620294154991743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1604,9 +1605,9 @@ MonoBehaviour:
   NinjaAmount: {fileID: 3904646903460176484}
   NinjaBarFill: {fileID: 2349243350615738053}
   NinjaSpeed: 10
-  NinjaMaxAmount: 2
+  NinjaMaxAmount: 5
   maxNinjaTime: 1
-  NinjaResetTime: 100
+  NinjaResetTime: 10
 --- !u!1 &2382106172228745221
 GameObject:
   m_ObjectHideFlags: 0

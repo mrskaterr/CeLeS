@@ -7,6 +7,8 @@ using System.Security.Cryptography.X509Certificates;
 using Unity.Mathematics;
 using System;
 using UnityEngine.UIElements;
+using UnityEngine.VFX;
+using ExitGames.Client.Photon.StructWrapping;
 
 public class WeaponHandler : NetworkBehaviour
 { 
@@ -15,8 +17,11 @@ public class WeaponHandler : NetworkBehaviour
     [SerializeField] AudioClip vacuumAudioClip;
     [SerializeField] AudioClip unmorphAudioClip;
     [Space]
-    [SerializeField] private ParticleSystem fireParticleSystem;
+    //[SerializeField] private ParticleSystem fireParticleSystem;
     [SerializeField] private GameObject prefImpactVFX;
+    [SerializeField] private GameObject prefBullet;
+    [SerializeField] private List<ArcHandler> arc;
+    //[SerializeField] private List<VisualEffect> visualEffect;
     [SerializeField] private Transform aimPoint;
     [SerializeField] private LayerMask targetLayerMask;
     [SerializeField] private GameObject hitMarker;
@@ -104,8 +109,10 @@ public class WeaponHandler : NetworkBehaviour
                 Fire(_networkInputData.aimForwardVector);
                 audioHandler.PlayClip(vacuumAudioClip);
             }
-            else if(!_networkInputData.isFirePressed && gunMode.isVacuumMode)
+            else if(!_networkInputData.isFirePressed && gunMode.isVacuumMode || ammoCurrentCount==0)
             {
+                foreach(ArcHandler a in arc)
+                    a.Target=null;
                 isFiring=false;
                 audioHandler.StopClip(vacuumAudioClip);
             }
@@ -129,6 +136,8 @@ public class WeaponHandler : NetworkBehaviour
             return;
         }
         Runner.LagCompensation.Raycast(aimPoint.position, _aimForwardVector, 100, Object.InputAuthority, out var hitInfo, targetLayerMask, HitOptions.IncludePhysX); //TODO: MN
+        GameObject bullet=Instantiate(prefBullet,aimPoint.position,Quaternion.Euler(Vector3.zero));
+        bullet.GetComponent<Rigidbody>().velocity=_aimForwardVector*100;
         if(hitInfo.Distance > 0) 
         {
             if(hitInfo.Hitbox != null)
@@ -194,6 +203,8 @@ public class WeaponHandler : NetworkBehaviour
             if (Object.HasStateAuthority && hitInfo.Hitbox.transform.root.GetComponent<Morph>()?.index==-1)
             {
                 hitInfo.Hitbox.transform.root.GetComponent<HealthSystem>().RPC_OnTakeDamage();
+                foreach(ArcHandler a in arc)
+                    a.Target=hitInfo.Hitbox.transform.root;
                 StartCoroutine(HitFX());
             }
             isHitOtherPlayer = true;
@@ -201,6 +212,8 @@ public class WeaponHandler : NetworkBehaviour
         else if(hitInfo.Collider != null)
         {
             Debug.Log(hitInfo.Collider.transform.name);
+            foreach(ArcHandler a in arc)
+                    a.ResetTarget();
             //Debug.Log($"{Time.time} {transform.name} hit PhysX collider {hitInfo.Collider.transform.name}");
         }
 
@@ -225,7 +238,7 @@ public class WeaponHandler : NetworkBehaviour
 
     private IEnumerator FireFX()
     {
-        fireParticleSystem.Play();
+        //fireParticleSystem.Play();
         yield return new WaitForSeconds(timebetweenFire);//TOIMPROVE: define this
     }
     private static void OnFireChanged(Changed<WeaponHandler> _changed)
@@ -247,7 +260,7 @@ public class WeaponHandler : NetworkBehaviour
     {
         if (!Object.HasInputAuthority)
         {
-            fireParticleSystem.Play();
+            //fireParticleSystem.Play();
             Debug.Log("!");
         }
     }

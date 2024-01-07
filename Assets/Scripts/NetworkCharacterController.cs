@@ -122,7 +122,7 @@ public class NetworkCharacterController : NetworkTransform
         }
         else
         {
-            audioHandler.PlayStepAudio();
+            if(IsGrounded)audioHandler.PlayStepAudio();
             horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, maxSpeed);
         }
 

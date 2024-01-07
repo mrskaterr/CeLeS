@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\MissionScript\BehaviorMission\MissionData.cs" />
+     <Compile Include="Assets\Ranking.cs" />
      <Compile Include="Assets\Scripts\NetworkAnimator.cs" />
      <Compile Include="Assets\Scripts\Network\NetworkInputData.cs" />
      <Compile Include="Assets\Scripts\RPCManager.cs" />
@@ -118,6 +119,7 @@
      <Compile Include="Assets\Scripts\MissionScript\BehaviorMission\TestMission2.cs" />
      <Compile Include="Assets\Scripts\CompassHandler.cs" />
      <Compile Include="Assets\Scripts\MorphObject.cs" />
+     <Compile Include="Assets\SprintSystem.cs" />
      <Compile Include="Assets\AudioHandler.cs" />
      <Compile Include="Assets\CamerasHolder.cs" />
      <Compile Include="Assets\Scripts\TASKS\TaskLogic.cs" />
@@ -126,6 +128,7 @@
      <Compile Include="Assets\Scripts\MissionScript\BehaviorMission\TestMission.cs" />
      <Compile Include="Assets\Rendering\Shaders\Better Celshading\ScriptableRenderFeatures\DepthNormalsFeature.cs" />
      <Compile Include="Assets\Scripts\TASKS\taskColor\TaskRemeberColor.cs" />
+     <Compile Include="Assets\DashSystem.cs" />
      <Compile Include="Assets\IsDone.cs" />
      <Compile Include="Assets\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\PlayerNetworkEventsHandler.cs" />
@@ -135,7 +138,6 @@
      <Compile Include="Assets\Scripts\PlayerHolder.cs" />
      <Compile Include="Assets\Scripts\ArcHandler.cs" />
      <Compile Include="Assets\Scripts\AutoPlay.cs" />
-     <Compile Include="Assets\Ranking.cs" />
      <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\CustomLighting.hlsl" />
      <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\Outline.hlsl" />
      <None Include="Assets\Rendering\Shaders\Celshading 2\CustomLighting.hlsl" />

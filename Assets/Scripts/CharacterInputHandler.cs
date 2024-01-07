@@ -19,22 +19,14 @@ public class CharacterInputHandler : MonoBehaviour
     private bool sprintInput=false;
     private bool kneelingInput=false;
     private Vector3 sneakRot = Vector3.zero;
-    private bool isHuman;
 
     private CharacterMovementHandler characterMovementHandler;
-    private NetworkCharacterController controler;
     private void Awake()
     {
-        
-        if(RPCManager.Local.IsHuman())
-            isHuman=false;
-        else
-            isHuman=true;
         characterMovementHandler = GetComponent<CharacterMovementHandler>();
     }
     private void Start()
     {
-        controler=GetComponent<NetworkCharacterController>();
         Cursor.lockState = CursorLockMode.Locked;//TOIMPROVE: Utils
         Cursor.visible = false;
 
@@ -75,16 +67,15 @@ public class CharacterInputHandler : MonoBehaviour
             sneakyInput = false;
         }
     
-        if(!isHuman && Input.GetKeyDown(KeyCode.LeftShift))
+        if(Input.GetKeyDown(KeyCode.LeftShift))
         {
             dashInput=true;
         }
-        if(isHuman && canSprinting && Input.GetKeyDown(KeyCode.LeftShift)) 
+        if(RPCManager.Local.IsHuman() && canSprinting && Input.GetKeyDown(KeyCode.LeftShift)) 
         {
-            
 		    sprintInput=true;
 	    }
-        if(isHuman && Input.GetKeyUp(KeyCode.LeftShift) || !canSprinting) 
+        if(RPCManager.Local.IsHuman() && Input.GetKeyUp(KeyCode.LeftShift) || !canSprinting) 
         {
 		    sprintInput=false;
 	    }

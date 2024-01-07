@@ -25,7 +25,7 @@ public class AutoPlay : MonoBehaviour
     {
         if(SceneManager.GetActiveScene()!=SceneManager.GetSceneAt(0))
             this.enabled=false;
-        Manager.GetComponent<PlayfabLogin>().LoginButtonMethod(); 
+        //Manager.GetComponent<PlayfabLogin>().LoginButtonMethod(); 
     } 
     void Update() 
     { 

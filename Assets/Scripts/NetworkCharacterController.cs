@@ -13,22 +13,11 @@ public class NetworkCharacterController : NetworkTransform
     public float jumpImpulse = 8.0f;
     public float acceleration = 10.0f;
     public float braking = 10.0f;
-    public float maxStamina=5f;
     public float maxSpeed = 2.0f;
-    public float runSpeed = 20f;
-    private float walkSpeed;
+    public float walkSpeed;
     private float originalWalkSpeed;
-    public float rotationSlow=0.1f;
     public float rotationSpeed;
-    public float viewVerticalSlow=0.1f;
     public float viewVerticalSpeed;
-    public float DashSpeed=10f;
-    public int DashMaxAmount=2;
-    public int DashCurrentAmount=0;
-    public float MaxDashTime=1f;
-    public float DashResetTime=100f;
-    private float currentDashTime;
-    private float currentDashResetTime;
     [Networked]
     [HideInInspector]
     public bool IsGrounded { get; set; }
@@ -37,65 +26,35 @@ public class NetworkCharacterController : NetworkTransform
     
     [HideInInspector]
     public bool IsSprinting;
-    private float cunrrentStamina=0;
     [Networked]
     [HideInInspector]
     public Vector3 Velocity { get; set; }
     protected override Vector3 DefaultTeleportInterpolationVelocity => Velocity;
     protected override Vector3 DefaultTeleportInterpolationAngularVelocity => new Vector3(0f, 0f, RotationSpeed());
     public CharacterController Controller { get; private set; }
-    private CharacterInputHandler inputHandler;
     private WeaponHandler weaponHandler;
+    private SprintSystem sprintSystem;
+    private DashSystem dashSystem;
 
     void Start()
     {
-        weaponHandler=GetComponent<WeaponHandler>();
+        dashSystem =  GetComponent<DashSystem>();
+        weaponHandler = GetComponent<WeaponHandler>();
+        sprintSystem = GetComponent<SprintSystem>();
+       
     }
     protected override void Awake()
     {
         base.Awake();
         CacheController();
-        currentDashTime = MaxDashTime;
         walkSpeed=maxSpeed;
         originalWalkSpeed=walkSpeed;
-        inputHandler=GetComponent<CharacterInputHandler>();
 
     }
     public override void FixedUpdateNetwork()
-    {
-        if(IsSprinting && cunrrentStamina>0f)
-        {
-            cunrrentStamina-=Time.deltaTime;
-            if(cunrrentStamina<=0f)
-                inputHandler.canSprinting=false;
-        }
-        else if(!IsSprinting && cunrrentStamina<=maxStamina)
-        {
-            cunrrentStamina+=Time.deltaTime;
-            if(cunrrentStamina>=maxStamina)
-                inputHandler.canSprinting=true;
-        }
-
-      
-        if (StartDashing &&  DashCurrentAmount<DashMaxAmount )
-        {
-            DashCurrentAmount++;
-            currentDashTime = 0.0f;
-            currentDashResetTime= 0.0f;
-            StartDashing=false;
-        }
-        if (currentDashTime < MaxDashTime)
-        {
-            maxSpeed=DashSpeed;
-            currentDashTime += Time.fixedDeltaTime;
-        }
-        else
-        {
-            maxSpeed=walkSpeed;
-            currentDashResetTime += Time.fixedDeltaTime;
-            if(currentDashResetTime>=DashResetTime)
-                DashCurrentAmount=0;
-        }
+    {     
+        sprintSystem?.Sprint();
+        dashSystem?.Dash(StartDashing);
     }
     public override void Spawned()
     {
@@ -156,7 +115,7 @@ public class NetworkCharacterController : NetworkTransform
         }
         else
         {
-            horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, IsSprinting ? runSpeed : maxSpeed);
+            horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, maxSpeed);
         }
 
         moveVelocity.x = horizontalVel.x;

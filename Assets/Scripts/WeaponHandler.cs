@@ -6,6 +6,7 @@ using TMPro;
 using System.Security.Cryptography.X509Certificates;
 using Unity.Mathematics;
 using System;
+using UnityEngine.UIElements;
 
 public class WeaponHandler : NetworkBehaviour
 { 
@@ -15,6 +16,7 @@ public class WeaponHandler : NetworkBehaviour
     [SerializeField] AudioClip unmorphAudioClip;
     [Space]
     [SerializeField] private ParticleSystem fireParticleSystem;
+    [SerializeField] private GameObject prefImpactVFX;
     [SerializeField] private Transform aimPoint;
     [SerializeField] private LayerMask targetLayerMask;
     [SerializeField] private GameObject hitMarker;
@@ -30,6 +32,34 @@ public class WeaponHandler : NetworkBehaviour
     private float lastTimeUnmorph = 0;
     private Coroutine  reloadCoroutine;
     private bool isReloading=false;
+    public List<GameObject> ImpactVFX=new List<GameObject>(); 
+    void PlayImpactVFX(Vector3 pos)
+    {
+        foreach(GameObject go in ImpactVFX)
+        {
+            if(go.activeInHierarchy)
+                continue;
+            else
+            {
+                go.transform.position=pos;
+                go.SetActive(true);
+                StartCoroutine(Disable(go));
+                return;
+            }
+
+        }
+        GameObject vfx=Instantiate(prefImpactVFX);
+        vfx.transform.position=pos;
+        vfx.SetActive(true);
+        ImpactVFX.Add(vfx);
+        StartCoroutine(Disable(vfx));
+    }
+    IEnumerator Disable(GameObject go)
+    {
+        yield return new WaitForSeconds(3f);
+        go.SetActive(false);
+    }
+
     void Start()
     {
         audioHandler = GetComponent<AudioHandler>();
@@ -98,39 +128,41 @@ public class WeaponHandler : NetworkBehaviour
         {
             return;
         }
-        //Runner.LagCompensation.Raycast(aimPoint.position, _aimForwardVector, 100, Object.InputAuthority, out var hitInfo, targetLayerMask, HitOptions.IncludePhysX); //TODO: MN
-        // float hitDistance = 0;
-        // if(hitInfo.Distance > 0) { hitDistance = hitInfo.Distance; }
-
-        // if(hitInfo.Hitbox != null)
-        // {
-        //     Debug.Log($"{Time.time} {transform.name} hit hitbox {hitInfo.Hitbox.transform.root.name}");
-
-        //     hitInfo.Hitbox.transform.root.GetComponent<Morph>().RPC_UnMorph();
-        // }
-        // Runner.LagCompensation.OverlapBox(aimPoint.position,
-        //                                     new Vector3(1,1,1),
-        //                                     Quaternion.Euler(_aimForwardVector),
-        //                                     Object.InputAuthority,
-        //                                     hitInfo2,
-        //                                     targetLayerMask,
-        //                                     HitOptions.IncludePhysX);
-        
-        Runner.LagCompensation.OverlapSphere(aimPoint.position + _aimForwardVector,1,Object.InputAuthority,hitInfo2,targetLayerMask,HitOptions.IncludePhysX); 
-   
-        for(int i=0;i<hitInfo2.Count;i++)
+        Runner.LagCompensation.Raycast(aimPoint.position, _aimForwardVector, 100, Object.InputAuthority, out var hitInfo, targetLayerMask, HitOptions.IncludePhysX); //TODO: MN
+        if(hitInfo.Distance > 0) 
         {
-            if(hitInfo2[i].Hitbox != null )
+            if(hitInfo.Hitbox != null)
             {
-                Debug.Log($" {transform.name} hit hitbox {hitInfo2[i].Hitbox.transform.root.name} distance {hitInfo2[i].Distance}");
-                hitInfo2[i].Hitbox.transform.root.GetComponent<Morph>()?.RPC_UnMorph();
+                Debug.Log($"{Time.time} {transform.name} hit hitbox {hitInfo.Hitbox.transform.root.name}");
+
+                hitInfo.Hitbox.transform.root.GetComponent<Morph>().RPC_UnMorph();
             }
-            if(hitInfo2[i].Collider != null)
+            else if(hitInfo.Collider != null)
             {
-                Debug.Log(hitInfo2[i].Collider.transform.name);
-                //Debug.Log($"{Time.time} {transform.name} hit PhysX collider {hitInfo.Collider.transform.name}");
+                PlayImpactVFX(hitInfo.Point);
+                Runner.LagCompensation.OverlapSphere(hitInfo.Point,1,Object.InputAuthority,hitInfo2,targetLayerMask,HitOptions.IncludePhysX); 
+    
+                for(int i=0;i<hitInfo2.Count;i++)
+                {
+                    Debug.Log("KULA DAL FULA");
+                    if(hitInfo2[i].Hitbox != null )
+                    {
+
+                        Debug.Log($" {transform.name} hit hitbox {hitInfo2[i].Hitbox.transform.root.name} distance {hitInfo2[i].Distance}");
+                        hitInfo2[i].Hitbox.transform.root.GetComponent<Morph>().RPC_UnMorph();
+                    }
+                    if(hitInfo2[i].Collider != null)
+                    {
+                        Debug.Log(hitInfo2[i].Collider.transform.name);
+                        //Debug.Log($"{Time.time} {transform.name} hit PhysX collider {hitInfo.Collider.transform.name}");
+                    }
+                } 
+
             }
-        } 
+        }
+        
+        
+
         lastTimeUnmorph = Time.time;
     }
     private void Fire(Vector3 _aimForwardVector)

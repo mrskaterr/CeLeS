@@ -138,6 +138,8 @@
      <Compile Include="Assets\Scripts\PlayerHolder.cs" />
      <Compile Include="Assets\Scripts\ArcHandler.cs" />
      <Compile Include="Assets\Scripts\AutoPlay.cs" />
+     <Compile Include="Assets\ImpactVFX.cs" />
+     <Compile Include="Assets\NinjaSystem.cs" />
      <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\CustomLighting.hlsl" />
      <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\Outline.hlsl" />
      <None Include="Assets\Rendering\Shaders\Celshading 2\CustomLighting.hlsl" />

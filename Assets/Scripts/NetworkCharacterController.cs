@@ -23,6 +23,7 @@ public class NetworkCharacterController : NetworkTransform
     public bool IsGrounded { get; set; }
     [HideInInspector]
     public bool StartDashing;
+    public bool StartNinjaMode;
     
     [HideInInspector]
     public bool IsSprinting;
@@ -35,13 +36,17 @@ public class NetworkCharacterController : NetworkTransform
     private WeaponHandler weaponHandler;
     private SprintSystem sprintSystem;
     private DashSystem dashSystem;
+    private NinjaSystem ninjaSystem;
+    private AudioHandler audioHandler;
 
     void Start()
     {
+        ninjaSystem = GetComponent<NinjaSystem>();
         dashSystem =  GetComponent<DashSystem>();
         weaponHandler = GetComponent<WeaponHandler>();
         sprintSystem = GetComponent<SprintSystem>();
-       
+        audioHandler = GetComponent<AudioHandler>();
+        
     }
     protected override void Awake()
     {
@@ -49,12 +54,14 @@ public class NetworkCharacterController : NetworkTransform
         CacheController();
         walkSpeed=maxSpeed;
         originalWalkSpeed=walkSpeed;
-
+    
     }
     public override void FixedUpdateNetwork()
     {     
         sprintSystem?.Sprint();
+        ninjaSystem?.NinjaMode(StartNinjaMode);
         dashSystem?.Dash(StartDashing);
+
     }
     public override void Spawned()
     {
@@ -115,6 +122,7 @@ public class NetworkCharacterController : NetworkTransform
         }
         else
         {
+            audioHandler.PlayStepAudio();
             horizontalVel = Vector3.ClampMagnitude(horizontalVel + direction * acceleration * deltaTime, maxSpeed);
         }
 

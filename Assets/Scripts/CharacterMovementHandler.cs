@@ -64,6 +64,14 @@ public class CharacterMovementHandler : NetworkBehaviour
             {
                 networkCharacterController.IsSprinting=false;
             }
+            if (networkInputData.isNinjaModePressed)
+            {
+                networkCharacterController.StartNinjaMode=true;
+            }
+            else
+            {
+                networkCharacterController.StartNinjaMode=false;
+            }
 
         }
 

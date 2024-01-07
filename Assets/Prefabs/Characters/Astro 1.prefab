@@ -10212,18 +10212,10 @@ MonoBehaviour:
   jumpImpulse: 8
   acceleration: 40
   braking: 10
-  maxStamina: 5
   maxSpeed: 5
-  runSpeed: 20
-  rotationSlow: 0.1
+  walkSpeed: 0
   rotationSpeed: 480
-  viewVerticalSlow: 0.1
   viewVerticalSpeed: 390
-  DashSpeed: 10
-  DashMaxAmount: 2
-  DashCurrentAmount: 0
-  MaxDashTime: 5
-  DashResetTime: 5
   _IsGrounded: 0
   StartDashing: 0
   IsSprinting: 0
@@ -10315,6 +10307,7 @@ MonoBehaviour:
   vacuumAudioClip: {fileID: 8300000, guid: 584dfbff38f8d3043aa8ffa6659db43b, type: 3}
   unmorphAudioClip: {fileID: 8300000, guid: e6d90a5651bef4540a38a78395065e33, type: 3}
   fireParticleSystem: {fileID: 6002426246018756315}
+  prefImpactVFX: {fileID: 7240751703160524551, guid: 22477c4a2728aa54994e4b42f7d60ddf, type: 3}
   aimPoint: {fileID: 2057028386345069325}
   targetLayerMask:
     serializedVersion: 2
@@ -10324,6 +10317,7 @@ MonoBehaviour:
   ammoMaxCount: 30
   timeToReload: 10
   ammoCountTxt: {fileID: 1815997557201344761}
+  ImpactVFX: []
 --- !u!114 &1198443442275639798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10522,6 +10516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staminaBarFill: {fileID: 8885738363172463310}
   maxStamina: 5
+  runSpeed: 20
 --- !u!114 &2631914337351822732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10537,6 +10532,7 @@ MonoBehaviour:
   mainAudioSource: {fileID: 2543467741302854926}
   interactDone: {fileID: 4322713376524562594}
   interactLoading: {fileID: 4322713377029493576}
+  stepAudio: {fileID: 7188877073121043684}
 --- !u!1 &2308542966252323962
 GameObject:
   m_ObjectHideFlags: 0
@@ -33791,5 +33787,10 @@ GameObject:
 --- !u!1 &4322713377029493576 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4892112640767440992, guid: 0a60a2d1c77f5414f870bcec678e3e9a, type: 3}
+  m_PrefabInstance: {fileID: 8653977223508273960}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &7188877073121043684 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2007796137563279308, guid: 0a60a2d1c77f5414f870bcec678e3e9a, type: 3}
   m_PrefabInstance: {fileID: 8653977223508273960}
   m_PrefabAsset: {fileID: 0}

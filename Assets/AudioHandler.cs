@@ -7,7 +7,17 @@ public class AudioHandler : MonoBehaviour
     [SerializeField] AudioSource mainAudioSource;
     [SerializeField] GameObject interactDone;
     [SerializeField] GameObject interactLoading;
+    [SerializeField] AudioSource stepAudio;
     // Start is called before the first frame update
+    public void PlayStepAudio()
+    {
+        if(!stepAudio.isPlaying)
+            stepAudio.Play();
+    }
+    public void NinjaMode(float time)
+    {
+        StartCoroutine(WaitAndEnale(time));
+    }
     public void PlayClip(AudioClip audioClip)
     {
         if(mainAudioSource.clip==audioClip && mainAudioSource.isPlaying)
@@ -22,13 +32,20 @@ public class AudioHandler : MonoBehaviour
     }
     public void InteractDone()
     {
-        StartCoroutine(WaitAndDisable());
+        StartCoroutine(WaitAndDisable(0.2f));
     }
-    private IEnumerator WaitAndDisable()
+    private IEnumerator WaitAndDisable(float time)
     {
         interactDone.SetActive(true);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(time);
         interactDone.SetActive(false);
+
+    }
+    private IEnumerator WaitAndEnale(float time)
+    {
+        stepAudio.enabled=false;
+            yield return new WaitForSeconds(time);
+        stepAudio.enabled=true;
 
     }
     public void InteractLoading(bool isInteract)

@@ -17,7 +17,7 @@ public class CharacterInputHandler : MonoBehaviour
     private bool sneakyInput = false;
     private bool dashInput= false;
     private bool sprintInput=false;
-    private bool kneelingInput=false;
+    private bool NinjaModeInput=false;
     private Vector3 sneakRot = Vector3.zero;
 
     private CharacterMovementHandler characterMovementHandler;
@@ -79,6 +79,14 @@ public class CharacterInputHandler : MonoBehaviour
         {
 		    sprintInput=false;
 	    }
+        if(Input.GetKeyDown(KeyCode.N)) 
+        {
+		    NinjaModeInput=true;
+	    }
+        if(Input.GetKeyUp(KeyCode.N)) 
+        {
+		    NinjaModeInput=false;
+	    }
         moveInput.y += speedStep;
 
         cameraHandler.SetViewInput(viewInput);
@@ -107,7 +115,7 @@ public class CharacterInputHandler : MonoBehaviour
 
         networkInputData.isSprintPressed = sprintInput;
 
-        networkInputData.isKneelingPressed = kneelingInput;
+        networkInputData.isNinjaModePressed = NinjaModeInput;
         
         jumpInput = false;
         dashInput = false;

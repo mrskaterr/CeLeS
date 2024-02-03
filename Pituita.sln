@@ -5,11 +5,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayFab", "PlayFab.csproj",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{ACEE2705-D884-3C5A-2265-9B476D157833}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tayx.Graphy", "Tayx.Graphy.csproj", "{D21F8269-697C-E21A-23C5-FA9EF7D4C7D5}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{6E396BFC-D3F2-948C-B235-A646E30B0F83}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fusion.Addressables", "Fusion.Addressables.csproj", "{AD3D8300-73DF-ACAA-61EE-4827B26F286D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayFabEditorExtensions", "PlayFabEditorExtensions.csproj", "{9F55A078-9074-1B93-AF94-3AA959845E42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tayx.Graphy.Editor", "Tayx.Graphy.Editor.csproj", "{9BC9AA6E-C25C-204C-973F-41753DEA07B9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fusion.Editor", "Fusion.Editor.csproj", "{CA145FD2-7004-64A2-2526-DA865EF4BD62}"
 EndProject
@@ -35,6 +39,10 @@ Global
 		{ACEE2705-D884-3C5A-2265-9B476D157833}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACEE2705-D884-3C5A-2265-9B476D157833}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACEE2705-D884-3C5A-2265-9B476D157833}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D21F8269-697C-E21A-23C5-FA9EF7D4C7D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D21F8269-697C-E21A-23C5-FA9EF7D4C7D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D21F8269-697C-E21A-23C5-FA9EF7D4C7D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D21F8269-697C-E21A-23C5-FA9EF7D4C7D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6E396BFC-D3F2-948C-B235-A646E30B0F83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6E396BFC-D3F2-948C-B235-A646E30B0F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E396BFC-D3F2-948C-B235-A646E30B0F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,6 +55,10 @@ Global
 		{9F55A078-9074-1B93-AF94-3AA959845E42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F55A078-9074-1B93-AF94-3AA959845E42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F55A078-9074-1B93-AF94-3AA959845E42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC9AA6E-C25C-204C-973F-41753DEA07B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC9AA6E-C25C-204C-973F-41753DEA07B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC9AA6E-C25C-204C-973F-41753DEA07B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC9AA6E-C25C-204C-973F-41753DEA07B9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CA145FD2-7004-64A2-2526-DA865EF4BD62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CA145FD2-7004-64A2-2526-DA865EF4BD62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA145FD2-7004-64A2-2526-DA865EF4BD62}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Extensions\IntExtension.cs" />
     <Compile Include="Assets\Scripts\MissionScript\FindingTriggerMission.cs" />
     <Compile Include="Assets\Scripts\TASKS\taskColor\ResetColors.cs" />
+    <Compile Include="Assets\chuj.cs" />
     <Compile Include="Assets\Scripts\PlayerHUD.cs" />
     <Compile Include="Assets\Scripts\PlayerRole.cs" />
     <Compile Include="Assets\Scripts\LobbyManagerV2.cs" />
@@ -162,11 +163,16 @@
     <Compile Include="Assets\Scripts\AutoPlay.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Graphy - Ultimate Stats Monitor\Changelog.txt" />
     <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\CustomLighting.hlsl" />
     <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\Outline.hlsl" />
     <None Include="Assets\Rendering\Shaders\Celshading 2\CustomLighting.hlsl" />
     <None Include="Assets\Rendering\Shaders\CelShading\Lighting.hlsl" />
+    <None Include="Assets\Graphy - Ultimate Stats Monitor\Shaders\GraphMobile.shader" />
+    <None Include="Assets\Graphy - Ultimate Stats Monitor\Font\Northwest-Bold\ERIC-TIRADO-NORTHWEST-LICENSE.txt" />
     <None Include="Assets\Rendering\Shaders\Better Celshading\CustomHLSL\ShadowCasterPass.hlsl" />
+    <None Include="Assets\Graphy - Ultimate Stats Monitor\Font\Roboto\LICENSE.txt" />
+    <None Include="Assets\Graphy - Ultimate Stats Monitor\Shaders\GraphStandard.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -1007,6 +1013,14 @@
     <ProjectReference Include="PlayFab.csproj">
       <Project>{77404A61-16BE-61AA-FC37-4824114D86D0}</Project>
       <Name>PlayFab</Name>
+    </ProjectReference>
+    <ProjectReference Include="Tayx.Graphy.Editor.csproj">
+      <Project>{9BC9AA6E-C25C-204C-973F-41753DEA07B9}</Project>
+      <Name>Tayx.Graphy.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Tayx.Graphy.csproj">
+      <Project>{D21F8269-697C-E21A-23C5-FA9EF7D4C7D5}</Project>
+      <Name>Tayx.Graphy</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

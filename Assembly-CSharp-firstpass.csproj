@@ -984,6 +984,14 @@
       <Project>{77404A61-16BE-61AA-FC37-4824114D86D0}</Project>
       <Name>PlayFab</Name>
     </ProjectReference>
+    <ProjectReference Include="Tayx.Graphy.Editor.csproj">
+      <Project>{9BC9AA6E-C25C-204C-973F-41753DEA07B9}</Project>
+      <Name>Tayx.Graphy.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Tayx.Graphy.csproj">
+      <Project>{D21F8269-697C-E21A-23C5-FA9EF7D4C7D5}</Project>
+      <Name>Tayx.Graphy</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
